@@ -1,0 +1,5 @@
+Nama|Jenis_Kelamin|Umur|Hobi
+Iffah|Perempuan|20|Makan
+Nazhif|Laki-Laki|21|Tidur
+Sissy|Perempuan|21|Gossip
+Sandya|Perempuan|20|Stalking
