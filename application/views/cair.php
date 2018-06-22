@@ -44,14 +44,14 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
   <body class="fixed-nav sticky-footer bg-dark" id="page-top">
       HALOHA
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-      <a class="navbar-brand" href="index">Portfolio Nasional || Business Banking Group || Bank Syariah Mandiri</a>
+      <a class="navbar-brand" href='<?php echo base_url ('/index.php/nasional/index'); ?>'>Portfolio Nasional || Business Banking Group || Bank Syariah Mandiri</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Portfolio Nasional">
-            <a class="nav-link" href="index">
+            <a class="nav-link" href='<?php echo base_url ('/index.php/nasional/index'); ?>'>
               <i class="fa fa-fw fa-dashboard"></i>
               <span class="nav-link-text">Portfolio Nasional</span>
             </a>
@@ -110,9 +110,21 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Portfolio Nasional</li>
+          <li class="breadcrumb-item active">Portfolio Area</li>
         </ol>
 
+        <form action="/action_page.php">
+          <select name="wilayah">
+            <?php 
+            foreach ($list_wilayah as $wilayah) 
+            {
+              echo '<option value="'.$wilayah->id.'">'.$wilayah->nama_wilayah.'</option>';
+            }
+            ?>
+          </select>
+          <br><br>
+          <input type="submit">
+        </form>
         <!-- Speedometer -->
         <div id="container" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
         </div>
@@ -757,7 +769,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
               <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-              <a class="btn btn-primary" href="login">Logout</a>
+              <a class="btn btn-primary" href='<?php echo base_url ('/index.php/nasional/login'); ?>'>Logout</a>
             </div>
           </div>
         </div>
