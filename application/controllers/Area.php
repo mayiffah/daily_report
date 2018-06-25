@@ -15,9 +15,24 @@ class Area extends CI_Controller {
         public function portfolio_area() 
         {
         	
-        	$data['list_wilayah'] = $this->wilayah_model->get_wilayah();
-        	$data['list_area'] = $this->area_model->get_area();
-        	$data['list_cabang'] = $this->cabang_model->get_cabang();
+        	$data['list_wilayah'] = $this->wilayah_model->get_wilayah('ALL');
+        	$data['list_area'] = $this->area_model->get_area('ALL');
+        	$data['list_cabang'] = $this->cabang_model->get_cabang('ALL');
+        	$data['wil_ada'] = false;
+        	$this->load->view('/portfolio_area', $data);	
+        }
+
+        public function portfolio_area_baru()
+        {
+        	$wil = $this->input->get('wilayah');
+        	$area = $this->input->get('area');
+        	$cabang = $this->input->get('cabang');
+        	$wil_ada = true;
+        	
+        	$data['list_wilayah'] = $this->wilayah_model->get_wilayah($wil);
+        	$data['list_area'] = $this->area_model->get_area($area);
+        	$data['list_cabang'] = $this->cabang_model->get_cabang($cabang);
+        	$data['wil_ada'] = $wil_ada;
         	$this->load->view('/portfolio_area', $data);	
         }
 

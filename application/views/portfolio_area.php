@@ -113,41 +113,62 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
           <li class="breadcrumb-item active">Portfolio Area</li>
         </ol>
 
-        <label>Wilayah: </label>
-        <form action="/action_page.php">
-          <select name="wilayah">
-            <?php 
-            foreach ($list_wilayah as $wilayah) 
-            {
-              echo '<option value="'.$wilayah->id.'">'.$wilayah->nama_wilayah.'</option>';
-            }
-            ?>
-          </select>
-          <br><br>
-          <label>Area: </label>
-        <form action="/action_page.php">
-          <select name="area">
-            <?php 
-            foreach ($list_area as $area) 
-            {
-              echo '<option value="'.$area->id.'">'.$area->nama_area.'</option>';
-            }
-            ?>
-          </select>
-          <br><br>
-          <label>Cabang: </label>
-        <form action="/action_page.php">
-          <select name="cabang">
-            <?php 
-            foreach ($list_cabang as $cabang) 
-            {
-              echo '<option value="'.$cabang->id.'">'.$cabang->nama_cabang.'</option>';
-            }
-            ?>
-          </select>
-          <br><br>
+        
+        <form action="<?=site_url('area/portfolio_area_baru');?>" method="get">
+          
+          <?php
+          if ($wil_ada === true) {
+              echo 'adaa';
+          } else {
+            echo 'gaada';
+          }
+            /*if ($wil_ada === true) {
+              echo "ada wilayah";
+            } else {
+              echo "gaada wilayah";
+            }*/
+
+
+          ?>
+          <div>
+            <label>Wilayah: </label>
+            <select name="wilayah">
+              <?php 
+              foreach ($list_wilayah as $wilayah) 
+              {
+                echo '<option value="'.$wilayah->id.'">'.$wilayah->nama_wilayah.'</option>';
+              }
+              ?>
+            </select>
+          </div>
+          
+          <div>
+            <label>Area: </label>
+            <select name="area">
+              <?php   
+              foreach ($list_area as $area) 
+              {
+                echo '<option value="'.$area->id.'">'.$area->nama_area.'</option>';
+              }
+              ?>
+            </select>
+          </div>
+
+          <div>
+            <label>Cabang: </label>
+            <select name="cabang">
+              <?php 
+              foreach ($list_cabang as $cabang) 
+              {
+                echo '<option value="'.$cabang->id.'">'.$cabang->nama_cabang.'</option>';
+              }
+              ?>
+            </select>
+          </div>
           <input type="submit">
         </form>
+
+
         <!-- Speedometer -->
         <div id="container" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
         </div>

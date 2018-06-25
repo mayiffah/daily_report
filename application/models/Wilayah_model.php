@@ -8,15 +8,17 @@ class Wilayah_model extends CI_Model {
           	$this->load->database();
         }
 
-        public function get_wilayah($title = FALSE)
+        public function get_wilayah($title = TRUE)
         {
-        	if ($title === FALSE)
+        	if ($title === 'ALL')
         	{
-        		$query = $this->db->query('SELECT * FROM wilayah');
-        	}
+        		$query = $this->db->query('SELECT * FROM wilayah ');
+        	} else {
 
+            //skrg semua masuk kesini..
 /*        	$query = $this->db->get_where('wilayah', array('nama_wilayah' => $title));*/
-            $query = $this->db->query('SELECT * FROM wilayah');
+                $query = $this->db->query('SELECT * FROM wilayah where id = "'.$title.'"');
+            }
 
         	return $query->result();
         }

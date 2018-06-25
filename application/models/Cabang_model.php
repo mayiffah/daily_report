@@ -8,16 +8,16 @@ class Cabang_model extends CI_Model {
           	$this->load->database();
         }
 
-        public function get_cabang($title = FALSE)
+        public function get_cabang($title = TRUE)
         {
-        	if ($title === FALSE)
+        	if ($title === 'ALL')
         	{
         		$query = $this->db->query('SELECT * FROM cabang');
-        	}
+        	} else {
 
 /*        	$query = $this->db->get_where('wilayah', array('nama_wilayah' => $title));*/
-            $query = $this->db->query('SELECT * FROM cabang');
-
+                $query = $this->db->query('SELECT * FROM cabang where id = "'.$title.'"');
+            }
         	return $query->result();
         }
 

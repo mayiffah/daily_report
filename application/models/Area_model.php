@@ -8,15 +8,16 @@ class Area_model extends CI_Model {
           	$this->load->database();
         }
 
-        public function get_area($title = FALSE)
+        public function get_area($title = TRUE)
         {
-        	if ($title === FALSE)
+        	if ($title === 'ALL')
         	{
         		$query = $this->db->query('SELECT * FROM area');
-        	}
+        	} else {
 
 /*        	$query = $this->db->get_where('wilayah', array('nama_wilayah' => $title));*/
-            $query = $this->db->query('SELECT * FROM area');
+                $query = $this->db->query('SELECT * FROM area where id = "'.$title.'"');
+            }
 
         	return $query->result();
         }
