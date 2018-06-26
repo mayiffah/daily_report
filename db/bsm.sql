@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2018 at 02:33 PM
+-- Generation Time: Jun 26, 2018 at 12:02 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -715,6 +715,97 @@ INSERT INTO `cabang` (`id`, `id_area`, `kode_cabang`, `nama_cabang`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `hobi`
+--
+
+CREATE TABLE `hobi` (
+  `id` int(11) NOT NULL,
+  `Nama` varchar(200) NOT NULL,
+  `Jenis Kelamin` varchar(100) NOT NULL,
+  `Umur` int(100) NOT NULL,
+  `Hobi` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hobi`
+--
+
+INSERT INTO `hobi` (`id`, `Nama`, `Jenis Kelamin`, `Umur`, `Hobi`) VALUES
+(62, 'Iffah', 'Perempuan', 20, 'Makan\r'),
+(63, 'Nazhif', 'Laki-Laki', 21, 'Tidur\r'),
+(64, 'Sissy', 'Perempuan', 21, 'Gossip\r'),
+(65, 'Sandya', 'Perempuan', 0, 'Stalking\r'),
+(69, 'Iffah', 'Perempuan', 20, 'Makan\r'),
+(70, 'Nazhif', 'Laki-Laki', 21, 'Tidur\r'),
+(71, 'Sissy', 'Perempuan', 21, '\r'),
+(72, 'Sandya', 'Perempuan', 20, 'Stalking\r'),
+(87, 'Iffah', 'Perempuan', 20, 'Makan Nasi\r'),
+(88, 'Nazhif', 'Laki-Laki', 21, 'Tidur Siang\r'),
+(89, 'Sissy', 'Perempuan', 21, 'Gossip Artis\r'),
+(90, 'Sandya', 'Perempuan', 20, 'Stalking Doi\r');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jabatan`
+--
+
+CREATE TABLE `jabatan` (
+  `id` int(11) NOT NULL,
+  `nama_jabatan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jabatan`
+--
+
+INSERT INTO `jabatan` (`id`, `nama_jabatan`) VALUES
+(1, 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(25) NOT NULL,
+  `password` varchar(25) NOT NULL,
+  `id_cabang` int(255) NOT NULL,
+  `id_jabatan` int(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `id_cabang`, `id_jabatan`) VALUES
+(1, 'mayiffah', 'may123', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_login`
+--
+
+CREATE TABLE `user_login` (
+  `id` int(11) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
+  `user_password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_login`
+--
+
+INSERT INTO `user_login` (`id`, `user_name`, `user_email`, `user_password`) VALUES
+(1, 'mayiffah', 'rmayiffah@gmail.com', 'may123');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `wilayah`
 --
 
@@ -754,6 +845,30 @@ ALTER TABLE `cabang`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `hobi`
+--
+ALTER TABLE `hobi`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jabatan`
+--
+ALTER TABLE `jabatan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_login`
+--
+ALTER TABLE `user_login`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `wilayah`
 --
 ALTER TABLE `wilayah`
@@ -773,6 +888,26 @@ ALTER TABLE `area`
 --
 ALTER TABLE `cabang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=620;
+--
+-- AUTO_INCREMENT for table `hobi`
+--
+ALTER TABLE `hobi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+--
+-- AUTO_INCREMENT for table `jabatan`
+--
+ALTER TABLE `jabatan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user_login`
+--
+ALTER TABLE `user_login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `wilayah`
 --

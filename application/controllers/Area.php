@@ -19,6 +19,8 @@ class Area extends CI_Controller {
         	$data['list_area'] = $this->area_model->get_area('ALL');
         	$data['list_cabang'] = $this->cabang_model->get_cabang('ALL');
         	$data['wil_ada'] = false;
+        	$data['area_ada'] = false;
+        	$data['cbg_ada'] = false;
         	$this->load->view('/portfolio_area', $data);	
         }
 
@@ -27,12 +29,25 @@ class Area extends CI_Controller {
         	$wil = $this->input->get('wilayah');
         	$area = $this->input->get('area');
         	$cabang = $this->input->get('cabang');
-        	$wil_ada = true;
+			
+			$data['list_wilayah'] = $this->wilayah_model->get_wilayah($wil);
+        	$data['wil_ada'] = true;
         	
-        	$data['list_wilayah'] = $this->wilayah_model->get_wilayah($wil);
-        	$data['list_area'] = $this->area_model->get_area($area);
-        	$data['list_cabang'] = $this->cabang_model->get_cabang($cabang);
-        	$data['wil_ada'] = $wil_ada;
+        	if ($area != '') {
+        		$data['list_area'] = $this->area_model->get_area($area);
+      			$data['area_ada'] = true;
+      			if ($cabang != '') {
+        			$data['list_cabang'] = $this->cabang_model->get_cabang($cabang);
+	      			$data['cbg_ada'] = true;
+	        	} else {
+	        		$data['list_cabang'] = $this->cabang_model->get_cabang_with_area($area);
+	        		$data['cbg_ada'] = false;
+	        	}
+        	} else {
+        		$data['list_area'] = $this->area_model->get_area_with_wilayah($wil);
+        		$data['area_ada'] = false;
+        	}
+        	
         	$this->load->view('/portfolio_area', $data);	
         }
 

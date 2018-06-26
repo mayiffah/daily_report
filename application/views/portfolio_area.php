@@ -116,20 +116,6 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
         
         <form action="<?=site_url('area/portfolio_area_baru');?>" method="get">
           
-          <?php
-          if ($wil_ada === true) {
-              echo 'adaa';
-          } else {
-            echo 'gaada';
-          }
-            /*if ($wil_ada === true) {
-              echo "ada wilayah";
-            } else {
-              echo "gaada wilayah";
-            }*/
-
-
-          ?>
           <div>
             <label>Wilayah: </label>
             <select name="wilayah">
@@ -141,30 +127,50 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
               ?>
             </select>
           </div>
-          
-          <div>
+
+          <?php
+          if ($wil_ada === true) {
+            //  echo 'adaa wilayah';
+
+            echo'<div>
             <label>Area: </label>
-            <select name="area">
-              <?php   
+            <select name="area">';
+              
               foreach ($list_area as $area) 
               {
                 echo '<option value="'.$area->id.'">'.$area->nama_area.'</option>';
               }
-              ?>
+              echo'
             </select>
-          </div>
+          </div>';
+            if ($area_ada === true) {
+              //  echo 'adaa area';
+                echo '<div>
+                <label>Cabang: </label>
+                <select name="cabang">';
+              
+                  foreach ($list_cabang as $cabang) 
+                  {
+                    echo '<option value="'.$cabang->id.'">'.$cabang->nama_cabang.'</option>';
+                  }
+                  echo '
+                </select>
+              </div>';
+            } else {
+              //echo 'gaada area';
+            }
+          } else {
+           // echo 'gaada wilayah';
+          }
+            /*if ($wil_ada === true) {
+              echo "ada wilayah";
+            } else {
+              echo "gaada wilayah";
+            }*/
 
-          <div>
-            <label>Cabang: </label>
-            <select name="cabang">
-              <?php 
-              foreach ($list_cabang as $cabang) 
-              {
-                echo '<option value="'.$cabang->id.'">'.$cabang->nama_cabang.'</option>';
-              }
-              ?>
-            </select>
-          </div>
+
+          ?>
+          
           <input type="submit">
         </form>
 

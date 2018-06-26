@@ -22,5 +22,11 @@ class Area_model extends CI_Model {
         	return $query->result();
         }
 
+        public function  get_area_with_wilayah($title = TRUE)
+        {
+            $query = $this->db->query('SELECT * FROM area where id_wilayah = "'.$title.'"');
+            
+            return $query->result();
+        }
 }
         

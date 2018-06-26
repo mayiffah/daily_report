@@ -21,5 +21,12 @@ class Cabang_model extends CI_Model {
         	return $query->result();
         }
 
+        public function  get_cabang_with_area($title = TRUE)
+        {
+            $query = $this->db->query('SELECT * FROM cabang where id_area = "'.$title.'"');
+            
+            return $query->result();
+        }
+
 }
         
