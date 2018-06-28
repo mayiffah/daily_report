@@ -2,7 +2,7 @@
 <?php
 if (isset($this->session->userdata['logged_in'])) {
 
-header("location: http://localhost/login/index.php/user_authentication/user_login_process");
+header("location: http://localhost/daily_report/index.php/user_authentication/user_login_process");
 }
 ?>
 <head>

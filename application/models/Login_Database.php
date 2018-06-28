@@ -2,16 +2,24 @@
 
 Class Login_Database extends CI_Model {
 
+	 public function __construct()
+        {
+            parent::__construct();
+          	$this->load->database();
+        }
+
 	// Insert registration data in database
 	public function registration_insert($data) {
 
 		// Query to check whether username already exist or not
-		$condition = "user_name =" . "'" . $data['user_name'] . "'";
+/*		$condition = "user_name =" . "'" . $data['user_name'] . "'";
 		$this->db->select('*');
 		$this->db->from('user_login');
 		$this->db->where($condition);
-		$this->db->limit(1);
-		$query = $this->db->get();
+		$this->db->limit(1);*/
+//		$query = $this->db->query('SELECT * from user_login WHERE user_name = "'.$data['user_name'].'" LIMIT 1');
+		$query = $this->db->query('SELECT * from user_login WHERE user_name = "'.$data['user_name'].'" LIMIT 1');
+		
 		if ($query->num_rows() == 0) {
 
 		// Query to insert data in database

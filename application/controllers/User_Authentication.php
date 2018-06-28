@@ -10,6 +10,8 @@ class User_Authentication extends CI_Controller {
 		$this->load->helper('url');
 		// Load form helper library
 		$this->load->helper('form');
+
+		$this->load->helper('security');
 		
 		// Load form validation library
 		$this->load->library('form_validation');
@@ -47,7 +49,7 @@ class User_Authentication extends CI_Controller {
 			'user_email' => $this->input->post('email_value'),
 			'user_password' => $this->input->post('password')
 			);
-			$result = $this->login_database->registration_insert($data);
+			$result = $this->login_database->registrationn_insert($data);
 			if ($result == TRUE) {
 				$data['message_display'] = 'Registration Successfully !';
 				$this->load->view('login_form', $data);

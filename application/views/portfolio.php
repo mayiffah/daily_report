@@ -113,15 +113,37 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
           <li class="breadcrumb-item active">Portfolio Nasional</li>
         </ol>
 
-        <!-- Speedometer -->
-        <div id="container" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
+        <!-- Speedometer Outstanding -->
+        <div id="containeros" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
         </div>
-        <!-- Speedometer -->
-        <div id="container1" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
+        <!-- Speedometer Run Off-->
+        <div id="containerro" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
         </div>
-        <!-- Speedometer -->
-        <div id="container2" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
+        <!-- Speedometer Cair B to B -->
+        <div id="containerb2b" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
         </div>
+
+        <!-- Speedometer Cair B to C -->
+        <div id="containerb2c" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
+        </div>
+
+        <!-- Speedometer Kol 2 -->
+        <div id="containerkol2" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
+        </div>
+
+        <!-- Speedometer NPF -->
+        <div id="containernpf" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
+        </div>
+
+        <!-- Speedometer Downgrade NPF -->
+        <div id="containerug" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
+        </div>
+
+
+        <!-- Speedometer Upgrade NPF -->
+        <div id="containerdg" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
+        </div>
+
         <!-- Icon Cards-->
         <div class="row">
           <div class="col-xl-3 col-sm-6 mb-3">
@@ -210,14 +232,14 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
                     <canvas id="myBarChart" width="100" height="50"></canvas>
                   </div>
                   <div class="col-sm-4 text-center my-auto">
-                    <div class="h4 mb-0 text-primary">Rp 34,693</div>
-                    <div class="small text-muted">YTD Revenue</div>
+                    <div class="h4 mb-0 text-primary">B to B</div>
+                    <div class="small text-muted">Rp 34,693</div>
                     <hr>
                     <div class="h4 mb-0 text-warning">Rp 18,474</div>
                     <div class="small text-muted">YTD Expenses</div>
                     <hr>
-                    <div class="h4 mb-0 text-success">Rp 16,219</div>
-                    <div class="small text-muted">YTD Margin</div>
+                    <div class="h4 mb-0 text-danger">B to C</div>
+                    <div class="small text-muted">Rp 16,219</div>
                   </div>
                 </div>
               </div>
@@ -768,8 +790,36 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
         //for showing charts
         Chart.defaults.global.defaultFontFamily='-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif',Chart.defaults.global.defaultFontColor="#292b2c"; 
-        var ctx=document.getElementById("myAreaChart"),myLineChart=new Chart(ctx,{type:"line",data:{labels:["Mar 1","Mar 2","Mar 3","Mar 4","Mar 5","Mar 6","Mar 7","Mar 8","Mar 9","Mar 10","Mar 11","Mar 12","Mar 13"],datasets:[{label:"Sessions",lineTension:.3,backgroundColor:"rgba(2,117,216,0.2)",borderColor:"rgba(2,117,216,1)",pointRadius:5,pointBackgroundColor:"rgba(2,117,216,1)",pointBorderColor:"rgba(255,255,255,0.8)",pointHoverRadius:5,pointHoverBackgroundColor:"rgba(2,117,216,1)",pointHitRadius:20,pointBorderWidth:2,data:[1e4,30162,26263,18394,18287,28682,31274,33259,25849,24159,32651,31984,38451]}]},options:{scales:{xAxes:[{time:{unit:"date"},gridLines:{display:!1},ticks:{maxTicksLimit:7}}],yAxes:[{ticks:{min:0,max:4e4,maxTicksLimit:5},gridLines:{color:"rgba(0, 0, 0, .125)"}}]},legend:{display:!1}}}),
-        ctx=document.getElementById("myBarChart"),myLineChart=new Chart(ctx,{type:"bar",data:{labels:["January","February","March","April","May","June"],datasets:[{label:"Revenue",backgroundColor:"rgba(2,117,216,1)",borderColor:"rgba(2,117,216,1)",data:[4215,5312,6251,7841,9821,14984]}]},options:{scales:{xAxes:[{time:{unit:"month"},gridLines:{display:!1},ticks:{maxTicksLimit:6}}],yAxes:[{ticks:{min:0,max:15e3,maxTicksLimit:5},gridLines:{display:!0}}]},legend:{display:!1}}}),
+        var ctx=document.getElementById("myAreaChart"),
+        myLineChart=new Chart(ctx,{type:"line",
+          data:{
+            labels:["Mar 1","Mar 2","Mar 3","Mar 4","Mar 5","Mar 6","Mar 7","Mar 8","Mar 9","Mar 10","Mar 11","Mar 12","Mar 13"],
+            datasets:[
+
+            {label:"Upgrade NPF",lineTension:.3,backgroundColor:"rgba(2,117,216,0.2)",borderColor:"rgba(2,117,216,1)",pointRadius:5,pointBackgroundColor:"rgba(2,117,216,1)",pointBorderColor:"rgba(255,255,255,0.8)",pointHoverRadius:5,pointHoverBackgroundColor:"rgba(2,117,216,1)",pointHitRadius:20,pointBorderWidth:2,data:[1e4,30162,26263,18394,18287,28682,31274,33259,25849,24159,32651,31984,38451],},
+
+            {label:"Downgrade NPF",lineTension:.3,backgroundColor:"rgba(40,167,69,0.2)",borderColor:"#28a745",pointRadius:5,pointBackgroundColor:"#28a745",pointBorderColor:"rgba(255,255,255,0.8)",pointHoverRadius:5,pointHoverBackgroundColor:"#28a745",pointHitRadius:20,pointBorderWidth:2,data:[2e4,25000,20000,10000,15000,25000,25000,30000,20000,20000,30000,25000,30000],},
+            
+            {label:"Kol 2",lineTension:.3,backgroundColor:"rgba(220,53,69,0.2)",borderColor:"#dc3545",pointRadius:5,pointBackgroundColor:"#dc3545",pointBorderColor:"rgba(255,255,255,0.8)",pointHoverRadius:5,pointHoverBackgroundColor:"#dc3545",pointHitRadius:20,pointBorderWidth:2,data:[3e4,35000,40000,32000,11100,22200,6000,3000,12000,27000,39000,20000,31000],},
+            
+
+
+
+            ]
+        },options:{scales:{xAxes:[{time:{unit:"date"},gridLines:{display:!1},ticks:{maxTicksLimit:7}}],yAxes:[{ticks:{min:0,max:4e4,maxTicksLimit:5},gridLines:{color:"rgba(0, 0, 0, .125)"}}]},legend:{display:!1}}}),
+        ctx=document.getElementById("myBarChart"),
+        myLineChart=new Chart(ctx,{type:"bar",
+          data:{labels:["January","February","March","April","May","June"],
+          datasets:[
+            {label:"Revenue",backgroundColor:"rgba(2,117,216,1)",
+            borderColor:"rgba(2,117,216,1)",
+            data:[4215,5312,6251,7841,9821,14984]},
+            {label:"Revenue",backgroundColor:"#dc3545",
+            borderColor:"#dc3545",
+            data:[12000,5555,2222,5343,3333,12000]}
+
+          ]},
+          options:{scales:{xAxes:[{time:{unit:"month"},gridLines:{display:!1},ticks:{maxTicksLimit:6}}],yAxes:[{ticks:{min:0,max:15e3,maxTicksLimit:5},gridLines:{display:!0}}]},legend:{display:!1}}}),
         ctx=document.getElementById("myPieChart"),myPieChart=new Chart(ctx,{type:"pie",data:{labels:["Blue","Red","Yellow","Green"],datasets:[{data:[12.21,15.58,11.25,8.32],backgroundColor:["#007bff","#dc3545","#ffc107","#28a745"]}]}}); 
 
 
@@ -778,12 +828,12 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 
         //for the speedometer
-        var valueo =  $('#container').attr("value");
+        var valueo =  $('#containeros').attr("value");
         console.log(valueo+10);
         var valueInt = parseInt(valueo);
         console.log(valueInt+10);
 
-        $('#container').highcharts({
+        $('#containeros').highcharts({
 
             chart: {
                 type: 'gauge'
@@ -825,7 +875,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
                 plotBands: [{
                     from: 0,
                     to: 120,
-                    color: '#55BF3B' // green
+                    color: '#DF5353' // red 
                 }, {
                     from: 120,
                     to: 160,
@@ -833,7 +883,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
                 }, {
                     from: 160,
                     to: 200,
-                    color: '#DF5353' // red
+                    color: '#55BF3B' // green
                 }, {
                   from: 100,
                     to: 140,
@@ -853,7 +903,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
         });
 
-        $('#container1').highcharts({
+        $('#containerro').highcharts({
 
             chart: {
                 type: 'gauge'
@@ -923,14 +973,154 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
         });
 
-        $('#container2').highcharts({
+        $('#containerb2b').highcharts({
 
             chart: {
                 type: 'gauge'
             },
 
             title: {
-                text: 'Cair'
+                text: 'Cair B to B'
+            },
+
+            pane: {
+                startAngle: -90,
+                endAngle: 90, 
+                background: null
+            },
+
+            // the value axis
+            yAxis: {
+                min: 0,
+                max: 200,
+
+                minorTickInterval: 'auto',
+                minorTickWidth: 1,
+                minorTickLength: 10,
+                minorTickPosition: 'inside',
+                minorTickColor: '#666',
+
+                tickPixelInterval: 30,
+                tickWidth: 2,
+                tickPosition: 'inside',
+                tickLength: 10,
+                tickColor: '#666',
+                labels: {
+                    step: 2,
+                    rotation: 'auto'
+                },
+                title: {
+                    text: '%'
+                },
+                plotBands: [{
+                    from: 0,
+                    to: 120,
+                    color: '#DF5353' // red
+                }, {
+                    from: 120,
+                    to: 160,
+                    color: '#DDDF0D' // yellow
+                }, {
+                    from: 160,
+                    to: 200,
+                    color: '#55BF3B' // green
+                }, {
+                  from: 100,
+                    to: 140,
+                    color: '#6677ff',
+                    innerRadius: '100%',
+                    outerRadius: '110%'
+                }]
+            },
+
+            series: [{
+                name: 'Cair',
+                data: [valueInt],
+                tooltip: {
+                    valueSuffix: ' %'
+                }
+            }]
+
+        });
+
+        $('#containerb2c').highcharts({
+
+            chart: {
+                type: 'gauge'
+            },
+
+            title: {
+                text: 'Cair B to C'
+            },
+
+            pane: {
+                startAngle: -90,
+                endAngle: 90, 
+                background: null
+            },
+
+            // the value axis
+            yAxis: {
+                min: 0,
+                max: 200,
+
+                minorTickInterval: 'auto',
+                minorTickWidth: 1,
+                minorTickLength: 10,
+                minorTickPosition: 'inside',
+                minorTickColor: '#666',
+
+                tickPixelInterval: 30,
+                tickWidth: 2,
+                tickPosition: 'inside',
+                tickLength: 10,
+                tickColor: '#666',
+                labels: {
+                    step: 2,
+                    rotation: 'auto'
+                },
+                title: {
+                    text: '%'
+                },
+                plotBands: [{
+                    from: 0,
+                    to: 120,
+                    color: '#DF5353' // red
+                }, {
+                    from: 120,
+                    to: 160,
+                    color: '#DDDF0D' // yellow
+                }, {
+                    from: 160,
+                    to: 200,
+                    color: '#55BF3B' // green
+                }, {
+                  from: 100,
+                    to: 140,
+                    color: '#6677ff',
+                    innerRadius: '100%',
+                    outerRadius: '110%'
+                }]
+            },
+
+            series: [{
+                name: 'Cair',
+                data: [valueInt],
+                tooltip: {
+                    valueSuffix: ' %'
+                }
+            }]
+
+        });
+
+        $('#containerkol2').highcharts({
+
+            chart: {
+                type: 'gauge'
+            },
+
+            title: {
+                text: 'Kol 2'
             },
 
             pane: {
@@ -973,6 +1163,76 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
                 }, {
                     from: 160,
                     to: 200,
+                    color: '#DF5353' // red 
+                }, {
+                  from: 100,
+                    to: 140,
+                    color: '#6677ff',
+                    innerRadius: '100%',
+                    outerRadius: '110%'
+                }]
+            },
+
+            series: [{
+                name: 'Kol 2',
+                data: [valueInt],
+                tooltip: {
+                    valueSuffix: ' %'
+                }
+            }]
+
+        });
+
+        $('#containernpf').highcharts({
+
+            chart: {
+                type: 'gauge'
+            },
+
+            title: {
+                text: 'NPF'
+            },
+
+            pane: {
+                startAngle: -90,
+                endAngle: 90, 
+                background: null
+            },
+
+            // the value axis
+            yAxis: {
+                min: 0,
+                max: 200,
+
+                minorTickInterval: 'auto',
+                minorTickWidth: 1,
+                minorTickLength: 10,
+                minorTickPosition: 'inside',
+                minorTickColor: '#666',
+
+                tickPixelInterval: 30,
+                tickWidth: 2,
+                tickPosition: 'inside',
+                tickLength: 10,
+                tickColor: '#666',
+                labels: {
+                    step: 2,
+                    rotation: 'auto'
+                },
+                title: {
+                    text: '%'
+                },
+                plotBands: [{
+                    from: 0,
+                    to: 120,
+                    color: '#55BF3B' // green 
+                }, {
+                    from: 120,
+                    to: 160,
+                    color: '#DDDF0D' // yellow
+                }, {
+                    from: 160,
+                    to: 200,
                     color: '#DF5353' // red
                 }, {
                   from: 100,
@@ -984,7 +1244,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
             },
 
             series: [{
-                name: 'Cair',
+                name: 'NPF',
                 data: [valueInt],
                 tooltip: {
                     valueSuffix: ' %'
@@ -992,6 +1252,147 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
             }]
 
         });
+
+        $('#containerug').highcharts({
+
+            chart: {
+                type: 'gauge'
+            },
+
+            title: {
+                text: 'Upgrade NPF'
+            },
+
+            pane: {
+                startAngle: -90,
+                endAngle: 90, 
+                background: null
+            },
+
+            // the value axis
+            yAxis: {
+                min: 0,
+                max: 200,
+
+                minorTickInterval: 'auto',
+                minorTickWidth: 1,
+                minorTickLength: 10,
+                minorTickPosition: 'inside',
+                minorTickColor: '#666',
+
+                tickPixelInterval: 30,
+                tickWidth: 2,
+                tickPosition: 'inside',
+                tickLength: 10,
+                tickColor: '#666',
+                labels: {
+                    step: 2,
+                    rotation: 'auto'
+                },
+                title: {
+                    text: '%'
+                },
+                plotBands: [{
+                    from: 0,
+                    to: 120,
+                    color: '#DF5353' // red
+                }, {
+                    from: 120,
+                    to: 160,
+                    color: '#DDDF0D' // yellow
+                }, {
+                    from: 160,
+                    to: 200,
+                    color: '#55BF3B' // green
+                }, {
+                  from: 100,
+                    to: 140,
+                    color: '#6677ff',
+                    innerRadius: '100%',
+                    outerRadius: '110%'
+                }]
+            },
+
+            series: [{
+                name: 'Upgrade',
+                data: [valueInt],
+                tooltip: {
+                    valueSuffix: ' %'
+                }
+            }]
+
+        });
+
+        $('#containerdg').highcharts({
+
+            chart: {
+                type: 'gauge'
+            },
+
+            title: {
+                text: 'Downgrade NPF'
+            },
+
+            pane: {
+                startAngle: -90,
+                endAngle: 90, 
+                background: null
+            },
+
+            // the value axis
+            yAxis: {
+                min: 0,
+                max: 200,
+
+                minorTickInterval: 'auto',
+                minorTickWidth: 1,
+                minorTickLength: 10,
+                minorTickPosition: 'inside',
+                minorTickColor: '#666',
+
+                tickPixelInterval: 30,
+                tickWidth: 2,
+                tickPosition: 'inside',
+                tickLength: 10,
+                tickColor: '#666',
+                labels: {
+                    step: 2,
+                    rotation: 'auto'
+                },
+                title: {
+                    text: '%'
+                },
+                plotBands: [{
+                    from: 0,
+                    to: 120,
+                    color: '#55BF3B' // green
+                }, {
+                    from: 120,
+                    to: 160,
+                    color: '#DDDF0D' // yellow
+                }, {
+                    from: 160,
+                    to: 200,
+                    color: '#DF5353' // red 
+                }, {
+                  from: 100,
+                    to: 140,
+                    color: '#6677ff',
+                    innerRadius: '100%',
+                    outerRadius: '110%'
+                }]
+            },
+
+            series: [{
+                name: 'Downgrade',
+                data: [valueInt],
+                tooltip: {
+                    valueSuffix: ' %'
+                }
+            }]
+
+        });
+
       }); 
     </script> 
   </body>
