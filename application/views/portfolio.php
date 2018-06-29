@@ -1,6 +1,13 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+
+if (isset($this->session->userdata['logged_in'])) {
+$username = ($this->session->userdata['logged_in']['username']);
+} else {
+header("location:". base_url() . "index.php/nasional/login");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,6 +102,10 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <?php
+             echo '<a class="nav-link" >Welcome, ' . $username . '</a>';
+            ?></li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
               <i class="fa fa-fw fa-sign-out"></i>Logout</a>
@@ -277,6 +288,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
                     <th>Age</th>
                     <th>Start date</th>
                     <th>Salary</th>
+                    <th>Detail</th>
                   </tr>
                 </thead>
                 <tfoot>
@@ -287,16 +299,18 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
                     <th>Age</th>
                     <th>Start date</th>
                     <th>Salary</th>
+                    <th>Detail</th>
                   </tr>
                 </tfoot>
                 <tbody>
                   <tr>
-                    <td>Tiger Nixon</td>
+                    <td>AAAA AAAA</td>
                     <td>System Architect</td>
                     <td>Edinburgh</td>
                     <td>61</td>
                     <td>2011/04/25</td>
                     <td>$320,800</td>
+                    <td><a href="<?php echo base_url('index.php/nasional/detail/1'); ?>"><?php echo 'Tombol Detail' ?></a></td>
                   </tr>
                   <tr>
                     <td>Garrett Winters</td>
@@ -305,6 +319,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
                     <td>63</td>
                     <td>2011/07/25</td>
                     <td>$170,750</td>
+                    <td>Tombol Detail</td>
                   </tr>
                   <tr>
                     <td>Ashton Cox</td>
@@ -779,7 +794,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
               <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-              <a class="btn btn-primary" href="login">Logout</a>
+              <a class="btn btn-primary" href="logout">Logout</a>
             </div>
           </div>
         </div>

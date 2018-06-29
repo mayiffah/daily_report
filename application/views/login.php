@@ -1,3 +1,9 @@
+<?php
+if (isset($this->session->userdata['logged_in'])) {
+
+header("location:". base_url() . "index.php/nasional/index");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,16 +30,38 @@
 <body class="bg-dark">
   <div class="container">
     <div class="card card-login mx-auto mt-5">
+      <?php
+        if (isset($logout_message)) {
+        echo "<div class='message'>";
+        echo $logout_message;
+        echo "</div>";
+        }
+        ?>
+        <?php
+        if (isset($message_display)) {
+        echo "<div class='message'>";
+        echo $message_display;
+        echo "</div>";
+        }
+      ?>
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form>
+        <?php echo form_open('nasional/login'); ?>
+        <?php
+        echo "<div class='error_msg'>";
+        if (isset($error_message)) {
+        echo $error_message;
+        }
+        echo validation_errors();
+        echo "</div>";
+        ?>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <label>Username</label>
+            <input class="form-control" type="text" name="username" id="name" aria-describedby="emailHelp" placeholder="Username">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+            <label>Password</label>
+            <input class="form-control" name="password" id="password" type="password" placeholder="**********">
           </div>
           <!-- <div class="form-group">
             <div class="form-check">
@@ -41,8 +69,8 @@
                 <input class="form-check-input" type="checkbox"> Remember Password</label>
             </div>
           </div> -->
-          <a class="btn btn-primary btn-block" href="index">Login</a>
-        </form>
+          <input class="btn btn-primary btn-block" type="submit" value=" Login " name="submit"/><br />
+        <?php echo form_close(); ?>
         <!-- <div class="text-center">
           <a class="d-block small mt-3" href="register.html">Register an Account</a>
           <a class="d-block small" href="forgot-password.html">Forgot Password?</a>

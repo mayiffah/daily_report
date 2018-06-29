@@ -1,7 +1,14 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-?>
+
+if (isset($this->session->userdata['logged_in'])) {
+$username = ($this->session->userdata['logged_in']['username']);
+} else {
+header("location:". base_url() . "index.php/nasional/login");
+}
+
+?>  
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -95,6 +102,10 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <?php
+             echo '<a class="nav-link" >Welcome, ' . $username . '</a>';
+            ?></li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
               <i class="fa fa-fw fa-sign-out"></i>Logout</a>
@@ -819,7 +830,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
               <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-              <a class="btn btn-primary" href='<?php echo base_url ('/index.php/nasional/login'); ?>'>Logout</a>
+              <a class="btn btn-primary" href='<?php echo base_url ('/index.php/area/login'); ?>'>Logout</a>
             </div>
           </div>
         </div>

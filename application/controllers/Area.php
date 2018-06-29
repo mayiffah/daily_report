@@ -51,6 +51,20 @@ class Area extends CI_Controller {
         	$this->load->view('/portfolio_area', $data);	
         }
 
+        // Logout from admin page
+        public function logout() {
+
+        // Removing session data
+        $sess_array = array(
+        'username' => ''
+        );
+        $this->session->unset_userdata('logged_in', $sess_array);
+        $data['message_display'] = 'Successfully Logout';
+        $this->load->helper('url');
+        $this->load->helper('form');
+        $this->load->view('login', $data);
+    }
+
 
 }
         
