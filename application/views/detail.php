@@ -109,16 +109,20 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 	          <li class="breadcrumb-item">
 	            <a href="#">Dashboard</a>
 	          </li>
-	          <li class="breadcrumb-item active">Upload Data Harian</li>
+	          <li class="breadcrumb-item active">Detail Nasabah</li>
 	        </ol>
-		    <?php echo $message_display;
-            echo $id;
-            echo '<br>Name: ';
-            echo '<br>Position: ';
-            echo '<br>Office: ';
-            echo '<br>Age: ';
-            echo '<br>Start date: ';
-            echo '<br>Salary: ';
+		    <?php //echo $message_display;
+            //echo $id;
+            //hmm knp foreach ya, pdhl kan dia cm 1 object
+            foreach ($detail as $det) {
+                echo '<br>Name: '.$det->name;
+                echo '<br>Position: '.$det->position;
+                echo '<br>Office: '.$det->office;
+                echo '<br>Age: '.$det->age;
+                echo '<br>Start date: '.$det->start_date;
+                echo '<br>Salary: $'.$det->salary;
+
+            }
             ?>
 
 

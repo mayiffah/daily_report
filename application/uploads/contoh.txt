@@ -1,5 +1,6 @@
 Nama|Jenis_Kelamin|Umur|Hobi
-Iffah|Perempuan|20|Makan
-Nazhif|Laki-Laki|21|Tidur
-Sissy|Perempuan|21|Gossip
-Sandya|Perempuan|20|Stalking
+Iffah|Perempuan|20|MMMM
+Nazhif|Laki-laki|20|zzz
+Ginger Cutie Cat|Laki-laki|3|aaa
+|Laki-laki|4|zzz
+000

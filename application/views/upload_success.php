@@ -112,34 +112,49 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 	          <li class="breadcrumb-item active">Upload Data Harian</li>
 	        </ol>
 		    
-
+            <h3>Semangat fah</h3>
 		    <h3>File berhasil diupload</h3>
 
 		
 			<?php 
-			//bukan array nih
-			if(is_array($upload_data)){
-				echo 'masuk <br>';
-				$count = 1;
-				foreach ($upload_data as $item) {
-				echo $count.' ' . $item;
-				echo '<br>';
-				$count++;
-				}		
-				echo 'ada ';
-				echo $count-1;
+			
+			if(!is_array($upload_data)){
+				
+                echo $upload_data;
+
+                //$sql= mysql_connect("localhost", "root", "");
+                //mysql_select_db("latihanci");
+              $this->load->database();
+                //memasukkan data ke table
+              /*$query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE hobi FIELDS TERMINATED BY '|' IGNORE 1 LINES (`nama`, `jenis kelamin`, `umur`, `hobi`)");
+              //constraint: file yang dimasukkan akhirnya ada 000nya
+              $query = $this->db->query("DELETE FROM hobi order by id desc limit 1");*/     
+            //bukan array nih
+
+
+              $query = $this->db->query('CREATE TABLE `watch` (
+                      `id` int(11) NOT NULL,
+                      `ficmisdate` date NOT NULL,  
+                      `no_loan` varchar(255) NOT NULL,
+                      `no_cif` varchar(255) NOT NULL
+                    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;');
+
+              $query = $this->db->query("ALTER TABLE `watch`
+  ADD PRIMARY KEY (`id`);");
+
+              $query = $this->db->query("ALTER TABLE `watch`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;");
+
 			} else {
-				
-				echo $upload_data;
-				//$sql= mysql_connect("localhost", "root", "");
-				//mysql_select_db("latihanci");
-				$this->load->database();
-				//memasukkan data ke table
-				$query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE hobi FIELDS TERMINATED BY '|' IGNORE 1 LINES 
-					(`nama`, `jenis kelamin`, `umur`, `hobi`)");		  
-				//constraint: file yang dimasukkan akhirnya ada 000nya
-				$query = $this->db->query("DELETE FROM hobi order by id desc limit 1");		  
-				
+				echo 'masuk <br>';
+                $count = 1;
+                foreach ($upload_data as $item) {
+                    echo $count.' ' . $item;
+                    echo '<br>';
+                    $count++;
+                }       
+                echo 'ada ';
+                echo $count-1;
 			}
 			 ?>
 			
@@ -375,44 +390,4 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
   </body>
 </html>
 
-
-
-<!-- <html>
-	<head>
-		<title>Upload Form</title>
-	</head>
-	<body>
-		<h3>File berhasil diupload</h3>
-
-		
-			<?php 
-			//bukan array nih
-			if(is_array($upload_data)){
-				echo 'masuk <br>';
-				$count = 1;
-				foreach ($upload_data as $item) {
-				echo $count.' ' . $item;
-				echo '<br>';
-				$count++;
-				}		
-				echo 'ada ';
-				echo $count-1;
-			} else {
-				
-				echo $upload_data;
-				//$sql= mysql_connect("localhost", "root", "");
-				//mysql_select_db("latihanci");
-				$this->load->database();
-				//memasukkan data ke table
-				$query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE hobi FIELDS TERMINATED BY '|' IGNORE 1 LINES 
-					(`nama`, `jenis kelamin`, `umur`, `hobi`)");		  
-				//constraint: file yang dimasukkan akhirnya ada 000nya
-				$query = $this->db->query("DELETE FROM hobi order by id desc limit 1");		  
-				
-			}
-			 ?>
-			
-		
-		<p><?php echo anchor('/upload/do_upload', 'Upload Lagi'); ?></p>	
-	</body>
-</html> -->
+        

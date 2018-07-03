@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2018 at 12:02 PM
+-- Generation Time: Jul 03, 2018 at 11:56 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -715,6 +715,84 @@ INSERT INTO `cabang` (`id`, `id_area`, `kode_cabang`, `nama_cabang`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `position` varchar(255) NOT NULL,
+  `office` varchar(255) NOT NULL,
+  `age` int(255) NOT NULL,
+  `start_date` date NOT NULL,
+  `salary` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`id`, `name`, `position`, `office`, `age`, `start_date`, `salary`) VALUES
+(1, 'Garrett Winters', 'Accountant', 'Tokyo', 63, '2011-07-25', 170750),
+(2, 'Ashton Cox', 'Junior Technical Author', 'San Francisco', 66, '2009-01-12', 86000),
+(3, 'Cedric Kelly', 'Senior Javascript Developer', 'Edinburgh', 22, '2012-03-29', 433060),
+(4, 'Airi Satou', 'Accountant', 'Tokyo', 33, '2008-11-28', 162700),
+(5, 'Brielle Williamson', 'Integration Specialist', 'New York', 61, '2012-12-02', 372000),
+(6, 'Herrod Chandler', 'Sales Assistant', 'San Francisco', 59, '2012-08-06', 137500),
+(7, 'Rhona Davidson', 'Integration Specialist', 'Tokyo', 55, '2010-10-14', 327900),
+(8, 'Colleen Hurst', 'Javascript Developer', 'San Francisco', 39, '2009-09-15', 205500),
+(9, 'Sonya Frost', 'Software Engineer', 'Edinburgh', 23, '2008-12-13', 103600),
+(10, 'Jena Gaines', 'Office Manager', 'London', 30, '2008-12-19', 90560),
+(11, 'Quinn Flynn', 'Support Lead', 'Edinburgh', 22, '2013-03-03', 342000),
+(12, 'Charde Marshall', 'Regional Director', 'San Francisco', 36, '2008-10-16', 470600),
+(13, 'Haley Kennedy', 'Senior Marketing Designer', 'London', 43, '2012-12-18', 313500),
+(14, 'Tatyana Fitzpatrick', 'Regional Director', 'London', 19, '2010-03-17', 385750),
+(15, 'Michael Silva', 'Marketing Designer', 'London', 66, '2012-11-27', 198500),
+(16, 'Paul Byrd', 'Chief Financial Officer (CFO)', 'New York', 64, '2010-06-09', 725000),
+(17, 'Gloria Little', 'Systems Administrator', 'New York', 59, '2009-04-10', 237500),
+(18, 'Bradley Greer', 'Software Engineer', 'London', 41, '2012-10-13', 132000),
+(19, 'Dai Rios', 'Personnel Lead', 'Edinburgh', 35, '2012-09-26', 217500),
+(20, 'Jenette Caldwell', 'Development Lead', 'New York', 30, '2011-09-03', 345000),
+(21, 'Yuri Berry', 'Chief Marketing Officer (CMO)', 'New York', 40, '2009-06-25', 675000),
+(22, 'Caesar Vance', 'Pre-Sales Support', 'New York', 21, '2011-12-12', 106450),
+(23, 'Doris Wilder', 'Sales Assistant', 'Sidney', 23, '2010-09-20', 85600),
+(24, 'Angelica Ramos', 'Chief Executive Officer (CEO)', 'London', 47, '2009-10-09', 1200000),
+(25, 'Gavin Joyce', 'Developer', 'Edinburgh', 42, '2010-12-22', 92575),
+(26, 'Jennifer Chang', 'Regional Director', 'Singapore', 28, '2010-11-14', 357650),
+(27, 'Brenden Wagner', 'Software Engineer', 'San Francisco', 28, '2011-06-07', 206850),
+(28, 'Fiona Green', 'Chief Operating Officer (COO)', 'San Francisco', 48, '2010-03-11', 850000),
+(29, 'Shou Itou', 'Regional Marketing', 'Tokyo', 20, '2011-08-14', 163000),
+(30, 'Michelle House', 'Integration Specialist', 'Sidney', 37, '2011-06-02', 95400),
+(31, 'Suki Burks', 'Developer', 'London', 53, '2009-10-22', 114500),
+(32, 'Prescott Bartlett', 'Technical Author', 'London', 27, '2011-05-07', 145000),
+(33, 'Gavin Cortez', 'Team Leader', 'San Francisco', 22, '2008-10-26', 235500),
+(34, 'Martena Mccray', 'Post-Sales support', 'Edinburgh', 46, '2011-03-09', 324050),
+(35, 'Unity Butler', 'Marketing Designer', 'San Francisco', 47, '2009-12-09', 85675),
+(36, 'Howard Hatfield', 'Office Manager', 'San Francisco', 51, '2008-12-16', 164500),
+(37, 'Hope Fuentes', 'Secretary', 'San Francisco', 41, '2010-02-12', 109850),
+(38, 'Vivian Harrell', 'Financial Controller', 'San Francisco', 62, '2009-02-14', 452500),
+(39, 'Timothy Mooney', 'Office Manager', 'London', 37, '2008-12-11', 136200),
+(40, 'Jackson Bradshaw', 'Director', 'New York', 65, '2008-09-26', 645750),
+(41, 'Olivia Liang', 'Support Engineer', 'Singapore', 64, '2011-02-03', 234500),
+(42, 'Bruno Nash', 'Software Engineer', 'London', 38, '2011-05-03', 163500),
+(43, 'Sakura Yamamoto', 'Support Engineer', 'Tokyo', 37, '2009-08-19', 139575),
+(44, 'Thor Walton', 'Developer', 'New York', 61, '2013-08-11', 98540),
+(45, 'Finn Camacho', 'Support Engineer', 'San Francisco', 47, '2009-07-07', 87500),
+(46, 'Serge Baldwin', 'Data Coordinator', 'Singapore', 64, '2012-04-09', 138575),
+(47, 'Zenaida Frank', 'Software Engineer', 'New York', 63, '2010-01-04', 125250),
+(48, 'Zorita Serrano', 'Software Engineer', 'San Francisco', 56, '2012-06-01', 115000),
+(49, 'Jennifer Acosta', 'Junior Javascript Developer', 'Edinburgh', 43, '2013-02-01', 75650),
+(50, 'Cara Stevens', 'Sales Assistant', 'New York', 46, '2011-12-06', 145600),
+(51, 'Hermione Butler', 'Regional Director', 'London', 47, '2011-03-21', 356250),
+(52, 'Lael Greer', 'Systems Administrator', 'London', 21, '2009-02-27', 103500),
+(53, 'Jonas Alexander', 'Developer', 'San Francisco', 30, '2010-07-14', 86500),
+(54, 'Shad Decker', 'Regional Director', 'Edinburgh', 51, '2008-11-13', 183000),
+(55, 'Michael Bruce', 'Javascript Developer', 'Singapore', 29, '2011-06-27', 183000),
+(56, 'Donna Snider', 'Customer Support', 'New York', 27, '2011-01-25', 112000);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `hobi`
 --
 
@@ -732,17 +810,10 @@ CREATE TABLE `hobi` (
 
 INSERT INTO `hobi` (`id`, `Nama`, `Jenis Kelamin`, `Umur`, `Hobi`) VALUES
 (62, 'Iffah', 'Perempuan', 20, 'Makan\r'),
-(63, 'Nazhif', 'Laki-Laki', 21, 'Tidur\r'),
-(64, 'Sissy', 'Perempuan', 21, 'Gossip\r'),
-(65, 'Sandya', 'Perempuan', 0, 'Stalking\r'),
-(69, 'Iffah', 'Perempuan', 20, 'Makan\r'),
-(70, 'Nazhif', 'Laki-Laki', 21, 'Tidur\r'),
-(71, 'Sissy', 'Perempuan', 21, '\r'),
-(72, 'Sandya', 'Perempuan', 20, 'Stalking\r'),
-(87, 'Iffah', 'Perempuan', 20, 'Makan Nasi\r'),
-(88, 'Nazhif', 'Laki-Laki', 21, 'Tidur Siang\r'),
-(89, 'Sissy', 'Perempuan', 21, 'Gossip Artis\r'),
-(90, 'Sandya', 'Perempuan', 20, 'Stalking Doi\r');
+(364, 'Iffah', 'Perempuan', 20, 'MMMM\r'),
+(365, 'Nazhif', 'Laki-laki', 20, 'zzz\r'),
+(366, 'Ginger Cutie Cat', 'Laki-laki', 3, 'aaa\r'),
+(367, 'Cibun', 'Perempuan', 4, 'zzz\r');
 
 -- --------------------------------------------------------
 
@@ -801,7 +872,51 @@ CREATE TABLE `user_login` (
 --
 
 INSERT INTO `user_login` (`id`, `user_name`, `user_email`, `user_password`) VALUES
-(1, 'mayiffah', 'rmayiffah@gmail.com', 'may123');
+(1, 'mayiffah', 'rmayiffah@gmail.com', 'may123'),
+(2, 'mm', 'mm@yahoo.com', 'mm');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `watch`
+--
+
+CREATE TABLE `watch` (
+  `id` int(11) NOT NULL,
+  `ficmisdate` date NOT NULL,
+  `no_loan` varchar(255) NOT NULL,
+  `no_cif` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `watchlist`
+--
+
+CREATE TABLE `watchlist` (
+  `id` int(11) NOT NULL,
+  `no_loan` varchar(255) NOT NULL,
+  `no_cif` varchar(255) NOT NULL,
+  `nama_lengkap` varchar(255) NOT NULL,
+  `kode_cabang` varchar(255) NOT NULL,
+  `nama_cabang` varchar(255) NOT NULL,
+  `jenis_piutang_pembiayaan` varchar(255) NOT NULL,
+  `tanggal_pencairan` date NOT NULL,
+  `tanggal_jatuh_tempo` date NOT NULL,
+  `day_past_due` int(255) NOT NULL,
+  `restruct_date` date NOT NULL,
+  `kol_bsm` varchar(11) NOT NULL,
+  `kol_cif` varchar(11) NOT NULL,
+  `os_pokok_conversion` bigint(255) NOT NULL,
+  `tung_pokok_conversion` bigint(255) NOT NULL,
+  `tung_margin_conversion` bigint(255) NOT NULL,
+  `tung_gross_conversion` bigint(255) NOT NULL,
+  `realisasi_bagi_hasil` bigint(255) NOT NULL,
+  `proyeksi_bagi_hasil` bigint(255) NOT NULL,
+  `rbh_bagi_bph` bigint(255) NOT NULL,
+  `grup` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -845,6 +960,12 @@ ALTER TABLE `cabang`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `hobi`
 --
 ALTER TABLE `hobi`
@@ -869,6 +990,18 @@ ALTER TABLE `user_login`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `watch`
+--
+ALTER TABLE `watch`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `watchlist`
+--
+ALTER TABLE `watchlist`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `wilayah`
 --
 ALTER TABLE `wilayah`
@@ -889,10 +1022,15 @@ ALTER TABLE `area`
 ALTER TABLE `cabang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=620;
 --
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+--
 -- AUTO_INCREMENT for table `hobi`
 --
 ALTER TABLE `hobi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=371;
 --
 -- AUTO_INCREMENT for table `jabatan`
 --
@@ -907,7 +1045,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_login`
 --
 ALTER TABLE `user_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `watch`
+--
+ALTER TABLE `watch`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `watchlist`
+--
+ALTER TABLE `watchlist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wilayah`
 --

@@ -20,12 +20,14 @@ class Nasional extends CI_Controller {
 			
 			// Load database
 			$this->load->model('login_database');
+			$this->load->model('employee_model');
         }
 
         public function index()
         {
         	$this->load->helper('url');
-            $this->load->view('/portfolio');
+        	$data['list_employee'] = $this->employee_model->get_employee('tes');
+            $this->load->view('/portfolio', $data);
         }
 
         public function login() 
@@ -55,7 +57,8 @@ class Nasional extends CI_Controller {
 						);
 						// Add user data in session
 						$this->session->set_userdata('logged_in', $session_data);
-						$this->load->view('/portfolio');
+						$data['list_employee'] = $this->employee_model->get_employee('tes');
+						$this->load->view('/portfolio', $data);
 					}
 				} else {
 					$data = array(
@@ -81,12 +84,12 @@ class Nasional extends CI_Controller {
 		$this->load->view('login', $data);
 		}
 
-		// SKRG FALSE DULU, NANTI TRUE
+		
 		public function detail($id) {
 
 		$data['id'] = $id; 	
 		$data['message_display'] = 'Semangat Iffah';
-//		$this->load->vars($id);
+		$data['detail'] = $this->employee_model->get_employee($id);
 		$this->load->view('detail', $data);
 		}
 /*
