@@ -126,25 +126,32 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
                 //mysql_select_db("latihanci");
               $this->load->database();
                 //memasukkan data ke table
-              /*$query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE hobi FIELDS TERMINATED BY '|' IGNORE 1 LINES (`nama`, `jenis kelamin`, `umur`, `hobi`)");
+             /* $query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE hobi FIELDS TERMINATED BY '|' IGNORE 1 LINES (`nama`, `jenis kelamin`, `umur`, `hobi`)");*/
+              $query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE hobi FIELDS TERMINATED BY '|' IGNORE 1 LINES (`nama`, `jenis kelamin`, `umur`, `hobi`, `isi_gopay`)");
               //constraint: file yang dimasukkan akhirnya ada 000nya
-              $query = $this->db->query("DELETE FROM hobi order by id desc limit 1");*/     
-            //bukan array nih
+              $query = $this->db->query("DELETE FROM hobi order by id desc limit 1");     
+            
+/*
 
-
-              $query = $this->db->query('CREATE TABLE `watch` (
+              $query = $this->db->query('CREATE TABLE `watch2` (
                       `id` int(11) NOT NULL,
                       `ficmisdate` date NOT NULL,  
                       `no_loan` varchar(255) NOT NULL,
                       `no_cif` varchar(255) NOT NULL
                     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;');
 
-              $query = $this->db->query("ALTER TABLE `watch`
+              $query = $this->db->query("ALTER TABLE `watch2`
   ADD PRIMARY KEY (`id`);");
 
-              $query = $this->db->query("ALTER TABLE `watch`
+              $query = $this->db->query("ALTER TABLE `watch2`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;");
 
+              $query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE watch2 FIELDS TERMINATED BY '|' IGNORE 1 LINES (`ficmisdate`, `no_loan`, `no_cif`)");
+              //constraint: file yang dimasukkan akhirnya ada 000nya
+              $query = $this->db->query("DELETE FROM watch2 order by id desc limit 1");
+*/
+
+            //bukan array nih
 			} else {
 				echo 'masuk <br>';
                 $count = 1;

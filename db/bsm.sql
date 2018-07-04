@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2018 at 11:56 AM
+-- Generation Time: Jul 04, 2018 at 12:08 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -801,19 +801,39 @@ CREATE TABLE `hobi` (
   `Nama` varchar(200) NOT NULL,
   `Jenis Kelamin` varchar(100) NOT NULL,
   `Umur` int(100) NOT NULL,
-  `Hobi` varchar(200) NOT NULL
+  `Hobi` varchar(200) NOT NULL,
+  `isi_gopay` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hobi`
 --
 
-INSERT INTO `hobi` (`id`, `Nama`, `Jenis Kelamin`, `Umur`, `Hobi`) VALUES
-(62, 'Iffah', 'Perempuan', 20, 'Makan\r'),
-(364, 'Iffah', 'Perempuan', 20, 'MMMM\r'),
-(365, 'Nazhif', 'Laki-laki', 20, 'zzz\r'),
-(366, 'Ginger Cutie Cat', 'Laki-laki', 3, 'aaa\r'),
-(367, 'Cibun', 'Perempuan', 4, 'zzz\r');
+INSERT INTO `hobi` (`id`, `Nama`, `Jenis Kelamin`, `Umur`, `Hobi`, `isi_gopay`) VALUES
+(62, 'Iffah', 'Perempuan', 20, 'Makan\r', 0),
+(364, 'Iffah', 'Perempuan', 20, 'MMMM\r', 0),
+(365, 'Nazhif', 'Laki-laki', 20, 'zzz\r', 0),
+(366, 'Ginger Cutie Cat', 'Laki-laki', 3, 'aaa\r', 0),
+(367, 'Cibun', 'Perempuan', 4, 'zzz\r', 0),
+(381, 'ya', 'ya', 5, 'ya', 100),
+(382, 'yaya', 'ya', 5, 'ya', 500),
+(383, 'yaya', 'ya', 2, 'ya', 200),
+(398, 'May Iffah', 'Perempuan', 20, 'MMMM\r', 2000),
+(399, 'Ahmad Nazhif', 'Laki-laki', 21, 'zzz\r', 2100),
+(400, 'Ginger Cutie Cat', 'Laki-laki', 3, 'aaa\r', 300),
+(401, 'Cibunny', 'Perempuan', 4, 'zzz\r', 400),
+(405, 'May Iffah', 'Perempuan', 20, 'MMMM\r', 2000),
+(406, 'Ahmad Nazhif', 'Laki-laki', 21, 'zzz\r', 2100),
+(407, 'Ginger Cutie Cat', 'Laki-laki', 3, 'aaa\r', 300),
+(408, 'Cibunny', 'Perempuan', 4, 'zzz\r', 400);
+
+--
+-- Triggers `hobi`
+--
+DELIMITER $$
+CREATE TRIGGER `trig_isi_gopay` BEFORE INSERT ON `hobi` FOR EACH ROW SET NEW.isi_gopay = NEW.umur*100
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -891,6 +911,58 @@ CREATE TABLE `watch` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `watch1`
+--
+
+CREATE TABLE `watch1` (
+  `id` int(11) NOT NULL,
+  `ficmisdate` date NOT NULL,
+  `no_loan` varchar(255) NOT NULL,
+  `no_cif` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `watch1`
+--
+
+INSERT INTO `watch1` (`id`, `ficmisdate`, `no_loan`, `no_cif`) VALUES
+(1, '2018-05-31', '7000706323', '75085777\r'),
+(2, '2018-05-31', '7000728939', '75090012\r'),
+(3, '2018-05-31', '7001437857', '75075876\r'),
+(4, '2018-05-31', '7001927722', '73721691\r'),
+(5, '2018-05-31', '7001928125', '74659105\r'),
+(6, '2018-05-31', '7002067131', '73738316\r'),
+(7, '2018-05-31', '7002713998', '75082865\r');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `watch2`
+--
+
+CREATE TABLE `watch2` (
+  `id` int(11) NOT NULL,
+  `ficmisdate` date NOT NULL,
+  `no_loan` varchar(255) NOT NULL,
+  `no_cif` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `watch2`
+--
+
+INSERT INTO `watch2` (`id`, `ficmisdate`, `no_loan`, `no_cif`) VALUES
+(1, '2018-05-31', '7000706323', '75085777\r'),
+(2, '2018-05-31', '7000728939', '75090012\r'),
+(3, '2018-05-31', '7001437857', '75075876\r'),
+(4, '2018-05-31', '7001927722', '73721691\r'),
+(5, '2018-05-31', '7001928125', '74659105\r'),
+(6, '2018-05-31', '7002067131', '73738316\r'),
+(7, '2018-05-31', '7002713998', '75082865\r');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `watchlist`
 --
 
@@ -914,9 +986,51 @@ CREATE TABLE `watchlist` (
   `tung_gross_conversion` bigint(255) NOT NULL,
   `realisasi_bagi_hasil` bigint(255) NOT NULL,
   `proyeksi_bagi_hasil` bigint(255) NOT NULL,
-  `rbh_bagi_bph` bigint(255) NOT NULL,
+  `rbh_bagi_pbh` bigint(255) NOT NULL,
   `grup` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `watchlist`
+--
+
+INSERT INTO `watchlist` (`id`, `no_loan`, `no_cif`, `nama_lengkap`, `kode_cabang`, `nama_cabang`, `jenis_piutang_pembiayaan`, `tanggal_pencairan`, `tanggal_jatuh_tempo`, `day_past_due`, `restruct_date`, `kol_bsm`, `kol_cif`, `os_pokok_conversion`, `tung_pokok_conversion`, `tung_margin_conversion`, `tung_gross_conversion`, `realisasi_bagi_hasil`, `proyeksi_bagi_hasil`, `rbh_bagi_pbh`, `grup`) VALUES
+(1, '7000706323', '', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(2, '7000728939', '', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(3, '7001437857', '', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(4, '7001927722', '', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(5, '7001928125', '', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(6, '7002067131', '', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(7, '7002713998', '', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(8, '7000706323', '', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(9, '7000728939', '', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(10, '7001437857', '', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(11, '7001927722', '', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(12, '7001928125', '', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(13, '7002067131', '', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(14, '7002713998', '', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(15, '', '75085777\r', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(16, '', '75090012\r', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(17, '', '75075876\r', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(18, '', '73721691\r', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(19, '', '74659105\r', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(20, '', '73738316\r', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(21, '', '75082865\r', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(22, '7000706323', '75085777\r', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(23, '7000728939', '75090012\r', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(24, '7001437857', '75075876\r', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(25, '7001927722', '73721691\r', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(26, '7001928125', '74659105\r', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(27, '7002067131', '73738316\r', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, ''),
+(28, '7002713998', '75082865\r', '', '', '', '', '0000-00-00', '0000-00-00', 0, '0000-00-00', '', '', 0, 0, 0, 0, 0, 0, 0, '');
+
+--
+-- Triggers `watchlist`
+--
+DELIMITER $$
+CREATE TRIGGER `rbh_dibagi_pbh` BEFORE INSERT ON `watchlist` FOR EACH ROW SET NEW.rbh_bagi_pbh = NEW.realisasi_bagi_hasil / NEW.proyeksi_bagi_hasil
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -996,6 +1110,18 @@ ALTER TABLE `watch`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `watch1`
+--
+ALTER TABLE `watch1`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `watch2`
+--
+ALTER TABLE `watch2`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `watchlist`
 --
 ALTER TABLE `watchlist`
@@ -1030,7 +1156,7 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `hobi`
 --
 ALTER TABLE `hobi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=371;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=412;
 --
 -- AUTO_INCREMENT for table `jabatan`
 --
@@ -1052,10 +1178,20 @@ ALTER TABLE `user_login`
 ALTER TABLE `watch`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `watch1`
+--
+ALTER TABLE `watch1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `watch2`
+--
+ALTER TABLE `watch2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
 -- AUTO_INCREMENT for table `watchlist`
 --
 ALTER TABLE `watchlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `wilayah`
 --

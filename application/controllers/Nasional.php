@@ -21,12 +21,14 @@ class Nasional extends CI_Controller {
 			// Load database
 			$this->load->model('login_database');
 			$this->load->model('employee_model');
+			$this->load->model('watchlist_model');
         }
 
         public function index()
         {
         	$this->load->helper('url');
         	$data['list_employee'] = $this->employee_model->get_employee('tes');
+        	$data['list_watchlist'] = $this->watchlist_model->get_watchlist('all');
             $this->load->view('/portfolio', $data);
         }
 
@@ -58,6 +60,7 @@ class Nasional extends CI_Controller {
 						// Add user data in session
 						$this->session->set_userdata('logged_in', $session_data);
 						$data['list_employee'] = $this->employee_model->get_employee('tes');
+						$data['list_watchlist'] = $this->watchlist_model->get_watchlist('all');
 						$this->load->view('/portfolio', $data);
 					}
 				} else {
