@@ -126,11 +126,14 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
                 //mysql_select_db("latihanci");
               $this->load->database();
                 //memasukkan data ke table
+            //contoh tp GAPAKE keterangan isi_gopay vvv
              /* $query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE hobi FIELDS TERMINATED BY '|' IGNORE 1 LINES (`nama`, `jenis kelamin`, `umur`, `hobi`)");*/
+
+              //contoh tp PAKE keterangan isi_gopay vvv
               $query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE hobi FIELDS TERMINATED BY '|' IGNORE 1 LINES (`nama`, `jenis kelamin`, `umur`, `hobi`, `isi_gopay`)");
               //constraint: file yang dimasukkan akhirnya ada 000nya
-              $query = $this->db->query("DELETE FROM hobi order by id desc limit 1");     
-            
+              $query = $this->db->query("DELETE FROM hobi order by id desc limit 1");   
+              $query = $this->db->query("INSERT INTO `teman` (`nama`, `umur`) SELECT `nama`, `umur` FROM `hobi`");               
 /*
 
               $query = $this->db->query('CREATE TABLE `watch2` (
