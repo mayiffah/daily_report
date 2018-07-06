@@ -127,15 +127,18 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
               $this->load->database();
                 //memasukkan data ke table
             //contoh tp GAPAKE keterangan isi_gopay vvv
-             /* $query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE hobi FIELDS TERMINATED BY '|' IGNORE 1 LINES (`nama`, `jenis kelamin`, `umur`, `hobi`)");*/
+             /* $query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE hobi FIELDS TERMINATED BY '|' IGNORE 1 LINES (`nama`, `jenis kelamin`, `umur`, `hobi`)");
 
               //contoh tp PAKE keterangan isi_gopay vvv
               $query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE hobi FIELDS TERMINATED BY '|' IGNORE 1 LINES (`nama`, `jenis kelamin`, `umur`, `hobi`, `isi_gopay`)");
               //constraint: file yang dimasukkan akhirnya ada 000nya
               $query = $this->db->query("DELETE FROM hobi order by id desc limit 1");   
-              $query = $this->db->query("INSERT INTO `teman` (`nama`, `umur`) SELECT `nama`, `umur` FROM `hobi`");               
-/*
+              $query = $this->db->query("INSERT INTO `teman` (`nama`, `umur`) SELECT `nama`, `umur` FROM `hobi`");    
+              */      
 
+
+/*
+TABEL WATCHLIST
               $query = $this->db->query('CREATE TABLE `watch2` (
                       `id` int(11) NOT NULL,
                       `ficmisdate` date NOT NULL,  
@@ -153,6 +156,11 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
               //constraint: file yang dimasukkan akhirnya ada 000nya
               $query = $this->db->query("DELETE FROM watch2 order by id desc limit 1");
 */
+              //MASUKKIN IFOIS
+               $query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE ifois FIELDS TERMINATED BY '|' IGNORE 1 LINES (`FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `JENISPENGGUNAANCODE`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `ACCOUNTOFFICER2`, `EQVRATE`, `INTEREST_RATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `SCHEDTYPE`, `SOCODE`, `PEKERJAAN`, `SEGMENTASI`, `STATUS_PENCAIRAN`, `RELATED_TRN`) ");
+              //constraint: file yang dimasukkan akhirnya ada 000nya
+              $query = $this->db->query("DELETE FROM ifois order by id desc limit 1");
+
 
             //bukan array nih
 			} else {
