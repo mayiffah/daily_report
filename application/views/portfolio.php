@@ -302,47 +302,63 @@ header("location:". base_url() . "index.php/nasional/login");
                     <th>REALISASI BAGI HASIL</th>
                     <th>PROYEKSI BAGI HASIL</th>
                     <th>RBH/PBH</th>
-                    <th>GROUP</th>
+                    <th>GRUP</th>
+                    <th>Detail</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
-                    <td>NOLOAN</td>
-                    <td>NOMORCIF</td>
-                    <td>NAMALENGKAP</td>
-                    <td>KODECABANG</td>
-                    <td>NAMACABANG</td>
-                    <td>JENISPIUTANGPEMBIAYAAN</td>
-                    <td>TGLPENCAIRAN</td>
-                    <td>TGL JT TEMPO</td>
-                    <td>DAY PAST DUE</td>
-                    <td>RESTRUCT DATE</td>
-                    <td>KOLBSM SISTEM</td>
-                    <td>KOL CIF</td>
-                    <td>OSPOKOK CONVERSION</td> 
-                    <td>TUNGGAKANPOKOKCONVERSION</td> 
-                    <td>TUNGGAKANMARGINCONVERSION</td>
-                    <td>TUNGGAKANGROSSCONVERSION</td>
-                    <td>REALISASI BAGI HASIL</td>
-                    <td>PROYEKSI BAGI HASIL</td>
-                    <td>RBH/PBH</td>
-                    <td>GROUP</td>
+                    <th>NOLOAN</th>
+                    <th>NOMORCIF</th>
+                    <th>NAMALENGKAP</th>
+                    <th>KODECABANG</th>
+                    <th>NAMACABANG</th>
+                    <th>JENISPIUTANGPEMBIAYAAN</th>
+                    <th>TGLPENCAIRAN</th>
+                    <th>TGL JT TEMPO</th>
+                    <th>DAY PAST DUE</th>
+                    <th>RESTRUCT DATE</th>
+                    <th>KOLBSM SISTEM</th>
+                    <th>KOL CIF</th>
+                    <th>OSPOKOK CONVERSION</th> 
+                    <th>TUNGGAKANPOKOKCONVERSION</th> 
+                    <th>TUNGGAKANMARGINCONVERSION</th>
+                    <th>TUNGGAKANGROSSCONVERSION</th>
+                    <th>REALISASI BAGI HASIL</th>
+                    <th>PROYEKSI BAGI HASIL</th>
+                    <th>RBH/PBH</th>
+                    <th>GRUP</th>
+                    <th>Detail</th>
                   </tr>
                 </tfoot>
                 <tbody>
                   <?php 
-                  /*
-                    foreach ($list_employee as $employee) {
+                  
+                    foreach ($list_watchlist as $watchlist) {
                       echo' <tr>
-                      <td>'.$employee->name.'</td>
-                      <td>'.$employee->position.'</td>
-                      <td>'.$employee->office.'</td>';
-                      <td>'.$employee->age.'</td>
-                      <td>'.$employee->start_date.'</td>
-                      <td>$'.$employee->salary.'</td>
-                      echo '<td><a href="';echo base_url('index.php/nasional/detail/'.$employee->id); echo'" class="btn btn-primary" > Detail</a></td>
+                      <td>'.$watchlist->no_loan.'</td>
+                      <td>'.$watchlist->no_cif.'</td>
+                      <td>'.$watchlist->nama_lengkap.'</td>
+                      <td>'.$watchlist->kode_cabang.'</td>
+                      <td>'.$watchlist->nama_cabang.'</td>
+                      <td>'.$watchlist->jenis_piutang_pembiayaan.'</td>
+                      <td>'.$watchlist->tanggal_pencairan.'</td>
+                      <td>'.$watchlist->tanggal_jatuh_tempo.'</td>
+                      <td>'.$watchlist->day_past_due.'</td>
+                      <td>'.$watchlist->restruct_date.'</td>
+                      <td>'.$watchlist->kol_bsm.'</td>
+                      <td>'.$watchlist->kol_cif.'</td>
+                      <td>'.$watchlist->os_pokok_conversion.'</td>
+                      <td>'.$watchlist->tung_pokok_conversion.'</td>
+                      <td>'.$watchlist->tung_margin_conversion.'</td>
+                      <td>'.$watchlist->tung_gross_conversion.'</td>
+                      <td>'.$watchlist->realisasi_bagi_hasil.'</td>
+                      <td>'.$watchlist->proyeksi_bagi_hasil.'</td>
+                      <td>'.$watchlist->rbh_bagi_pbh.'</td>
+                      <td>'.$watchlist->grup.'</td>';
+                      echo '<td><a href="';echo base_url('index.php/nasional/detail/'.$watchlist->id); echo'" class="btn btn-primary" > Detail</a></td>
                      </tr>';
-                    } */
+                    }
                   ?>                 
                 </tbody>
               </table>
