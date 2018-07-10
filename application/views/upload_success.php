@@ -103,68 +103,111 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
       </div>
     </nav>
     <div class="content-wrapper">
-    	<div class="container-fluid">
-    		<!-- Breadcrumbs-->
-	        <ol class="breadcrumb">
-	          <li class="breadcrumb-item">
-	            <a href="#">Dashboard</a>
-	          </li>
-	          <li class="breadcrumb-item active">Upload Data Harian</li>
-	        </ol>
-		    
+      <div class="container-fluid">
+        <!-- Breadcrumbs-->
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Upload Data Harian</li>
+          </ol>
+        
             <h3>Semangat fah</h3>
-		    <h3>File berhasil diupload</h3>
+        <h3>File berhasil diupload</h3>
 
-		
-			<?php 
-			
-			if(!is_array($upload_data)){
-				
+    
+      <?php 
+      
+      if(!is_array($upload_data)){
+        
                 echo $upload_data;
+                $mod_date=date("F d Y H:i:s.", filemtime($upload_data));
 
-                //$sql= mysql_connect("localhost", "root", "");
-                //mysql_select_db("latihanci");
-              $this->load->database();
-                //memasukkan data ke table
-            //contoh tp GAPAKE keterangan isi_gopay vvv
-             /* $query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE hobi FIELDS TERMINATED BY '|' IGNORE 1 LINES (`nama`, `jenis kelamin`, `umur`, `hobi`)");
+                echo '<br>'. $mod_date;
 
-              //contoh tp PAKE keterangan isi_gopay vvv
-              $query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE hobi FIELDS TERMINATED BY '|' IGNORE 1 LINES (`nama`, `jenis kelamin`, `umur`, `hobi`, `isi_gopay`)");
-              //constraint: file yang dimasukkan akhirnya ada 000nya
-              $query = $this->db->query("DELETE FROM hobi order by id desc limit 1");   
-              $query = $this->db->query("INSERT INTO `teman` (`nama`, `umur`) SELECT `nama`, `umur` FROM `hobi`");    
-              */      
+/*              $this->load->database();
+
+              $query = $this->db->query("CREATE TABLE ifoiscek LIKE ifois;");
 
 
-/*
-TABEL WATCHLIST
-              $query = $this->db->query('CREATE TABLE `watch2` (
-                      `id` int(11) NOT NULL,
-                      `ficmisdate` date NOT NULL,  
-                      `no_loan` varchar(255) NOT NULL,
-                      `no_cif` varchar(255) NOT NULL
-                    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;');
-
-              $query = $this->db->query("ALTER TABLE `watch2`
-  ADD PRIMARY KEY (`id`);");
-
-              $query = $this->db->query("ALTER TABLE `watch2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;");
-
-              $query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE watch2 FIELDS TERMINATED BY '|' IGNORE 1 LINES (`ficmisdate`, `no_loan`, `no_cif`)");
-              //constraint: file yang dimasukkan akhirnya ada 000nya
-              $query = $this->db->query("DELETE FROM watch2 order by id desc limit 1");
-*/
               //MASUKKIN IFOIS
-               $query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE ifois FIELDS TERMINATED BY '|' IGNORE 1 LINES (`FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `JENISPENGGUNAANCODE`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `ACCOUNTOFFICER2`, `EQVRATE`, `INTEREST_RATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `SCHEDTYPE`, `SOCODE`, `PEKERJAAN`, `SEGMENTASI`, `STATUS_PENCAIRAN`, `RELATED_TRN`) ");
+               $query = $this->db->query("LOAD DATA INFILE '$upload_data'"." INTO TABLE ifoiscek FIELDS TERMINATED BY '|' IGNORE 1 LINES (`FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `JENISPENGGUNAANCODE`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `ACCOUNTOFFICER2`, `EQVRATE`, `INTEREST_RATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `SCHEDTYPE`, `SOCODE`, `PEKERJAAN`, `SEGMENTASI`, `STATUS_PENCAIRAN`, `RELATED_TRN`) ");
               //constraint: file yang dimasukkan akhirnya ada 000nya
-              $query = $this->db->query("DELETE FROM ifois order by id desc limit 1");
+              $query = $this->db->query("DELETE FROM ifoiscek order by id desc limit 1");
 
+              $query = $this->db->query("CREATE TABLE existingcek LIKE existing;");
+              $query = $this->db->query("INSERT into existingcek (`FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `LoanTypeDesc`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `EQVRATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `STATUS_PENCAIRAN`, `Segmen`, `Produk`, `P/B`, `grup`, `AREA`, `KANWIL`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`) SELECT a.FICMISDATE, a.NOLOAN, a.NOMORCIF, a.NAMALENGKAP, a.KODECABANGBARU, a.NAMACABANG,a.JENISPIUTANGPEMBIAYAAN, a.SEKTOREKONOMICODE
+, a.TGLPENCAIRAN, a.TGLJTTEMPO, a.DAYPASTDUE, a.DIVISI, a.CURRENCY, a.LOANTYPE, c.LoanTypeDesc, a.CATEGORY, a.RESTRUCTFLAG, a.PRICING
+, a.REKPEMBYPOKOK, a.TENOR, a.RESTRUCTDATE, a.KOLBSM, a.KOLCIF, a.SOURCEDATACODE, a.OSPOKOKCONVERSION, a.OSMARGINCONVERSION
+, a.OSGROSSCONVERSION, a.TUNGGAKANPOKOKCONVERSION, a.TUNGGAKANMARGINCONVERSION, a.TUNGGAKANGROSSCONVERSION
+, a.PENCAIRANPOKOKCONVERSION, a.PENCAIRANMARGINCONVERSION, a.PENCAIRANGROSSCONVERSION, a.REALISASI_BAGIHASIL
+, a.PROYEKSI_BAGIHASIL, a.ACCOUNTOFFICER, a.EQVRATE,  a.MISACCOUNTOFFICR, a.NAMAPERUSAHAANNASABAH
+, a.LD_ECONOMICSECTOR, a.TUNGGAKANPENALTYCONVERSION, a.NAPNO , a.STATUS_PENCAIRAN , b.Segmen, b.Produk, b.`P/B`, b.grup 
+, d.AREA, d.KANWIL, b.`E/C`, b.sektor_ekon, b.Produk2, b.`Tahun Booking`
+FROM ifoiscek a
+left outer join lalu b on a.NOLOAN = b.NoLoan
+left outer join Loantype2017 c on a.LOANTYPE = c.LoanType
+left outer join cabang2017new d on a.KODECABANGBARU = d.outletcode
+where b.NoLoan is not null");
+             
 
-            //bukan array nih
-			} else {
-				echo 'masuk <br>';
+              $query = $this->db->query("INSERT into cair_baru_cek (`FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `LoanTypeDesc`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `EQVRATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `STATUS_PENCAIRAN`, `Segmen`, `Produk`, `P/B`, `grup`, `AREA`, `KANWIL`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`)
+SELECT a.FICMISDATE, a.NOLOAN, a.NOMORCIF, a.NAMALENGKAP, a.KODECABANGBARU, a.NAMACABANG, a.JENISPIUTANGPEMBIAYAAN, a.SEKTOREKONOMICODE
+, a.TGLPENCAIRAN, a.TGLJTTEMPO, a.DAYPASTDUE, a.DIVISI, a.CURRENCY, a.LOANTYPE, c.LoanTypeDesc, a.CATEGORY, a.RESTRUCTFLAG, a.PRICING
+, a.REKPEMBYPOKOK, a.TENOR, a.RESTRUCTDATE, a.KOLBSM, a.KOLCIF, a.SOURCEDATACODE, a.OSPOKOKCONVERSION, a.OSMARGINCONVERSION
+, a.OSGROSSCONVERSION, a.TUNGGAKANPOKOKCONVERSION, a.TUNGGAKANMARGINCONVERSION, a.TUNGGAKANGROSSCONVERSION
+, a.PENCAIRANPOKOKCONVERSION, a.PENCAIRANMARGINCONVERSION, a.PENCAIRANGROSSCONVERSION, a.REALISASI_BAGIHASIL
+, a.PROYEKSI_BAGIHASIL, a.ACCOUNTOFFICER, a.EQVRATE, a.MISACCOUNTOFFICR, a.NAMAPERUSAHAANNASABAH
+, a.LD_ECONOMICSECTOR, a.TUNGGAKANPENALTYCONVERSION, a.NAPNO, a.STATUS_PENCAIRAN, b.Segmen, b.Produk, b.`P/B`, b.grup 
+, d.AREA, d.KANWIL, b.`E/C`, b.sektor_ekon, b.Produk2, b.`Tahun Booking`
+FROM ifoiscek a
+left outer join lalu b on a.NOLOAN = b.NoLoan
+left outer join Loantype2017 c on a.LOANTYPE = c.LoanType
+left outer join cabang2017new d on a.KODECABANGBARU = d.outletcode
+where (a.TGLPENCAIRAN between '2018-05-31' and '2018-05-31') and  a.DIVISI in ('BBG')");
+              
+              $query = $this->db->query("INSERT into div_code_cek (`FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `LoanTypeDesc`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `EQVRATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `STATUS_PENCAIRAN`, `Segmen`, `Produk`, `P/B`, `grup`, `AREA`, `KANWIL`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`)
+SELECT a.FICMISDATE, a.NOLOAN, a.NOMORCIF, a.NAMALENGKAP, a.KODECABANGBARU, a.NAMACABANG, a.JENISPIUTANGPEMBIAYAAN, a.SEKTOREKONOMICODE
+, a.TGLPENCAIRAN, a.TGLJTTEMPO, a.DAYPASTDUE, a.DIVISI, a.CURRENCY, a.LOANTYPE, c.`LoanTypeDesc`, a.CATEGORY, a.RESTRUCTFLAG, a.PRICING
+, a.REKPEMBYPOKOK, a.TENOR, a.RESTRUCTDATE, a.KOLBSM, a.KOLCIF, a.SOURCEDATACODE, a.OSPOKOKCONVERSION, a.OSMARGINCONVERSION
+, a.OSGROSSCONVERSION, a.TUNGGAKANPOKOKCONVERSION, a.TUNGGAKANMARGINCONVERSION, a.TUNGGAKANGROSSCONVERSION
+, a.PENCAIRANPOKOKCONVERSION, a.PENCAIRANMARGINCONVERSION, a.PENCAIRANGROSSCONVERSION, a.REALISASI_BAGIHASIL
+, a.PROYEKSI_BAGIHASIL, a.ACCOUNTOFFICER, a.EQVRATE, a.MISACCOUNTOFFICR, a.NAMAPERUSAHAANNASABAH
+, a.LD_ECONOMICSECTOR, a.TUNGGAKANPENALTYCONVERSION, a.NAPNO , a.STATUS_PENCAIRAN , b.Segmen, b.Produk,b.`P/B`,b.`grup` 
+, d.AREA, d.KANWIL, b.`E/C`, b.sektor_ekon, b.Produk2, b.`Tahun Booking`
+FROM ifoiscek a
+left outer join lalu b on a.NOLOAN = b.NoLoan
+left outer join Loantype2017 c on a.LOANTYPE = c.LoanType
+left outer join cabang2017new d on a.KODECABANGBARU = d.outletcode
+where a.DIVISI in ('BBG')");
+              $query = $this->db->query("INSERT INTO existing2 (SELECT * FROM div_code_cek d WHERE NOT EXISTS (SELECT * FROM existingcek e WHERE d.NOMORCIF = e.NOMORCIF))
+");
+
+              $query = $this->db->query("INSERT INTO existingcek (`FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `LoanTypeDesc`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `EQVRATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `STATUS_PENCAIRAN`, `Segmen`, `Produk`, `P/B`, `grup`, `AREA`, `KANWIL`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`)
+ SELECT `FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `LoanTypeDesc`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `EQVRATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `STATUS_PENCAIRAN`, `Segmen`, `Produk`, `P/B`, `grup`, `AREA`, `KANWIL`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`
+ FROM existing2");
+
+              $query = $this->db->query("TRUNCATE existing2");
+              $query = $this->db->query("TRUNCATE lalu");
+              $query = $this->db->query("TRUNCATE div_code_cek");
+              $query = $this->db->query("TRUNCATE cair_baru_cek");
+              
+
+              $query = $this->db->query("INSERT INTO lalu (`NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `Segmen`, `Produk`, `P/B`, `grup`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`)
+SELECT `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `Segmen`, `Produk`, `P/B`, `grup`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking` FROM existingcek
+");
+              $query = $this->db->query("DROP TRIGGER rbh_dibagi_pbh");
+              $query = $this->db->query("RENAME TABLE watchlist TO watchlist_dulu;");
+
+              $query = $this->db->query("CREATE TABLE watchlist LIKE watchlist_dulu;");
+
+              $query = $this->db->query("CREATE TRIGGER rbh_dibagi_pbh BEFORE INSERT ON watchlist FOR EACH ROW SET NEW.rbh_bagi_pbh = NEW.realisasi_bagi_hasil / NEW.proyeksi_bagi_hasil");
+              $query = $this->db->query("INSERT INTO watchlist (`no_loan`, `no_cif`, `nama_lengkap`, `kode_cabang`, `nama_cabang`, `jenis_piutang_pembiayaan`, `tanggal_pencairan`, `tanggal_jatuh_tempo`, `day_past_due`, `restruct_date`, `kol_bsm`, `kol_cif`, `os_pokok_conversion`, `tung_pokok_conversion`, `tung_margin_conversion`, `tung_gross_conversion`, `realisasi_bagi_hasil`, `proyeksi_bagi_hasil`, `grup`) 
+SELECT `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`,`RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `OSPOKOKCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `grup` FROM existingcek
+");
+              */
+      } else {
+        echo 'masuk <br>';
                 $count = 1;
                 foreach ($upload_data as $item) {
                     echo $count.' ' . $item;
@@ -173,12 +216,12 @@ TABEL WATCHLIST
                 }       
                 echo 'ada ';
                 echo $count-1;
-			}
-			 ?>
-			
-		
-		<p><?php echo anchor('/upload/do_upload', 'Upload Lagi'); ?></p>
-		</div>
+      }
+       ?>
+      
+    
+    <p><?php echo anchor('/upload/do_upload', 'Upload Lagi'); ?></p>
+    </div>
     </div>
     <script type="text/javascript">
       $(document).ready(function () {

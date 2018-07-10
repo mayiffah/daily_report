@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2018 at 11:58 AM
+-- Generation Time: Jul 10, 2018 at 12:24 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -1422,10 +1422,143 @@ CREATE TABLE `cair_baru` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cair_baru_cek`
+--
+
+CREATE TABLE `cair_baru_cek` (
+  `id` int(11) NOT NULL,
+  `FICMISDATE` date NOT NULL,
+  `NOLOAN` varchar(255) NOT NULL,
+  `NOMORCIF` varchar(255) NOT NULL,
+  `NAMALENGKAP` varchar(255) NOT NULL,
+  `KODECABANGBARU` varchar(255) NOT NULL,
+  `NAMACABANG` varchar(255) NOT NULL,
+  `JENISPIUTANGPEMBIAYAAN` varchar(255) NOT NULL,
+  `SEKTOREKONOMICODE` varchar(255) NOT NULL,
+  `TGLPENCAIRAN` date NOT NULL,
+  `TGLJTTEMPO` date NOT NULL,
+  `DAYPASTDUE` int(255) NOT NULL,
+  `DIVISI` varchar(255) NOT NULL,
+  `CURRENCY` varchar(255) NOT NULL,
+  `LOANTYPE` varchar(255) NOT NULL,
+  `LoanTypeDesc` varchar(255) NOT NULL,
+  `CATEGORY` varchar(255) NOT NULL,
+  `RESTRUCTFLAG` varchar(255) NOT NULL,
+  `PRICING` bigint(255) NOT NULL,
+  `REKPEMBYPOKOK` varchar(255) NOT NULL,
+  `TENOR` varchar(255) NOT NULL,
+  `RESTRUCTDATE` varchar(255) NOT NULL,
+  `KOLBSM` varchar(11) NOT NULL,
+  `KOLCIF` varchar(11) NOT NULL,
+  `SOURCEDATACODE` varchar(255) NOT NULL,
+  `OSPOKOKCONVERSION` decimal(65,2) NOT NULL,
+  `OSMARGINCONVERSION` decimal(65,2) NOT NULL,
+  `OSGROSSCONVERSION` decimal(65,2) NOT NULL,
+  `TUNGGAKANPOKOKCONVERSION` decimal(65,2) NOT NULL,
+  `TUNGGAKANMARGINCONVERSION` decimal(65,2) NOT NULL,
+  `TUNGGAKANGROSSCONVERSION` decimal(65,2) NOT NULL,
+  `PENCAIRANPOKOKCONVERSION` decimal(65,2) NOT NULL,
+  `PENCAIRANMARGINCONVERSION` decimal(65,2) NOT NULL,
+  `PENCAIRANGROSSCONVERSION` decimal(65,2) NOT NULL,
+  `REALISASI_BAGIHASIL` decimal(65,2) NOT NULL,
+  `PROYEKSI_BAGIHASIL` decimal(65,2) NOT NULL,
+  `ACCOUNTOFFICER` varchar(255) NOT NULL,
+  `EQVRATE` decimal(65,2) NOT NULL,
+  `MISACCOUNTOFFICR` varchar(255) NOT NULL,
+  `NAMAPERUSAHAANNASABAH` varchar(255) NOT NULL,
+  `LD_ECONOMICSECTOR` bigint(255) NOT NULL,
+  `TUNGGAKANPENALTYCONVERSION` bigint(255) NOT NULL,
+  `NAPNO` varchar(255) NOT NULL,
+  `STATUS_PENCAIRAN` varchar(255) NOT NULL,
+  `Segmen` varchar(255) NOT NULL,
+  `Produk` varchar(255) NOT NULL,
+  `P/B` varchar(255) NOT NULL,
+  `grup` varchar(255) NOT NULL,
+  `AREA` varchar(255) NOT NULL,
+  `KANWIL` varchar(255) NOT NULL,
+  `E/C` varchar(255) NOT NULL,
+  `sektor_ekon` varchar(255) NOT NULL,
+  `Produk2` varchar(255) NOT NULL,
+  `Tahun Booking` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `div_code`
 --
 
 CREATE TABLE `div_code` (
+  `id` int(11) NOT NULL,
+  `FICMISDATE` date NOT NULL,
+  `NOLOAN` varchar(255) NOT NULL,
+  `NOMORCIF` varchar(255) NOT NULL,
+  `NAMALENGKAP` varchar(255) NOT NULL,
+  `KODECABANGBARU` varchar(255) NOT NULL,
+  `NAMACABANG` varchar(255) NOT NULL,
+  `JENISPIUTANGPEMBIAYAAN` varchar(255) NOT NULL,
+  `SEKTOREKONOMICODE` varchar(255) NOT NULL,
+  `TGLPENCAIRAN` date NOT NULL,
+  `TGLJTTEMPO` date NOT NULL,
+  `DAYPASTDUE` int(255) NOT NULL,
+  `DIVISI` varchar(255) NOT NULL,
+  `CURRENCY` varchar(255) NOT NULL,
+  `LOANTYPE` varchar(255) NOT NULL,
+  `LoanTypeDesc` varchar(255) NOT NULL,
+  `CATEGORY` varchar(255) NOT NULL,
+  `RESTRUCTFLAG` varchar(255) NOT NULL,
+  `PRICING` bigint(255) NOT NULL,
+  `REKPEMBYPOKOK` varchar(255) NOT NULL,
+  `TENOR` varchar(255) NOT NULL,
+  `RESTRUCTDATE` varchar(255) NOT NULL,
+  `KOLBSM` varchar(11) NOT NULL,
+  `KOLCIF` varchar(11) NOT NULL,
+  `SOURCEDATACODE` varchar(255) NOT NULL,
+  `OSPOKOKCONVERSION` decimal(65,2) NOT NULL,
+  `OSMARGINCONVERSION` decimal(65,2) NOT NULL,
+  `OSGROSSCONVERSION` decimal(65,2) NOT NULL,
+  `TUNGGAKANPOKOKCONVERSION` decimal(65,2) NOT NULL,
+  `TUNGGAKANMARGINCONVERSION` decimal(65,2) NOT NULL,
+  `TUNGGAKANGROSSCONVERSION` decimal(65,2) NOT NULL,
+  `PENCAIRANPOKOKCONVERSION` decimal(65,2) NOT NULL,
+  `PENCAIRANMARGINCONVERSION` decimal(65,2) NOT NULL,
+  `PENCAIRANGROSSCONVERSION` decimal(65,2) NOT NULL,
+  `REALISASI_BAGIHASIL` decimal(65,2) NOT NULL,
+  `PROYEKSI_BAGIHASIL` decimal(65,2) NOT NULL,
+  `ACCOUNTOFFICER` varchar(255) NOT NULL,
+  `EQVRATE` decimal(65,2) NOT NULL,
+  `MISACCOUNTOFFICR` varchar(255) NOT NULL,
+  `NAMAPERUSAHAANNASABAH` varchar(255) NOT NULL,
+  `LD_ECONOMICSECTOR` bigint(255) NOT NULL,
+  `TUNGGAKANPENALTYCONVERSION` bigint(255) NOT NULL,
+  `NAPNO` varchar(255) NOT NULL,
+  `STATUS_PENCAIRAN` varchar(255) NOT NULL,
+  `Segmen` varchar(255) NOT NULL,
+  `Produk` varchar(255) NOT NULL,
+  `P/B` varchar(255) NOT NULL,
+  `grup` varchar(255) NOT NULL,
+  `AREA` varchar(255) NOT NULL,
+  `KANWIL` varchar(255) NOT NULL,
+  `E/C` varchar(255) NOT NULL,
+  `sektor_ekon` varchar(255) NOT NULL,
+  `Produk2` varchar(255) NOT NULL,
+  `Tahun Booking` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `div_code`
+--
+
+INSERT INTO `div_code` (`id`, `FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `LoanTypeDesc`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `EQVRATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `STATUS_PENCAIRAN`, `Segmen`, `Produk`, `P/B`, `grup`, `AREA`, `KANWIL`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`) VALUES
+(1, '0000-00-00', '', '', 'ayaya', '', '', '', '', '0000-00-00', '0000-00-00', 0, '', '', '', '', '', '', 0, '', '', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '', '', 0, 0, '', '', '', '', '', '', '', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `div_code_cek`
+--
+
+CREATE TABLE `div_code_cek` (
   `id` int(11) NOT NULL,
   `FICMISDATE` date NOT NULL,
   `NOLOAN` varchar(255) NOT NULL,
@@ -1724,13 +1857,106 @@ CREATE TABLE `existing2` (
   `Tahun Booking` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `existing2`
+-- Table structure for table `existingcek`
 --
 
-INSERT INTO `existing2` (`id`, `FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `LoanTypeDesc`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `EQVRATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `STATUS_PENCAIRAN`, `Segmen`, `Produk`, `P/B`, `grup`, `AREA`, `KANWIL`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`) VALUES
-(6, '2018-05-31', '7009433408', '74580109', 'ZULAEHA', 'ID0010046', 'KC DEPOK', 'Musyarakah', '', '2010-06-18', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 16, '', '', '', '1', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '187351585.08', '187351585.08', '0.00', '0.00', '0.00', '9303943.76', '0.00', '', '0.00', '45', 'GRAND FURNITURE', 0, 0, '', '', '', '', '', '', 'AREA BOGOR', 'III', '', '', '', ''),
-(7, '2018-05-31', '7009046881', '75095984', 'DEWI SIERA PERSADA PT', 'ID0010044', 'KC DUMAI', 'Musyarakah', '452190', '2009-12-30', '2018-12-20', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 13, '', '', '', '1', '1', 'IBSM', '386480580.81', '0.00', '386480580.81', '0.00', '0.00', '0.00', '400000000.00', '0.00', '400000000.00', '273166403.46', '254221645.47', '91002444', '0.00', '45', '', 452190, 0, '', '', '', '', '', '', 'AREA PEKANBARU', 'I', '', '', '', '');
+CREATE TABLE `existingcek` (
+  `id` int(11) NOT NULL,
+  `FICMISDATE` date NOT NULL,
+  `NOLOAN` varchar(255) NOT NULL,
+  `NOMORCIF` varchar(255) NOT NULL,
+  `NAMALENGKAP` varchar(255) NOT NULL,
+  `KODECABANGBARU` varchar(255) NOT NULL,
+  `NAMACABANG` varchar(255) NOT NULL,
+  `JENISPIUTANGPEMBIAYAAN` varchar(255) NOT NULL,
+  `SEKTOREKONOMICODE` varchar(255) NOT NULL,
+  `TGLPENCAIRAN` date NOT NULL,
+  `TGLJTTEMPO` date NOT NULL,
+  `DAYPASTDUE` int(255) NOT NULL,
+  `DIVISI` varchar(255) NOT NULL,
+  `CURRENCY` varchar(255) NOT NULL,
+  `LOANTYPE` varchar(255) NOT NULL,
+  `LoanTypeDesc` varchar(255) NOT NULL,
+  `CATEGORY` varchar(255) NOT NULL,
+  `RESTRUCTFLAG` varchar(255) NOT NULL,
+  `PRICING` bigint(255) NOT NULL,
+  `REKPEMBYPOKOK` varchar(255) NOT NULL,
+  `TENOR` varchar(255) NOT NULL,
+  `RESTRUCTDATE` varchar(255) NOT NULL,
+  `KOLBSM` varchar(11) NOT NULL,
+  `KOLCIF` varchar(11) NOT NULL,
+  `SOURCEDATACODE` varchar(255) NOT NULL,
+  `OSPOKOKCONVERSION` decimal(65,2) NOT NULL,
+  `OSMARGINCONVERSION` decimal(65,2) NOT NULL,
+  `OSGROSSCONVERSION` decimal(65,2) NOT NULL,
+  `TUNGGAKANPOKOKCONVERSION` decimal(65,2) NOT NULL,
+  `TUNGGAKANMARGINCONVERSION` decimal(65,2) NOT NULL,
+  `TUNGGAKANGROSSCONVERSION` decimal(65,2) NOT NULL,
+  `PENCAIRANPOKOKCONVERSION` decimal(65,2) NOT NULL,
+  `PENCAIRANMARGINCONVERSION` decimal(65,2) NOT NULL,
+  `PENCAIRANGROSSCONVERSION` decimal(65,2) NOT NULL,
+  `REALISASI_BAGIHASIL` decimal(65,2) NOT NULL,
+  `PROYEKSI_BAGIHASIL` decimal(65,2) NOT NULL,
+  `ACCOUNTOFFICER` varchar(255) NOT NULL,
+  `EQVRATE` decimal(65,2) NOT NULL,
+  `MISACCOUNTOFFICR` varchar(255) NOT NULL,
+  `NAMAPERUSAHAANNASABAH` varchar(255) NOT NULL,
+  `LD_ECONOMICSECTOR` bigint(255) NOT NULL,
+  `TUNGGAKANPENALTYCONVERSION` bigint(255) NOT NULL,
+  `NAPNO` varchar(255) NOT NULL,
+  `STATUS_PENCAIRAN` varchar(255) NOT NULL,
+  `Segmen` varchar(255) NOT NULL,
+  `Produk` varchar(255) NOT NULL,
+  `P/B` varchar(255) NOT NULL,
+  `grup` varchar(255) NOT NULL,
+  `AREA` varchar(255) NOT NULL,
+  `KANWIL` varchar(255) NOT NULL,
+  `E/C` varchar(255) NOT NULL,
+  `sektor_ekon` varchar(255) NOT NULL,
+  `Produk2` varchar(255) NOT NULL,
+  `Tahun Booking` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `existingcek`
+--
+
+INSERT INTO `existingcek` (`id`, `FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `LoanTypeDesc`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `EQVRATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `STATUS_PENCAIRAN`, `Segmen`, `Produk`, `P/B`, `grup`, `AREA`, `KANWIL`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`) VALUES
+(1, '2018-05-31', '7009683307', '74463785', 'DONGORAN SIREGAR', 'ID0010186', 'KC PAYAKUMBUH', 'Musyarakah', '', '2010-03-30', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 0, '', '', '', '1', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '45', 'NAMA PT.', 0, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA PADANG', 'II', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
+(2, '2018-05-31', '7007180564', '73556524', 'SLAMET IMAM SANTOSO', 'ID0010127', 'KC CIBINONG', 'Musyarakah', '', '2009-12-08', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 0, '', '', '', '1', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '45', 'TOKO', 0, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA BOGOR', 'III', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2009'),
+(3, '2018-05-31', '7007193704', '74481957', 'TUGINO HADIWIYOTO', 'ID0010127', 'KC CIBINONG', 'Musyarakah', '', '2010-05-11', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 0, '', '', '', '1', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '45', 'MELATI MAS', 0, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA BOGOR', 'III', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
+(4, '2018-05-31', '7006248254', '73478830', 'SENTOT LAMIDI', 'ID0010114', 'KCP KLATEN', 'Musyarakah', '', '2007-06-12', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 0, '', '', '', '1A', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '45', 'NAMA PT.', 0, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA SOLO', 'IV', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2007'),
+(5, '2018-05-31', '7006257571', '75093077', 'INSAN MULIA CV', 'ID0010114', 'KCP KLATEN', 'Musyarakah', '', '2009-07-31', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 0, '', '', '', '1A', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '45', '', 0, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA SOLO', 'IV', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2009'),
+(6, '2018-05-31', '7008908456', '73416713', 'PARADA SUTAN', 'ID0010043', 'KC PADANGSIDEMPUAN', 'Musyarakah', '523400', '2007-01-12', '2019-02-20', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 14, '', '', '', '1B', '1', 'IBSM', '1262740729.32', '0.00', '1262740729.32', '0.00', '0.00', '0.00', '1300000000.00', '0.00', '1300000000.00', '1097086090.98', '1155799376.72', '', '0.00', '45', 'RAJA MOTOR', 523400, 0, '', '', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', 'AREA PEMATANGSIANTAR', 'I', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2007'),
+(7, '2018-05-31', '7008912763', '73105373', 'HERIYANTO PANE', 'ID0010043', 'KC PADANGSIDEMPUAN', 'Musyarakah', '512141', '2007-07-23', '2018-07-05', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 16, '', '', '', '1A', '1', 'IBSM', '225802756.46', '0.00', '225802756.46', '0.00', '0.00', '0.00', '300000000.00', '0.00', '300000000.00', '156753489.97', '156917629.88', '', '0.00', '45', '', 512141, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA PEMATANGSIANTAR', 'I', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2007'),
+(8, '2018-05-31', '7008924044', '73781819', 'MUHAMMAD ERWIN PULUNGAN', 'ID0010043', 'KC PADANGSIDEMPUAN', 'Musyarakah', '523900', '2008-06-12', '2019-05-05', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '1C', '1', 'IBSM', '129593846.30', '0.00', '129593846.30', '0.00', '5878416.45', '5878416.45', '130000000.00', '0.00', '130000000.00', '171483914.45', '192008670.26', '', '0.00', '45', '', 523900, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA PEMATANGSIANTAR', 'I', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2008'),
+(9, '2018-05-31', '7007874272', '73055920', 'WENDRA YUNALDI', 'ID0010039', 'KC BUKITTINGGI', 'Musyarakah', '701002', '2010-11-29', '2019-01-20', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '1', '1', 'IBSM', '199976975.12', '0.00', '199976975.12', '0.00', '31715760.18', '31715760.18', '200000000.00', '0.00', '200000000.00', '552648133.24', '525911474.83', '', '0.00', '45', 'TAMAN SAHATI', 701002, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA PADANG', 'II', '0', 'Konstruksi', 'Kontraktor', '2010'),
+(10, '2018-05-31', '7007056798', '75078955', 'WAY SEPUTIH BUMI NUSANTARA PT', 'ID0010037', 'KC BANDARLAMPUNG', 'Musyarakah', '452309', '2007-12-28', '2018-10-31', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '1', '1', 'IBSM', '1149722910.74', '0.00', '1149722910.74', '0.00', '0.00', '0.00', '1150000000.00', '0.00', '1150000000.00', '926884255.54', '891326212.27', '91019111', '0.00', '45', '', 452309, 0, '', '', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', 'AREA BANDAR LAMPUNG', 'II', '0', 'Listrik, Gas, dan Air', 'Kecil Komersial Lainnya', '2007'),
+(11, '2018-05-31', '7006138588', '74436790', 'ERWINSYAH', 'ID0010033', 'KC JAKARTA SAHARJO', 'Musyarakah', '', '2010-06-25', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 0, '', '', '', '1', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '45', 'PANCA PUTRA PERKASA CV', 0, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA JAKARTA THAMRIN', 'III', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
+(12, '2018-05-31', '7006125721', '73917465', 'EKA NURWANTO', 'ID0010033', 'KC JAKARTA SAHARJO', 'Musyarakah', '', '2009-03-13', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 0, '', '', '', '1', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0.00', '45', '', 0, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA JAKARTA THAMRIN', 'III', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2009'),
+(13, '2018-05-31', '7006016377', '74158475', 'FAIZAL', 'ID0010032', 'KC JAMBI', 'Musyarakah', '', '2010-12-03', '2013-05-30', 1828, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '5', '5', 'IBSM', '0.00', '0.00', '0.00', '0.00', '49926109.62', '49926109.62', '1000000000.00', '0.00', '1000000000.00', '0.00', '62398158.59', '', '0.00', '45', 'PERKEBUNAN KELAPA SAWIT', 0, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA JAMBI', 'II', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
+(14, '2018-05-31', '7005935975', '73051053', 'A SYAFI\'I', 'ID0010032', 'KC JAMBI', 'Musyarakah', '930000', '2007-10-25', '2018-08-20', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 13, '', '', '', '1', '1', 'IBSM', '1481745551.43', '0.00', '1481745551.43', '0.00', '0.00', '0.00', '1500000000.00', '0.00', '1500000000.00', '1020539228.18', '1015925250.29', '91017796', '0.00', '45', 'DAGANG', 930000, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA JAMBI', 'II', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2007'),
+(15, '2018-05-31', '7006024755', '73084603', 'M RACHMAT', 'ID0010032', 'KC JAMBI', 'Musyarakah', '930000', '2011-02-01', '2018-08-20', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '1', '1', 'IBSM', '698462343.76', '0.00', '698462343.76', '0.00', '0.00', '0.00', '700000000.00', '0.00', '700000000.00', '565477575.06', '547703279.51', '', '0.00', '45', 'NAMA PT.', 930000, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA JAMBI', 'II', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2011'),
+(16, '2018-05-31', '7005171991', '74068277', 'MUHAMMAD ARIFIN RITONGA', 'ID0010030', 'KC RANTAU PRAPAT', 'Musyarakah', '011340', '2010-08-23', '2018-08-23', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '1B', '1', 'IBSM', '139741421.13', '0.00', '139741421.13', '0.00', '0.00', '0.00', '240000000.00', '0.00', '240000000.00', '104989076.37', '112663619.62', '1030', '0.00', '45', 'KEBUN SAWIT', 11340, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA PEMATANGSIANTAR', 'I', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2010'),
+(17, '2018-05-31', '7005201343', '73134634', 'MHD RIVAI AL AMIN', 'ID0010030', 'KC RANTAU PRAPAT', 'Musyarakah', '634000', '2011-06-22', '2018-06-20', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '1', '1', 'IBSM', '110840351.67', '0.00', '110840351.67', '0.00', '0.00', '0.00', '350000000.00', '0.00', '350000000.00', '212216138.37', '184926772.47', '', '0.00', '45', 'NAMA PT.', 634000, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA PEMATANGSIANTAR', 'I', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2011'),
+(18, '2018-05-31', '7005200557', '73982672', 'KHAIRUL RITONGA', 'ID0010030', 'KC RANTAU PRAPAT', 'Musyarakah', '514200', '2010-04-30', '2019-04-20', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '1', '1', 'IBSM', '220000000.00', '0.00', '220000000.00', '0.00', '0.00', '0.00', '220000000.00', '0.00', '220000000.00', '272598560.28', '249901299.09', '', '0.00', '45', 'NAMA PT.', 514200, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA PEMATANGSIANTAR', 'I', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2010'),
+(19, '2018-05-31', '7004226277', '73731415', 'SALAMAH', 'ID0010026', 'KC PONTIANAK', 'Musyarakah', '', '2008-04-25', '2013-04-26', 1862, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '5', '5', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '375000000.00', '0.00', '375000000.00', '0.00', '15937998.37', '', '0.00', '45', 'DINAS PENDIDIKAN', 0, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA PONTIANAK', 'VI', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2008'),
+(20, '2018-05-31', '7004239061', '73497632', 'SYARIF MACHMUD', 'ID0010026', 'KC PONTIANAK', 'Musyarakah', '930000', '2008-01-30', '2019-01-23', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '1B', '1', 'IBSM', '567019396.99', '0.00', '567019396.99', '0.00', '0.00', '0.00', '750000000.00', '0.00', '750000000.00', '265873415.93', '283853344.06', '', '0.00', '45', 'SM MOBIL PD PUTRA KALBAR', 930000, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA PONTIANAK', 'VI', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2008'),
+(21, '2018-05-31', '7004226261', '73731415', 'SALAMAH', 'ID0010026', 'KC PONTIANAK', 'Musyarakah', '', '2008-04-22', '2013-04-26', 1862, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '5', '5', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '125000000.00', '0.00', '125000000.00', '0.00', '5601589.24', '', '0.00', '45', 'DINAS PENDIDIKAN', 0, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA PONTIANAK', 'VI', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2008'),
+(22, '2018-05-31', '7003770685', '73727971', 'SITI FAHMINA SALIM', 'ID0010022', 'KC PEKANBARU', 'Musyarakah', '523200', '2008-05-02', '2019-05-31', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '1A', '1', 'IBSM', '774150325.78', '0.00', '774150325.78', '0.00', '0.00', '0.00', '800000000.00', '0.00', '800000000.00', '457611628.80', '468459811.20', '91001969', '0.00', '45', 'UD MENTARI', 523200, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA PEKANBARU', 'I', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2008'),
+(23, '2018-05-31', '7003801084', '73435013', 'MUHAMMAD YUNIS', 'ID0010022', 'KC PEKANBARU', 'Musyarakah', '011150', '2010-07-05', '2018-07-05', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '1A', '1', 'IBSM', '735640978.71', '0.00', '735640978.71', '0.00', '0.00', '0.00', '900000000.00', '0.00', '900000000.00', '552929574.89', '560205982.06', '91006565', '0.00', '45', 'RAFLI JAYA CV', 11150, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA PEKANBARU', 'I', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2010'),
+(24, '2018-05-31', '7003729472', '73501345', 'MUNZIROH', 'ID0010022', 'KC PEKANBARU', 'Musyarakah', '515000', '2007-10-26', '2018-06-30', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 14, '', '', '', '1A', '1', 'IBSM', '1994419356.30', '0.00', '1994419356.30', '0.00', '0.00', '0.00', '2000000000.00', '0.00', '2000000000.00', '1176456379.80', '1233268788.05', '91006565', '0.00', '45', 'BBC AUTO SERVICE', 515000, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA PEKANBARU', 'I', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2007'),
+(25, '2018-05-31', '7002713998', '75082865', 'NUSAGRI CV', 'ID0010017', 'KC BOGOR', 'Musyarakah', '369000', '2006-09-21', '2019-01-22', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '1', '1', 'IBSM', '1497370432.53', '0.00', '1497370432.53', '0.00', '0.00', '0.00', '1500000000.00', '0.00', '1500000000.00', '763643085.01', '699673091.40', '', '0.00', '45', '', 369000, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA BOGOR', 'III', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2006'),
+(26, '2018-05-31', '7002067131', '73738316', 'HARYANTO', 'ID0010013', 'KC SOLO', 'Musyarakah', '523900', '2009-03-23', '2019-03-20', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 13, '', '', '', '1', '1', 'IBSM', '840340197.23', '0.00', '840340197.23', '0.00', '0.00', '0.00', '1200000000.00', '0.00', '1200000000.00', '503786715.75', '371536065.93', '91006210', '0.00', '45', 'WIRASWASTA', 523900, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA SOLO', 'IV', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2009'),
+(27, '2018-05-31', '7001927722', '73721691', 'NAILUL MAROMI', 'ID0010012', 'KC PEKALONGAN', 'Musyarakah', '171000', '2010-08-18', '2018-08-17', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 15, '', '', '', '1C', '1', 'IBSM', '750000000.00', '0.00', '750000000.00', '0.00', '55464675.75', '55464675.75', '750000000.00', '0.00', '750000000.00', '495199739.98', '606947264.30', '91010271', '0.00', '45', 'KBIH ASMA CHUSNA', 171000, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA SEMARANG', 'IV', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2010'),
+(28, '2018-05-31', '7001928125', '74659105', 'LUKMAN CHAKIM', 'ID0010012', 'KC PEKALONGAN', 'Musyarakah', '171000', '2010-08-27', '2018-06-09', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 16, '', '', '', '1A', '1', 'IBSM', '762352007.29', '0.00', '762352007.29', '0.00', '0.00', '0.00', '1000000000.00', '0.00', '1000000000.00', '482846322.43', '497153455.93', '91010271', '0.00', '45', 'LUKMAN BATIK', 171000, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA SEMARANG', 'IV', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2010'),
+(29, '2018-05-31', '7000728939', '75090012', 'SUMBER KEMAS WANGI CV', 'ID0010007', 'KC BEKASI', 'Musyarakah', '519009', '2011-05-18', '2019-02-03', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 16, '', '', '', '1A', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '1500000000.00', '0.00', '1500000000.00', '594747500.56', '619104207.75', '', '0.00', '45', '', 519009, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA BEKASI', 'III', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
+(30, '2018-05-31', '7000706323', '75085777', 'TULUS UTAMA KARYA ', 'ID0010007', 'KC BEKASI', 'Musyarakah', '930000', '2010-06-24', '2018-08-12', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 16, '', '', '', '1', '1', 'IBSM', '41712514.15', '0.00', '41712514.15', '0.00', '0.00', '0.00', '400000000.00', '0.00', '400000000.00', '233586632.51', '168142150.17', '', '0.00', '45', '', 930000, 0, '', '', 'Small', 'Kecil Komersial', '0', 'B to C', 'AREA BEKASI', 'III', '0', 'Pengangkutan, Pergudangan, dan Komunikasi', 'Kecil Komersial Lainnya', '2010'),
+(32, '2018-05-31', '7009433408', '74580109', 'ZULAEHA', 'ID0010046', 'KC DEPOK', 'Musyarakah', '', '2010-06-18', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 16, '', '', '', '1', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '187351585.08', '187351585.08', '0.00', '0.00', '0.00', '9303943.76', '0.00', '', '0.00', '45', 'GRAND FURNITURE', 0, 0, '', '', '', '', '', '', 'AREA BOGOR', 'III', '', '', '', ''),
+(33, '2018-05-31', '7009046881', '75095984', 'DEWI SIERA PERSADA PT', 'ID0010044', 'KC DUMAI', 'Musyarakah', '452190', '2009-12-30', '2018-12-20', 0, 'BBG', 'IDR', 'PDB0001', 'PDB Industri', '1005', '', 13, '', '', '', '1', '1', 'IBSM', '386480580.81', '0.00', '386480580.81', '0.00', '0.00', '0.00', '400000000.00', '0.00', '400000000.00', '273166403.46', '254221645.47', '91002444', '0.00', '45', '', 452190, 0, '', '', '', '', '', '', 'AREA PEKANBARU', 'I', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1847,6 +2073,108 @@ CREATE TABLE `ifois` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ifoiscek`
+--
+
+CREATE TABLE `ifoiscek` (
+  `id` int(11) NOT NULL,
+  `FICMISDATE` date NOT NULL,
+  `NOLOAN` varchar(255) NOT NULL,
+  `NOMORCIF` varchar(255) NOT NULL,
+  `NAMALENGKAP` varchar(255) NOT NULL,
+  `KODECABANGBARU` varchar(255) NOT NULL,
+  `NAMACABANG` varchar(255) NOT NULL,
+  `JENISPIUTANGPEMBIAYAAN` varchar(255) NOT NULL,
+  `JENISPENGGUNAANCODE` varchar(255) NOT NULL,
+  `SEKTOREKONOMICODE` varchar(255) NOT NULL,
+  `TGLPENCAIRAN` date NOT NULL,
+  `TGLJTTEMPO` date NOT NULL,
+  `DAYPASTDUE` int(255) NOT NULL,
+  `DIVISI` varchar(255) NOT NULL,
+  `CURRENCY` varchar(255) NOT NULL,
+  `LOANTYPE` varchar(255) NOT NULL,
+  `CATEGORY` varchar(255) NOT NULL,
+  `RESTRUCTFLAG` varchar(255) NOT NULL,
+  `PRICING` bigint(255) NOT NULL,
+  `REKPEMBYPOKOK` varchar(255) NOT NULL,
+  `TENOR` varchar(255) NOT NULL,
+  `RESTRUCTDATE` varchar(255) NOT NULL,
+  `KOLBSM` varchar(11) NOT NULL,
+  `KOLCIF` varchar(11) NOT NULL,
+  `SOURCEDATACODE` varchar(255) NOT NULL,
+  `OSPOKOKCONVERSION` decimal(65,2) NOT NULL,
+  `OSMARGINCONVERSION` decimal(65,2) NOT NULL,
+  `OSGROSSCONVERSION` decimal(65,2) NOT NULL,
+  `TUNGGAKANPOKOKCONVERSION` decimal(65,2) NOT NULL,
+  `TUNGGAKANMARGINCONVERSION` decimal(65,2) NOT NULL,
+  `TUNGGAKANGROSSCONVERSION` decimal(65,2) NOT NULL,
+  `PENCAIRANPOKOKCONVERSION` decimal(65,2) NOT NULL,
+  `PENCAIRANMARGINCONVERSION` decimal(65,2) NOT NULL,
+  `PENCAIRANGROSSCONVERSION` decimal(65,2) NOT NULL,
+  `REALISASI_BAGIHASIL` decimal(65,2) NOT NULL,
+  `PROYEKSI_BAGIHASIL` decimal(65,2) NOT NULL,
+  `ACCOUNTOFFICER` varchar(255) NOT NULL,
+  `ACCOUNTOFFICER2` varchar(255) NOT NULL,
+  `EQVRATE` decimal(65,2) NOT NULL,
+  `INTEREST_RATE` varchar(255) NOT NULL,
+  `MISACCOUNTOFFICR` varchar(255) NOT NULL,
+  `NAMAPERUSAHAANNASABAH` varchar(255) NOT NULL,
+  `LD_ECONOMICSECTOR` bigint(255) NOT NULL,
+  `TUNGGAKANPENALTYCONVERSION` bigint(255) NOT NULL,
+  `NAPNO` varchar(255) NOT NULL,
+  `SCHEDTYPE` varchar(255) NOT NULL,
+  `SOCODE` varchar(255) NOT NULL,
+  `PEKERJAAN` varchar(255) NOT NULL,
+  `SEGMENTASI` varchar(255) NOT NULL,
+  `STATUS_PENCAIRAN` varchar(255) NOT NULL,
+  `RELATED_TRN` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ifoiscek`
+--
+
+INSERT INTO `ifoiscek` (`id`, `FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `JENISPENGGUNAANCODE`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `ACCOUNTOFFICER2`, `EQVRATE`, `INTEREST_RATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `SCHEDTYPE`, `SOCODE`, `PEKERJAAN`, `SEGMENTASI`, `STATUS_PENCAIRAN`, `RELATED_TRN`) VALUES
+(1, '2018-05-31', '7000706323', '75085777', 'TULUS UTAMA KARYA ', 'ID0010007', 'KC BEKASI', 'Musyarakah', '', '930000', '2010-06-24', '2018-08-12', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 16, '', '', '', '1', '1', 'IBSM', '41712514.15', '0.00', '41712514.15', '0.00', '0.00', '0.00', '400000000.00', '0.00', '400000000.00', '233586632.51', '168142150.17', '', '', '0.00', '', '45', '', 930000, 0, '', '', '', '', '', '', ''),
+(2, '2018-05-31', '7000728939', '75090012', 'SUMBER KEMAS WANGI CV', 'ID0010007', 'KC BEKASI', 'Musyarakah', '', '519009', '2011-05-18', '2019-02-03', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 16, '', '', '', '1A', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '1500000000.00', '0.00', '1500000000.00', '594747500.56', '619104207.75', '', '', '0.00', '', '45', '', 519009, 0, '', '', '', '', '', '', ''),
+(3, '2018-05-31', '7001437857', '75075876', 'MULTIPANEL INTERMITRA M', 'ID0010002', 'KC JAKARTA THAMRIN', 'Musyarakah', '', '452309', '2011-04-08', '2018-07-03', 0, 'CB1G', 'IDR', 'PDB0001', '1005', '', 12, '', '', '', '1A', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '88299613.87', '88299613.87', '10000000000.00', '0.00', '10000000000.00', '3822399910.52', '3857072414.10', '', '', '0.00', '', '3', '', 452309, 0, '', '', '', '', '', '', ''),
+(4, '2018-05-31', '7001927722', '73721691', 'NAILUL MAROMI', 'ID0010012', 'KC PEKALONGAN', 'Musyarakah', '', '171000', '2010-08-18', '2018-08-17', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '1C', '1', 'IBSM', '750000000.00', '0.00', '750000000.00', '0.00', '55464675.75', '55464675.75', '750000000.00', '0.00', '750000000.00', '495199739.98', '606947264.30', '91010271', '', '0.00', '', '45', 'KBIH ASMA CHUSNA', 171000, 0, '', '', '', 'Lain-Lain', '', '', ''),
+(5, '2018-05-31', '7001928125', '74659105', 'LUKMAN CHAKIM', 'ID0010012', 'KC PEKALONGAN', 'Musyarakah', '', '171000', '2010-08-27', '2018-06-09', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 16, '', '', '', '1A', '1', 'IBSM', '762352007.29', '0.00', '762352007.29', '0.00', '0.00', '0.00', '1000000000.00', '0.00', '1000000000.00', '482846322.43', '497153455.93', '91010271', '', '0.00', '', '45', 'LUKMAN BATIK', 171000, 0, '', '', '', 'Wiraswasta', '', '', ''),
+(6, '2018-05-31', '7002067131', '73738316', 'HARYANTO', 'ID0010013', 'KC SOLO', 'Musyarakah', '', '523900', '2009-03-23', '2019-03-20', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 13, '', '', '', '1', '1', 'IBSM', '840340197.23', '0.00', '840340197.23', '0.00', '0.00', '0.00', '1200000000.00', '0.00', '1200000000.00', '503786715.75', '371536065.93', '91006210', '', '0.00', '', '45', 'WIRASWASTA', 523900, 0, '', '', '', 'Wiraswasta', '', '', ''),
+(7, '2018-05-31', '7002713998', '75082865', 'NUSAGRI CV', 'ID0010017', 'KC BOGOR', 'Musyarakah', '', '369000', '2006-09-21', '2019-01-22', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '1', '1', 'IBSM', '1497370432.53', '0.00', '1497370432.53', '0.00', '0.00', '0.00', '1500000000.00', '0.00', '1500000000.00', '763643085.01', '699673091.40', '', '', '0.00', '', '45', '', 369000, 0, '', '', '', '', '', '', ''),
+(8, '2018-05-31', '7003729472', '73501345', 'MUNZIROH', 'ID0010022', 'KC PEKANBARU', 'Musyarakah', '', '515000', '2007-10-26', '2018-06-30', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 14, '', '', '', '1A', '1', 'IBSM', '1994419356.30', '0.00', '1994419356.30', '0.00', '0.00', '0.00', '2000000000.00', '0.00', '2000000000.00', '1176456379.80', '1233268788.05', '91006565', '', '0.00', '', '45', 'BBC AUTO SERVICE', 515000, 0, '', '', '', 'Lain-Lain', '', '', ''),
+(9, '2018-05-31', '7003770685', '73727971', 'SITI FAHMINA SALIM', 'ID0010022', 'KC PEKANBARU', 'Musyarakah', '', '523200', '2008-05-02', '2019-05-31', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '1A', '1', 'IBSM', '774150325.78', '0.00', '774150325.78', '0.00', '0.00', '0.00', '800000000.00', '0.00', '800000000.00', '457611628.80', '468459811.20', '91001969', '', '0.00', '', '45', 'UD MENTARI', 523200, 0, '', '', '', 'Lain-Lain', '', '', ''),
+(10, '2018-05-31', '7003784309', '75078031', 'ARJUNA LUMAS DWIGUNA, PT', 'ID0010022', 'KC PEKANBARU', 'Musyarakah', '', '514100', '2009-05-29', '2018-09-20', 0, 'CMG', 'IDR', 'PDB0001', '1005', '', 14, '', '', '', '1B', '1', 'IBSM', '1990132500.15', '0.00', '1990132500.15', '0.00', '814305646.56', '814305646.56', '2000000000.00', '0.00', '2000000000.00', '1638615533.80', '1817529853.88', '91015551', '', '0.00', '', '8', '', 514100, 0, '', '', '', '', '', '', ''),
+(11, '2018-05-31', '7003801084', '73435013', 'MUHAMMAD YUNIS', 'ID0010022', 'KC PEKANBARU', 'Musyarakah', '', '011150', '2010-07-05', '2018-07-05', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '1A', '1', 'IBSM', '735640978.71', '0.00', '735640978.71', '0.00', '0.00', '0.00', '900000000.00', '0.00', '900000000.00', '552929574.89', '560205982.06', '91006565', '', '0.00', '', '45', 'RAFLI JAYA CV', 11150, 0, '', '', '', 'Wiraswasta', '', '', ''),
+(12, '2018-05-31', '7004226261', '73731415', 'SALAMAH', 'ID0010026', 'KC PONTIANAK', 'Musyarakah', '', '', '2008-04-22', '2013-04-26', 1862, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '5', '5', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '125000000.00', '0.00', '125000000.00', '0.00', '5601589.24', '', '', '0.00', '', '45', 'DINAS PENDIDIKAN', 0, 0, '', '', '', 'Bumn', '', '', ''),
+(13, '2018-05-31', '7004226277', '73731415', 'SALAMAH', 'ID0010026', 'KC PONTIANAK', 'Musyarakah', '', '', '2008-04-25', '2013-04-26', 1862, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '5', '5', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '375000000.00', '0.00', '375000000.00', '0.00', '15937998.37', '', '', '0.00', '', '45', 'DINAS PENDIDIKAN', 0, 0, '', '', '', 'Bumn', '', '', ''),
+(14, '2018-05-31', '7004239061', '73497632', 'SYARIF MACHMUD', 'ID0010026', 'KC PONTIANAK', 'Musyarakah', '', '930000', '2008-01-30', '2019-01-23', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '1B', '1', 'IBSM', '567019396.99', '0.00', '567019396.99', '0.00', '0.00', '0.00', '750000000.00', '0.00', '750000000.00', '265873415.93', '283853344.06', '', '', '0.00', '', '45', 'SM MOBIL PD PUTRA KALBAR', 930000, 0, '', '', '', 'Wiraswasta', '', '', ''),
+(15, '2018-05-31', '7005171991', '74068277', 'MUHAMMAD ARIFIN RITONGA', 'ID0010030', 'KC RANTAU PRAPAT', 'Musyarakah', '', '011340', '2010-08-23', '2018-08-23', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '1B', '1', 'IBSM', '139741421.13', '0.00', '139741421.13', '0.00', '0.00', '0.00', '240000000.00', '0.00', '240000000.00', '104989076.37', '112663619.62', '1030', '', '0.00', '', '45', 'KEBUN SAWIT', 11340, 0, '', '', '', 'Wiraswasta', '', '', ''),
+(16, '2018-05-31', '7005200557', '73982672', 'KHAIRUL RITONGA', 'ID0010030', 'KC RANTAU PRAPAT', 'Musyarakah', '', '514200', '2010-04-30', '2019-04-20', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '1', '1', 'IBSM', '220000000.00', '0.00', '220000000.00', '0.00', '0.00', '0.00', '220000000.00', '0.00', '220000000.00', '272598560.28', '249901299.09', '', '', '0.00', '', '45', 'NAMA PT.', 514200, 0, '', '', '', 'Wiraswasta', '', '', ''),
+(17, '2018-05-31', '7005201343', '73134634', 'MHD RIVAI AL AMIN', 'ID0010030', 'KC RANTAU PRAPAT', 'Musyarakah', '', '634000', '2011-06-22', '2018-06-20', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '1', '1', 'IBSM', '110840351.67', '0.00', '110840351.67', '0.00', '0.00', '0.00', '350000000.00', '0.00', '350000000.00', '212216138.37', '184926772.47', '', '', '0.00', '', '45', 'NAMA PT.', 634000, 0, '', '', '', 'Wiraswasta', '', '', ''),
+(18, '2018-05-31', '7005935975', '73051053', 'A SYAFI\'I', 'ID0010032', 'KC JAMBI', 'Musyarakah', '', '930000', '2007-10-25', '2018-08-20', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 13, '', '', '', '1', '1', 'IBSM', '1481745551.43', '0.00', '1481745551.43', '0.00', '0.00', '0.00', '1500000000.00', '0.00', '1500000000.00', '1020539228.18', '1015925250.29', '91017796', '', '0.00', '', '45', 'DAGANG', 930000, 0, '', '', '', 'Eksekutif', '', '', ''),
+(19, '2018-05-31', '7006016377', '74158475', 'FAIZAL', 'ID0010032', 'KC JAMBI', 'Musyarakah', '', '', '2010-12-03', '2013-05-30', 1828, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '5', '5', 'IBSM', '0.00', '0.00', '0.00', '0.00', '49926109.62', '49926109.62', '1000000000.00', '0.00', '1000000000.00', '0.00', '62398158.59', '', '', '0.00', '', '45', 'PERKEBUNAN KELAPA SAWIT', 0, 0, '', '', '', 'Lain-Lain', '', '', ''),
+(20, '2018-05-31', '7006024755', '73084603', 'M RACHMAT', 'ID0010032', 'KC JAMBI', 'Musyarakah', '', '930000', '2011-02-01', '2018-08-20', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '1', '1', 'IBSM', '698462343.76', '0.00', '698462343.76', '0.00', '0.00', '0.00', '700000000.00', '0.00', '700000000.00', '565477575.06', '547703279.51', '', '', '0.00', '', '45', 'NAMA PT.', 930000, 0, '', '', '', 'Pegawai Asuransi', '', '', ''),
+(21, '2018-05-31', '7006125721', '73917465', 'EKA NURWANTO', 'ID0010033', 'KC JAKARTA SAHARJO', 'Musyarakah', '', '', '2009-03-13', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 0, '', '', '', '1', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '', '0.00', '', '45', '', 0, 0, '', '', '', 'Eksekutif', '', '', ''),
+(22, '2018-05-31', '7006138588', '74436790', 'ERWINSYAH', 'ID0010033', 'KC JAKARTA SAHARJO', 'Musyarakah', '', '', '2010-06-25', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 0, '', '', '', '1', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '', '0.00', '', '45', 'PANCA PUTRA PERKASA CV', 0, 0, '', '', '', 'Eksekutif', '', '', ''),
+(23, '2018-05-31', '7006248254', '73478830', 'SENTOT LAMIDI', 'ID0010114', 'KCP KLATEN', 'Musyarakah', '', '', '2007-06-12', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 0, '', '', '', '1A', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '', '0.00', '', '45', 'NAMA PT.', 0, 0, '', '', '', 'Lain-Lain', '', '', ''),
+(24, '2018-05-31', '7006257571', '75093077', 'INSAN MULIA CV', 'ID0010114', 'KCP KLATEN', 'Musyarakah', '', '', '2009-07-31', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 0, '', '', '', '1A', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '', '0.00', '', '45', '', 0, 0, '', '', '', '', '', '', ''),
+(25, '2018-05-31', '7007056798', '75078955', 'WAY SEPUTIH BUMI NUSANTARA PT', 'ID0010037', 'KC BANDARLAMPUNG', 'Musyarakah', '', '452309', '2007-12-28', '2018-10-31', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '1', '1', 'IBSM', '1149722910.74', '0.00', '1149722910.74', '0.00', '0.00', '0.00', '1150000000.00', '0.00', '1150000000.00', '926884255.54', '891326212.27', '91019111', '', '0.00', '', '45', '', 452309, 0, '', '', '', '', '', '', ''),
+(26, '2018-05-31', '7007180564', '73556524', 'SLAMET IMAM SANTOSO', 'ID0010127', 'KC CIBINONG', 'Musyarakah', '', '', '2009-12-08', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 0, '', '', '', '1', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '', '0.00', '', '45', 'TOKO', 0, 0, '', '', '', 'Wiraswasta', '', '', ''),
+(27, '2018-05-31', '7007193704', '74481957', 'TUGINO HADIWIYOTO', 'ID0010127', 'KC CIBINONG', 'Musyarakah', '', '', '2010-05-11', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 0, '', '', '', '1', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '', '0.00', '', '45', 'MELATI MAS', 0, 0, '', '', '', 'Eksekutif', '', '', ''),
+(28, '2018-05-31', '7007874272', '73055920', 'WENDRA YUNALDI', 'ID0010039', 'KC BUKITTINGGI', 'Musyarakah', '', '701002', '2010-11-29', '2019-01-20', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '1', '1', 'IBSM', '199976975.12', '0.00', '199976975.12', '0.00', '31715760.18', '31715760.18', '200000000.00', '0.00', '200000000.00', '552648133.24', '525911474.83', '', '', '0.00', '', '45', 'TAMAN SAHATI', 701002, 0, '', '', '', 'Lain-Lain', '', '', ''),
+(29, '2018-05-31', '7008908456', '73416713', 'PARADA SUTAN', 'ID0010043', 'KC PADANGSIDEMPUAN', 'Musyarakah', '', '523400', '2007-01-12', '2019-02-20', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 14, '', '', '', '1B', '1', 'IBSM', '1262740729.32', '0.00', '1262740729.32', '0.00', '0.00', '0.00', '1300000000.00', '0.00', '1300000000.00', '1097086090.98', '1155799376.72', '', '', '0.00', '', '45', 'RAJA MOTOR', 523400, 0, '', '', '', 'Lain-Lain', '', '', ''),
+(30, '2018-05-31', '7008912763', '73105373', 'HERIYANTO PANE', 'ID0010043', 'KC PADANGSIDEMPUAN', 'Musyarakah', '', '512141', '2007-07-23', '2018-07-05', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 16, '', '', '', '1A', '1', 'IBSM', '225802756.46', '0.00', '225802756.46', '0.00', '0.00', '0.00', '300000000.00', '0.00', '300000000.00', '156753489.97', '156917629.88', '', '', '0.00', '', '45', '', 512141, 0, '', '', '', 'Eksekutif', '', '', ''),
+(31, '2018-05-31', '7008924044', '73781819', 'MUHAMMAD ERWIN PULUNGAN', 'ID0010043', 'KC PADANGSIDEMPUAN', 'Musyarakah', '', '523900', '2008-06-12', '2019-05-05', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 15, '', '', '', '1C', '1', 'IBSM', '129593846.30', '0.00', '129593846.30', '0.00', '5878416.45', '5878416.45', '130000000.00', '0.00', '130000000.00', '171483914.45', '192008670.26', '', '', '0.00', '', '45', '', 523900, 0, '', '', '', 'Lain-Lain', '', '', ''),
+(32, '2018-05-31', '7009035103', '75079030', 'PT JAYA PRATAMA ABADI NUSANTARA', 'ID0010044', 'KC DUMAI', 'Musyarakah', '', '632000', '2008-02-19', '2018-06-24', 0, 'CMG', 'IDR', 'PDB0001', '1005', '', 13, '', '', '', '1', '1', 'IBSM', '3658253545.69', '0.00', '3658253545.69', '0.00', '0.00', '0.00', '5000000000.00', '0.00', '5000000000.00', '1927919963.41', '1839282888.30', '91004454', '', '0.00', '', '8', '', 632000, 0, '', '', '', '', '', '', ''),
+(33, '2018-05-31', '7009046881', '75095984', 'DEWI SIERA PERSADA PT', 'ID0010044', 'KC DUMAI', 'Musyarakah', '', '452190', '2009-12-30', '2018-12-20', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 13, '', '', '', '1', '1', 'IBSM', '386480580.81', '0.00', '386480580.81', '0.00', '0.00', '0.00', '400000000.00', '0.00', '400000000.00', '273166403.46', '254221645.47', '91002444', '', '0.00', '', '45', '', 452190, 0, '', '', '', '', '', '', ''),
+(34, '2018-05-31', '7009292367', '75082979', 'PEGADAIAN CAB SYARIAH PT', 'ID0010045', 'KC JAKARTA KEBON JERUK', 'Musyarakah', '', '659009', '2007-02-26', '2019-02-10', 0, 'CB2G', 'IDR', 'PDB0001', '1005', '', 8, '', '', '', '1', '1', 'IBSM', '241054558436.13', '0.00', '241054558436.13', '0.00', '0.00', '0.00', '400000000000.00', '0.00', '400000000000.00', '153791653416.44', '147070123903.75', '91017531', '', '0.00', '', '5', '', 659009, 0, '', '', '', '', '', '', ''),
+(35, '2018-05-31', '7009433408', '74580109', 'ZULAEHA', 'ID0010046', 'KC DEPOK', 'Musyarakah', '', '', '2010-06-18', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 16, '', '', '', '1', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '187351585.08', '187351585.08', '0.00', '0.00', '0.00', '9303943.76', '0.00', '', '', '0.00', '', '45', 'GRAND FURNITURE', 0, 0, '', '', '', 'Wiraswasta', '', '', ''),
+(36, '2018-05-31', '7009683307', '74463785', 'DONGORAN SIREGAR', 'ID0010186', 'KC PAYAKUMBUH', 'Musyarakah', '', '', '2010-03-30', '0000-00-00', 0, 'BBG', 'IDR', 'PDB0001', '1005', '', 0, '', '', '', '1', '1', 'IBSM', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '', '0.00', '', '45', 'NAMA PT.', 0, 0, '', '', '', 'Eksekutif', '', '', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jabatan`
 --
 
@@ -1888,205 +2216,38 @@ CREATE TABLE `lalu` (
 --
 
 INSERT INTO `lalu` (`id`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `Segmen`, `Produk`, `P/B`, `grup`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`) VALUES
-(1, '7005171991', '74068277', 'MUHAMMAD ARIFIN RITONGA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2010'),
-(2, '7009687027', '73859342', 'HARTEDI ST', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2010'),
-(3, '7009696983', '74464158', 'EKKY RAMA PUTRA H', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
-(4, '7012093084', '74624643', 'KAMAL AMBOY', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2010'),
-(5, '7020251195', '75091959', 'BATHIN PUSPA PERSADA CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2009'),
-(6, '7020258386', '75097657', 'BIAS PERDANA CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2010'),
-(7, '7028856681', '73030443', 'MAHMUDIN A RIFAI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2011'),
-(8, '7005201343', '73134634', 'MHD RIVAI AL AMIN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2011'),
-(9, '7001927722', '73721691', 'NAILUL MAROMI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2010'),
-(10, '7005200557', '73982672', 'KHAIRUL RITONGA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2010'),
-(11, '7001928125', '74659105', 'LUKMAN CHAKIM', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2010'),
-(12, '7008908456', '73416713', 'PARADA SUTAN', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2007'),
-(13, '7008912763', '73105373', 'HERIYANTO PANE', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2007'),
-(14, '7020257444', '73249137', 'ERWIN RIZALI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2010'),
-(15, '7020514544', '74309287', 'SUDARMAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
-(16, '7024814078', '74659973', 'TAUFIQ LUKMAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2011'),
-(17, '7027578308', '73936073', 'HUSEN MUCHDOR H', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
-(18, '7028661775', '75371895', 'GIRAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
-(19, '7000728939', '75090012', 'SUMBER KEMAS WANGI CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
-(20, '7006016377', '74158475', 'FAIZAL', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
-(21, '7006248254', '73478830', 'SENTOT LAMIDI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2007'),
-(22, '7011006307', '73010315', 'ABBAS', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2009'),
-(23, '7014191008', '75085322', 'FINACO INDONESIA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2011'),
-(24, '7022584051', '75098855', 'KOPERASI UNIT DESA SEJAHTERA', 'Linkage', 'LKMS (KJKS)', '0', 'B to B', 'Eksekuting', 'Pertanian, Perburuan, dan Sarana Pertanian', 'LKMS (KJKS)', '2011'),
-(25, '7023425062', '75073246', 'EKWILINA SUNARMI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2010'),
-(26, '7023425178', '75104240', 'ALMAAS BORNEO JAYA PT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
-(27, '7023512739', '75100717', 'PUTRA CAHYA ADHITAMA PT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
-(28, '7023674698', '74926929', 'NUR JAELANI H', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
-(29, '7034469468', '76101879', 'EVRAN ESEVIT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pengangkutan, Pergudangan, dan Komunikasi', 'Kecil Komersial Lainnya', '2012'),
-(30, '7005935975', '73051053', 'A SYAFI\'I', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2007'),
-(31, '7006024755', '73084603', 'M RACHMAT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2011'),
-(32, '7007180564', '73556524', 'SLAMET IMAM SANTOSO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2009'),
-(33, '7000706323', '75085777', 'TULUS UTAMA KARYA ', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pengangkutan, Pergudangan, dan Komunikasi', 'Kecil Komersial Lainnya', '2010'),
-(34, '7006257571', '75093077', 'INSAN MULIA CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2009'),
-(35, '7007193704', '74481957', 'TUGINO HADIWIYOTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
-(36, '7035778157', '75083029', 'BANGUN PERSADA TRANSPORT, PT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pengangkutan, Pergudangan, dan Komunikasi', 'Kecil Komersial Lainnya', '2012'),
-(37, '7038892438', '76409009', 'EDI AFRIZON', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(38, '7038956994', '75629427', 'FAHRI SIREGAR', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(39, '7040823818', '75583858', 'WAHYU NUGROHO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(40, '7041203506', '75298336', 'MUHAMMAD MAHATA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(41, '7049729159', '77182900', 'WAZRI FIRDAUS', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2013'),
-(42, '7002713998', '75082865', 'NUSAGRI CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2006'),
-(43, '7006138588', '74436790', 'ERWINSYAH', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
-(44, '7013843656', '73236743', 'BAHAR', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2010'),
-(45, '7021851722', '74353003', 'HARRY HORATIAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2010'),
-(46, '7022846234', '74968425', 'SUKIRAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
-(47, '7033270601', '75639964', 'MICHAEL TANJAYA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(48, '7049889296', '77177242', 'RAFLIS RACHMAN ', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(49, '7050002459', '77204225', 'SUYATMAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2013'),
-(50, '7050579397', '74659865', 'WARSONO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2013'),
-(51, '7050939523', '77276061', 'AA SUPRIATNA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(52, '7051849088', '77341988', 'MOHAMMAD SUGIHARTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2013'),
-(53, 'LD1810906302', '75099949', 'KOPERASI SIMPAN PINJAMBAITUL MAAL WATTAMWIL AMANAH RAY', 'Linkage', 'LKMS (KJKS)', '0', 'B to B', 'Eksekuting', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'LKMS (KJKS)', ''),
-(54, '7059932327', '77702226', 'MUH ISMAIL YUSUF', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(55, '7061476592', '77759893', 'KHUSNUL MAROM', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2013'),
-(56, '7063274137', '77252495', 'EDI SUSANTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(57, '7065549551', '78019481', 'ANUGRAH JAYA ELEKTRIKA PT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2013'),
-(58, '7065738157', '78028536', 'SALAFUDIN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2013'),
-(59, '7011375086', '75092418', 'INTI BANGUN NEGERI CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2010'),
-(60, '7011384058', '75101076', 'KORSA KEMILAU CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pengangkutan, Pergudangan, dan Komunikasi', 'Kecil Komersial Lainnya', '2011'),
-(61, '7012077178', '75089240', 'ASFIRINDO TEKNIK CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2008'),
-(62, '7020256677', '75097652', 'MARATHU PUSPA PERTIWI CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2010'),
-(63, '7020257468', '75097654', 'BINTANG WIDJAYA CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2010'),
-(64, '7020258211', '75097655', 'PANCA MITRA KARYA CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2010'),
-(65, '7037141318', '76297712', 'JUMIRAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2012'),
-(66, '7011493178', '74505834', 'NURCAHYANTI', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2010'),
-(67, '7013973328', '73578029', 'SUHERNI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2010'),
-(68, '7014874156', '73629099', 'ISMAIL RASYID', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2008'),
-(69, '7019670478', '74346872', 'MUKHTAR', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2011'),
-(70, '7025458917', '75143597', 'MEKASINDOTAMA PESONA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2011'),
-(71, '7029306251', '74555511', 'NURAHMAT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
-(72, '7006125721', '73917465', 'EKA NURWANTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2009'),
-(73, '7004226277', '73731415', 'SALAMAH', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2008'),
-(74, '7004239061', '73497632', 'SYARIF MACHMUD', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2008'),
-(75, '7011011998', '75095304', 'GUJATI LIMA PULUH SEMBILAN', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2010'),
-(76, '7004226261', '73731415', 'SALAMAH', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2008'),
-(77, '7033696471', '76050702', 'LUTFI NURDIANSYAH', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(78, '7037362322', '74518191', 'RUNIE HANDARINI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(79, '7038929059', '75102218', 'SIAB JAYA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(80, '7039592716', '73446809', 'TARMIZI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2012'),
-(81, '7044630324', '76669500', 'MEGARINDO JAYA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(82, '7044750141', '74556693', 'TATI KRISTIANTI', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(83, '7007056798', '75078955', 'WAY SEPUTIH BUMI NUSANTARA PT', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', '0', 'Listrik, Gas, dan Air', 'Kecil Komersial Lainnya', '2007'),
-(84, '7007874272', '73055920', 'WENDRA YUNALDI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2010'),
-(85, '7012513679', '73210067', 'SUPRIYADI ', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2007'),
-(86, '7022844924', '74968311', 'ARIF HARYANTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
-(87, '7023901007', '73223015', 'MAULANA MALIK IBRAHIM', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2011'),
-(88, '7026754377', '73039792', 'TOJIB NURROCHMAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
-(89, '7003770685', '73727971', 'SITI FAHMINA SALIM', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2008'),
-(90, '7010758925', '75079003', 'JOLIN SAPTA MEDIKA', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Jasa Kesehatan', '2007'),
-(91, '7027996285', '75357294', 'BUANA RAYA', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
-(92, '7031136932', '75172674', 'ALUMADA ARTHA PRIMA PT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
-(93, '7031604251', '75596400', 'NURHAJASMI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2012'),
-(94, '7036635554', '76273082', 'MINARTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(95, '7003801084', '73435013', 'MUHAMMAD YUNIS', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2010'),
-(96, '7002067131', '73738316', 'HARYANTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2009'),
-(97, '7003729472', '73501345', 'MUNZIROH', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2007'),
-(98, '7020376885', '74637466', 'ASNOMEL', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
-(99, '7023988978', '74973968', 'YUSUF HASAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2011'),
-(100, '7030217378', '74618591', 'MOCHAMMAD DILAR ', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2011'),
-(101, '7037251563', '76283579', 'PT SAPTA PURNA BHAKTI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(102, '7040708159', '75530051', 'MUHAMMAD RIZAL SIREGAR', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(103, '7043279267', '76725449', 'ISKANDAR', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(104, '7043501792', '75079054', 'PINCURAN MACU SEJAHTERA PT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(105, '7043525284', '76688754', 'IRWA KOSWIANDA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pengangkutan, Pergudangan, dan Komunikasi', 'Kecil Komersial Lainnya', '2012'),
-(106, '7060316467', '77194238', 'DARUL MAS ABADI PT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2013'),
-(107, '7030674205', '75078993', 'FALAH PRODUCTION CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2011'),
-(108, '7032341483', '75672947', 'MUHAMMAD YAZID', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2012'),
-(109, '7034617494', '76117971', 'DEDE SETIADI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(110, '7036256871', '76248740', 'LINDA MARTIANA ', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2012'),
-(111, '7042229223', '75260682', 'SUKARNO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2012'),
-(112, '7045082355', '76849924', 'ADI KURNIAWAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2012'),
-(113, '7060546732', '76879177', 'SINAR JEMBAR PRATAMA PT ', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2013'),
-(114, '7062456013', '77855056', 'SERAYU MAS CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2013'),
-(115, '7062652308', '77862366', 'DWI MITRA ABADI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2013'),
-(116, '7092727097', '79929862', 'DAVIN ERLAND VENUS LESMANA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2015'),
-(117, '7092845014', '79935843', 'MAKMUR ABADI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2015'),
-(118, '7092896743', '73905615', 'SUKARNOTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2015'),
-(119, '7049775398', '74770763', 'IS SUGIARTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(120, '7065729738', '73925292', 'WENDY CHANDRA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2013'),
-(121, '7065912947', '73519604', 'GUSTAMI DRS', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2013'),
-(122, '7022003318', '75096222', 'ARTA SEDANA CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
-(123, '7040388316', '73782195', 'RIDHO YENI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(124, '7042413458', '76263213', 'SURATNO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(125, '7063874412', '77932097', 'ANGGRAENI PERDANA PT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(126, '7065546668', '77979188', 'INDRO PRIYO PRADONO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2013'),
-(127, '7069339438', '74544584', 'SAMATHA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2014'),
-(128, '7070001858', '78343024', 'WASTINAH', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2014'),
-(129, '7070664032', '76790347', 'TEGUH DWI WANTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2014'),
-(130, '7073322377', '75231406', 'AGRITEC CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2014'),
-(131, '7027679719', '73236560', 'HAJI AMBO RUKKA', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
-(132, '7034836862', '73659697', 'NURUL ANA KUSUMA WARDANI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(133, '7040930048', '73262224', 'ANDRI EKA CHANDRA', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2012'),
-(134, '7061604124', '73237021', 'AHMAD YANI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pengangkutan, Pergudangan, dan Komunikasi', 'Kecil Komersial Lainnya', '2013'),
-(135, '7062091759', '74195957', 'EDY RACHMAT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(136, '7013843753', '73433172', 'MUSTARI SIAME', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2010'),
-(137, '7043140382', '76707575', 'PT MULTI GLOBAL PERKASA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(138, '7047045953', '76985346', 'JOKO SURONO', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2012'),
-(139, '7060675877', '77749870', 'CV SADEWA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2013'),
-(140, '7060692224', '76055988', 'ABDUL ROZAK', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2013'),
-(141, '7061798255', '74645167', 'SITI MOUR NASUTION', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(142, '7090973732', '75093184', 'ADHIPRIMA MEDIA CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2015'),
-(143, '7049097039', '73557717', 'KUSUMA MAWARDAH', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(144, '7049132454', '74852117', 'NOFEL CHAMAD MARETAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2013'),
-(145, '7050464606', '77216166', 'CV PERDANA JAYA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2013'),
-(146, '7051154368', '77288971', 'ARIFIN PATU', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(147, '7008924044', '73781819', 'MUHAMMAD ERWIN PULUNGAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2008'),
-(148, '7009683307', '74463785', 'DONGORAN SIREGAR', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
-(149, '7009708639', '75026484', 'IS IMRAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2011'),
-(150, '7031885013', '75641553', 'ABDULLOH MUZAKKI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(151, '7034734113', '73592893', 'DEWI SANDRA DIANA NRT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2012'),
-(152, '7038440114', '73651923', 'RINI FITRIA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(153, '7040917858', '76564123', 'SUHENDRA DWI DJAJA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(154, '7041195066', '76014953', 'SUWANTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(155, '7045024638', '76805471', 'RASWADI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2012'),
-(156, '7045140967', '76841154', 'RACHMAD BASUKI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2012'),
-(157, '7047719806', '74636764', 'EKO LESTIAWAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(158, '7047760539', '77033841', 'SUYAMTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(159, '7051128243', '76183340', 'KELANA PUTRA NUSANTARA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(160, '7051369496', '76288980', 'ASHOKA INDRASARI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(161, '7052030077', '77359095', 'SUKIANTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(162, '7014433737', '73972537', 'KARYONO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2010'),
-(163, '7040467569', '75285150', 'RITA EMY SETYAWATI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(164, '7041250897', '73086584', 'AGUS PURWANTO IR', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(165, '7043325398', '75113890', 'FATH INDAH TRAVEL SERVICES', 'Small', 'Haji', '0', 'B to C', '0', 'Pengangkutan, Pergudangan, dan Komunikasi', 'PIHK', '2012'),
-(166, '7043508118', '76668990', 'IBRAHIM', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(167, '7058844394', '75490478', 'CASNADI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(168, '7091719511', '76568748', 'PT INDOTAMA PALAPA NUSANTARA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pengangkutan, Pergudangan, dan Komunikasi', 'Kecil Komersial Lainnya', '2015'),
-(169, '7091816436', '79866288', 'FANNY SRIKANDINI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2015'),
-(170, '7091992358', '79867636', 'SUSMIATI ', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2015'),
-(171, '7092748876', '79928744', 'GRIYA KONVEKSI ', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2015'),
-(172, '7092943164', '79932169', 'PT BERKAH MANDIRI PRAKARSA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2015'),
-(173, '7092964137', '79947829', 'SURYA RAYA ', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2015'),
-(174, '7092968361', '79944708', 'AIRLANGGA PERKASA CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2015'),
-(175, '7063025458', '77848372', 'PT TULUS PUTRA MERDEK', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa Kegiatan Lainnya (Produktif)', 'Kecil Komersial Lainnya', '2013'),
-(176, '7069916613', '75098737', 'AZKA SYAHRANI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2014'),
-(177, '7073454217', '76204800', 'DOLARINDO INTRAVALAS PRIMATAMA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2014'),
-(178, '7051185317', '73642911', 'MUHAMMAD SYAMSUL HADI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2013'),
-(179, '7042023838', '76339917', 'FAUZAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(180, '7042058569', '75369017', 'DASEP ABDUL LATIEF ', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pengangkutan, Pergudangan, dan Komunikasi', 'Kecil Komersial Lainnya', '2012'),
-(181, '7047268488', '73105409', 'UNTUNG PASARIBU', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2012'),
-(182, '7049969044', '73280342', 'INDRA SURIANI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(183, '7060266306', '77360500', 'ROME ROMANSAH', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2013'),
-(184, '7061560062', '74472118', 'ADI WINARKO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(185, '7062443981', '77857593', 'WINDHA ABADI CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2013'),
-(186, '7065067317', '74394292', 'IBRAHIM', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(187, '7069445448', '78318866', 'MISLAILI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2014'),
-(188, '7069898119', '78212618', 'ARSA CV ', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2014'),
-(189, '7072519307', '78417705', 'M MUNANDAR AZIS', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2014'),
-(190, '7073309845', '78577643', 'MALOHO JAYA ABADI CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2014'),
-(191, '7091797407', '79857949', 'RENDI ALDI IRWANDI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2015'),
-(192, '7092547738', '75102166', 'TEKNOLOGI SARANA SEMPURNA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pengangkutan, Pergudangan, dan Komunikasi', 'Kecil Komersial Lainnya', '2015'),
-(193, '7092739419', '79921632', 'KOHAR ARIFIN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2015'),
-(194, '7092850093', '79941973', 'RUMAHKU', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2015'),
-(195, '7094125191', '80018658', 'LANGGENG PERKASA MANDIRI PT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2015'),
-(196, '7067257329', '78132093', 'SINAR CITRA KUSUMA PT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2013'),
-(197, '7051234329', '77227896', 'LAODE BADARUDDIN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013'),
-(198, '7051666261', '74659902', 'SYAFI\'I', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa Kegiatan Lainnya (Produktif)', 'Kecil Komersial Lainnya', '2013'),
-(199, '7052206698', '77370054', 'KARYA TIGA MANDIRI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2013');
+(1, '7009683307', '74463785', 'DONGORAN SIREGAR', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
+(2, '7007180564', '73556524', 'SLAMET IMAM SANTOSO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2009'),
+(3, '7007193704', '74481957', 'TUGINO HADIWIYOTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
+(4, '7006248254', '73478830', 'SENTOT LAMIDI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2007'),
+(5, '7006257571', '75093077', 'INSAN MULIA CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2009'),
+(6, '7008908456', '73416713', 'PARADA SUTAN', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2007'),
+(7, '7008912763', '73105373', 'HERIYANTO PANE', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2007'),
+(8, '7008924044', '73781819', 'MUHAMMAD ERWIN PULUNGAN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2008'),
+(9, '7007874272', '73055920', 'WENDRA YUNALDI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Konstruksi', 'Kontraktor', '2010'),
+(10, '7007056798', '75078955', 'WAY SEPUTIH BUMI NUSANTARA PT', 'Small', 'Kecil Komersial (CMG)', '0', 'B to C', '0', 'Listrik, Gas, dan Air', 'Kecil Komersial Lainnya', '2007'),
+(11, '7006138588', '74436790', 'ERWINSYAH', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
+(12, '7006125721', '73917465', 'EKA NURWANTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2009'),
+(13, '7006016377', '74158475', 'FAIZAL', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2010'),
+(14, '7005935975', '73051053', 'A SYAFI\'I', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2007'),
+(15, '7006024755', '73084603', 'M RACHMAT', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2011'),
+(16, '7005171991', '74068277', 'MUHAMMAD ARIFIN RITONGA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2010'),
+(17, '7005201343', '73134634', 'MHD RIVAI AL AMIN', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2011'),
+(18, '7005200557', '73982672', 'KHAIRUL RITONGA', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2010'),
+(19, '7004226277', '73731415', 'SALAMAH', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2008'),
+(20, '7004239061', '73497632', 'SYARIF MACHMUD', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2008'),
+(21, '7004226261', '73731415', 'SALAMAH', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Jasa-Jasa Dunia Usaha (termasuk Lembaga Keuangan Bank dan Non-Bank)', 'Kecil Komersial Lainnya', '2008'),
+(22, '7003770685', '73727971', 'SITI FAHMINA SALIM', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2008'),
+(23, '7003801084', '73435013', 'MUHAMMAD YUNIS', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pertanian, Perburuan, dan Sarana Pertanian', 'Kecil Komersial Lainnya', '2010'),
+(24, '7003729472', '73501345', 'MUNZIROH', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2007'),
+(25, '7002713998', '75082865', 'NUSAGRI CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2006'),
+(26, '7002067131', '73738316', 'HARYANTO', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2009'),
+(27, '7001927722', '73721691', 'NAILUL MAROMI', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2010'),
+(28, '7001928125', '74659105', 'LUKMAN CHAKIM', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Industri Pengolahan', 'Kecil Komersial Lainnya', '2010'),
+(29, '7000728939', '75090012', 'SUMBER KEMAS WANGI CV', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Perdagangan, Restoran, dan Hotel', 'Perdagangan', '2011'),
+(30, '7000706323', '75085777', 'TULUS UTAMA KARYA ', 'Small', 'Kecil Komersial', '0', 'B to C', '0', 'Pengangkutan, Pergudangan, dan Komunikasi', 'Kecil Komersial Lainnya', '2010'),
+(31, '7009433408', '74580109', 'ZULAEHA', '', '', '', '', '', '', '', ''),
+(32, '7009046881', '75095984', 'DEWI SIERA PERSADA PT', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -2300,19 +2461,6 @@ INSERT INTO `user_login` (`id`, `user_name`, `user_email`, `user_password`, `id_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `watch`
---
-
-CREATE TABLE `watch` (
-  `id` int(11) NOT NULL,
-  `ficmisdate` date NOT NULL,
-  `no_loan` varchar(255) NOT NULL,
-  `no_cif` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `watchlist`
 --
 
@@ -2350,33 +2498,33 @@ INSERT INTO `watchlist` (`id`, `no_loan`, `no_cif`, `nama_lengkap`, `kode_cabang
 (3, '7007193704', '74481957', 'TUGINO HADIWIYOTO', 'ID0010127', 'KC CIBINONG', 'Musyarakah', '2010-05-11', '0000-00-00', 0, '0000-00-00', '1', '1', 0, 0, 0, 0, '0.00', '0.00', '0.00', 'B to C'),
 (4, '7006248254', '73478830', 'SENTOT LAMIDI', 'ID0010114', 'KCP KLATEN', 'Musyarakah', '2007-06-12', '0000-00-00', 0, '0000-00-00', '1A', '1', 0, 0, 0, 0, '0.00', '0.00', '0.00', 'B to C'),
 (5, '7006257571', '75093077', 'INSAN MULIA CV', 'ID0010114', 'KCP KLATEN', 'Musyarakah', '2009-07-31', '0000-00-00', 0, '0000-00-00', '1A', '1', 0, 0, 0, 0, '0.00', '0.00', '0.00', 'B to C'),
-(6, '7008908456', '73416713', 'PARADA SUTAN', 'ID0010043', 'KC PADANGSIDEMPUAN', 'Musyarakah', '2007-01-12', '2019-02-20', 0, '0000-00-00', '1B', '1', 1262740729, 0, 0, 0, '1097086091.00', '1155799377.00', '0.95', 'B to C'),
-(7, '7008912763', '73105373', 'HERIYANTO PANE', 'ID0010043', 'KC PADANGSIDEMPUAN', 'Musyarakah', '2007-07-23', '2018-07-05', 0, '0000-00-00', '1A', '1', 225802756, 0, 0, 0, '156753490.00', '156917630.00', '1.00', 'B to C'),
-(8, '7008924044', '73781819', 'MUHAMMAD ERWIN PULUNGAN', 'ID0010043', 'KC PADANGSIDEMPUAN', 'Musyarakah', '2008-06-12', '2019-05-05', 0, '0000-00-00', '1C', '1', 129593846, 0, 5878416, 5878416, '171483914.00', '192008670.00', '0.89', 'B to C'),
-(9, '7007874272', '73055920', 'WENDRA YUNALDI', 'ID0010039', 'KC BUKITTINGGI', 'Musyarakah', '2010-11-29', '2019-01-20', 0, '0000-00-00', '1', '1', 199976975, 0, 31715760, 31715760, '552648133.00', '525911475.00', '1.05', 'B to C'),
-(10, '7007056798', '75078955', 'WAY SEPUTIH BUMI NUSANTARA PT', 'ID0010037', 'KC BANDARLAMPUNG', 'Musyarakah', '2007-12-28', '2018-10-31', 0, '0000-00-00', '1', '1', 1149722911, 0, 0, 0, '926884256.00', '891326212.00', '1.04', 'B to C'),
+(6, '7008908456', '73416713', 'PARADA SUTAN', 'ID0010043', 'KC PADANGSIDEMPUAN', 'Musyarakah', '2007-01-12', '2019-02-20', 0, '0000-00-00', '1B', '1', 1262740729, 0, 0, 0, '1097086090.98', '1155799376.72', '0.95', 'B to C'),
+(7, '7008912763', '73105373', 'HERIYANTO PANE', 'ID0010043', 'KC PADANGSIDEMPUAN', 'Musyarakah', '2007-07-23', '2018-07-05', 0, '0000-00-00', '1A', '1', 225802756, 0, 0, 0, '156753489.97', '156917629.88', '1.00', 'B to C'),
+(8, '7008924044', '73781819', 'MUHAMMAD ERWIN PULUNGAN', 'ID0010043', 'KC PADANGSIDEMPUAN', 'Musyarakah', '2008-06-12', '2019-05-05', 0, '0000-00-00', '1C', '1', 129593846, 0, 5878416, 5878416, '171483914.45', '192008670.26', '0.89', 'B to C'),
+(9, '7007874272', '73055920', 'WENDRA YUNALDI', 'ID0010039', 'KC BUKITTINGGI', 'Musyarakah', '2010-11-29', '2019-01-20', 0, '0000-00-00', '1', '1', 199976975, 0, 31715760, 31715760, '552648133.24', '525911474.83', '1.05', 'B to C'),
+(10, '7007056798', '75078955', 'WAY SEPUTIH BUMI NUSANTARA PT', 'ID0010037', 'KC BANDARLAMPUNG', 'Musyarakah', '2007-12-28', '2018-10-31', 0, '0000-00-00', '1', '1', 1149722911, 0, 0, 0, '926884255.54', '891326212.27', '1.04', 'B to C'),
 (11, '7006138588', '74436790', 'ERWINSYAH', 'ID0010033', 'KC JAKARTA SAHARJO', 'Musyarakah', '2010-06-25', '0000-00-00', 0, '0000-00-00', '1', '1', 0, 0, 0, 0, '0.00', '0.00', '0.00', 'B to C'),
 (12, '7006125721', '73917465', 'EKA NURWANTO', 'ID0010033', 'KC JAKARTA SAHARJO', 'Musyarakah', '2009-03-13', '0000-00-00', 0, '0000-00-00', '1', '1', 0, 0, 0, 0, '0.00', '0.00', '0.00', 'B to C'),
-(13, '7006016377', '74158475', 'FAIZAL', 'ID0010032', 'KC JAMBI', 'Musyarakah', '2010-12-03', '2013-05-30', 1828, '0000-00-00', '5', '5', 0, 0, 49926110, 49926110, '0.00', '62398159.00', '0.00', 'B to C'),
-(14, '7005935975', '73051053', 'A SYAFI\'I', 'ID0010032', 'KC JAMBI', 'Musyarakah', '2007-10-25', '2018-08-20', 0, '0000-00-00', '1', '1', 1481745551, 0, 0, 0, '1020539228.00', '1015925250.00', '1.00', 'B to C'),
-(15, '7006024755', '73084603', 'M RACHMAT', 'ID0010032', 'KC JAMBI', 'Musyarakah', '2011-02-01', '2018-08-20', 0, '0000-00-00', '1', '1', 698462344, 0, 0, 0, '565477575.00', '547703280.00', '1.03', 'B to C'),
-(16, '7005171991', '74068277', 'MUHAMMAD ARIFIN RITONGA', 'ID0010030', 'KC RANTAU PRAPAT', 'Musyarakah', '2010-08-23', '2018-08-23', 0, '0000-00-00', '1B', '1', 139741421, 0, 0, 0, '104989076.00', '112663620.00', '0.93', 'B to C'),
-(17, '7005201343', '73134634', 'MHD RIVAI AL AMIN', 'ID0010030', 'KC RANTAU PRAPAT', 'Musyarakah', '2011-06-22', '2018-06-20', 0, '0000-00-00', '1', '1', 110840352, 0, 0, 0, '212216138.00', '184926772.00', '1.15', 'B to C'),
-(18, '7005200557', '73982672', 'KHAIRUL RITONGA', 'ID0010030', 'KC RANTAU PRAPAT', 'Musyarakah', '2010-04-30', '2019-04-20', 0, '0000-00-00', '1', '1', 220000000, 0, 0, 0, '272598560.00', '249901299.00', '1.09', 'B to C'),
-(19, '7004226277', '73731415', 'SALAMAH', 'ID0010026', 'KC PONTIANAK', 'Musyarakah', '2008-04-25', '2013-04-26', 1862, '0000-00-00', '5', '5', 0, 0, 0, 0, '0.00', '15937998.00', '0.00', 'B to C'),
-(20, '7004239061', '73497632', 'SYARIF MACHMUD', 'ID0010026', 'KC PONTIANAK', 'Musyarakah', '2008-01-30', '2019-01-23', 0, '0000-00-00', '1B', '1', 567019397, 0, 0, 0, '265873416.00', '283853344.00', '0.94', 'B to C'),
-(21, '7004226261', '73731415', 'SALAMAH', 'ID0010026', 'KC PONTIANAK', 'Musyarakah', '2008-04-22', '2013-04-26', 1862, '0000-00-00', '5', '5', 0, 0, 0, 0, '0.00', '5601589.00', '0.00', 'B to C'),
-(22, '7003770685', '73727971', 'SITI FAHMINA SALIM', 'ID0010022', 'KC PEKANBARU', 'Musyarakah', '2008-05-02', '2019-05-31', 0, '0000-00-00', '1A', '1', 774150326, 0, 0, 0, '457611629.00', '468459811.00', '0.98', 'B to C'),
-(23, '7003801084', '73435013', 'MUHAMMAD YUNIS', 'ID0010022', 'KC PEKANBARU', 'Musyarakah', '2010-07-05', '2018-07-05', 0, '0000-00-00', '1A', '1', 735640979, 0, 0, 0, '552929575.00', '560205982.00', '0.99', 'B to C'),
-(24, '7003729472', '73501345', 'MUNZIROH', 'ID0010022', 'KC PEKANBARU', 'Musyarakah', '2007-10-26', '2018-06-30', 0, '0000-00-00', '1A', '1', 1994419356, 0, 0, 0, '1176456380.00', '1233268788.00', '0.95', 'B to C'),
-(25, '7002713998', '75082865', 'NUSAGRI CV', 'ID0010017', 'KC BOGOR', 'Musyarakah', '2006-09-21', '2019-01-22', 0, '0000-00-00', '1', '1', 1497370433, 0, 0, 0, '763643085.00', '699673091.00', '1.09', 'B to C'),
-(26, '7002067131', '73738316', 'HARYANTO', 'ID0010013', 'KC SOLO', 'Musyarakah', '2009-03-23', '2019-03-20', 0, '0000-00-00', '1', '1', 840340197, 0, 0, 0, '503786716.00', '371536066.00', '1.36', 'B to C'),
-(27, '7001927722', '73721691', 'NAILUL MAROMI', 'ID0010012', 'KC PEKALONGAN', 'Musyarakah', '2010-08-18', '2018-08-17', 0, '0000-00-00', '1C', '1', 750000000, 0, 55464676, 55464676, '495199740.00', '606947264.00', '0.82', 'B to C'),
-(28, '7001928125', '74659105', 'LUKMAN CHAKIM', 'ID0010012', 'KC PEKALONGAN', 'Musyarakah', '2010-08-27', '2018-06-09', 0, '0000-00-00', '1A', '1', 762352007, 0, 0, 0, '482846322.00', '497153456.00', '0.97', 'B to C'),
-(29, '7000728939', '75090012', 'SUMBER KEMAS WANGI CV', 'ID0010007', 'KC BEKASI', 'Musyarakah', '2011-05-18', '2019-02-03', 0, '0000-00-00', '1A', '1', 0, 0, 0, 0, '594747501.00', '619104208.00', '0.96', 'B to C'),
-(30, '7000706323', '75085777', 'TULUS UTAMA KARYA ', 'ID0010007', 'KC BEKASI', 'Musyarakah', '2010-06-24', '2018-08-12', 0, '0000-00-00', '1', '1', 41712514, 0, 0, 0, '233586633.00', '168142150.00', '1.39', 'B to C'),
-(31, '7009433408', '74580109', 'ZULAEHA', 'ID0010046', 'KC DEPOK', 'Musyarakah', '2010-06-18', '0000-00-00', 0, '0000-00-00', '1', '1', 0, 0, 187351585, 187351585, '9303944.00', '0.00', '0.00', ''),
-(32, '7009046881', '75095984', 'DEWI SIERA PERSADA PT', 'ID0010044', 'KC DUMAI', 'Musyarakah', '2009-12-30', '2018-12-20', 0, '0000-00-00', '1', '1', 386480581, 0, 0, 0, '273166403.00', '254221645.00', '1.07', '');
+(13, '7006016377', '74158475', 'FAIZAL', 'ID0010032', 'KC JAMBI', 'Musyarakah', '2010-12-03', '2013-05-30', 1828, '0000-00-00', '5', '5', 0, 0, 49926110, 49926110, '0.00', '62398158.59', '0.00', 'B to C'),
+(14, '7005935975', '73051053', 'A SYAFI\'I', 'ID0010032', 'KC JAMBI', 'Musyarakah', '2007-10-25', '2018-08-20', 0, '0000-00-00', '1', '1', 1481745551, 0, 0, 0, '1020539228.18', '1015925250.29', '1.00', 'B to C'),
+(15, '7006024755', '73084603', 'M RACHMAT', 'ID0010032', 'KC JAMBI', 'Musyarakah', '2011-02-01', '2018-08-20', 0, '0000-00-00', '1', '1', 698462344, 0, 0, 0, '565477575.06', '547703279.51', '1.03', 'B to C'),
+(16, '7005171991', '74068277', 'MUHAMMAD ARIFIN RITONGA', 'ID0010030', 'KC RANTAU PRAPAT', 'Musyarakah', '2010-08-23', '2018-08-23', 0, '0000-00-00', '1B', '1', 139741421, 0, 0, 0, '104989076.37', '112663619.62', '0.93', 'B to C'),
+(17, '7005201343', '73134634', 'MHD RIVAI AL AMIN', 'ID0010030', 'KC RANTAU PRAPAT', 'Musyarakah', '2011-06-22', '2018-06-20', 0, '0000-00-00', '1', '1', 110840352, 0, 0, 0, '212216138.37', '184926772.47', '1.15', 'B to C'),
+(18, '7005200557', '73982672', 'KHAIRUL RITONGA', 'ID0010030', 'KC RANTAU PRAPAT', 'Musyarakah', '2010-04-30', '2019-04-20', 0, '0000-00-00', '1', '1', 220000000, 0, 0, 0, '272598560.28', '249901299.09', '1.09', 'B to C'),
+(19, '7004226277', '73731415', 'SALAMAH', 'ID0010026', 'KC PONTIANAK', 'Musyarakah', '2008-04-25', '2013-04-26', 1862, '0000-00-00', '5', '5', 0, 0, 0, 0, '0.00', '15937998.37', '0.00', 'B to C'),
+(20, '7004239061', '73497632', 'SYARIF MACHMUD', 'ID0010026', 'KC PONTIANAK', 'Musyarakah', '2008-01-30', '2019-01-23', 0, '0000-00-00', '1B', '1', 567019397, 0, 0, 0, '265873415.93', '283853344.06', '0.94', 'B to C'),
+(21, '7004226261', '73731415', 'SALAMAH', 'ID0010026', 'KC PONTIANAK', 'Musyarakah', '2008-04-22', '2013-04-26', 1862, '0000-00-00', '5', '5', 0, 0, 0, 0, '0.00', '5601589.24', '0.00', 'B to C'),
+(22, '7003770685', '73727971', 'SITI FAHMINA SALIM', 'ID0010022', 'KC PEKANBARU', 'Musyarakah', '2008-05-02', '2019-05-31', 0, '0000-00-00', '1A', '1', 774150326, 0, 0, 0, '457611628.80', '468459811.20', '0.98', 'B to C'),
+(23, '7003801084', '73435013', 'MUHAMMAD YUNIS', 'ID0010022', 'KC PEKANBARU', 'Musyarakah', '2010-07-05', '2018-07-05', 0, '0000-00-00', '1A', '1', 735640979, 0, 0, 0, '552929574.89', '560205982.06', '0.99', 'B to C'),
+(24, '7003729472', '73501345', 'MUNZIROH', 'ID0010022', 'KC PEKANBARU', 'Musyarakah', '2007-10-26', '2018-06-30', 0, '0000-00-00', '1A', '1', 1994419356, 0, 0, 0, '1176456379.80', '1233268788.05', '0.95', 'B to C'),
+(25, '7002713998', '75082865', 'NUSAGRI CV', 'ID0010017', 'KC BOGOR', 'Musyarakah', '2006-09-21', '2019-01-22', 0, '0000-00-00', '1', '1', 1497370433, 0, 0, 0, '763643085.01', '699673091.40', '1.09', 'B to C'),
+(26, '7002067131', '73738316', 'HARYANTO', 'ID0010013', 'KC SOLO', 'Musyarakah', '2009-03-23', '2019-03-20', 0, '0000-00-00', '1', '1', 840340197, 0, 0, 0, '503786715.75', '371536065.93', '1.36', 'B to C'),
+(27, '7001927722', '73721691', 'NAILUL MAROMI', 'ID0010012', 'KC PEKALONGAN', 'Musyarakah', '2010-08-18', '2018-08-17', 0, '0000-00-00', '1C', '1', 750000000, 0, 55464676, 55464676, '495199739.98', '606947264.30', '0.82', 'B to C'),
+(28, '7001928125', '74659105', 'LUKMAN CHAKIM', 'ID0010012', 'KC PEKALONGAN', 'Musyarakah', '2010-08-27', '2018-06-09', 0, '0000-00-00', '1A', '1', 762352007, 0, 0, 0, '482846322.43', '497153455.93', '0.97', 'B to C'),
+(29, '7000728939', '75090012', 'SUMBER KEMAS WANGI CV', 'ID0010007', 'KC BEKASI', 'Musyarakah', '2011-05-18', '2019-02-03', 0, '0000-00-00', '1A', '1', 0, 0, 0, 0, '594747500.56', '619104207.75', '0.96', 'B to C'),
+(30, '7000706323', '75085777', 'TULUS UTAMA KARYA ', 'ID0010007', 'KC BEKASI', 'Musyarakah', '2010-06-24', '2018-08-12', 0, '0000-00-00', '1', '1', 41712514, 0, 0, 0, '233586632.51', '168142150.17', '1.39', 'B to C'),
+(31, '7009433408', '74580109', 'ZULAEHA', 'ID0010046', 'KC DEPOK', 'Musyarakah', '2010-06-18', '0000-00-00', 0, '0000-00-00', '1', '1', 0, 0, 187351585, 187351585, '9303943.76', '0.00', '0.00', ''),
+(32, '7009046881', '75095984', 'DEWI SIERA PERSADA PT', 'ID0010044', 'KC DUMAI', 'Musyarakah', '2009-12-30', '2018-12-20', 0, '0000-00-00', '1', '1', 386480581, 0, 0, 0, '273166403.46', '254221645.47', '1.07', '');
 
 --
 -- Triggers `watchlist`
@@ -2385,6 +2533,36 @@ DELIMITER $$
 CREATE TRIGGER `rbh_dibagi_pbh` BEFORE INSERT ON `watchlist` FOR EACH ROW SET NEW.rbh_bagi_pbh = NEW.realisasi_bagi_hasil / NEW.proyeksi_bagi_hasil
 $$
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `watchlist_dulu`
+--
+
+CREATE TABLE `watchlist_dulu` (
+  `id` int(11) NOT NULL,
+  `no_loan` varchar(255) NOT NULL,
+  `no_cif` varchar(255) NOT NULL,
+  `nama_lengkap` varchar(255) NOT NULL,
+  `kode_cabang` varchar(255) NOT NULL,
+  `nama_cabang` varchar(255) NOT NULL,
+  `jenis_piutang_pembiayaan` varchar(255) NOT NULL,
+  `tanggal_pencairan` date NOT NULL,
+  `tanggal_jatuh_tempo` date NOT NULL,
+  `day_past_due` int(255) NOT NULL,
+  `restruct_date` date NOT NULL,
+  `kol_bsm` varchar(11) NOT NULL,
+  `kol_cif` varchar(11) NOT NULL,
+  `os_pokok_conversion` bigint(255) NOT NULL,
+  `tung_pokok_conversion` bigint(255) NOT NULL,
+  `tung_margin_conversion` bigint(255) NOT NULL,
+  `tung_gross_conversion` bigint(255) NOT NULL,
+  `realisasi_bagi_hasil` decimal(65,2) NOT NULL,
+  `proyeksi_bagi_hasil` decimal(65,2) NOT NULL,
+  `rbh_bagi_pbh` decimal(65,2) NOT NULL,
+  `grup` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -2440,9 +2618,21 @@ ALTER TABLE `cair_baru`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `cair_baru_cek`
+--
+ALTER TABLE `cair_baru_cek`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `div_code`
 --
 ALTER TABLE `div_code`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `div_code_cek`
+--
+ALTER TABLE `div_code_cek`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2458,6 +2648,12 @@ ALTER TABLE `existing`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `existingcek`
+--
+ALTER TABLE `existingcek`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `hobi`
 --
 ALTER TABLE `hobi`
@@ -2467,6 +2663,12 @@ ALTER TABLE `hobi`
 -- Indexes for table `ifois`
 --
 ALTER TABLE `ifois`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ifoiscek`
+--
+ALTER TABLE `ifoiscek`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2506,15 +2708,15 @@ ALTER TABLE `user_login`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `watch`
---
-ALTER TABLE `watch`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `watchlist`
 --
 ALTER TABLE `watchlist`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `watchlist_dulu`
+--
+ALTER TABLE `watchlist_dulu`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2552,9 +2754,21 @@ ALTER TABLE `cair_baru`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `cair_baru_cek`
+--
+ALTER TABLE `cair_baru_cek`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `div_code`
 --
 ALTER TABLE `div_code`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `div_code_cek`
+--
+ALTER TABLE `div_code_cek`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -2567,7 +2781,13 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `existing`
 --
 ALTER TABLE `existing`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `existingcek`
+--
+ALTER TABLE `existingcek`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `hobi`
@@ -2582,6 +2802,12 @@ ALTER TABLE `ifois`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `ifoiscek`
+--
+ALTER TABLE `ifoiscek`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
+--
 -- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
@@ -2591,7 +2817,7 @@ ALTER TABLE `jabatan`
 -- AUTO_INCREMENT for table `lalu`
 --
 ALTER TABLE `lalu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `loantype2017`
@@ -2618,16 +2844,16 @@ ALTER TABLE `user_login`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `watch`
---
-ALTER TABLE `watch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `watchlist`
 --
 ALTER TABLE `watchlist`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
+--
+-- AUTO_INCREMENT for table `watchlist_dulu`
+--
+ALTER TABLE `watchlist_dulu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `wilayah`

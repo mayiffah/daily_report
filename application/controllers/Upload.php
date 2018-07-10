@@ -21,6 +21,7 @@ class Upload extends CI_Controller {
                 $config['max_size']             = 5000;
                 $config['max_width']            = 1024;
                 $config['max_height']           = 768;
+        //        $config['file_name']        = date("Y_m_d H:i:s");
 
                 $this->load->library('upload', $config);
 
@@ -32,6 +33,7 @@ class Upload extends CI_Controller {
                 }
                 else
                 {
+                        /*$data = array('upload_data'=>$this->upload->data('full_path'));*/
                         $data = array('upload_data'=>$this->upload->data('full_path'));
                         
                     //    $result = mysql_query("LOAD DATA INFILE '$data'"." INTO TABLE coba FIELDS TERMINATED BY '|'");
