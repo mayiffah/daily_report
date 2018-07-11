@@ -18,7 +18,7 @@ class Upload extends CI_Controller {
         {
                 $config['upload_path']          = './application/uploads/';
                 $config['allowed_types']        = 'txt|pdf|gif|jpg|png';
-                $config['max_size']             = 5000;
+                $config['max_size']             = 200000;
                 $config['max_width']            = 1024;
                 $config['max_height']           = 768;
         //        $config['file_name']        = date("Y_m_d H:i:s");
