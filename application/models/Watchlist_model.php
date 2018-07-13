@@ -11,9 +11,9 @@ class Watchlist_model extends CI_Model {
         public function get_watchlist($title = TRUE)
         {
             if ($title === 'all') {
-              $query = $this->db->query('SELECT * FROM `watchlist2018-july-11.09:02:00`');
+              $query = $this->db->query('SELECT * FROM `watchlist`');
             } else {
-              $query = $this->db->query('SELECT * FROM `watchlist2018-july-11.09:02:00` WHERE id = "'.$title.'"');
+              $query = $this->db->query('SELECT * FROM `watchlist` WHERE id = "'.$title.'"');
             }
         	
         	return $query->result();

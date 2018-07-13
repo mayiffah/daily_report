@@ -40,6 +40,14 @@ class Nasional extends CI_Controller {
             $this->load->view('/watchlist', $data);
         }
 
+        public function watchlisttest()
+        {
+        	$this->load->helper('url');
+        	$data['list_employee'] = $this->employee_model->get_employee('tes');
+        	$data['list_watchlist'] = $this->watchlist_model->get_watchlist('all');
+            $this->load->view('/watchlisttest', $data);
+        }
+
         public function login() 
         {
         	$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
