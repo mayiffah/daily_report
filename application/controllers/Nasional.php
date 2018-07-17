@@ -7,7 +7,7 @@ class Nasional extends CI_Controller {
             parent::__construct();
 //          $this->load->database();
             $this->load->helper('url');
-		// Load form helper library
+			// Load form helper library
 			$this->load->helper('form');
 
 			$this->load->helper('security');
@@ -17,6 +17,9 @@ class Nasional extends CI_Controller {
 			
 			// Load session library
 			$this->load->library('session');
+
+			// Load encryption library
+			$this->load->library('encrypt');
 			
 			// Load database
 			$this->load->model('login_database');
@@ -71,12 +74,36 @@ class Nasional extends CI_Controller {
 					$result = $this->login_database->read_user_information($username);
 					if ($result != false) {
 						$session_data = array(
-						'username' => $result[0]->user_name
+						'username' => $result[0]->nama
 						);
 						// Add user data in session
 						$this->session->set_userdata('logged_in', $session_data);
 						$data['list_employee'] = $this->employee_model->get_employee('tes');
 						$data['list_watchlist'] = $this->watchlist_model->get_watchlist('all');
+						
+						$password_input = $this->input->post('password');
+						$get_password = $this->login_database->get_password($username);
+						foreach ($get_password as $pw) {
+            				$password_from_db = $pw->user_password;
+            			//	$password_from_db = 'fok5XYyZ6r2IIWm9MqHznDKsHX/u5u5sFNsWfzmtXDRiN0uA5Hohlo3tSTQWCfZGf2tnbqVVPVwd2wOQzVDOig==';
+          				}
+						$password_decrypted = $this->encrypt->decode($password_from_db);
+
+						if ($password_decrypted != '') {
+							$data['ada_dekripnya'] = 'true';
+						} else {
+							$data['ada_dekripnya'] = 'false';
+						}
+
+						if ($password_input === $password_decrypted) {
+							$data['same'] = 'true';
+						} else {
+							$data['same'] = 'false';
+						}
+
+						$data['encrypt_value'] = $password_input;
+						$data['decrypt_value'] = $password_decrypted;
+						
 						$this->load->view('/portfolio', $data);
 					}
 				} else {

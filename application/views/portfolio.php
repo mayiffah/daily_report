@@ -124,6 +124,14 @@ header("location:". base_url() . "index.php/nasional/login");
           <li class="breadcrumb-item active">Portfolio Nasional</li>
         </ol>
 
+        <?php 
+          echo '<br>ada dekripnya: '.$ada_dekripnya;
+          echo '<br>same: '.$same;
+          echo '<br>encrypted: '.$encrypt_value;
+          echo '<br>decrypted: '.$decrypt_value;
+        ?>
+     
+
         <!-- Speedometer Outstanding -->
         <div id="containeros" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
         </div>
@@ -275,7 +283,7 @@ header("location:". base_url() . "index.php/nasional/login");
         </div>
 
          <!-- Watchlist Nasabah-->
-        
+          
         <!-- Example DataTables Card-->
         <div class="card mb-3">
           <div class="card-header">

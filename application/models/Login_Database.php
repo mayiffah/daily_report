@@ -64,7 +64,14 @@ Class Login_Database extends CI_Model {
 		} else {
 			return false;
 		}
-		}
+	}
+
+	// get password of a username
+	public function get_password($username) {
+		$query = $this->db->query("SELECT user_password FROM user_login WHERE user_name ='".$username."'");
+
+		return $query->result();
+	}
 
 }
 
