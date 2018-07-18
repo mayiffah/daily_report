@@ -34,18 +34,36 @@ Class Login_Database extends CI_Model {
 
 	// Read data using username and password
 	public function login($data) {
+		
+		$get_password = $this->get_password($data['username']);
+			foreach ($get_password as $pw) {
+				$password_from_db = $pw->user_password;
+			//	$password_from_db = 'fok5XYyZ6r2IIWm9MqHznDKsHX/u5u5sFNsWfzmtXDRiN0uA5Hohlo3tSTQWCfZGf2tnbqVVPVwd2wOQzVDOig==';
+				}
+		$password_decrypted = $this->encrypt->decode($password_from_db);
 
-		$condition = "user_name =" . "'" . $data['username'] . "' AND " . "user_password =" . "'" . $data['password'] . "'";
-		$this->db->select('*');
-		$this->db->from('user_login');
-		$this->db->where($condition);
-		$this->db->limit(1);
-		$query = $this->db->get();
-
-		if ($query->num_rows() == 1) {
-			return true;
+		if ($password_decrypted != '') {
+			$ada_dekripnya = true;
+			
+      		if ($data['password'] === $password_decrypted) {
+				return true;
+			} else {
+				return false;
+			}			
 		} else {
-			return false;
+			$ada_dekripnya = false;
+      		$condition = "user_name =" . "'" . $data['username'] . "' AND " . "user_password =" . "'" . $data['password'] . "'";
+      		$this->db->select('*');
+			$this->db->from('user_login');
+			$this->db->where($condition);
+			$this->db->limit(1);
+			$query = $this->db->get();
+
+			if ($query->num_rows() == 1) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 	}
 

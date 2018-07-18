@@ -63,48 +63,32 @@ class Nasional extends CI_Controller {
 					$this->load->view('/login');
 				}
 			} else {
-				$data = array(
-				'username' => $this->input->post('username'),
-				'password' => $this->input->post('password')
-				);
-				$result = $this->login_database->login($data);
-				if ($result == TRUE) {
+				$username = $this->input->post('username');
+				$ada_user = $this->login_database->read_user_information($username);
 
-					$username = $this->input->post('username');
-					$result = $this->login_database->read_user_information($username);
+				if ($ada_user == TRUE) {
+
+					$data = array(
+					'username' => $this->input->post('username'),
+					'password' => $this->input->post('password')
+					);
+					$result = $this->login_database->login($data);
+
 					if ($result != false) {
 						$session_data = array(
-						'username' => $result[0]->nama
+						'username' => $ada_user[0]->nama
 						);
 						// Add user data in session
 						$this->session->set_userdata('logged_in', $session_data);
 						$data['list_employee'] = $this->employee_model->get_employee('tes');
 						$data['list_watchlist'] = $this->watchlist_model->get_watchlist('all');
 						
-						$password_input = $this->input->post('password');
-						$get_password = $this->login_database->get_password($username);
-						foreach ($get_password as $pw) {
-            				$password_from_db = $pw->user_password;
-            			//	$password_from_db = 'fok5XYyZ6r2IIWm9MqHznDKsHX/u5u5sFNsWfzmtXDRiN0uA5Hohlo3tSTQWCfZGf2tnbqVVPVwd2wOQzVDOig==';
-          				}
-						$password_decrypted = $this->encrypt->decode($password_from_db);
-
-						if ($password_decrypted != '') {
-							$data['ada_dekripnya'] = 'true';
-						} else {
-							$data['ada_dekripnya'] = 'false';
-						}
-
-						if ($password_input === $password_decrypted) {
-							$data['same'] = 'true';
-						} else {
-							$data['same'] = 'false';
-						}
-
-						$data['encrypt_value'] = $password_input;
-						$data['decrypt_value'] = $password_decrypted;
-						
 						$this->load->view('/portfolio', $data);
+					} else {
+						$data = array(
+						'error_message' => 'Invalid Username or Password'
+						);
+						$this->load->view('login', $data);
 					}
 				} else {
 					$data = array(
