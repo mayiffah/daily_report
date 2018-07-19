@@ -8,6 +8,7 @@ class Upload extends CI_Controller {
                 $this->load->helper(array('form', 'url'));
                 $this->load->database();
                 $this->load->model('export_model');
+                $this->load->model('import_model');
         }
 
         public function index()
@@ -47,7 +48,8 @@ class Upload extends CI_Controller {
         public function createXLS() {
             // create file name
             $tgl = $this->uri->segment(3); 
-            $fileName = 'data_existing-'.$tgl.'.xlsx';  
+            $fileName = 'D:\data_final'.$tgl.'.xlsx'; 
+            $name = 'data_final'.$tgl.'.xlsx'; 
             // load excel library
             $this->load->library('excel');
             $empInfo = $this->export_model->finalList($tgl);
@@ -70,9 +72,99 @@ class Upload extends CI_Controller {
                 $rowCount++;
             }
             $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
-            $objWriter->save(ROOT_UPLOAD_IMPORT_PATH.$fileName);
+            $objWriter->save($fileName);
             // download file
-            header("Content-Type: application/vnd.ms-excel");
-            redirect("HTTP_UPLOAD_IMPORT_PATH.$fileName", "refresh");
+           // header("Content-Type: application/vnd.ms-excel");
+
+            // We'll be outputting a PDF
+            header('Content-Type: application/xlsx');
+
+            // It will be called downloaded.pdf
+            header('Content-Disposition: attachment; filename="data_final"'.$tgl.'".xlsx"' );
+
+            // The PDF source is in original.pdf
+            readfile('D:\data_final'.$tgl.'.xlsx');
+            redirect("HTTP_UPLOAD_IMPORT_PATH".$fileName, "refresh");
         }
+
+
+            // import excel data
+        public function save() {
+            $this->load->library('excel');
+            
+            if ($this->input->post('importfile')) {
+                $path = 'ROOT_UPLOAD_IMPORT_PATH';
+     
+                $config['upload_path'] = $path;
+                $config['allowed_types'] = 'xlsx|xls|jpg|png';
+                $config['remove_spaces'] = TRUE;
+                $this->initialize($config);
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('userfile')) {
+                    $error = array('error' => $this->upload->display_errors());
+                } else {
+                    $data = array('upload_data' => $this->upload->data());
+                }
+                
+                if (!empty($data['upload_data']['file_name'])) {
+                    $import_xls_file = $data['upload_data']['file_name'];
+                } else {
+                    $import_xls_file = 0;
+                }
+                $inputFileName = $path . $import_xls_file;
+                try {
+                    $inputFileType = PHPExcel_IOFactory::identify($inputFileName);
+                    $objReader = PHPExcel_IOFactory::createReader($inputFileType);
+                    $objPHPExcel = $objReader->load($inputFileName);
+                } catch (Exception $e) {
+                    die('Error loading file "' . pathinfo($inputFileName, PATHINFO_BASENAME)
+                            . '": ' . $e->getMessage());
+                }
+                $allDataInSheet = $objPHPExcel->getActiveSheet()->toArray(null, true, true, true);
+                
+                $arrayCount = count($allDataInSheet);
+                $flag = 0;
+                $createArray = array('id', 'FICMISDATE', 'NOLOAN', 'NOMORCIF', 'NAMALENGKAP', 'KODECABANGBARU');
+                $makeArray = array('id' => 'id','FICMISDATE' => 'FICMISDATE', 'NOLOAN' => 'NOLOAN', 'NOMORCIF' => 'NOMORCIF', 'NAMALENGKAP' => 'NAMALENGKAP', 'KODECABANGBARU' => 'KODECABANGBARU');
+                $SheetDataKey = array();
+                foreach ($allDataInSheet as $dataInSheet) {
+                    foreach ($dataInSheet as $key => $value) {
+                        if (in_array(trim($value), $createArray)) {
+                            $value = preg_replace('/\s+/', '', $value);
+                            $SheetDataKey[trim($value)] = $key;
+                        } else {
+                            
+                        }
+                    }
+                }
+                $data = array_diff_key($makeArray, $SheetDataKey);
+               
+                if (empty($data)) {
+                    $flag = 1;
+                }
+                if ($flag == 1) {
+                    for ($i = 2; $i <= $arrayCount; $i++) {
+                        $addresses = array();
+                        $firstName = $SheetDataKey['First_Name'];
+                        $lastName = $SheetDataKey['Last_Name'];
+                        $email = $SheetDataKey['Email'];
+                        $dob = $SheetDataKey['DOB'];
+                        $contactNo = $SheetDataKey['Contact_NO'];
+                        $firstName = filter_var(trim($allDataInSheet[$i][$firstName]), FILTER_SANITIZE_STRING);
+                        $lastName = filter_var(trim($allDataInSheet[$i][$lastName]), FILTER_SANITIZE_STRING);
+                        $email = filter_var(trim($allDataInSheet[$i][$email]), FILTER_SANITIZE_EMAIL);
+                        $dob = filter_var(trim($allDataInSheet[$i][$dob]), FILTER_SANITIZE_STRING);
+                        $contactNo = filter_var(trim($allDataInSheet[$i][$contactNo]), FILTER_SANITIZE_STRING);
+                        $fetchData[] = array('id' => 'null', 'FICMISDATE' => $firstName, 'NOLOAN' => $lastName, 'NOMORCIF' => $email, 'NAMALENGKAP' => $dob, 'KODECABANGBARU' => $contactNo);
+                    }              
+                    $data['employeeInfo'] = $fetchData;
+                    $this->import->setBatchImport($fetchData);
+                    $this->import->importData();
+                } else {
+                    echo "Please import correct file";
+                }
+            }
+            $this->load->view('/upload_success_excel');
+            
+        } 
 }

@@ -120,6 +120,38 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 			<input type = "submit" value = "upload" />
 
 			</form>
+            <?php
+            $output = '';
+            $output .= form_open_multipart('upload/save');
+            $output .= '<div class="row">';
+            $output .= '<div class="col-lg-12 col-sm-12"><div class="form-group">';
+            $output .= form_label('Import Lawyers', 'image');
+            $data = array(
+                'name' => 'userfile',
+                'id' => 'userfile',
+                'class' => 'form-control filestyle',
+                'value' => '',
+                'data-icon' => 'false'
+            );
+            $output .= form_upload($data);
+            $output .= '</div> <span style="color:red;">*Please choose an Excel file(.xls or .xlxs) as Input</span></div>';
+            $output .= '<div class="col-lg-12 col-sm-12"><div class="form-group text-right">';
+            $data = array(
+                'name' => 'importfile',
+                'id' => 'importfile-id',
+                'class' => 'btn btn-primary',
+                'value' => 'Import',
+            );
+            $output .= form_submit($data, 'Import Data');
+            $output .= '</div>
+                                    </div></div>';
+            $output .= form_close();
+            echo $output;
+            ?>
+
+
+
+
 		</div>
     </div>
         <!-- Logout Modal-->
@@ -149,221 +181,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
         !function(e){"use strict";e('.navbar-sidenav [data-toggle="tooltip"]').tooltip({template:'<div class="tooltip navbar-sidenav-tooltip" role="tooltip" style="pointer-events: none;"><div class="arrow"></div><div class="tooltip-inner"></div></div>'}),e("#sidenavToggler").click(function(o){o.preventDefault(),e("body").toggleClass("sidenav-toggled"),e(".navbar-sidenav .nav-link-collapse").addClass("collapsed"),e(".navbar-sidenav .sidenav-second-level, .navbar-sidenav .sidenav-third-level").removeClass("show")}),e(".navbar-sidenav .nav-link-collapse").click(function(o){o.preventDefault(),e("body").removeClass("sidenav-toggled")}),e("body.fixed-nav .navbar-sidenav, body.fixed-nav .sidenav-toggler, body.fixed-nav .navbar-collapse").on("mousewheel DOMMouseScroll",function(e){var o=e.originalEvent,t=o.wheelDelta||-o.detail;this.scrollTop+=30*(t<0?1:-1),e.preventDefault()}),e(document).scroll(function(){e(this).scrollTop()>100?e(".scroll-to-top").fadeIn():e(".scroll-to-top").fadeOut()}),e('[data-toggle="tooltip"]').tooltip(),e(document).on("click","a.scroll-to-top",function(o){var t=e(this);e("html, body").stop().animate({scrollTop:e(t.attr("href")).offset().top},1e3,"easeInOutExpo"),o.preventDefault()})}(jQuery);
 
 
-        //for the speedometer
-        var valueo =  $('#container').attr("value");
-        console.log(valueo+10);
-        var valueInt = parseInt(valueo);
-        console.log(valueInt+10);
-
-        $('#container').highcharts({
-
-            chart: {
-                type: 'gauge'
-            },
-
-            title: {
-                text: 'Outstanding'
-            },
-
-            pane: {
-                startAngle: -90,
-                endAngle: 90, 
-                background: null
-            },
-
-            // the value axis
-            yAxis: {
-                min: 0,
-                max: 200,
-
-                minorTickInterval: 'auto',
-                minorTickWidth: 1,
-                minorTickLength: 10,
-                minorTickPosition: 'inside',
-                minorTickColor: '#666',
-
-                tickPixelInterval: 30,
-                tickWidth: 2,
-                tickPosition: 'inside',
-                tickLength: 10,
-                tickColor: '#666',
-                labels: {
-                    step: 2,
-                    rotation: 'auto'
-                },
-                title: {
-                    text: '%'
-                },
-                plotBands: [{
-                    from: 0,
-                    to: 120,
-                    color: '#55BF3B' // green
-                }, {
-                    from: 120,
-                    to: 160,
-                    color: '#DDDF0D' // yellow
-                }, {
-                    from: 160,
-                    to: 200,
-                    color: '#DF5353' // red
-                }, {
-                  from: 100,
-                    to: 140,
-                    color: '#6677ff',
-                    innerRadius: '100%',
-                    outerRadius: '110%'
-                }]
-            },
-
-            series: [{
-                name: 'Outstanding',
-                data: [valueInt],
-                tooltip: {
-                    valueSuffix: ' %'
-                }
-            }]
-
-        });
-
-        $('#container1').highcharts({
-
-            chart: {
-                type: 'gauge'
-            },
-
-            title: {
-                text: 'Run Off'
-            },
-
-            pane: {
-                startAngle: -90,
-                endAngle: 90, 
-                background: null
-            },
-
-            // the value axis
-            yAxis: {
-                min: 0,
-                max: 200,
-
-                minorTickInterval: 'auto',
-                minorTickWidth: 1,
-                minorTickLength: 10,
-                minorTickPosition: 'inside',
-                minorTickColor: '#666',
-
-                tickPixelInterval: 30,
-                tickWidth: 2,
-                tickPosition: 'inside',
-                tickLength: 10,
-                tickColor: '#666',
-                labels: {
-                    step: 2,
-                    rotation: 'auto'
-                },
-                title: {
-                    text: '%'
-                },
-                plotBands: [{
-                    from: 0,
-                    to: 120,
-                    color: '#55BF3B' // green
-                }, {
-                    from: 120,
-                    to: 160,
-                    color: '#DDDF0D' // yellow
-                }, {
-                    from: 160,
-                    to: 200,
-                    color: '#DF5353' // red
-                }, {
-                  from: 100,
-                    to: 140,
-                    color: '#6677ff',
-                    innerRadius: '100%',
-                    outerRadius: '110%'
-                }]
-            },
-
-            series: [{
-                name: 'Run Off',
-                data: [valueInt],
-                tooltip: {
-                    valueSuffix: ' %'
-                }
-            }]
-
-        });
-
-        $('#container2').highcharts({
-
-            chart: {
-                type: 'gauge'
-            },
-
-            title: {
-                text: 'Cair'
-            },
-
-            pane: {
-                startAngle: -90,
-                endAngle: 90, 
-                background: null
-            },
-
-            // the value axis
-            yAxis: {
-                min: 0,
-                max: 200,
-
-                minorTickInterval: 'auto',
-                minorTickWidth: 1,
-                minorTickLength: 10,
-                minorTickPosition: 'inside',
-                minorTickColor: '#666',
-
-                tickPixelInterval: 30,
-                tickWidth: 2,
-                tickPosition: 'inside',
-                tickLength: 10,
-                tickColor: '#666',
-                labels: {
-                    step: 2,
-                    rotation: 'auto'
-                },
-                title: {
-                    text: '%'
-                },
-                plotBands: [{
-                    from: 0,
-                    to: 120,
-                    color: '#55BF3B' // green
-                }, {
-                    from: 120,
-                    to: 160,
-                    color: '#DDDF0D' // yellow
-                }, {
-                    from: 160,
-                    to: 200,
-                    color: '#DF5353' // red
-                }, {
-                  from: 100,
-                    to: 140,
-                    color: '#6677ff',
-                    innerRadius: '100%',
-                    outerRadius: '110%'
-                }]
-            },
-
-            series: [{
-                name: 'Cair',
-                data: [valueInt],
-                tooltip: {
-                    valueSuffix: ' %'
-                }
-            }]
-
-        });
+        
       }); 
     </script> 
   </body>
