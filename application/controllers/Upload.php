@@ -98,7 +98,7 @@ class Upload extends CI_Controller {
                 $config['upload_path'] = $path;
                 $config['allowed_types'] = 'xlsx|xls|jpg|png';
                 $config['remove_spaces'] = TRUE;
-                $this->initialize($config);
+               // $this->initialize($config);
                 $this->load->library('upload', $config);
                 if (!$this->upload->do_upload('userfile')) {
                     $error = array('error' => $this->upload->display_errors());

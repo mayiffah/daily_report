@@ -121,8 +121,8 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
       if(!is_array($upload_data)){
     
                 echo $upload_data;
-                $mod_date=date("Y-F-d.H:i:s", filemtime($upload_data));
-                $kemarin = date('Y-F-d.H:i:s',strtotime("-1 days"));
+                $mod_date=date("Y-m-d.H:i:s", filemtime($upload_data));
+                $kemarin = date('Y-m-d.H:i:s',strtotime("-1 days"));
 
                 echo '<br>'. $mod_date;
 
