@@ -117,15 +117,18 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
     
       <?php 
-      /*
+
+
+      
       if(!is_array($upload_data)){
     
                 echo $upload_data;
-                $mod_date=date("Y-m-d.H:i:s", filemtime($upload_data));
-                $kemarin = date('Y-m-d.H:i:s',strtotime("-1 days"));
+                $mod_date=date("Y-m-d-H:i:s", filemtime($upload_data));
+                $kemarin = date('Y-m-d-H:i:s',strtotime("-1 days"));
 
                 echo '<br>'. $mod_date;
 
+              $table_existing = 'existing'.$mod_date;
               $this->load->database();
 
               $query = $this->db->query("CREATE TABLE `ifois".$mod_date."` LIKE ifois_archive;");
@@ -137,8 +140,11 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
               $query = $this->db->query("ALTER TABLE `ifois".$mod_date."` ADD KEY `NOLOAN` (`NOLOAN`), ADD KEY `LOANTYPE` (`LOANTYPE`), ADD KEY `KODECABANGBARU` (`KODECABANGBARU`), ADD KEY `TGLPENCAIRAN` (`TGLPENCAIRAN`), ADD KEY `DIVISI` (`DIVISI`)");
 
-              $query = $this->db->query("CREATE TABLE `existing".$mod_date."` LIKE existing;");
-              $query = $this->db->query("INSERT into `existing".$mod_date."` (`FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `LoanTypeDesc`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `EQVRATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `STATUS_PENCAIRAN`, `Segmen`, `Produk`, `P/B`, `grup`, `AREA`, `KANWIL`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`) SELECT a.FICMISDATE, a.NOLOAN, a.NOMORCIF, a.NAMALENGKAP, a.KODECABANGBARU, a.NAMACABANG,a.JENISPIUTANGPEMBIAYAAN, a.SEKTOREKONOMICODE
+              $query = $this->db->query("RENAME TABLE existing TO `existing".$kemarin."`;");
+
+              $query = $this->db->query("CREATE TABLE existing LIKE `existing".$kemarin."`;");
+
+              $query = $this->db->query("INSERT into existing  (`FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `LoanTypeDesc`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `EQVRATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `STATUS_PENCAIRAN`, `Segmen`, `Produk`, `P/B`, `grup`, `AREA`, `KANWIL`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`) SELECT a.FICMISDATE, a.NOLOAN, a.NOMORCIF, a.NAMALENGKAP, a.KODECABANGBARU, a.NAMACABANG,a.JENISPIUTANGPEMBIAYAAN, a.SEKTOREKONOMICODE
 , a.TGLPENCAIRAN, a.TGLJTTEMPO, a.DAYPASTDUE, a.DIVISI, a.CURRENCY, a.LOANTYPE, c.LoanTypeDesc, a.CATEGORY, a.RESTRUCTFLAG, a.PRICING
 , a.REKPEMBYPOKOK, a.TENOR, a.RESTRUCTDATE, a.KOLBSM, a.KOLCIF, a.SOURCEDATACODE, a.OSPOKOKCONVERSION, a.OSMARGINCONVERSION
 , a.OSGROSSCONVERSION, a.TUNGGAKANPOKOKCONVERSION, a.TUNGGAKANMARGINCONVERSION, a.TUNGGAKANGROSSCONVERSION
@@ -183,10 +189,10 @@ left outer join lalu b on a.NOLOAN = b.NoLoan
 left outer join Loantype2017 c on a.LOANTYPE = c.LoanType
 left outer join cabang2017new d on a.KODECABANGBARU = d.outletcode
 where a.DIVISI in ('BBG')");
-              $query = $this->db->query("INSERT INTO existing2 (SELECT * FROM div_code d WHERE NOT EXISTS (SELECT * FROM `existing".$mod_date."` e WHERE d.NOMORCIF = e.NOMORCIF))
+              $query = $this->db->query("INSERT INTO existing2 (SELECT * FROM div_code d WHERE NOT EXISTS (SELECT * FROM existing e WHERE d.NOMORCIF = e.NOMORCIF))
 ");
 
-              $query = $this->db->query("INSERT INTO `existing".$mod_date."` (`FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `LoanTypeDesc`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `EQVRATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `STATUS_PENCAIRAN`, `Segmen`, `Produk`, `P/B`, `grup`, `AREA`, `KANWIL`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`)
+              $query = $this->db->query("INSERT INTO existing (`FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `LoanTypeDesc`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `EQVRATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `STATUS_PENCAIRAN`, `Segmen`, `Produk`, `P/B`, `grup`, `AREA`, `KANWIL`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`)
  SELECT `FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `LoanTypeDesc`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `EQVRATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `STATUS_PENCAIRAN`, `Segmen`, `Produk`, `P/B`, `grup`, `AREA`, `KANWIL`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`
  FROM existing2");
 
@@ -197,7 +203,7 @@ where a.DIVISI in ('BBG')");
               
 
               $query = $this->db->query("INSERT INTO lalu (`NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `Segmen`, `Produk`, `P/B`, `grup`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking`)
-SELECT `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `Segmen`, `Produk`, `P/B`, `grup`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking` FROM `existing".$mod_date."`
+SELECT `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `Segmen`, `Produk`, `P/B`, `grup`, `E/C`, `sektor_ekon`, `Produk2`, `Tahun Booking` FROM existing
 ");
               $query = $this->db->query("DROP TRIGGER IF EXISTS rbh_dibagi_pbh");
               $query = $this->db->query("RENAME TABLE watchlist TO `watchlist".$kemarin."`;");
@@ -206,7 +212,7 @@ SELECT `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `Segmen`, `Produk`, `P/B`, `grup`, `
 
               $query = $this->db->query("CREATE TRIGGER rbh_dibagi_pbh BEFORE INSERT ON watchlist FOR EACH ROW SET NEW.rbh_bagi_pbh = NEW.realisasi_bagi_hasil / NEW.proyeksi_bagi_hasil");
               $query = $this->db->query("INSERT INTO watchlist (`no_loan`, `no_cif`, `nama_lengkap`, `kode_cabang`, `nama_cabang`, `jenis_piutang_pembiayaan`, `tanggal_pencairan`, `tanggal_jatuh_tempo`, `day_past_due`, `restruct_date`, `kol_bsm`, `kol_cif`, `os_pokok_conversion`, `tung_pokok_conversion`, `tung_margin_conversion`, `tung_gross_conversion`, `realisasi_bagi_hasil`, `proyeksi_bagi_hasil`, `grup`) 
-SELECT `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`,`RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `OSPOKOKCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `grup` FROM `existing".$mod_date."`
+SELECT `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`,`RESTRUCTDATE`, `KOLBSM`, `KOLCIF`, `OSPOKOKCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `grup` FROM existing
 "); 
       } else {
         echo 'masuk <br>';
@@ -219,14 +225,14 @@ SELECT `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JEN
                 echo 'ada ';
                 echo $count-1;
       }
-       */
-      $tgl = '_archive';
+       
+  //    $tgl = '_archive';
        ?>
       
     
     <p><?php echo anchor('/upload/do_upload', 'Upload Lagi'); ?></p>
 
-    <a class="pull-left btn btn-primary btn-xs" href="<?php echo site_url().'/upload/createxls/'.$tgl?>"><i class="fa fa-file-excel-o"></i> Export Data</a>
+    <a class="pull-left btn btn-primary btn-xs" href="<?php echo site_url().'/upload/createxls/'.$mod_date?>"><i class="fa fa-file-excel-o"></i> Export Data</a>
     </div>
     </div>
     <script type="text/javascript">

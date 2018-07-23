@@ -58,6 +58,9 @@ class Nasional extends CI_Controller {
 
 			if ($this->form_validation->run() == FALSE) {
 				if(isset($this->session->userdata['logged_in'])){
+					//$this->session->set_userdata('logged_in', $session_data);
+					$data['list_employee'] = $this->employee_model->get_employee('tes');
+					$data['list_watchlist'] = $this->watchlist_model->get_watchlist('all');
 					$this->load->view('/portfolio');
 				}else{
 					$this->load->view('/login');

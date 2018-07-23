@@ -15,12 +15,19 @@ class Import_model extends CI_Model {
     public function setBatchImport($batchImport) {
         $this->_batchImport = $batchImport;
     }
- 
+ /*
     // save data
     public function importData() {
         $data = $this->_batchImport;
         $this->db->insert_batch('existing_excel', $data);
+    }*/
+
+    public function importData() {
+        $data = $this->_batchImport;
+      //  $this->db->set($data);
+        $this->db->insert_batch('existing_excel', $data);
     }
+
     // get employee list
     public function employeeList() {
         $this->db->select(array('e.id', 'e.first_name', 'e.last_name', 'e.email', 'e.dob', 'e.contact_no'));
