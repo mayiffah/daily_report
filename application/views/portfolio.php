@@ -51,14 +51,14 @@ header("location:". base_url() . "index.php/nasional/login");
   <body class="fixed-nav sticky-footer bg-dark" id="page-top">
       HALOHA
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-      <a class="navbar-brand" href="index">Portfolio Nasional || Business Banking Group || Bank Syariah Mandiri</a>
+      <a class="navbar-brand" href='<?php echo base_url ('/index.php/nasional/login');?>'>Portfolio Nasional || Business Banking Group || Bank Syariah Mandiri</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Portfolio Nasional">
-            <a class="nav-link" href="index">
+            <a class="nav-link" href='<?php echo base_url ('/index.php/nasional/login'); ?>'>
               <i class="fa fa-fw fa-dashboard"></i>
               <span class="nav-link-text">Portfolio Nasional</span>
             </a>
@@ -124,6 +124,23 @@ header("location:". base_url() . "index.php/nasional/login");
           <li class="breadcrumb-item active">Portfolio Nasional</li>
         </ol>
 
+        <?php 
+        if ($id_jabatan === null) {
+          echo 'id jabatan is null';
+        } else { 
+          echo 'id jabatan:'.$id_jabatan;
+        }
+
+
+         if ($nama_outlet === null) {
+          echo 'nama outlet is null';
+        } else { 
+          echo '<br>nama outlet:'.$nama_outlet;
+        }
+       // echo var_dump($outstanding);
+        echo '<br>outstanding: '.$outstanding[0]['summ'];
+
+        ?>
         <!-- Speedometer Outstanding -->
         <div id="containeros" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
         </div>

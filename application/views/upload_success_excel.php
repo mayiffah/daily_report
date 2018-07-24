@@ -123,7 +123,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
     
     <p><?php echo anchor('/upload/do_upload', 'Upload Lagi'); ?></p>
 
-    <a class="pull-left btn btn-primary btn-xs" href="<?php echo site_url().'/upload/createxls/'.$tgl?>"><i class="fa fa-file-excel-o"></i> Export Data</a>
+    <a class="pull-left btn btn-primary btn-xs" href="<?php echo site_url().'/upload/createxls/'?>"><i class="fa fa-file-excel-o"></i> Export Data</a>
     </div>
     </div>
     <script type="text/javascript">

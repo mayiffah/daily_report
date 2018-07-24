@@ -48,12 +48,11 @@ class Upload extends CI_Controller {
         public function createXLS() 
         {
             // create file name
-            $tgl = $this->uri->segment(3); 
+          //  $tgl = $this->uri->segment(3); 
             $fileName = 'D:\data_final'.time().'.xlsx'; 
-         //   $name = 'data_final'.$tgl.'.xlsx'; 
             // load excel library
             $this->load->library('excel');
-            $empInfo = $this->export_model->finalList($tgl);
+            $empInfo = $this->export_model->finalList();
             $objPHPExcel = new PHPExcel();
             $objPHPExcel->setActiveSheetIndex(0);
             // set Header
