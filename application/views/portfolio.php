@@ -138,9 +138,129 @@ header("location:". base_url() . "index.php/nasional/login");
           echo '<br>nama outlet:'.$nama_outlet;
         }
        // echo var_dump($outstanding);
-        echo '<br>outstanding: '.$outstanding[0]['summ'];
+        echo '<br>outstanding: '.$outstanding[0]['SUM_OS'];
+
+
 
         ?>
+        <br>
+        <br>
+        <br>
+        Tabel Nasional
+        <table class="table table-bordered">
+          <thead>
+            <th>No.</th>
+            <th>Wilayah</th>
+            <th>Outstanding</th>
+            <th>Kol 2</th>
+            <th>NPF</th>
+            <th>Cair B2B</th>
+            <th>Cair B2C</th>
+            <th>Runoff</th>
+            <th>Upgrade NPF</th>
+            <th>Downgrade NPF</th>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Nasional</td>
+              <?php echo '<td>'.$outstanding[0]['SUM_OS'].'</td>';?>
+              <td>Kol 2</td>
+              <td>NPF</td>
+              <td>Cair B2B</td>
+              <td>Cair B2C</td>
+              <td>Runoff</td>
+              <td>Upgrade NPF</td>
+              <td>Downgrade NPF</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>WIlayah I</td>
+              <td>Outstanding</td>
+              <td>Kol 2</td>
+              <td>NPF</td>
+              <td>Cair B2B</td>
+              <td>Cair B2C</td>
+              <td>Runoff</td>
+              <td>Upgrade NPF</td>
+              <td>Downgrade NPF</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Wilayah II</td>
+              <td>Outstanding</td>
+              <td>Kol 2</td>
+              <td>NPF</td>
+              <td>Cair B2B</td>
+              <td>Cair B2C</td>
+              <td>Runoff</td>
+              <td>Upgrade NPF</td>
+              <td>Downgrade NPF</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Wilayah III</td>
+              <td>Outstanding</td>
+              <td>Kol 2</td>
+              <td>NPF</td>
+              <td>Cair B2B</td>
+              <td>Cair B2C</td>
+              <td>Runoff</td>
+              <td>Upgrade NPF</td>
+              <td>Downgrade NPF</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Wilayah IV</td>
+              <td>Outstanding</td>
+              <td>Kol 2</td>
+              <td>NPF</td>
+              <td>Cair B2B</td>
+              <td>Cair B2C</td>
+              <td>Runoff</td>
+              <td>Upgrade NPF</td>
+              <td>Downgrade NPF</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Wilayah V</td>
+              <td>Outstanding</td>
+              <td>Kol 2</td>
+              <td>NPF</td>
+              <td>Cair B2B</td>
+              <td>Cair B2C</td>
+              <td>Runoff</td>
+              <td>Upgrade NPF</td>
+              <td>Downgrade NPF</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Wilayah VI</td>
+              <td>Outstanding</td>
+              <td>Kol 2</td>
+              <td>NPF</td>
+              <td>Cair B2B</td>
+              <td>Cair B2C</td>
+              <td>Runoff</td>
+              <td>Upgrade NPF</td>
+              <td>Downgrade NPF</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Wilayah VII</td>
+              <td>Outstanding</td>
+              <td>Kol 2</td>
+              <td>NPF</td>
+              <td>Cair B2B</td>
+              <td>Cair B2C</td>
+              <td>Runoff</td>
+              <td>Upgrade NPF</td>
+              <td>Downgrade NPF</td>
+            </tr>
+           
+          </tbody>
+        </table>
         <!-- Speedometer Outstanding -->
         <div id="containeros" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
         </div>

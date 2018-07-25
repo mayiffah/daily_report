@@ -117,15 +117,22 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 			<input type="file" name="userfile" size="20" />
 
-			<input type = "submit" value = "upload" />
-
+			<input type = "submit" class = "btn btn-primary" value = "Import" />
+      <br>
+      <span style="color:red;">*Silahkan masukkan file Ifois Text (.txt)</span>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      
 			</form>
             <?php
             $output = '';
             $output .= form_open_multipart('upload/save');
             $output .= '<div class="row">';
             $output .= '<div class="col-lg-12 col-sm-12"><div class="form-group">';
-            $output .= form_label('Import Lawyers', 'image');
+            $output .= form_label('Upload Data Akhir Bulan', 'image');
             $data = array(
                 'name' => 'userfile',
                 'id' => 'userfile',
@@ -134,7 +141,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
                 'data-icon' => 'false'
             );
             $output .= form_upload($data);
-            $output .= '</div> <span style="color:red;">*Please choose an Excel file(.xls or .xlxs) as Input</span></div>';
+            $output .= '</div> <span style="color:red;">*Silahkan masukkan file QuickCount Excel (.xls atau .xlxs)</span></div>';
             $output .= '<div class="col-lg-12 col-sm-12"><div class="form-group text-right">';
             $data = array(
                 'name' => 'importfile',

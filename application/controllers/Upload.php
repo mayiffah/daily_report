@@ -100,9 +100,9 @@ class Upload extends CI_Controller {
                 $config['upload_path'] = $path;
                 $config['allowed_types'] = 'xlsx|xls';
                 $config['remove_spaces'] = TRUE;
-                $config['max_size']             = 200000;
-                $config['max_width']            = 1024;
-                $config['max_height']           = 768;
+                $config['max_size']      = 200000;
+                $config['max_width']     = 1024;
+                $config['max_height']    = 768;
                // $this->initialize($config);
                 $this->load->library('upload', $config);
                 if (!$this->upload->do_upload('userfile')) {
@@ -127,100 +127,127 @@ class Upload extends CI_Controller {
                 }
 
                 $object = PHPExcel_IOFactory::load($inputFileName);
-                $count = 0;
+               // $count = 0;
+                $masukmana = 'tes';
                 foreach($object->getWorksheetIterator() as $worksheet)
                {
+                $masukmana = 'foreach';
                 $highestRow = $worksheet->getHighestRow();
                 $highestColumn = $worksheet->getHighestColumn();
                 $array_input = array();
                 for($row=2; $row<=$highestRow; $row++)
                 {
-                 $customer_name = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-                 $address = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
-                 $city = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
-                 $postal_code = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
-                 $country = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+                  $masukmana = 'for';
+                $FICMISDATE = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+                $NOLOAN = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+                $NOMORCIF = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
+                $NAMALENGKAP = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+                $KODECABANGBARU = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+                $NAMACABANG = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+                $JENISPIUTANGPEMBIAYAAN = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
+                $JENISPENGGUNAANCODE  = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
+                $SEKTOREKONOMICODE  = $worksheet->getCellByColumnAndRow(8, $row)->getValue();
+                $TGLPENCAIRAN = $worksheet->getCellByColumnAndRow(9, $row)->getValue();
+                $TGLJTTEMPO = $worksheet->getCellByColumnAndRow(10, $row)->getValue();
+                $DAYPASTDUE = $worksheet->getCellByColumnAndRow(11, $row)->getValue();
+                $DIVISI   = $worksheet->getCellByColumnAndRow(12, $row)->getValue();
+                $DIVISI_PISAH   = $worksheet->getCellByColumnAndRow(13, $row)->getValue();
+                $DIVISI_FINAL   = $worksheet->getCellByColumnAndRow(14, $row)->getValue();
+                $CURRENCY   = $worksheet->getCellByColumnAndRow(15, $row)->getValue();
+                $LOANTYPE   = $worksheet->getCellByColumnAndRow(16, $row)->getValue();
+                $CATEGORY   = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
+                $RESTRUCTFLAG   = $worksheet->getCellByColumnAndRow(18, $row)->getValue();
+                $PRICING  = $worksheet->getCellByColumnAndRow(19, $row)->getValue();
+                $REKPEMBYPOKOK  = $worksheet->getCellByColumnAndRow(20, $row)->getValue();
+                $TENOR  = $worksheet->getCellByColumnAndRow(21, $row)->getValue();
+                $RESTRUCTDATE = $worksheet->getCellByColumnAndRow(22, $row)->getValue();
+                $KOLBSM_SISTEM    = $worksheet->getCellByColumnAndRow(23, $row)->getValue();
+                $KOLLOANFINAL   = $worksheet->getCellByColumnAndRow(24, $row)->getValue();
+                $KOLCIFFINAL    = $worksheet->getCellByColumnAndRow(25, $row)->getValue();
+                $SOURCEDATACODE   = $worksheet->getCellByColumnAndRow(26, $row)->getValue();
+                $OSPOKOKCONVERSION  = $worksheet->getCellByColumnAndRow(27, $row)->getValue();
+                $OSMARGINCONVERSION   = $worksheet->getCellByColumnAndRow(28, $row)->getValue();
+                $OSGROSSCONVERSION  = $worksheet->getCellByColumnAndRow(29, $row)->getValue();
+                $TUNGGAKANPOKOKCONVERSION = $worksheet->getCellByColumnAndRow(30, $row)->getValue();
+                $TUNGGAKANMARGINCONVERSION  = $worksheet->getCellByColumnAndRow(31, $row)->getValue();
+                $TUNGGAKANGROSSCONVERSION = $worksheet->getCellByColumnAndRow(32, $row)->getValue();
+                $PENCAIRANPOKOKCONVERSION   = $worksheet->getCellByColumnAndRow(33, $row)->getValue();
+                $PENCAIRANMARGINCONVERSION  = $worksheet->getCellByColumnAndRow(34, $row)->getValue();
+                $PENCAIRANGROSSCONVERSION   = $worksheet->getCellByColumnAndRow(35, $row)->getValue();
+                $REALISASI_BAGIHASIL  = $worksheet->getCellByColumnAndRow(36, $row)->getValue();
+                $PROYEKSI_BAGIHASIL = $worksheet->getCellByColumnAndRow(37, $row)->getValue();
+                $ACCOUNTOFFICER   = $worksheet->getCellByColumnAndRow(38, $row)->getValue();
+                $EQVRATE  = $worksheet->getCellByColumnAndRow(39, $row)->getValue();
+                $INTEREST_RATE  = $worksheet->getCellByColumnAndRow(40, $row)->getValue();
+                $MISACCOUNTOFFICR   = $worksheet->getCellByColumnAndRow(41, $row)->getValue();
+                $NAMAPERUSAHAANNASABAH  = $worksheet->getCellByColumnAndRow(42, $row)->getValue();
+                $LD_ECONOMICSECTOR  = $worksheet->getCellByColumnAndRow(43, $row)->getValue();
+                $TUNGGAKANPENALTYCONVERSION   = $worksheet->getCellByColumnAndRow(44, $row)->getValue();
+                $NAPNO  = $worksheet->getCellByColumnAndRow(45, $row)->getValue();
+                $Kol  = $worksheet->getCellByColumnAndRow(46, $row)->getValue();
+
                  $array_input[] =array(
-                  'FICMISDATE'  => $customer_name,
-                  'NOLOAN'   => $address,
-                  'NOMORCIF'    => $city,
-                  'NAMALENGKAP'  => $postal_code,
-                  'KODECABANGBARU'   => $country
+                  'FICMISDATE'  => $FICMISDATE,
+                  'NOLOAN'   => $NOLOAN,
+                  'NOMORCIF'    => $NOMORCIF,
+                  'NAMALENGKAP'  => $NAMALENGKAP,
+                  'KODECABANGBARU'   => $KODECABANGBARU,
+                  'NAMACABANG'=> $NAMACABANG,
+                  'JENISPIUTANGPEMBIAYAAN'=> $JENISPIUTANGPEMBIAYAAN,
+                  'JENISPENGGUNAANCODE' => $JENISPENGGUNAANCODE,
+                  'SEKTOREKONOMICODE' => $SEKTOREKONOMICODE, 
+                  'TGLPENCAIRAN'=> $TGLPENCAIRAN,
+                  'TGLJTTEMPO'=> $TGLJTTEMPO,
+                  'DAYPASTDUE'=> $DAYPASTDUE,
+                  'DIVISI'  => $DIVISI ,
+                  'DIVISI_PISAH'  => $DIVISI_PISAH, 
+                  'DIVISI_FINAL'  => $DIVISI_FINAL,
+                  'CURRENCY'  => $CURRENCY, 
+                  'LOANTYPE'  => $LOANTYPE, 
+                  'CATEGORY'  => $CATEGORY, 
+                  'RESTRUCTFLAG'  => $RESTRUCTFLAG, 
+                  'PRICING' => $PRICING, 
+                  'REKPEMBYPOKOK' => $REKPEMBYPOKOK, 
+                  'TENOR' => $TENOR, 
+                  'RESTRUCTDATE'=> $RESTRUCTDATE,
+                  'KOLBSM_SISTEM'   => $KOLBSM_SISTEM,  
+                  'KOLLOANFINAL'  => $KOLLOANFINAL,  
+                  'KOLCIFFINAL'   => $KOLCIFFINAL,  
+                  'SOURCEDATACODE'  => $SOURCEDATACODE, 
+                  'OSPOKOKCONVERSION' => $OSPOKOKCONVERSION,
+                  'OSMARGINCONVERSION'  => $OSMARGINCONVERSION, 
+                  'OSGROSSCONVERSION' => $OSGROSSCONVERSION, 
+                  'TUNGGAKANPOKOKCONVERSION'=> $TUNGGAKANPOKOKCONVERSION,
+                  'TUNGGAKANMARGINCONVERSION' => $TUNGGAKANMARGINCONVERSION,
+                  'TUNGGAKANGROSSCONVERSION'=> $TUNGGAKANGROSSCONVERSION,
+                  'PENCAIRANPOKOKCONVERSION'  => $PENCAIRANPOKOKCONVERSION, 
+                  'PENCAIRANMARGINCONVERSION' => $PENCAIRANMARGINCONVERSION, 
+                  'PENCAIRANGROSSCONVERSION'  => $PENCAIRANGROSSCONVERSION, 
+                  'REALISASI_BAGIHASIL' => $REALISASI_BAGIHASIL,
+                  'PROYEKSI_BAGIHASIL'=> $PROYEKSI_BAGIHASIL,
+                  'ACCOUNTOFFICER'  => $ACCOUNTOFFICER, 
+                  'EQVRATE' => $EQVRATE, 
+                  'INTEREST_RATE' => $INTEREST_RATE, 
+                  'MISACCOUNTOFFICR'  => $MISACCOUNTOFFICR, 
+                  'NAMAPERUSAHAANNASABAH' => $NAMAPERUSAHAANNASABAH, 
+                  'LD_ECONOMICSECTOR' => $LD_ECONOMICSECTOR, 
+                  'TUNGGAKANPENALTYCONVERSION'  => $TUNGGAKANPENALTYCONVERSION, 
+                  'NAPNO' => $NAPNO, 
+                  'Kol CIF BulanLalu' => $Kol
                  );
-                 $count++;
+               //  $count++;
                 }
                }
 
-               /*$count_del = 0;
-               foreach($array_input as $a) {
-                   if ($count_del === $count) {
-                    break;
-                   }
-                 unset($array_input[$count_del]);
-                $count_del++;
-               }
-*/
-                $this->import_model->setBatchImport($array_input);
-                $this->import_model->importData($array_input);
-   //            $data['message'] = var_dump($array_input);
-
-                /*
-                $allDataInSheet = $objPHPExcel->getActiveSheet()->toArray(null, true, true, true);
-                
-                $arrayCount = count($allDataInSheet);
-                $flag = 0;
-                //createArray adalah array yg ada di excel
-                $createArray = array('id', 'FICMISDATE', 'NOLOAN', 'NOMORCIF', 'NAMALENGKAP', 'KODECABANGBARU');
-                $makeArray = array('id' => 'id','FICMISDATE' => 'FICMISDATE', 'NOLOAN' => 'NOLOAN', 'NOMORCIF' => 'NOMORCIF', 'NAMALENGKAP' => 'NAMALENGKAP', 'KODECABANGBARU' => 'KODECABANGBARU');
-
-                $SheetDataKey = array();
-                foreach ($allDataInSheet as $dataInSheet) {
-                    $imported = 'masuk foreach1';
-                    $count = 0;
-                    foreach ($dataInSheet as $key => $value) {
-                        if (in_array(trim($value), $createArray)) {
-                            $imported = 'masuk if di foreach';
-                            $value = preg_replace('/\s+/', '', $value);
-                            $SheetDataKey[trim($value)] = $key;
-                        } else {
-                            
-                        }
-                    }
-                }
-                //comparing array
-                $data = array_diff_key($makeArray, $SheetDataKey);
-               // $data['message'] = var_dump($SheetDataKey);
-               
-                if (empty($data)) {
-                    $flag = 1;
-                    //array is empty
-                }
-                if ($flag == 1) {
-                    for ($i = 2; $i <= $arrayCount; $i++) {
-                        $addresses = array();
-                        $firstName = $SheetDataKey['FICMISDATE'];
-                        $lastName = $SheetDataKey['NOLOAN'];
-                        $email = $SheetDataKey['NOMORCIF'];
-                        $dob = $SheetDataKey['NAMALENGKAP'];
-                        $contactNo = $SheetDataKey['KODECABANGBARU'];
-                        $firstName = filter_var(trim($allDataInSheet[$i][$firstName]), FILTER_SANITIZE_STRING);
-                        $lastName = filter_var(trim($allDataInSheet[$i][$lastName]), FILTER_SANITIZE_STRING);
-                        $email = filter_var(trim($allDataInSheet[$i][$email]), FILTER_SANITIZE_EMAIL);
-                        $dob = filter_var(trim($allDataInSheet[$i][$dob]), FILTER_SANITIZE_STRING);
-                        $contactNo = filter_var(trim($allDataInSheet[$i][$contactNo]), FILTER_SANITIZE_STRING);
-                        $fetchData[] = array('id' => null, 'FICMISDATE' => $firstName, 'NOLOAN' => $lastName, 'NOMORCIF' => $email, 'NAMALENGKAP' => $dob, 'KODECABANGBARU' => $contactNo);
-                    }              
-                    $data['employeeInfo'] = $fetchData;
-                    $this->import->setBatchImport($fetchData);
-                    $this->import->importData();
-                    $data['message'] = 'imported';
-                } else {
-                    echo "Please import correct file";
-
-                    $data['message'] = 'not imported';
-                }*/
+                $data['arr'] = $array_input;
+                $data['highestrow'] = $highestRow;
+                $data['inputFileName'] = $inputFileName; 
+                $data['masukmana'] = $highestColumn;
+                $this->load->view('/upload_success_excel', $data);
+            //    $this->import_model->setBatchImport($array_input);
+             //   $this->import_model->importData($array_input);
             }
-            $this->load->view('/upload_success_excel', $data);
+            
             
         } 
 

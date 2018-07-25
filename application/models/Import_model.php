@@ -25,7 +25,7 @@ class Import_model extends CI_Model {
     public function importData() {
         $data = $this->_batchImport;
       //  $this->db->set($data);
-        $this->db->insert_batch('existing_excel', $data);
+        $this->db->insert_batch('ifois_excel', $data);
     }
 
     // get employee list
