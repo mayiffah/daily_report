@@ -383,8 +383,8 @@ header("location:". base_url() . "index.php/nasional/login");
                     <div class="h4 mb-0 text-primary">B to B</div>
                     <div class="small text-muted">Rp 34,693</div>
                     <hr>
-                    <div class="h4 mb-0 text-warning">Rp 18,474</div>
-                    <div class="small text-muted">YTD Expenses</div>
+                    <div class="h4 mb-0 text-warning"></div>
+                    <div class="small text-muted"></div>
                     <hr>
                     <div class="h4 mb-0 text-danger">B to C</div>
                     <div class="small text-muted">Rp 16,219</div>

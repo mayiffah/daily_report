@@ -118,13 +118,13 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
     
       <?php 
 
-      if ($arr === null) {
-        echo 'array is null'; 
-      } else {
-        var_dump($arr);
-        echo $highestrow;
-      }
-      echo $masukmana;
+      // if ($arr === null) {
+      //   echo 'array is null'; 
+      // } else {
+      //   var_dump($arr);
+      //   echo $highestrow;
+      // }
+      // echo $masukmana;
       $tgl = '_archive';
        ?>
       

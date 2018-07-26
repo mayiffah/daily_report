@@ -1495,6 +1495,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 		{
 			if (empty($set))
 			{
+                echo '<script>console.log(\'' . $table . '\')</script>';
 				return ($this->db_debug) ? $this->display_error('insert_batch() called with no data') : FALSE;
 			}
 
