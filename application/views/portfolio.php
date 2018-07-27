@@ -4,6 +4,9 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 if (isset($this->session->userdata['logged_in'])) {
 $username = ($this->session->userdata['logged_in']['username']);
+$id_jabatan = ($this->session->userdata['logged_in']['id_jabatan']);
+$nama_outlet = ($this->session->userdata['logged_in']['nama_outlet']);
+
 } else {
 header("location:". base_url() . "index.php/nasional/login");
 }

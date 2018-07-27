@@ -36,8 +36,8 @@ class Nasional extends CI_Controller {
         //	$ada_user = $this->login_database->read_user_information('123');
         //	$data['id_jabatan'] = $ada_user[0]->id_jabatan;
         //	$id_jabatan2 =  $this->session->userdata('id_jabatan');
-        	$data['id_jabatan'] = $id_jabatan;
-        	$data['nama_outlet'] = $nama_outlet;
+       // 	$data['id_jabatan'] = $id_jabatan;
+       // 	$data['nama_outlet'] = $nama_outlet;
         	
         	$data['outstanding'] = $this->final_model->get_outstanding($id_jabatan, $nama_outlet);
             $this->load->view('/portfolio', $data);
@@ -69,8 +69,8 @@ class Nasional extends CI_Controller {
 					/*$data['list_employee'] = $this->employee_model->get_employee('tes');
 					$data['list_watchlist'] = $this->watchlist_model->get_watchlist('all');
 					$this->load->view('/portfolio', $data);*/
-					$id_jabatan =  $this->session->userdata('id_jabatan');
-					$nama_outlet =  $this->session->userdata('nama_outlet');
+					$id_jabatan =  $this->session->userdata['logged_in']['id_jabatan'];
+					$nama_outlet =  $this->session->userdata['logged_in']['nama_outlet'];
 
 					$this->index($id_jabatan, $nama_outlet);
 				}else{
@@ -90,9 +90,9 @@ class Nasional extends CI_Controller {
 
 					if ($result != false) {
 						$session_data = array(
-						'username' => $ada_user[0]->nama,
-						'id_jabatan' => $ada_user[0]->id_jabatan,
-						'nama_outlet' => $ada_user[0]->nama_outlet
+							'username' => $ada_user[0]->nama,
+							'id_jabatan' => $ada_user[0]->id_jabatan,
+							'nama_outlet' => $ada_user[0]->nama_outlet
 						);
 						// Add user data in session
 						$this->session->set_userdata('logged_in', $session_data);

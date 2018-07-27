@@ -8,23 +8,26 @@ class Area extends CI_Controller {
             $this->load->model('wilayah_model');
             $this->load->model('area_model');
             $this->load->model('cabang_model');
+            $this->load->model('final_model');
           	$this->load->helper('url');
+            $this->load->library('session');
         }
 
         //filtering berdasarkan area yg ada di database
         public function portfolio_area() 
         {
-        	
+        	$this->load->helper('url');
         	$data['list_wilayah'] = $this->wilayah_model->get_wilayah('ALL');
         	$data['list_area'] = $this->area_model->get_area('ALL');
         	$data['list_cabang'] = $this->cabang_model->get_cabang('ALL');
         	$data['wil_ada'] = false;
         	$data['area_ada'] = false;
         	$data['cbg_ada'] = false;
+            $data['ada_outstanding'] = false;
         	$this->load->view('/portfolio_area', $data);	
         }
 
-        public function portfolio_area_baru()
+        public function portfolio_area_baru($id_jabatan, $nama_outlet)
         {
         	$wil = $this->input->get('wilayah');
         	$area = $this->input->get('area');
@@ -32,6 +35,11 @@ class Area extends CI_Controller {
 			
 			$data['list_wilayah'] = $this->wilayah_model->get_wilayah($wil);
         	$data['wil_ada'] = true;
+            $data['ada_outstanding'] = true;
+            
+            $nama_outlet = str_replace('%20', ' ', $nama_outlet);
+            $data['tes1'] = $nama_outlet;
+            $data['outstanding'] = $this->final_model->get_outstanding($id_jabatan, $nama_outlet);
         	
         	if ($area != '') {
         		$data['list_area'] = $this->area_model->get_area($area);

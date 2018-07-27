@@ -4,6 +4,9 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 if (isset($this->session->userdata['logged_in'])) {
 $username = ($this->session->userdata['logged_in']['username']);
+$id_jabatan = ($this->session->userdata['logged_in']['id_jabatan']);
+$nama_outlet = ($this->session->userdata['logged_in']['nama_outlet']);
+
 } else {
 header("location:". base_url() . "index.php/nasional/login");
 }
@@ -124,8 +127,25 @@ header("location:". base_url() . "index.php/nasional/login");
           <li class="breadcrumb-item active">Portfolio Area</li>
         </ol>
 
+        <?php 
+
+
+
+          echo 'id jabatan:'.$id_jabatan;
         
-        <form action="<?=site_url('area/portfolio_area_baru');?>" method="get">
+          echo '<br>nama outlet:'.$nama_outlet;
+         
+          if ($ada_outstanding === true) {
+            echo '<br> ada os true';
+            echo $tes1;
+            echo $outstanding[0]['SUM_OS'];
+          } else {
+            echo '<br> ada os false';
+          }
+          
+        
+        ?>
+        <form action="<?=site_url('area/portfolio_area_baru/'.$id_jabatan.'/'.$nama_outlet);?>" method="get">
           
           <div>
             <label>Wilayah: </label>

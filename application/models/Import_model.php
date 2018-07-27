@@ -98,8 +98,12 @@ where a.DIVISI in ('BBG')");
          $query = $this->db->query("TRUNCATE existing2");
          $query = $this->db->query("TRUNCATE lalu");
          $query = $this->db->query("TRUNCATE div_code");
-         $query = $this->db->query("TRUNCATE cair_baru");
 
+
+
+
+
+         
         */
 
 
