@@ -60,13 +60,13 @@ class Final_model extends CI_Model {
         public function get_cair($jabatan, $nama_lokasi)
         {
             if ($jabatan === "1" || $jabatan === "2") {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM existing WHERE (`P/B` = 'Pencairan Baru' OR 'Pencairan baru');');
+                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM existing WHERE (`P/B` = "Pencairan Baru" OR "Pencairan baru");');
             } else if ($jabatan === '3' || $jabatan === '4') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM (select e.OSPOKOKCONVERSION from existing e, cabang a where e.KODECABANGBARU = a.kode_cabang and EXISTS (select c.kode_cabang from cabang c, area a, wilayah w where w.id = (select z.id from wilayah z where z.nama_wilayah = "'.$nama_lokasi.'") and c.id_area = a.id and a.id_wilayah = w.id and a.kode_cabang = c.kode_cabang) AND (e.`P/B` = 'Pencairan Baru' OR 'Pencairan baru')) as TES;');
+                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM (select e.OSPOKOKCONVERSION from existing e, cabang a where e.KODECABANGBARU = a.kode_cabang and EXISTS (select c.kode_cabang from cabang c, area a, wilayah w where w.id = (select z.id from wilayah z where z.nama_wilayah = "'.$nama_lokasi.'") and c.id_area = a.id and a.id_wilayah = w.id and a.kode_cabang = c.kode_cabang) AND (e.`P/B` = "Pencairan Baru" OR "Pencairan baru")) as TES;');
             } else if ($jabatan === '5' || $jabatan === '7') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM (select e.OSPOKOKCONVERSION from existing e, cabang c where e.KODECABANGBARU = c.kode_cabang and EXISTS (select d.kode_cabang from cabang d where id_area = (select a.id from area a where a.nama_area = "'.$nama_lokasi.'") and c.kode_cabang = d.kode_cabang) AND (e.`P/B` = 'Pencairan Baru' OR 'Pencairan baru')) as TES;');
+                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM (select e.OSPOKOKCONVERSION from existing e, cabang c where e.KODECABANGBARU = c.kode_cabang and EXISTS (select d.kode_cabang from cabang d where id_area = (select a.id from area a where a.nama_area = "'.$nama_lokasi.'") and c.kode_cabang = d.kode_cabang) AND (e.`P/B` = "Pencairan Baru" OR "Pencairan baru")) as TES;');
             } else if ($jabatan === '6' || $jabatan === '8') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION)  AS SUM_NPF  FROM (select e.OSPOKOKCONVERSION from existing e, cabang c where e.KODECABANGBARU = c.kode_cabang and c.kode_cabang = (select a.kode_cabang from cabang a where a.nama_cabang = "'.$nama_lokasi.'") AND (e.`P/B` = 'Pencairan Baru' OR 'Pencairan baru')) AS TES;');
+                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION)  AS SUM_NPF  FROM (select e.OSPOKOKCONVERSION from existing e, cabang c where e.KODECABANGBARU = c.kode_cabang and c.kode_cabang = (select a.kode_cabang from cabang a where a.nama_cabang = "'.$nama_lokasi.'") AND (e.`P/B` = "Pencairan Baru" OR "Pencairan baru")) AS TES;');
             } else {
                // $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) FROM existing');
             }           
@@ -77,13 +77,13 @@ class Final_model extends CI_Model {
         {
 
             if ($jabatan === "1" || $jabatan === "2") {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM existing WHERE (`P/B` = 'Pencairan Baru' OR 'Pencairan baru');');
+                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM existing WHERE (`P/B` = "Pencairan Baru" OR "Pencairan baru");');
             } else if ($jabatan === '3' || $jabatan === '4') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM (select e.OSPOKOKCONVERSION from existing e, cabang a where e.KODECABANGBARU = a.kode_cabang and EXISTS (select c.kode_cabang from cabang c, area a, wilayah w where w.id = (select z.id from wilayah z where z.nama_wilayah = "'.$nama_lokasi.'") and c.id_area = a.id and a.id_wilayah = w.id and a.kode_cabang = c.kode_cabang) AND (e.`P/B` = 'Pencairan Baru' OR 'Pencairan baru') AND (e.GRUP = 'B to B')) as TES;');
+                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM (select e.OSPOKOKCONVERSION from existing e, cabang a where e.KODECABANGBARU = a.kode_cabang and EXISTS (select c.kode_cabang from cabang c, area a, wilayah w where w.id = (select z.id from wilayah z where z.nama_wilayah = "'.$nama_lokasi.'") and c.id_area = a.id and a.id_wilayah = w.id and a.kode_cabang = c.kode_cabang) AND (e.`P/B` = "Pencairan Baru" OR "Pencairan baru") AND (e.GRUP = "B to B")) as TES;');
             } else if ($jabatan === '5' || $jabatan === '7') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM (select e.OSPOKOKCONVERSION from existing e, cabang c where e.KODECABANGBARU = c.kode_cabang and EXISTS (select d.kode_cabang from cabang d where id_area = (select a.id from area a where a.nama_area = "'.$nama_lokasi.'") and c.kode_cabang = d.kode_cabang) AND (e.`P/B` = 'Pencairan Baru' OR 'Pencairan baru')   AND (e.GRUP = 'B to B')  ) as TES;');
+                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM (select e.OSPOKOKCONVERSION from existing e, cabang c where e.KODECABANGBARU = c.kode_cabang and EXISTS (select d.kode_cabang from cabang d where id_area = (select a.id from area a where a.nama_area = "'.$nama_lokasi.'") and c.kode_cabang = d.kode_cabang) AND (e.`P/B` = "Pencairan Baru" OR "Pencairan baru")   AND (e.GRUP = "B to B")  ) as TES;');
             } else if ($jabatan === '6' || $jabatan === '8') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION)  AS SUM_NPF  FROM (select e.OSPOKOKCONVERSION from existing e, cabang c where e.KODECABANGBARU = c.kode_cabang and c.kode_cabang = (select a.kode_cabang from cabang a where a.nama_cabang = "'.$nama_lokasi.'") AND (e.`P/B` = 'Pencairan Baru' OR 'Pencairan baru') AND (e.GRUP = 'B to B')) AS TES;');
+                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION)  AS SUM_NPF  FROM (select e.OSPOKOKCONVERSION from existing e, cabang c where e.KODECABANGBARU = c.kode_cabang and c.kode_cabang = (select a.kode_cabang from cabang a where a.nama_cabang = "'.$nama_lokasi.'") AND (e.`P/B` = "Pencairan Baru" OR "Pencairan baru") AND (e.GRUP = "B to B")) AS TES;');
             } else {
                // $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) FROM existing');
             }           
@@ -93,13 +93,13 @@ class Final_model extends CI_Model {
         public function get_cair_b2c($jabatan, $nama_lokasi)
         {
             if ($jabatan === "1" || $jabatan === "2") {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM existing WHERE (`P/B` = 'Pencairan Baru' OR 'Pencairan baru');');
+                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM existing WHERE (`P/B` = "Pencairan Baru" OR "Pencairan baru");');
             } else if ($jabatan === '3' || $jabatan === '4') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM (select e.OSPOKOKCONVERSION from existing e, cabang a where e.KODECABANGBARU = a.kode_cabang and EXISTS (select c.kode_cabang from cabang c, area a, wilayah w where w.id = (select z.id from wilayah z where z.nama_wilayah = "'.$nama_lokasi.'") and c.id_area = a.id and a.id_wilayah = w.id and a.kode_cabang = c.kode_cabang) AND (e.`P/B` = 'Pencairan Baru' OR 'Pencairan baru') AND (e.GRUP = 'B to C')) as TES;');
+                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM (select e.OSPOKOKCONVERSION from existing e, cabang a where e.KODECABANGBARU = a.kode_cabang and EXISTS (select c.kode_cabang from cabang c, area a, wilayah w where w.id = (select z.id from wilayah z where z.nama_wilayah = "'.$nama_lokasi.'") and c.id_area = a.id and a.id_wilayah = w.id and a.kode_cabang = c.kode_cabang) AND (e.`P/B` = "Pencairan Baru" OR "Pencairan baru") AND (e.GRUP = "B to C")) as TES;');
             } else if ($jabatan === '5' || $jabatan === '7') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM (select e.OSPOKOKCONVERSION from existing e, cabang c where e.KODECABANGBARU = c.kode_cabang and EXISTS (select d.kode_cabang from cabang d where id_area = (select a.id from area a where a.nama_area = "'.$nama_lokasi.'") and c.kode_cabang = d.kode_cabang) AND (e.`P/B` = 'Pencairan Baru' OR 'Pencairan baru')   AND (e.GRUP = 'B to C')  ) as TES;');
+                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_NPF FROM (select e.OSPOKOKCONVERSION from existing e, cabang c where e.KODECABANGBARU = c.kode_cabang and EXISTS (select d.kode_cabang from cabang d where id_area = (select a.id from area a where a.nama_area = "'.$nama_lokasi.'") and c.kode_cabang = d.kode_cabang) AND (e.`P/B` = "Pencairan Baru" OR "Pencairan baru")   AND (e.GRUP = "B to C")  ) as TES;');
             } else if ($jabatan === '6' || $jabatan === '8') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION)  AS SUM_NPF  FROM (select e.OSPOKOKCONVERSION from existing e, cabang c where e.KODECABANGBARU = c.kode_cabang and c.kode_cabang = (select a.kode_cabang from cabang a where a.nama_cabang = "'.$nama_lokasi.'") AND (e.`P/B` = 'Pencairan Baru' OR 'Pencairan baru') AND (e.GRUP = 'B to C')) AS TES;');
+                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION)  AS SUM_NPF  FROM (select e.OSPOKOKCONVERSION from existing e, cabang c where e.KODECABANGBARU = c.kode_cabang and c.kode_cabang = (select a.kode_cabang from cabang a where a.nama_cabang = "'.$nama_lokasi.'") AND (e.`P/B` = "Pencairan Baru" OR "Pencairan baru") AND (e.GRUP = "B to C")) AS TES;');
             } else {
                // $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) FROM existing');
             }           
@@ -145,22 +145,46 @@ class Final_model extends CI_Model {
 
         /*
 upgrade=
-SELECT DISTINCT a.nomorcif,  b.nomorcif, a.kolcif, b.kolcif FROM `existing` a, `existing_akhir_bulan2018-06` b WHERE (a.nomorcif = b.nomorcif) AND (a.kolcif = 1  OR a.kolcif = 2) AND ((b.kolcif = 3) OR (b.kolcif = 4) OR (b.kolcif = 5))
+
+SELECT SUM(coba) FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolcif AS kolcif_skrg, b.kolcif AS kolcif_dulu FROM `existing` a, `existing_akhir_bulan2018-06` b WHERE (a.nomorcif = b.nomorcif) AND (a.kolcif = 1 OR a.kolcif = 2) AND ((b.kolcif = 3) OR (b.kolcif = 4) OR (b.kolcif = 5))) AS cari_upgrade
 
 downgrade=
-SELECT DISTINCT a.nomorcif,  b.nomorcif, a.kolcif, b.kolcif FROM `existing` a, `existing_akhir_bulan2018-06` b WHERE (a.nomorcif = b.nomorcif) AND ((a.kolcif = 1  AND b.kolcif = 2) OR (a.kolcif = 2 AND ((b.kolcif = 3) OR (b.kolcif = 4) OR (b.kolcif = 5)))
+
+SELECT SUM(coba) FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolcif AS kolcif_skrg, b.kolcif AS kolcif_dulu FROM `existing` a, `existing_akhir_bulan2018-06` b WHERE (a.nomorcif = b.nomorcif) AND (b.kolcif = 1 OR b.kolcif = 2) AND ((a.kolcif = 3) OR (a.kolcif = 4) OR (a.kolcif = 5))) AS cari_downgrade
+
 
 */
         public function get_upgrade($jabatan, $nama_lokasi)
         {
             if ($jabatan === "1" || $jabatan === "2") {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_OS FROM existing');
+                $query = $this->db->query('SELECT SUM(coba) FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolcif AS kolcif_skrg, b.kolcif AS kolcif_dulu FROM `existing` a, `existing_akhir_bulan2018-06` b WHERE (a.nomorcif = b.nomorcif) AND (a.kolcif = 1 OR a.kolcif = 2) AND ((b.kolcif = 3) OR (b.kolcif = 4) OR (b.kolcif = 5))) AS cari_upgrade');
             } else if ($jabatan === '3' || $jabatan === '4') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_OS FROM (select e.OSPOKOKCONVERSION from existing e, cabang a where e.KODECABANGBARU = a.kode_cabang and EXISTS (select c.kode_cabang from cabang c, area a, wilayah w where w.id = (select z.id from wilayah z where z.nama_wilayah = "'.$nama_lokasi.'") and c.id_area = a.id and a.id_wilayah = w.id and a.kode_cabang = c.kode_cabang)) as TES');
+                $query = $this->db->query('SELECT SUM(coba) FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolcif AS kolcif_skrg, b.kolcif AS kolcif_dulu 
+                    FROM `existing` a, `existing_akhir_bulan2018-06` b, cabang ca 
+                    WHERE   
+                    a.KODECABANGBARU = ca.kode_cabang AND
+                    (a.nomorcif = b.nomorcif) AND 
+                    EXISTS (select c.kode_cabang from cabang c, area ar, wilayah w where w.id = (select z.id from wilayah z where z.nama_wilayah = "'.$nama_lokasi.'") and c.id_area = ar.id and ar.id_wilayah = w.id and ca.kode_cabang = c.kode_cabang) AND
+                    (a.kolcif = 1 OR a.kolcif = 2) AND ((b.kolcif = 3) OR (b.kolcif = 4) OR (b.kolcif = 5))
+                    ) AS cari_upgrade');
             } else if ($jabatan === '5' || $jabatan === '7') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_OS FROM (select e.OSPOKOKCONVERSION from existing_archive e, cabang c where e.KODECABANGBARU = c.kode_cabang and EXISTS (select d.kode_cabang from cabang d where id_area = (select a.id from area a where a.nama_area = "'.$nama_lokasi.'") and c.kode_cabang = d.kode_cabang)) as TES');
+                $query = $this->db->query('SELECT SUM(coba) FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolcif AS kolcif_skrg, b.kolcif AS kolcif_dulu 
+                    FROM `existing` a, `existing_akhir_bulan2018-06` b, cabang ca 
+                    WHERE   
+                    a.KODECABANGBARU = ca.kode_cabang AND
+                    (a.nomorcif = b.nomorcif) AND 
+                    EXISTS (select d.kode_cabang from cabang d where id_area = (select a.id from area ar where ar.nama_area = "'.$nama_lokasi.'") and ca.kode_cabang = d.kode_cabang)) AND
+                    (a.kolcif = 1 OR a.kolcif = 2) AND ((b.kolcif = 3) OR (b.kolcif = 4) OR (b.kolcif = 5))
+                    ) AS cari_upgrade');
             } else if ($jabatan === '6' || $jabatan === '8') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION)  AS SUM_OS  FROM (select e.OSPOKOKCONVERSION from existing_archive e, cabang c where e.KODECABANGBARU = c.kode_cabang and c.kode_cabang = (select a.kode_cabang from cabang a where a.nama_cabang = "'.$nama_lokasi.'")) AS TES');
+                $query = $this->db->query('SELECT SUM(coba) FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolcif AS kolcif_skrg, b.kolcif AS kolcif_dulu 
+                    FROM `existing` a, `existing_akhir_bulan2018-06` b, cabang ca 
+                    WHERE   
+                    a.KODECABANGBARU = ca.kode_cabang AND
+                    (a.nomorcif = b.nomorcif) AND 
+                    ca.kode_cabang = (select d.kode_cabang from cabang d where d.nama_cabang = "'.$nama_lokasi.'") AND
+                    (a.kolcif = 1 OR a.kolcif = 2) AND ((b.kolcif = 3) OR (b.kolcif = 4) OR (b.kolcif = 5))
+                    ) AS cari_upgrade');
             } else {
                // $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) FROM existing');
             }           
@@ -171,13 +195,34 @@ SELECT DISTINCT a.nomorcif,  b.nomorcif, a.kolcif, b.kolcif FROM `existing` a, `
         public function get_downgrade($jabatan, $nama_lokasi)
         {
             if ($jabatan === "1" || $jabatan === "2") {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_OS FROM existing');
+                $query = $this->db->query('SELECT SUM(coba) FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolcif AS kolcif_skrg, b.kolcif AS kolcif_dulu FROM `existing` a, `existing_akhir_bulan2018-06` b WHERE (a.nomorcif = b.nomorcif) AND (b.kolcif = 1 OR b.kolcif = 2) AND ((a.kolcif = 3) OR (a.kolcif = 4) OR (a.kolcif = 5))) AS cari_downgrade');
             } else if ($jabatan === '3' || $jabatan === '4') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_OS FROM (select e.OSPOKOKCONVERSION from existing e, cabang a where e.KODECABANGBARU = a.kode_cabang and EXISTS (select c.kode_cabang from cabang c, area a, wilayah w where w.id = (select z.id from wilayah z where z.nama_wilayah = "'.$nama_lokasi.'") and c.id_area = a.id and a.id_wilayah = w.id and a.kode_cabang = c.kode_cabang)) as TES');
+                $query = $this->db->query('SELECT SUM(coba) FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolcif AS kolcif_skrg, b.kolcif AS kolcif_dulu 
+                    FROM `existing` a, `existing_akhir_bulan2018-06` b, cabang ca 
+                    WHERE 
+                    a.KODECABANGBARU = ca.kode_cabang AND
+                    (a.nomorcif = b.nomorcif) AND 
+                    EXISTS (select c.kode_cabang from cabang c, area ar, wilayah w where w.id = (select z.id from wilayah z where z.nama_wilayah = "'.$nama_lokasi.'") and c.id_area = ar.id and ar.id_wilayah = w.id and ca.kode_cabang = c.kode_cabang) AND
+                    (b.kolcif = 1 OR b.kolcif = 2) AND ((a.kolcif = 3) OR (a.kolcif = 4) OR (a.kolcif = 5))
+                    ) AS cari_downgrade');
             } else if ($jabatan === '5' || $jabatan === '7') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) AS SUM_OS FROM (select e.OSPOKOKCONVERSION from existing_archive e, cabang c where e.KODECABANGBARU = c.kode_cabang and EXISTS (select d.kode_cabang from cabang d where id_area = (select a.id from area a where a.nama_area = "'.$nama_lokasi.'") and c.kode_cabang = d.kode_cabang)) as TES');
+                $query = $this->db->query('SELECT SUM(coba) FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolcif AS kolcif_skrg, b.kolcif AS kolcif_dulu 
+                    FROM `existing` a, `existing_akhir_bulan2018-06` b, cabang ca 
+                    WHERE   
+                    a.KODECABANGBARU = ca.kode_cabang AND
+                    (a.nomorcif = b.nomorcif) AND 
+                    EXISTS (select d.kode_cabang from cabang d where id_area = (select a.id from area ar where ar.nama_area = "'.$nama_lokasi.'") and ca.kode_cabang = d.kode_cabang)) AND
+                    (b.kolcif = 1 OR b.kolcif = 2) AND ((a.kolcif = 3) OR (a.kolcif = 4) OR (a.kolcif = 5))
+                    ) AS cari_downgrade');
             } else if ($jabatan === '6' || $jabatan === '8') {
-                $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION)  AS SUM_OS  FROM (select e.OSPOKOKCONVERSION from existing_archive e, cabang c where e.KODECABANGBARU = c.kode_cabang and c.kode_cabang = (select a.kode_cabang from cabang a where a.nama_cabang = "'.$nama_lokasi.'")) AS TES');
+                $query = $this->db->query('SELECT SUM(coba) FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolcif AS kolcif_skrg, b.kolcif AS kolcif_dulu 
+                    FROM `existing` a, `existing_akhir_bulan2018-06` b, cabang ca 
+                    WHERE   
+                    a.KODECABANGBARU = ca.kode_cabang AND
+                    (a.nomorcif = b.nomorcif) AND 
+                    ca.kode_cabang = (select d.kode_cabang from cabang d where d.nama_cabang = "'.$nama_lokasi.'") AND
+                    (b.kolcif = 1 OR b.kolcif = 2) AND ((a.kolcif = 3) OR (a.kolcif = 4) OR (a.kolcif = 5))
+                    ) AS cari_downgrade');
             } else {
                // $query = $this->db->query('SELECT SUM(OSPOKOKCONVERSION) FROM existing');
             }           

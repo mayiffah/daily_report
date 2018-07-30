@@ -32,13 +32,7 @@ class Nasional extends CI_Controller {
         {
         	$this->load->helper('url');
         	$data['list_employee'] = $this->employee_model->get_employee('tes');
-        	$data['list_watchlist'] = $this->watchlist_model->get_watchlist('all');
-        //	$ada_user = $this->login_database->read_user_information('123');
-        //	$data['id_jabatan'] = $ada_user[0]->id_jabatan;
-        //	$id_jabatan2 =  $this->session->userdata('id_jabatan');
-       // 	$data['id_jabatan'] = $id_jabatan;
-       // 	$data['nama_outlet'] = $nama_outlet;
-        	
+        	$data['list_watchlist'] = $this->watchlist_model->get_watchlist('all');      	
         	$data['outstanding'] = $this->final_model->get_outstanding($id_jabatan, $nama_outlet);
             $this->load->view('/portfolio', $data);
         }

@@ -1,6 +1,11 @@
 <?php
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
+require_once('./application/spout/spout-2.7.3/src/Spout/Autoloader/autoload.php'); // don't forget to change the path!
+use Box\Spout\Reader\ReaderFactory;
+use Box\Spout\Common\Type;
+
+
 
 class Upload extends CI_Controller
 {
@@ -94,6 +99,59 @@ class Upload extends CI_Controller
         // The PDF source is in original.pdf
         readfile('D:\data_final' . time() . '.xlsx');
         redirect("HTTP_UPLOAD_IMPORT_PATH" . $fileName, "refresh");
+    }
+
+    // read excel file with spout
+    public function save_spout()
+    {
+        /*
+        $path = './application/uploads/';
+            
+        $config['upload_path']   = $path;
+        $config['allowed_types'] = 'xlsx|xls';
+        $config['remove_spaces'] = TRUE;
+        $config['max_size']      = 200000;
+        $config['max_width']     = 1024;
+        $config['max_height']    = 768;
+
+        $this->load->library('upload', $config);
+
+        $full_path = $this->upload->data('full_path');
+        */
+
+        $full_path = './application/uploads/Contoh_ifois_excel.xlsx';
+       
+
+        $reader = ReaderFactory::create(Type::XLSX); // for XLSX files
+        //$reader = ReaderFactory::create(Type::CSV); // for CSV files
+        //$reader = ReaderFactory::create(Type::ODS); // for ODS files
+
+        $reader->open($full_path);
+        $array_input   = array();
+        $count = 1;
+        foreach ($reader->getSheetIterator() as $sheet) {
+            foreach ($sheet->getRowIterator() as $row) {
+                // do stuff with the row
+                if ($count != 1) {
+                    if ($count == 3) {
+                        break;
+                    }
+                    $array_input[] = $row;  
+                } else {
+
+                }
+                
+                $count++;
+            }
+        }
+
+        $reader->close();
+        $data['jumlah'] = $count;
+
+        $data['arr']           = $array_input;
+        $this->load->view('/upload_success_excel_spout', $data);
+
+
     }
     
     
