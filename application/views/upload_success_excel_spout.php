@@ -125,8 +125,9 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
       //   echo $highestrow;
       // }
       // echo $masukmana;
-      var_dump($arr);
-      echo 'INI JUMLAH BARIS'.$jumlah;
+    //  var_dump($arr);
+      echo '<br>INI JUMLAH BARIS'.$jumlah;
+      echo '<br>INI VALUE CELL COBA:'.$coba;
       $tgl = '_archive';
        ?>
       

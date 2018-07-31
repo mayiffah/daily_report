@@ -32,8 +32,29 @@ class Nasional extends CI_Controller {
         {
         	$this->load->helper('url');
         	$data['list_employee'] = $this->employee_model->get_employee('tes');
-        	$data['list_watchlist'] = $this->watchlist_model->get_watchlist('all');      	
-        	$data['outstanding'] = $this->final_model->get_outstanding($id_jabatan, $nama_outlet);
+        	$data['outstanding'] = $this->final_model->get_outstanding("1", $nama_outlet);
+        	$data['outstanding1'] = $this->final_model->get_outstanding("3", 'REGIONAL I');
+        	$data['outstanding2'] = $this->final_model->get_outstanding("3", 'REGIONAL II');
+        	$data['outstanding3'] = $this->final_model->get_outstanding("3", 'REGIONAL III');
+        	$data['outstanding4'] = $this->final_model->get_outstanding("3", 'REGIONAL IV');
+        	$data['outstanding5'] = $this->final_model->get_outstanding("3", 'REGIONAL V');
+        	$data['outstanding6'] = $this->final_model->get_outstanding("3", 'REGIONAL VI');
+        	$data['outstanding7'] = $this->final_model->get_outstanding("3", 'REGIONAL VII');
+
+        	$data['kol2'] = $this->final_model->get_kol2("1", $nama_outlet);
+        	$data['kol2-1'] = $this->final_model->get_kol2("3", 'REGIONAL I');
+        	$data['kol2-2'] = $this->final_model->get_kol2("3", 'REGIONAL II');
+        	$data['kol2-3'] = $this->final_model->get_kol2("3", 'REGIONAL III');
+        	$data['kol2-4'] = $this->final_model->get_kol2("3", 'REGIONAL IV');
+        	$data['kol2-5'] = $this->final_model->get_kol2("3", 'REGIONAL V');
+        	$data['kol2-6'] = $this->final_model->get_kol2("3", 'REGIONAL VI');
+        	$data['kol2-7'] = $this->final_model->get_kol2("3", 'REGIONAL VII');
+        	
+
+
+
+
+
             $this->load->view('/portfolio', $data);
         }
 

@@ -66,7 +66,7 @@ header("location:". base_url() . "index.php/nasional/login");
               <span class="nav-link-text">Portfolio Nasional</span>
             </a>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Portfolio Area">
-            <a class="nav-link" href='<?php echo base_url ('/index.php/area/portfolio_area'); ?>'>
+            <a class="nav-link" href='<?php echo base_url ('/index.php/area/portfolio_area' ); ?>'>
               <i class="fa fa-fw fa-sitemap"></i>
               <span class="nav-link-text">Portfolio Area</span>
             </a>
@@ -150,7 +150,7 @@ header("location:". base_url() . "index.php/nasional/login");
         <br>
         <br>
         Tabel Nasional
-        <table class="table table-bordered">
+        <table  class="display nowrap"  id="dataTable">
           <thead>
             <th>No.</th>
             <th>Wilayah</th>
@@ -169,7 +169,7 @@ header("location:". base_url() . "index.php/nasional/login");
               <td>1</td>
               <td>Nasional</td>
               <?php echo '<td>'.$outstanding[0]['SUM_OS'].'</td>';?>
-              <td>Kol 2</td>
+              <?php echo '<td>'.$kol2[0]['SUM_KOL2'].'</td>';?>
               <td>NPF</td>
               <td>Cair B2B</td>
               <td>Cair B2C</td>
@@ -179,8 +179,8 @@ header("location:". base_url() . "index.php/nasional/login");
             </tr>
             <tr>
               <td>2</td>
-              <td>WIlayah I</td>
-              <td>Outstanding</td>
+              <td>Wilayah I</td>
+              <?php echo '<td>'.$outstanding1[0]['SUM_OS'].'</td>';?>
               <td>Kol 2</td>
               <td>NPF</td>
               <td>Cair B2B</td>
@@ -192,7 +192,7 @@ header("location:". base_url() . "index.php/nasional/login");
             <tr>
               <td>3</td>
               <td>Wilayah II</td>
-              <td>Outstanding</td>
+              <?php echo '<td>'.$outstanding2[0]['SUM_OS'].'</td>';?>
               <td>Kol 2</td>
               <td>NPF</td>
               <td>Cair B2B</td>
@@ -204,7 +204,7 @@ header("location:". base_url() . "index.php/nasional/login");
             <tr>
               <td>4</td>
               <td>Wilayah III</td>
-              <td>Outstanding</td>
+              <?php echo '<td>'.$outstanding3[0]['SUM_OS'].'</td>';?>
               <td>Kol 2</td>
               <td>NPF</td>
               <td>Cair B2B</td>
@@ -216,7 +216,7 @@ header("location:". base_url() . "index.php/nasional/login");
             <tr>
               <td>5</td>
               <td>Wilayah IV</td>
-              <td>Outstanding</td>
+              <?php echo '<td>'.$outstanding4[0]['SUM_OS'].'</td>';?>
               <td>Kol 2</td>
               <td>NPF</td>
               <td>Cair B2B</td>
@@ -228,7 +228,7 @@ header("location:". base_url() . "index.php/nasional/login");
             <tr>
               <td>6</td>
               <td>Wilayah V</td>
-              <td>Outstanding</td>
+              <?php echo '<td>'.$outstanding5[0]['SUM_OS'].'</td>';?>
               <td>Kol 2</td>
               <td>NPF</td>
               <td>Cair B2B</td>
@@ -240,7 +240,7 @@ header("location:". base_url() . "index.php/nasional/login");
             <tr>
               <td>7</td>
               <td>Wilayah VI</td>
-              <td>Outstanding</td>
+              <?php echo '<td>'.$outstanding6[0]['SUM_OS'].'</td>';?>
               <td>Kol 2</td>
               <td>NPF</td>
               <td>Cair B2B</td>
@@ -252,7 +252,7 @@ header("location:". base_url() . "index.php/nasional/login");
             <tr>
               <td>8</td>
               <td>Wilayah VII</td>
-              <td>Outstanding</td>
+              <?php echo '<td>'.$outstanding7[0]['SUM_OS'].'</td>';?>
               <td>Kol 2</td>
               <td>NPF</td>
               <td>Cair B2B</td>
@@ -422,7 +422,7 @@ header("location:". base_url() . "index.php/nasional/login");
             <i class="fa fa-table"></i> Data Table Example</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <table class="table table-bordered"  width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -446,19 +446,10 @@ header("location:". base_url() . "index.php/nasional/login");
                   </tr>
                 </tfoot>
                 <tbody>
-                  <?php 
-                    foreach ($list_employee as $employee) {
-                      echo' <tr>
-                      <td>'.$employee->name.'</td>
-                      <td>'.$employee->position.'</td>
-                      <td>'.$employee->office.'</td>';
-                      /*<td>'.$employee->age.'</td>
-                      <td>'.$employee->start_date.'</td>
-                      <td>$'.$employee->salary.'</td>*/
-                      echo '<td><a href="';echo base_url('index.php/nasional/detail/'.$employee->id); echo'" class="btn btn-primary" > Detail</a></td>
-                     </tr>';
-                    }
-                  ?>                 
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>                
                 </tbody>
               </table>
             </div>

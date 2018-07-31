@@ -119,7 +119,7 @@ class Upload extends CI_Controller
         $full_path = $this->upload->data('full_path');
         */
 
-        $full_path = './application/uploads/Contoh_ifois_excel.xlsx';
+        $full_path = './application/uploads/data_all4.xlsx';
        
 
         $reader = ReaderFactory::create(Type::XLSX); // for XLSX files
@@ -132,14 +132,82 @@ class Upload extends CI_Controller
         foreach ($reader->getSheetIterator() as $sheet) {
             foreach ($sheet->getRowIterator() as $row) {
                 // do stuff with the row
-                if ($count != 1) {
-                    if ($count == 3) {
-                        break;
-                    }
-                    $array_input[] = $row;  
+                /*if ($count != 1) {
+                    $coba = $row[3]; 
+                    $array_input[] = array(
+                      'FICMISDATE' => $row[0],  
+                      'NOLOAN' => $row[1],  
+                      'NOMORCIF' => $row[2],  
+                      'NAMALENGKAP' => $row[3],  
+                      'KODECABANGBARU' => $row[4],  
+                      'NAMACABANG' => $row[5],  
+                      'JENISPIUTANGPEMBIAYAAN' => $row[6],  
+                      'JENISPENGGUNAANCODE' => $row[7],  
+                      'SEKTOREKONOMICODE' => $row[8],  
+                      'TGLPENCAIRAN' => $row[9],  
+                      'TGLJTTEMPO' => $row[10],  
+                      'DAYPASTDUE' => $row[11],  
+                      'DIVISI' => $row[12],  
+                      'CURRENCY' => $row[13],  
+                      'LOANTYPE' => $row[14],  
+                      'LoanTypeDesc' => $row[15],  
+                      'CATEGORY' => $row[16],  
+                      'RESTRUCTFLAG' => $row[17],  
+                      'PRICING' => $row[18],  
+                      'REKPEMBYPOKOK' => $row[19],  
+                      'TENOR' => $row[20],  
+                      'RESTRUCTDATE' => $row[21],  
+                      'KOLBSM_SISTEM' => $row[22],  
+                      'KOLLOANFINAL' => $row[23],  
+                      'KOLCIFFINAL' => $row[24],  
+                      'SOURCEDATACODE' => $row[25],  
+                      'OSPOKOKCONVERSION' => $row[26], 
+                      'OSMARGINCONVERSION' => $row[27],
+                      'OSGROSSCONVERSION' => $row[28],
+                      'TUNGGAKANPOKOKCONVERSION' => $row[29],
+                      'TUNGGAKANMARGINCONVERSION' => $row[30],
+                      'TUNGGAKANGROSSCONVERSION' => $row[31],
+                      'PENCAIRANPOKOKCONVERSION' => $row[32],  
+                      'PENCAIRANMARGINCONVERSION' => $row[33],  
+                      'PENCAIRANGROSSCONVERSION' => $row[34],  
+                      'REALISASI_BAGIHASIL' => $row[35],  
+                      'PROYEKSI_BAGIHASIL' => $row[36],  
+                      'ACCOUNTOFFICER' => $row[37],  
+                      'EQVRATE' => $row[38],  
+                      'INTEREST_RATE' => $row[39],  
+                      'MISACCOUNTOFFICR' => $row[40],  
+                      'NAMAPERUSAHAANNASABAH' => $row[41],  
+                      'LD_ECONOMICSECTOR' => $row[42],  
+                      'TUNGGAKANPENALTYCONVERSION' => $row[43],  
+                      'NAPNO' => $row[44],  
+                      'STS_PENCAIRAN' => $row[45],  
+                      'Segmen' => $row[46],
+                      'Produk' => $row[47],  
+                      'P/B' => $row[48],
+                      'grup' => $row[49],   
+                      'AREA' => $row[50],  
+                      'KANWIL' => $row[51],  
+                      'E/C' => $row[52],  
+                      'sektor_ekon' => $row[53],  
+                      'Produk2' => $row[54],  
+                      'Kol_Lalu' => $row[55],  
+                      'Cek' => $row[56],  
+                      'Kol_Group' => $row[57],  
+                      'Mutasi' => $row[58],  
+                      'Limit' => $row[59],  
+                      'Nama_Perusahaan_Final' => $row[60],  
+                      'Nama_Perusahaan_Intiplasma' => $row[61],  
+                      'kol_group_bulan_lalu' => $row[62],  
+                      'Tahun_Booking' => $row[63],  
+                      'Modal_kerja_or_investasi' => $row[64],  
+                      'lebel_BI' => $row[65],  
+                      'desc_Sektor_ekon' => $row[66],  
+                      'Bulan_Jatuh_tempo' => $row[67],  
+                      'DIVISI_FINAL' => $row[68]  
+                    );
                 } else {
 
-                }
+                } */
                 
                 $count++;
             }
@@ -147,8 +215,11 @@ class Upload extends CI_Controller
 
         $reader->close();
         $data['jumlah'] = $count;
+        $data['coba'] = $coba;
 
         $data['arr']           = $array_input;
+      //  $this->import_model->setBatchImport($array_input);
+      //  $this->import_model->importData("2018-07-31");
         $this->load->view('/upload_success_excel_spout', $data);
 
 
