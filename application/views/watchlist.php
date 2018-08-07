@@ -47,9 +47,6 @@ header("location:". base_url() . "index.php/nasional/login");
     <script src="<?php echo base_url('bootstrap/js/sb-admin-datatables.min.js');?>"></script>
     <!--script src="<?php echo base_url('bootstrap/js/sb-admin-charts.min.js');?>"></script-->
 
-<!-- 
-    <script src="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"></script>
-    <script src="https://cdn.datatables.net/scroller/1.5.1/css/scroller.dataTables.min.css"></script> -->
 
   </head>
   <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -199,7 +196,7 @@ header("location:". base_url() . "index.php/nasional/login");
          <!-- Watchlist Nasabah-->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fa fa-table"></i>Watchlist Nasabah</div>
+            <i class="fa fa-table"></i> Watchlist Nasabah</div>
           <div class="card-body">
             <div class="table-responsive">
               <table id="exampleTable" class="display nowrap" width="100%"  cellspacing="0">
@@ -288,7 +285,7 @@ header("location:". base_url() . "index.php/nasional/login");
         }
         else {
             table = $('#exampleTable').DataTable( {
-               data:           data,
+            data:           data,
             deferRender:    true,
             scrollY:        300,
             scrollCollapse: true,

@@ -26,13 +26,21 @@ class Nasional extends CI_Controller {
 			$this->load->model('employee_model');
 			$this->load->model('watchlist_model');
 			$this->load->model('final_model');
+			$this->load->model('summary_model');
+			$this->load->model('produk_model');
+			$this->load->model('sektor_model');
+			
         }
 
         public function index($id_jabatan, $nama_outlet)
         {
         	$this->load->helper('url');
         	$data['list_employee'] = $this->employee_model->get_employee('tes');
-        	$data['outstanding'] = $this->final_model->get_outstanding("1", $nama_outlet);
+        	$data['list_summary'] = $this->summary_model->get_summary('all');
+	        $data['list_produk'] = $this->produk_model->get_produk();
+        	$data['list_sektor'] = $this->sektor_model->get_sektor();
+        	
+        	/*$data['outstanding'] = $this->final_model->get_outstanding("1", $nama_outlet);
         	$data['outstanding1'] = $this->final_model->get_outstanding("3", 'REGIONAL I');
         	$data['outstanding2'] = $this->final_model->get_outstanding("3", 'REGIONAL II');
         	$data['outstanding3'] = $this->final_model->get_outstanding("3", 'REGIONAL III');
@@ -49,12 +57,66 @@ class Nasional extends CI_Controller {
         	$data['kol2-5'] = $this->final_model->get_kol2("3", 'REGIONAL V');
         	$data['kol2-6'] = $this->final_model->get_kol2("3", 'REGIONAL VI');
         	$data['kol2-7'] = $this->final_model->get_kol2("3", 'REGIONAL VII');
-        	
+
+        	$data['npf'] = $this->final_model->get_npf("1", $nama_outlet);
+        	$data['npf-1'] = $this->final_model->get_npf("3", 'REGIONAL I');
+        	$data['npf-2'] = $this->final_model->get_npf("3", 'REGIONAL II');
+        	$data['npf-3'] = $this->final_model->get_npf("3", 'REGIONAL III');
+        	$data['npf-4'] = $this->final_model->get_npf("3", 'REGIONAL IV');
+        	$data['npf-5'] = $this->final_model->get_npf("3", 'REGIONAL V');
+        	$data['npf-6'] = $this->final_model->get_npf("3", 'REGIONAL VI');
+        	$data['npf-7'] = $this->final_model->get_npf("3", 'REGIONAL VII');
+
+        	$data['cair_b2b'] = $this->final_model->get_cair_b2b("1", $nama_outlet);
+        	$data['cair_b2b-1'] = $this->final_model->get_cair_b2b("3", 'REGIONAL I');
+        	$data['cair_b2b-2'] = $this->final_model->get_cair_b2b("3", 'REGIONAL II');
+        	$data['cair_b2b-3'] = $this->final_model->get_cair_b2b("3", 'REGIONAL III');
+        	$data['cair_b2b-4'] = $this->final_model->get_cair_b2b("3", 'REGIONAL IV');
+        	$data['cair_b2b-5'] = $this->final_model->get_cair_b2b("3", 'REGIONAL V');
+        	$data['cair_b2b-6'] = $this->final_model->get_cair_b2b("3", 'REGIONAL VI');
+        	$data['cair_b2b-7'] = $this->final_model->get_cair_b2b("3", 'REGIONAL VII');
 
 
 
+        	$data['cair_b2c'] = $this->final_model->get_cair_b2c("1", $nama_outlet);
+        	$data['cair_b2c-1'] = $this->final_model->get_cair_b2c("3", 'REGIONAL I');
+        	$data['cair_b2c-2'] = $this->final_model->get_cair_b2c("3", 'REGIONAL II');
+        	$data['cair_b2c-3'] = $this->final_model->get_cair_b2c("3", 'REGIONAL III');
+        	$data['cair_b2c-4'] = $this->final_model->get_cair_b2c("3", 'REGIONAL IV');
+        	$data['cair_b2c-5'] = $this->final_model->get_cair_b2c("3", 'REGIONAL V');
+        	$data['cair_b2c-6'] = $this->final_model->get_cair_b2c("3", 'REGIONAL VI');
+        	$data['cair_b2c-7'] = $this->final_model->get_cair_b2c("3", 'REGIONAL VII');
 
 
+        	$data['runoff'] = $this->final_model->get_runoff("1", $nama_outlet);
+        	$data['runoff-1'] = $this->final_model->get_runoff("3", 'REGIONAL I');
+        	$data['runoff-2'] = $this->final_model->get_runoff("3", 'REGIONAL II');
+        	$data['runoff-3'] = $this->final_model->get_runoff("3", 'REGIONAL III');
+        	$data['runoff-4'] = $this->final_model->get_runoff("3", 'REGIONAL IV');
+        	$data['runoff-5'] = $this->final_model->get_runoff("3", 'REGIONAL V');
+        	$data['runoff-6'] = $this->final_model->get_runoff("3", 'REGIONAL VI');
+        	$data['runoff-7'] = $this->final_model->get_runoff("3", 'REGIONAL VII');
+
+
+        	$data['upgrade'] = $this->final_model->get_upgrade("1", $nama_outlet);
+        	$data['upgrade-1'] = $this->final_model->get_upgrade("3", 'REGIONAL I');
+        	$data['upgrade-2'] = $this->final_model->get_upgrade("3", 'REGIONAL II');
+        	$data['upgrade-3'] = $this->final_model->get_upgrade("3", 'REGIONAL III');
+        	$data['upgrade-4'] = $this->final_model->get_upgrade("3", 'REGIONAL IV');
+        	$data['upgrade-5'] = $this->final_model->get_upgrade("3", 'REGIONAL V');
+        	$data['upgrade-6'] = $this->final_model->get_upgrade("3", 'REGIONAL VI');
+        	$data['upgrade-7'] = $this->final_model->get_upgrade("3", 'REGIONAL VII');
+
+
+        	$data['downgrade'] = $this->final_model->get_downgrade("1", $nama_outlet);
+        	$data['downgrade-1'] = $this->final_model->get_downgrade("3", 'REGIONAL I');
+        	$data['downgrade-2'] = $this->final_model->get_downgrade("3", 'REGIONAL II');
+        	$data['downgrade-3'] = $this->final_model->get_downgrade("3", 'REGIONAL III');
+        	$data['downgrade-4'] = $this->final_model->get_downgrade("3", 'REGIONAL IV');
+        	$data['downgrade-5'] = $this->final_model->get_downgrade("3", 'REGIONAL V');
+        	$data['downgrade-6'] = $this->final_model->get_downgrade("3", 'REGIONAL VI');
+        	$data['downgrade-7'] = $this->final_model->get_downgrade("3", 'REGIONAL VII');
+        	*/
             $this->load->view('/portfolio', $data);
         }
 

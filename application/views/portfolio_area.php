@@ -137,7 +137,7 @@ header("location:". base_url() . "index.php/nasional/login");
          
           if ($ada_outstanding === true) {
             echo '<br> ada os true';
-            echo $tes1;
+            echo $tes1; 
             echo $outstanding[0]['SUM_OS'];
           } else {
             echo '<br> ada os false';

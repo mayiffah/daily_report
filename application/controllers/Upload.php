@@ -132,7 +132,7 @@ class Upload extends CI_Controller
         foreach ($reader->getSheetIterator() as $sheet) {
             foreach ($sheet->getRowIterator() as $row) {
                 // do stuff with the row
-                /*if ($count != 1) {
+               /* if ($count != 1) {
                     $coba = $row[3]; 
                     $array_input[] = array(
                       'FICMISDATE' => $row[0],  
@@ -217,7 +217,7 @@ class Upload extends CI_Controller
         $data['jumlah'] = $count;
         $data['coba'] = $coba;
 
-        $data['arr']           = $array_input;
+      //  $data['arr']           = $array_input;
       //  $this->import_model->setBatchImport($array_input);
       //  $this->import_model->importData("2018-07-31");
         $this->load->view('/upload_success_excel_spout', $data);

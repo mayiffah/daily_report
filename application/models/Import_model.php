@@ -33,7 +33,7 @@ class Import_model extends CI_Model {
         $kemarin = date('Y-m-d-H:i:s',strtotime("-1 days"));
         //MASUKKIN IFOIS EXCEL
    /*     $this->db->insert_batch("ifois_excel".$tgl, $data);*/
-        $this->db->insert_batch("data_all", $data);
+        $this->db->insert_batch("data_all", $data, 0, 1000);
         
 
 /*

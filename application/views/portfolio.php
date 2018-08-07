@@ -141,7 +141,7 @@ header("location:". base_url() . "index.php/nasional/login");
           echo '<br>nama outlet:'.$nama_outlet;
         }
        // echo var_dump($outstanding);
-        echo '<br>outstanding: '.$outstanding[0]['SUM_OS'];
+    //    echo '<br>outstanding: '.$outstanding[0]['SUM_OS'];
 
 
 
@@ -150,10 +150,10 @@ header("location:". base_url() . "index.php/nasional/login");
         <br>
         <br>
         Tabel Nasional
-        <table  class="display nowrap"  id="dataTable">
+        <table  class="display nowrap"  id="nasionalTable" width="100%"  cellspacing="0">
           <thead>
             <th>No.</th>
-            <th>Wilayah</th>
+            <th>Produk</th>
             <th>Outstanding</th>
             <th>Kol 2</th>
             <th>NPF</th>
@@ -164,108 +164,59 @@ header("location:". base_url() . "index.php/nasional/login");
             <th>Downgrade NPF</th>
           </thead>
 
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Nasional</td>
-              <?php echo '<td>'.$outstanding[0]['SUM_OS'].'</td>';?>
-              <?php echo '<td>'.$kol2[0]['SUM_KOL2'].'</td>';?>
-              <td>NPF</td>
-              <td>Cair B2B</td>
-              <td>Cair B2C</td>
-              <td>Runoff</td>
-              <td>Upgrade NPF</td>
-              <td>Downgrade NPF</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Wilayah I</td>
-              <?php echo '<td>'.$outstanding1[0]['SUM_OS'].'</td>';?>
-              <td>Kol 2</td>
-              <td>NPF</td>
-              <td>Cair B2B</td>
-              <td>Cair B2C</td>
-              <td>Runoff</td>
-              <td>Upgrade NPF</td>
-              <td>Downgrade NPF</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Wilayah II</td>
-              <?php echo '<td>'.$outstanding2[0]['SUM_OS'].'</td>';?>
-              <td>Kol 2</td>
-              <td>NPF</td>
-              <td>Cair B2B</td>
-              <td>Cair B2C</td>
-              <td>Runoff</td>
-              <td>Upgrade NPF</td>
-              <td>Downgrade NPF</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Wilayah III</td>
-              <?php echo '<td>'.$outstanding3[0]['SUM_OS'].'</td>';?>
-              <td>Kol 2</td>
-              <td>NPF</td>
-              <td>Cair B2B</td>
-              <td>Cair B2C</td>
-              <td>Runoff</td>
-              <td>Upgrade NPF</td>
-              <td>Downgrade NPF</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Wilayah IV</td>
-              <?php echo '<td>'.$outstanding4[0]['SUM_OS'].'</td>';?>
-              <td>Kol 2</td>
-              <td>NPF</td>
-              <td>Cair B2B</td>
-              <td>Cair B2C</td>
-              <td>Runoff</td>
-              <td>Upgrade NPF</td>
-              <td>Downgrade NPF</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Wilayah V</td>
-              <?php echo '<td>'.$outstanding5[0]['SUM_OS'].'</td>';?>
-              <td>Kol 2</td>
-              <td>NPF</td>
-              <td>Cair B2B</td>
-              <td>Cair B2C</td>
-              <td>Runoff</td>
-              <td>Upgrade NPF</td>
-              <td>Downgrade NPF</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>Wilayah VI</td>
-              <?php echo '<td>'.$outstanding6[0]['SUM_OS'].'</td>';?>
-              <td>Kol 2</td>
-              <td>NPF</td>
-              <td>Cair B2B</td>
-              <td>Cair B2C</td>
-              <td>Runoff</td>
-              <td>Upgrade NPF</td>
-              <td>Downgrade NPF</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>Wilayah VII</td>
-              <?php echo '<td>'.$outstanding7[0]['SUM_OS'].'</td>';?>
-              <td>Kol 2</td>
-              <td>NPF</td>
-              <td>Cair B2B</td>
-              <td>Cair B2C</td>
-              <td>Runoff</td>
-              <td>Upgrade NPF</td>
-              <td>Downgrade NPF</td>
-            </tr>
-           
-          </tbody>
+        <!-- <tbody></tbody> -->
+        </table>
+
+        <br>
+        <br>
+        <br>
+
+        <?php
+
+        ?>
+        <!-- Produk -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-table"></i> Tabel Trend Produk</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="produkTable" class="display nowrap" width="100%"  cellspacing="0">
+            <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Produk</th>
+                  <th>Juli 2018</th>
+                </tr>
+            </thead>
+          </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+         <!-- Sektor -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-table"></i> Tabel Trend Sektor</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="sektorTable" class="display nowrap" width="100%"  cellspacing="0">
+            <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Sektor</th>
+                  <th>Juli 2018</th>
+                </tr>
+            </thead>
+          </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+
+        <!-- <tbody></tbody> -->
         </table>
         <!-- Speedometer Outstanding -->
-        <div id="containeros" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
+        <div align="left" id="containeros" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
         </div>
         <!-- Speedometer Run Off-->
         <div id="containerro" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
@@ -295,73 +246,6 @@ header("location:". base_url() . "index.php/nasional/login");
         <div id="containerdg" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
         </div>
 
-        <!-- Icon Cards-->
-        <div class="row">
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-primary o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fa fa-fw fa-comments"></i>
-                </div>
-                <div class="mr-5">26 New Messages!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-warning o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fa fa-fw fa-list"></i>
-                </div>
-                <div class="mr-5">11 New Tasks!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-success o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fa fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">123 New Orders!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-danger o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fa fa-fw fa-support"></i>
-                </div>
-                <div class="mr-5">13 New Tickets!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
         <!-- Area Chart Example-->
         <div class="card mb-3">
           <div class="card-header">
@@ -412,52 +296,7 @@ header("location:". base_url() . "index.php/nasional/login");
             </div>
             <!-- Example Notifications Card-->
           </div>
-        </div>
-
-         <!-- Watchlist Nasabah-->
-          
-        <!-- Example DataTables Card-->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fa fa-table"></i> Data Table Example</div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered"  width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                   <!--  <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th> -->
-                    <th>Detail</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                  <!--   <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th> -->
-                    <th>Detail</th>
-                  </tr>
-                </tfoot>
-                <tbody>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>                
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-        </div>
-
-       
+        </div>       
 
       </div>
       <!-- /.container-fluid-->
@@ -533,6 +372,58 @@ header("location:". base_url() . "index.php/nasional/login");
         //for the tooltip of side navbar
         !function(e){"use strict";e('.navbar-sidenav [data-toggle="tooltip"]').tooltip({template:'<div class="tooltip navbar-sidenav-tooltip" role="tooltip" style="pointer-events: none;"><div class="arrow"></div><div class="tooltip-inner"></div></div>'}),e("#sidenavToggler").click(function(o){o.preventDefault(),e("body").toggleClass("sidenav-toggled"),e(".navbar-sidenav .nav-link-collapse").addClass("collapsed"),e(".navbar-sidenav .sidenav-second-level, .navbar-sidenav .sidenav-third-level").removeClass("show")}),e(".navbar-sidenav .nav-link-collapse").click(function(o){o.preventDefault(),e("body").removeClass("sidenav-toggled")}),e("body.fixed-nav .navbar-sidenav, body.fixed-nav .sidenav-toggler, body.fixed-nav .navbar-collapse").on("mousewheel DOMMouseScroll",function(e){var o=e.originalEvent,t=o.wheelDelta||-o.detail;this.scrollTop+=30*(t<0?1:-1),e.preventDefault()}),e(document).scroll(function(){e(this).scrollTop()>100?e(".scroll-to-top").fadeIn():e(".scroll-to-top").fadeOut()}),e('[data-toggle="tooltip"]').tooltip(),e(document).on("click","a.scroll-to-top",function(o){var t=e(this);e("html, body").stop().animate({scrollTop:e(t.attr("href")).offset().top},1e3,"easeInOutExpo"),o.preventDefault()})}(jQuery);
 
+        var data_nasional = [];
+        var data_produk = [];
+        var data_sektor = [];
+
+         <?php
+          foreach ($list_produk as $produk) {
+           // 
+          ?>
+            data_produk.push([<?php echo"`$produk->id`,`$produk->nama_produk`,`$produk->Juli_2018`"?>]);
+          <?php    
+          }
+          ?>
+
+         <?php
+          foreach ($list_sektor as $sektor) {
+           // 
+          ?>
+            data_sektor.push([<?php echo"`$sektor->id`,`$sektor->nama_produk`,`$sektor->Juli_2018`"?>]);
+          <?php    
+          }
+          ?>
+
+
+        if ( $.fn.dataTable.isDataTable( '#produkTable' ) ) {
+            table = $('#produkTable').DataTable();
+        }
+        else {
+            table = $('#produkTable').DataTable( {
+            data:           data_produk,
+            deferRender:    true,
+            scrollY:        300,
+            scrollCollapse: true,
+            scroller:       true,
+            scrollX :       true,
+            "pageLength":   20
+            } );
+        }
+
+        if ( $.fn.dataTable.isDataTable( '#sektorTable' ) ) {
+            table = $('#sektorTable').DataTable();
+        }
+        else {
+            table = $('#sektorTable').DataTable( {
+            data:           data_sektor,
+            deferRender:    true,
+            scrollY:        300,
+            scrollCollapse: true,
+            scroller:       true,
+            scrollX :       true,
+            "pageLength":   20
+            } );
+        }
 
         //for the speedometer
         var valueo =  $('#containeros').attr("value");
@@ -543,7 +434,16 @@ header("location:". base_url() . "index.php/nasional/login");
         $('#containeros').highcharts({
 
             chart: {
-                type: 'gauge'
+                type: 'gauge',
+                 // Edit chart spacing
+                spacingBottom: 15,
+                spacingTop: 10,
+                spacingLeft: 10,
+                spacingRight: 10,
+
+                // Explicitly tell the width and height of a chart
+                width: 500,
+                height: 500
             },
 
             title: {
