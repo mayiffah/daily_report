@@ -70,26 +70,6 @@ header("location:". base_url() . "index.php/nasional/login");
               <i class="fa fa-fw fa-sitemap"></i>
               <span class="nav-link-text">Portfolio Area</span>
             </a>
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Daily Report">
-            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-              <i class="fa fa-fw fa-area-chart"></i>
-              <span class="nav-link-text">Daily Report</span>
-            </a>
-            <ul class="sidenav-second-level collapse" id="collapseComponents">
-              <li>
-                <a href='<?php echo base_url ('/index.php/daily/posisi'); ?>'>Posisi</a>
-              </li>
-              <li>
-                <a href='<?php echo base_url ('/index.php/daily/runoff'); ?>'>Run Off</a>
-              </li>
-              <li>
-                <a href='<?php echo base_url ('/index.php/daily/cair'); ?>'>Cair</a>
-              </li>
-              <li>
-                <a href='<?php echo base_url ('/index.php/daily/kol2'); ?>'>Kol 2</a>
-              </li>
-            </ul>
-          </li>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Upload Data Harian">
             <a class="nav-link" href='<?php echo base_url ('/index.php/Upload/index'); ?>'>
               <i class="fa fa-fw fa-wrench"></i>
@@ -147,25 +127,40 @@ header("location:". base_url() . "index.php/nasional/login");
 
         ?>
         <br>
-        <br>
-        <br>
-        Tabel Nasional
-        <table  class="display nowrap"  id="nasionalTable" width="100%"  cellspacing="0">
-          <thead>
-            <th>No.</th>
-            <th>Produk</th>
-            <th>Outstanding</th>
-            <th>Kol 2</th>
-            <th>NPF</th>
-            <th>Cair B2B</th>
-            <th>Cair B2C</th>
-            <th>Runoff</th>
-            <th>Upgrade NPF</th>
-            <th>Downgrade NPF</th>
-          </thead>
 
-        <!-- <tbody></tbody> -->
-        </table>
+          <!-- Speedometer Outstanding -->
+          <div id="containeros" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto; float:left;" value="150">
+          </div>
+        
+        <div style="width: 700px; overflow: hidden; margin: 0 auto;">
+          <!-- Speedometer Cair B to B -->
+          <div id="containerb2b" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
+          </div>
+
+          <!-- Speedometer Cair B to C -->
+          <div id="containerb2c" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
+          </div>
+        </div>
+
+        <div style="width: 700px; overflow: hidden; margin: 0 auto;">
+          <!-- Speedometer Kol 2 -->
+          <div id="containerkol2" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
+          </div>
+
+          <!-- Speedometer NPF -->
+          <div id="containernpf" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
+          </div>
+        </div>
+
+        <div style="width: 700px; overflow: hidden; margin: 0 auto;">
+          <!-- Speedometer Downgrade NPF -->
+          <div id="containerug" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
+          </div>
+
+          <!-- Speedometer Upgrade NPF -->
+          <div id="containerdg" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
+          </div>
+        </div>
 
         <br>
         <br>
@@ -174,16 +169,43 @@ header("location:". base_url() . "index.php/nasional/login");
         <?php
 
         ?>
+         <!-- Nasional -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-table"></i> Ringkasan Nasional</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="nasionalTable" class="display nowrap" width="100%"  cellspacing="0">
+            <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Wilayah</th>
+                  <th>Outstanding</th>
+                  <th>Kol 2</th>
+                  <th>NPF</th>
+                  <th>Cair B2B</th>
+                  <th>Cair B2C</th>
+                  <th>Runoff</th>
+                  <th>Upgrade NPF</th>
+                  <th>Downgrade NPF</th>
+                </tr>
+            </thead>
+          </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+
         <!-- Produk -->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fa fa-table"></i> Tabel Trend Produk</div>
+            <i class="fa fa-table"></i> Trend Produk Nasional</div>
           <div class="card-body">
             <div class="table-responsive">
               <table id="produkTable" class="display nowrap" width="100%"  cellspacing="0">
             <thead>
                 <tr>
-                  <th>No</th>
+                  <th>No.</th>
                   <th>Produk</th>
                   <th>Juli 2018</th>
                 </tr>
@@ -196,13 +218,13 @@ header("location:". base_url() . "index.php/nasional/login");
          <!-- Sektor -->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fa fa-table"></i> Tabel Trend Sektor</div>
+            <i class="fa fa-table"></i> Trend Sektor Nasional</div>
           <div class="card-body">
             <div class="table-responsive">
               <table id="sektorTable" class="display nowrap" width="100%"  cellspacing="0">
             <thead>
                 <tr>
-                  <th>No</th>
+                  <th>No.</th>
                   <th>Sektor</th>
                   <th>Juli 2018</th>
                 </tr>
@@ -215,36 +237,8 @@ header("location:". base_url() . "index.php/nasional/login");
 
         <!-- <tbody></tbody> -->
         </table>
-        <!-- Speedometer Outstanding -->
-        <div align="left" id="containeros" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
-        </div>
-        <!-- Speedometer Run Off-->
-        <div id="containerro" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
-        </div>
-        <!-- Speedometer Cair B to B -->
-        <div id="containerb2b" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
-        </div>
-
-        <!-- Speedometer Cair B to C -->
-        <div id="containerb2c" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
-        </div>
-
-        <!-- Speedometer Kol 2 -->
-        <div id="containerkol2" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
-        </div>
-
-        <!-- Speedometer NPF -->
-        <div id="containernpf" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
-        </div>
-
-        <!-- Speedometer Downgrade NPF -->
-        <div id="containerug" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
-        </div>
 
 
-        <!-- Speedometer Upgrade NPF -->
-        <div id="containerdg" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
-        </div>
 
         <!-- Area Chart Example-->
         <div class="card mb-3">
@@ -376,6 +370,15 @@ header("location:". base_url() . "index.php/nasional/login");
         var data_produk = [];
         var data_sektor = [];
 
+          <?php
+          foreach ($list_summary as $summary) {
+           // 
+          ?>
+            data_nasional.push([<?php echo"`$summary->id`,`$summary->Wilayah`,`$summary->Outstanding`,`$summary->Kol_2`,`$summary->NPF`,`$summary->Cair_B2B`,`$summary->Cair_B2C`,`$summary->Runoff`,`$summary->Upgrade`,`$summary->Downgrade`"?>]);
+          <?php    
+          }
+          ?>
+
          <?php
           foreach ($list_produk as $produk) {
            // 
@@ -394,6 +397,21 @@ header("location:". base_url() . "index.php/nasional/login");
           }
           ?>
 
+
+        if ( $.fn.dataTable.isDataTable( '#nasionalTable' ) ) {
+            table = $('#nasionalTable').DataTable();
+        }
+        else {
+            table = $('#nasionalTable').DataTable( {
+            data:           data_nasional,
+            deferRender:    true,
+            scrollY:        300,
+            scrollCollapse: true,
+            scroller:       true,
+            scrollX :       true,
+            "pageLength":   20
+            } );
+        }
 
         if ( $.fn.dataTable.isDataTable( '#produkTable' ) ) {
             table = $('#produkTable').DataTable();
@@ -442,8 +460,8 @@ header("location:". base_url() . "index.php/nasional/login");
                 spacingRight: 10,
 
                 // Explicitly tell the width and height of a chart
-                width: 500,
-                height: 500
+                width: null,
+                height: null
             },
 
             title: {
@@ -502,76 +520,6 @@ header("location:". base_url() . "index.php/nasional/login");
 
             series: [{
                 name: 'Outstanding',
-                data: [valueInt],
-                tooltip: {
-                    valueSuffix: ' %'
-                }
-            }]
-
-        });
-
-        $('#containerro').highcharts({
-
-            chart: {
-                type: 'gauge'
-            },
-
-            title: {
-                text: 'Run Off'
-            },
-
-            pane: {
-                startAngle: -90,
-                endAngle: 90, 
-                background: null
-            },
-
-            // the value axis
-            yAxis: {
-                min: 0,
-                max: 200,
-
-                minorTickInterval: 'auto',
-                minorTickWidth: 1,
-                minorTickLength: 10,
-                minorTickPosition: 'inside',
-                minorTickColor: '#666',
-
-                tickPixelInterval: 30,
-                tickWidth: 2,
-                tickPosition: 'inside',
-                tickLength: 10,
-                tickColor: '#666',
-                labels: {
-                    step: 2,
-                    rotation: 'auto'
-                },
-                title: {
-                    text: '%'
-                },
-                plotBands: [{
-                    from: 0,
-                    to: 120,
-                    color: '#55BF3B' // green
-                }, {
-                    from: 120,
-                    to: 160,
-                    color: '#DDDF0D' // yellow
-                }, {
-                    from: 160,
-                    to: 200,
-                    color: '#DF5353' // red
-                }, {
-                  from: 100,
-                    to: 140,
-                    color: '#6677ff',
-                    innerRadius: '100%',
-                    outerRadius: '110%'
-                }]
-            },
-
-            series: [{
-                name: 'Run Off',
                 data: [valueInt],
                 tooltip: {
                     valueSuffix: ' %'

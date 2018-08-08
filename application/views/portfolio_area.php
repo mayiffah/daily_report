@@ -20,7 +20,7 @@ header("location:". base_url() . "index.php/nasional/login");
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Portfolio Nasional</title>
+    <title>Portfolio Area</title>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"> </script>
    
@@ -70,26 +70,6 @@ header("location:". base_url() . "index.php/nasional/login");
               <i class="fa fa-fw fa-sitemap"></i>
               <span class="nav-link-text">Portfolio Area</span>
             </a>
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Daily Report">
-            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-              <i class="fa fa-fw fa-area-chart"></i>
-              <span class="nav-link-text">Daily Report</span>
-            </a>
-            <ul class="sidenav-second-level collapse" id="collapseComponents">
-              <li>
-                <a href='<?php echo base_url ('/index.php/daily/posisi'); ?>'>Posisi</a>
-              </li>
-              <li>
-                <a href='<?php echo base_url ('/index.php/daily/runoff'); ?>'>Run Off</a>
-              </li>
-              <li>
-                <a href='<?php echo base_url ('/index.php/daily/cair'); ?>'>Cair</a>
-              </li>
-              <li>
-                <a href='<?php echo base_url ('/index.php/daily/kol2'); ?>'>Kol 2</a>
-              </li>
-            </ul>
-          </li>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Upload Data Harian">
             <a class="nav-link" href='<?php echo base_url ('/index.php/Upload/index'); ?>'>
               <i class="fa fa-fw fa-wrench"></i>
@@ -205,15 +185,38 @@ header("location:". base_url() . "index.php/nasional/login");
           <input type="submit">
         </form>
 
+          <!-- Speedometer Outstanding -->
+          <div id="containeros" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto; float:left;" value="150">
+          </div>
+        
+        <div style="width: 700px; overflow: hidden; margin: 0 auto;">
+          <!-- Speedometer Cair B to B -->
+          <div id="containerb2b" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
+          </div>
 
-        <!-- Speedometer -->
-        <div id="container" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
+          <!-- Speedometer Cair B to C -->
+          <div id="containerb2c" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
+          </div>
         </div>
-        <!-- Speedometer -->
-        <div id="container1" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
+
+        <div style="width: 700px; overflow: hidden; margin: 0 auto;">
+          <!-- Speedometer Kol 2 -->
+          <div id="containerkol2" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
+          </div>
+
+          <!-- Speedometer NPF -->
+          <div id="containernpf" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
+          </div>
         </div>
-        <!-- Speedometer -->
-        <div id="container2" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto" value="150">
+
+        <div style="width: 700px; overflow: hidden; margin: 0 auto;">
+          <!-- Speedometer Downgrade NPF -->
+          <div id="containerug" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
+          </div>
+
+          <!-- Speedometer Upgrade NPF -->
+          <div id="containerdg" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
+          </div>
         </div>
         <!-- Icon Cards-->
         <div class="row">
@@ -870,16 +873,25 @@ header("location:". base_url() . "index.php/nasional/login");
         !function(e){"use strict";e('.navbar-sidenav [data-toggle="tooltip"]').tooltip({template:'<div class="tooltip navbar-sidenav-tooltip" role="tooltip" style="pointer-events: none;"><div class="arrow"></div><div class="tooltip-inner"></div></div>'}),e("#sidenavToggler").click(function(o){o.preventDefault(),e("body").toggleClass("sidenav-toggled"),e(".navbar-sidenav .nav-link-collapse").addClass("collapsed"),e(".navbar-sidenav .sidenav-second-level, .navbar-sidenav .sidenav-third-level").removeClass("show")}),e(".navbar-sidenav .nav-link-collapse").click(function(o){o.preventDefault(),e("body").removeClass("sidenav-toggled")}),e("body.fixed-nav .navbar-sidenav, body.fixed-nav .sidenav-toggler, body.fixed-nav .navbar-collapse").on("mousewheel DOMMouseScroll",function(e){var o=e.originalEvent,t=o.wheelDelta||-o.detail;this.scrollTop+=30*(t<0?1:-1),e.preventDefault()}),e(document).scroll(function(){e(this).scrollTop()>100?e(".scroll-to-top").fadeIn():e(".scroll-to-top").fadeOut()}),e('[data-toggle="tooltip"]').tooltip(),e(document).on("click","a.scroll-to-top",function(o){var t=e(this);e("html, body").stop().animate({scrollTop:e(t.attr("href")).offset().top},1e3,"easeInOutExpo"),o.preventDefault()})}(jQuery);
 
 
-        //for the speedometer
-        var valueo =  $('#container').attr("value");
+         //for the speedometer
+        var valueo =  $('#containeros').attr("value");
         console.log(valueo+10);
         var valueInt = parseInt(valueo);
         console.log(valueInt+10);
 
-        $('#container').highcharts({
+        $('#containeros').highcharts({
 
             chart: {
-                type: 'gauge'
+                type: 'gauge',
+                 // Edit chart spacing
+                spacingBottom: 15,
+                spacingTop: 10,
+                spacingLeft: 10,
+                spacingRight: 10,
+
+                // Explicitly tell the width and height of a chart
+                width: null,
+                height: null
             },
 
             title: {
@@ -918,7 +930,7 @@ header("location:". base_url() . "index.php/nasional/login");
                 plotBands: [{
                     from: 0,
                     to: 120,
-                    color: '#55BF3B' // green
+                    color: '#DF5353' // red 
                 }, {
                     from: 120,
                     to: 160,
@@ -926,7 +938,7 @@ header("location:". base_url() . "index.php/nasional/login");
                 }, {
                     from: 160,
                     to: 200,
-                    color: '#DF5353' // red
+                    color: '#55BF3B' // green
                 }, {
                   from: 100,
                     to: 140,
@@ -946,14 +958,15 @@ header("location:". base_url() . "index.php/nasional/login");
 
         });
 
-        $('#container1').highcharts({
+
+        $('#containerb2b').highcharts({
 
             chart: {
                 type: 'gauge'
             },
 
             title: {
-                text: 'Run Off'
+                text: 'Cair B to B'
             },
 
             pane: {
@@ -988,7 +1001,7 @@ header("location:". base_url() . "index.php/nasional/login");
                 plotBands: [{
                     from: 0,
                     to: 120,
-                    color: '#55BF3B' // green
+                    color: '#DF5353' // red
                 }, {
                     from: 120,
                     to: 160,
@@ -996,77 +1009,7 @@ header("location:". base_url() . "index.php/nasional/login");
                 }, {
                     from: 160,
                     to: 200,
-                    color: '#DF5353' // red
-                }, {
-                  from: 100,
-                    to: 140,
-                    color: '#6677ff',
-                    innerRadius: '100%',
-                    outerRadius: '110%'
-                }]
-            },
-
-            series: [{
-                name: 'Run Off',
-                data: [valueInt],
-                tooltip: {
-                    valueSuffix: ' %'
-                }
-            }]
-
-        });
-
-        $('#container2').highcharts({
-
-            chart: {
-                type: 'gauge'
-            },
-
-            title: {
-                text: 'Cair'
-            },
-
-            pane: {
-                startAngle: -90,
-                endAngle: 90, 
-                background: null
-            },
-
-            // the value axis
-            yAxis: {
-                min: 0,
-                max: 200,
-
-                minorTickInterval: 'auto',
-                minorTickWidth: 1,
-                minorTickLength: 10,
-                minorTickPosition: 'inside',
-                minorTickColor: '#666',
-
-                tickPixelInterval: 30,
-                tickWidth: 2,
-                tickPosition: 'inside',
-                tickLength: 10,
-                tickColor: '#666',
-                labels: {
-                    step: 2,
-                    rotation: 'auto'
-                },
-                title: {
-                    text: '%'
-                },
-                plotBands: [{
-                    from: 0,
-                    to: 120,
                     color: '#55BF3B' // green
-                }, {
-                    from: 120,
-                    to: 160,
-                    color: '#DDDF0D' // yellow
-                }, {
-                    from: 160,
-                    to: 200,
-                    color: '#DF5353' // red
                 }, {
                   from: 100,
                     to: 140,
@@ -1078,6 +1021,356 @@ header("location:". base_url() . "index.php/nasional/login");
 
             series: [{
                 name: 'Cair',
+                data: [valueInt],
+                tooltip: {
+                    valueSuffix: ' %'
+                }
+            }]
+
+        });
+
+        $('#containerb2c').highcharts({
+
+            chart: {
+                type: 'gauge'
+            },
+
+            title: {
+                text: 'Cair B to C'
+            },
+
+            pane: {
+                startAngle: -90,
+                endAngle: 90, 
+                background: null
+            },
+
+            // the value axis
+            yAxis: {
+                min: 0,
+                max: 200,
+
+                minorTickInterval: 'auto',
+                minorTickWidth: 1,
+                minorTickLength: 10,
+                minorTickPosition: 'inside',
+                minorTickColor: '#666',
+
+                tickPixelInterval: 30,
+                tickWidth: 2,
+                tickPosition: 'inside',
+                tickLength: 10,
+                tickColor: '#666',
+                labels: {
+                    step: 2,
+                    rotation: 'auto'
+                },
+                title: {
+                    text: '%'
+                },
+                plotBands: [{
+                    from: 0,
+                    to: 120,
+                    color: '#DF5353' // red
+                }, {
+                    from: 120,
+                    to: 160,
+                    color: '#DDDF0D' // yellow
+                }, {
+                    from: 160,
+                    to: 200,
+                    color: '#55BF3B' // green
+                }, {
+                  from: 100,
+                    to: 140,
+                    color: '#6677ff',
+                    innerRadius: '100%',
+                    outerRadius: '110%'
+                }]
+            },
+
+            series: [{
+                name: 'Cair',
+                data: [valueInt],
+                tooltip: {
+                    valueSuffix: ' %'
+                }
+            }]
+
+        });
+
+        $('#containerkol2').highcharts({
+
+            chart: {
+                type: 'gauge'
+            },
+
+            title: {
+                text: 'Kol 2'
+            },
+
+            pane: {
+                startAngle: -90,
+                endAngle: 90, 
+                background: null
+            },
+
+            // the value axis
+            yAxis: {
+                min: 0,
+                max: 200,
+
+                minorTickInterval: 'auto',
+                minorTickWidth: 1,
+                minorTickLength: 10,
+                minorTickPosition: 'inside',
+                minorTickColor: '#666',
+
+                tickPixelInterval: 30,
+                tickWidth: 2,
+                tickPosition: 'inside',
+                tickLength: 10,
+                tickColor: '#666',
+                labels: {
+                    step: 2,
+                    rotation: 'auto'
+                },
+                title: {
+                    text: '%'
+                },
+                plotBands: [{
+                    from: 0,
+                    to: 120,
+                    color: '#55BF3B' // green
+                }, {
+                    from: 120,
+                    to: 160,
+                    color: '#DDDF0D' // yellow
+                }, {
+                    from: 160,
+                    to: 200,
+                    color: '#DF5353' // red 
+                }, {
+                  from: 100,
+                    to: 140,
+                    color: '#6677ff',
+                    innerRadius: '100%',
+                    outerRadius: '110%'
+                }]
+            },
+
+            series: [{
+                name: 'Kol 2',
+                data: [valueInt],
+                tooltip: {
+                    valueSuffix: ' %'
+                }
+            }]
+
+        });
+
+        $('#containernpf').highcharts({
+
+            chart: {
+                type: 'gauge'
+            },
+
+            title: {
+                text: 'NPF'
+            },
+
+            pane: {
+                startAngle: -90,
+                endAngle: 90, 
+                background: null
+            },
+
+            // the value axis
+            yAxis: {
+                min: 0,
+                max: 200,
+
+                minorTickInterval: 'auto',
+                minorTickWidth: 1,
+                minorTickLength: 10,
+                minorTickPosition: 'inside',
+                minorTickColor: '#666',
+
+                tickPixelInterval: 30,
+                tickWidth: 2,
+                tickPosition: 'inside',
+                tickLength: 10,
+                tickColor: '#666',
+                labels: {
+                    step: 2,
+                    rotation: 'auto'
+                },
+                title: {
+                    text: '%'
+                },
+                plotBands: [{
+                    from: 0,
+                    to: 120,
+                    color: '#55BF3B' // green 
+                }, {
+                    from: 120,
+                    to: 160,
+                    color: '#DDDF0D' // yellow
+                }, {
+                    from: 160,
+                    to: 200,
+                    color: '#DF5353' // red
+                }, {
+                  from: 100,
+                    to: 140,
+                    color: '#6677ff',
+                    innerRadius: '100%',
+                    outerRadius: '110%'
+                }]
+            },
+
+            series: [{
+                name: 'NPF',
+                data: [valueInt],
+                tooltip: {
+                    valueSuffix: ' %'
+                }
+            }]
+
+        });
+
+        $('#containerug').highcharts({
+
+            chart: {
+                type: 'gauge'
+            },
+
+            title: {
+                text: 'Upgrade NPF'
+            },
+
+            pane: {
+                startAngle: -90,
+                endAngle: 90, 
+                background: null
+            },
+
+            // the value axis
+            yAxis: {
+                min: 0,
+                max: 200,
+
+                minorTickInterval: 'auto',
+                minorTickWidth: 1,
+                minorTickLength: 10,
+                minorTickPosition: 'inside',
+                minorTickColor: '#666',
+
+                tickPixelInterval: 30,
+                tickWidth: 2,
+                tickPosition: 'inside',
+                tickLength: 10,
+                tickColor: '#666',
+                labels: {
+                    step: 2,
+                    rotation: 'auto'
+                },
+                title: {
+                    text: '%'
+                },
+                plotBands: [{
+                    from: 0,
+                    to: 120,
+                    color: '#DF5353' // red
+                }, {
+                    from: 120,
+                    to: 160,
+                    color: '#DDDF0D' // yellow
+                }, {
+                    from: 160,
+                    to: 200,
+                    color: '#55BF3B' // green
+                }, {
+                  from: 100,
+                    to: 140,
+                    color: '#6677ff',
+                    innerRadius: '100%',
+                    outerRadius: '110%'
+                }]
+            },
+
+            series: [{
+                name: 'Upgrade',
+                data: [valueInt],
+                tooltip: {
+                    valueSuffix: ' %'
+                }
+            }]
+
+        });
+
+        $('#containerdg').highcharts({
+
+            chart: {
+                type: 'gauge'
+            },
+
+            title: {
+                text: 'Downgrade NPF'
+            },
+
+            pane: {
+                startAngle: -90,
+                endAngle: 90, 
+                background: null
+            },
+
+            // the value axis
+            yAxis: {
+                min: 0,
+                max: 200,
+
+                minorTickInterval: 'auto',
+                minorTickWidth: 1,
+                minorTickLength: 10,
+                minorTickPosition: 'inside',
+                minorTickColor: '#666',
+
+                tickPixelInterval: 30,
+                tickWidth: 2,
+                tickPosition: 'inside',
+                tickLength: 10,
+                tickColor: '#666',
+                labels: {
+                    step: 2,
+                    rotation: 'auto'
+                },
+                title: {
+                    text: '%'
+                },
+                plotBands: [{
+                    from: 0,
+                    to: 120,
+                    color: '#55BF3B' // green
+                }, {
+                    from: 120,
+                    to: 160,
+                    color: '#DDDF0D' // yellow
+                }, {
+                    from: 160,
+                    to: 200,
+                    color: '#DF5353' // red 
+                }, {
+                  from: 100,
+                    to: 140,
+                    color: '#6677ff',
+                    innerRadius: '100%',
+                    outerRadius: '110%'
+                }]
+            },
+
+            series: [{
+                name: 'Downgrade',
                 data: [valueInt],
                 tooltip: {
                     valueSuffix: ' %'

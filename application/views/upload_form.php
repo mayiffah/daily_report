@@ -60,26 +60,6 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
               <i class="fa fa-fw fa-sitemap"></i>
               <span class="nav-link-text">Portfolio Area</span>
             </a>
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Daily Report">
-            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-              <i class="fa fa-fw fa-area-chart"></i>
-              <span class="nav-link-text">Daily Report</span>
-            </a>
-            <ul class="sidenav-second-level collapse" id="collapseComponents">
-              <li>
-                <a href='<?php echo base_url ('/index.php/daily/posisi'); ?>'>Posisi</a>
-              </li>
-              <li>
-                <a href='<?php echo base_url ('/index.php/daily/runoff'); ?>'>Run Off</a>
-              </li>
-              <li>
-                <a href='<?php echo base_url ('/index.php/daily/cair'); ?>'>Cair</a>
-              </li>
-              <li>
-                <a href='<?php echo base_url ('/index.php/daily/kol2'); ?>'>Kol 2</a>
-              </li>
-            </ul>
-          </li>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Upload Data Harian">
             <a class="nav-link" href='<?php echo base_url ('/index.php/Upload/index'); ?>'>
               <i class="fa fa-fw fa-wrench"></i>
@@ -119,7 +99,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 			<input type = "submit" class = "btn btn-primary" value = "Import" />
       <br>
-      <span style="color:red;">*Silahkan masukkan file Ifois Text (.txt)</span>
+      <span style="color:red;">*Silahkan masukkan file Data All (.csv)</span>
       <br>
       <br>
       <br>
@@ -141,7 +121,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
                 'data-icon' => 'false'
             );
             $output .= form_upload($data);
-            $output .= '</div> <span style="color:red;">*Silahkan masukkan file QuickCount Excel (.xls atau .xlxs)</span></div>';
+            $output .= '</div> <span style="color:red;">*Silahkan masukkan file Data All (.csv)</span></div>';
             $output .= '<div class="col-lg-12 col-sm-12"><div class="form-group text-right">';
             $data = array(
                 'name' => 'importfile',
