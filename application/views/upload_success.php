@@ -98,7 +98,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
     
       <?php 
 
-
+/*
       
       if(!is_array($upload_data)){
     
@@ -204,14 +204,12 @@ SELECT `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JEN
                 echo 'ada ';
                 echo $count-1;
       }
-       
-  //    $tgl = '_archive';
+       */
        ?>
       
     
     <p><?php echo anchor('/upload/do_upload', 'Upload Lagi'); ?></p>
 
-    <a class="pull-left btn btn-primary btn-xs" href="<?php echo site_url().'/upload/createxls/'?>"><i class="fa fa-file-excel-o"></i> Export Data</a>
     </div>
     </div>
     <script type="text/javascript">

@@ -109,7 +109,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 			</form>
             <?php
             $output = '';
-            $output .= form_open_multipart('upload/save');
+            $output .= form_open_multipart('upload/do_upload_akhir_bulan');
             $output .= '<div class="row">';
             $output .= '<div class="col-lg-12 col-sm-12"><div class="form-group">';
             $output .= form_label('Upload Data Akhir Bulan', 'image');
@@ -121,7 +121,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
                 'data-icon' => 'false'
             );
             $output .= form_upload($data);
-            $output .= '</div> <span style="color:red;">*Silahkan masukkan file Data All (.csv)</span></div>';
+            $output .= '</div> <span style="color:red;">*Silahkan masukkan file Data All - Akhir Bulan (.csv)</span></div>';
             $output .= '<div class="col-lg-12 col-sm-12"><div class="form-group text-right">';
             $data = array(
                 'name' => 'importfile',
