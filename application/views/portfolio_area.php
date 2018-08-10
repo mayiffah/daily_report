@@ -208,16 +208,15 @@ header("location:". base_url() . "index.php/nasional/login");
           <div id="containernpf" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
           </div>
         </div>
-
+<!-- 
         <div style="width: 700px; overflow: hidden; margin: 0 auto;">
-          <!-- Speedometer Downgrade NPF -->
+          
           <div id="containerug" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
           </div>
 
-          <!-- Speedometer Upgrade NPF -->
           <div id="containerdg" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
           </div>
-        </div>
+        </div> -->
         <!-- Icon Cards-->
         <div class="row">
           <div class="col-xl-3 col-sm-6 mb-3">

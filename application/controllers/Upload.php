@@ -130,6 +130,10 @@ class Upload extends CI_Controller
             $this->load->view('/upload_success', $data);
         }
     }
+
+    public function tes() {
+      $this->load->view('/upload_success');
+    }
     
     
 }

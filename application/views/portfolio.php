@@ -152,15 +152,14 @@ header("location:". base_url() . "index.php/nasional/login");
           </div>
         </div>
 
-        <div style="width: 700px; overflow: hidden; margin: 0 auto;">
-          <!-- Speedometer Downgrade NPF -->
+       <!--  <div style="width: 700px; overflow: hidden; margin: 0 auto;">
+          
           <div id="containerug" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
           </div>
 
-          <!-- Speedometer Upgrade NPF -->
           <div id="containerdg" style="min-width: 300px; max-width: 300px; height: 300px; float:left;" value="150">
           </div>
-        </div>
+        </div> -->
 
         <br>
         <br>
@@ -169,6 +168,39 @@ header("location:". base_url() . "index.php/nasional/login");
         <?php
 
         ?>
+
+        <!-- Review -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-table"></i> Review Nasional dan Wilayah</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="reviewTable" class="display nowrap" width="100%"  cellspacing="0">
+            <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Wilayah Review </th>
+                  <th>O/S</th>
+                  <th>Target (satuan juta)</th>
+                  <th>%</th>
+                  <th>Noa</th>
+                  <th>O/S Lalu</th>
+                  <th>Growth</th>
+                  <th>Kol 1</th>
+                  <th>Kol 2</th>
+                  <th>Kol 3</th>
+                  <th>Kol 4</th>
+                  <th>Kol 5</th>
+                  <th>NPF</th>
+                </tr>
+            </thead>
+          </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+
+
          <!-- Nasional -->
         <div class="card mb-3">
           <div class="card-header">
