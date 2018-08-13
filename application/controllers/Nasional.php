@@ -29,6 +29,7 @@ class Nasional extends CI_Controller {
 			$this->load->model('summary_model');
 			$this->load->model('produk_model');
 			$this->load->model('sektor_model');
+            $this->load->model('pencapaian_model');
 			
         }
 
@@ -39,6 +40,7 @@ class Nasional extends CI_Controller {
         	$data['list_summary'] = $this->summary_model->get_summary('all');
 	        $data['list_produk'] = $this->produk_model->get_produk();
         	$data['list_sektor'] = $this->sektor_model->get_sektor();
+            $data['list_pencapaian'] = $this->pencapaian_model->get_pencapaian('nasional');
         	
         	/*$data['outstanding'] = $this->final_model->get_outstanding("1", $nama_outlet);
         	$data['outstanding1'] = $this->final_model->get_outstanding("3", 'REGIONAL I');

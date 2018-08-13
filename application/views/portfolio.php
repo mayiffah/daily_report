@@ -50,6 +50,7 @@ header("location:". base_url() . "index.php/nasional/login");
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   </head>
   <body class="fixed-nav sticky-footer bg-dark" id="page-top">
       HALOHA
@@ -123,6 +124,11 @@ header("location:". base_url() . "index.php/nasional/login");
        // echo var_dump($outstanding);
     //    echo '<br>outstanding: '.$outstanding[0]['SUM_OS'];
 
+       $b2b_awal_ = floatval($list_summary[0]->Cair_B2B);
+       $b2b_fix = $b2b_awal_/1000000000;
+
+       $b2c_awal_ = floatval($list_summary[0]->Cair_B2C);
+       $b2c_fix = $b2c_awal_/1000000000;
 
 
         ?>
@@ -270,23 +276,137 @@ header("location:". base_url() . "index.php/nasional/login");
         <!-- <tbody></tbody> -->
         </table>
 
-
-
-        <!-- Area Chart Example-->
+         <!-- Combination Chart Example-->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fa fa-area-chart"></i> Area Chart Example</div>
+            <i class="fa fa-area-chart"></i> Portfolio Nasional 2018</div>
           <div class="card-body">
-            <canvas id="myAreaChart" width="100%" height="30"></canvas>
+            <div id="myCombinationChart" style="height: 300px; width: 100%;"></div>
+            <br>
+            <table border="1" width=100%>
+              <thead>
+                <th></th>
+                <th>Januari</th>
+                <th>Februari</th>
+                <th>Maret</th>
+                <th>April</th>
+                <th>Mei</th>
+                <th>Juni</th>
+                <th>Juli</th>
+                <th>Agustus</th>
+                <!-- <th>September</th>
+                <th>Oktober</th>
+                <th>November</th>
+                <th>Desember</th> -->
+              </thead>
+              <tbody>
+                <tr>
+                  <td>OS Pokok</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <!-- <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td> -->
+                  
+                </tr>
+                <tr>
+                  <td>NPF</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <!-- <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td> -->
+                </tr>
+                <tr>
+                  <td>Kol 2</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <!-- <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td> -->
+                </tr>
+                <tr>
+                  <td>Kol 1</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                 <!--  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td> -->
+
+                </tr>
+                <tr>
+                  <td>% NPF</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <!-- <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td> -->
+                </tr>
+                <tr>
+                  <td>% Kol 2</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <!-- <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td> -->
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
+
+
+
+
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-12">
             <!-- Example Bar Chart Card-->
             <div class="card mb-3">
               <div class="card-header">
-                <i class="fa fa-bar-chart"></i> Bar Chart Example</div>
+                <i class="fa fa-bar-chart"></i> Grafik Pencairan (dalam miliar rupiah)</div>
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-8 my-auto">
@@ -294,33 +414,20 @@ header("location:". base_url() . "index.php/nasional/login");
                   </div>
                   <div class="col-sm-4 text-center my-auto">
                     <div class="h4 mb-0 text-primary">B to B</div>
-                    <div class="small text-muted">Rp 34,693</div>
+                    <div class="small text-muted">Rp <?php echo $b2b_fix ?></div>
                     <hr>
                     <div class="h4 mb-0 text-warning"></div>
                     <div class="small text-muted"></div>
                     <hr>
                     <div class="h4 mb-0 text-danger">B to C</div>
-                    <div class="small text-muted">Rp 16,219</div>
+                    <div class="small text-muted">Rp <?php echo $b2c_fix ?></div>
                   </div>
                 </div>
               </div>
               <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
             </div>
-            <!-- Card Columns Example Social Feed-->
-            
-            <!-- /Card Columns-->
           </div>
           <div class="col-lg-4">
-            <!-- Example Pie Chart Card-->
-            <div class="card mb-3">
-              <div class="card-header">
-                <i class="fa fa-pie-chart"></i> Pie Chart Example</div>
-              <div class="card-body">
-                <canvas id="myPieChart" width="100%" height="100"></canvas>
-              </div>
-              <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-            </div>
-            <!-- Example Notifications Card-->
           </div>
         </div>       
 
@@ -357,48 +464,196 @@ header("location:". base_url() . "index.php/nasional/login");
         </div>
       </div>
     </div>
-    <script type="text/javascript">
+     <script type="text/javascript">
       $(document).ready(function () {
+
+
+        var b2b_awal = parseFloat(<?php echo $list_summary[0]->Cair_B2B?>);
+        var b2b = b2b_awal/1000000000;
+
+        var b2c_awal = parseFloat(<?php echo $list_summary[0]->Cair_B2C?>);
+        var b2c = b2c_awal/1000000000;
+
 
         //for showing charts
         Chart.defaults.global.defaultFontFamily='-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif',Chart.defaults.global.defaultFontColor="#292b2c"; 
-        var ctx=document.getElementById("myAreaChart"),
-        myLineChart=new Chart(ctx,{type:"line",
-          data:{
-            labels:["Mar 1","Mar 2","Mar 3","Mar 4","Mar 5","Mar 6","Mar 7","Mar 8","Mar 9","Mar 10","Mar 11","Mar 12","Mar 13"],
-            datasets:[
 
-            {label:"Upgrade NPF",lineTension:.3,backgroundColor:"rgba(2,117,216,0.2)",borderColor:"rgba(2,117,216,1)",pointRadius:5,pointBackgroundColor:"rgba(2,117,216,1)",pointBorderColor:"rgba(255,255,255,0.8)",pointHoverRadius:5,pointHoverBackgroundColor:"rgba(2,117,216,1)",pointHitRadius:20,pointBorderWidth:2,data:[1e4,30162,26263,18394,18287,28682,31274,33259,25849,24159,32651,31984,38451],},
-
-            {label:"Downgrade NPF",lineTension:.3,backgroundColor:"rgba(40,167,69,0.2)",borderColor:"#28a745",pointRadius:5,pointBackgroundColor:"#28a745",pointBorderColor:"rgba(255,255,255,0.8)",pointHoverRadius:5,pointHoverBackgroundColor:"#28a745",pointHitRadius:20,pointBorderWidth:2,data:[2e4,25000,20000,10000,15000,25000,25000,30000,20000,20000,30000,25000,30000],},
-            
-            {label:"Kol 2",lineTension:.3,backgroundColor:"rgba(220,53,69,0.2)",borderColor:"#dc3545",pointRadius:5,pointBackgroundColor:"#dc3545",pointBorderColor:"rgba(255,255,255,0.8)",pointHoverRadius:5,pointHoverBackgroundColor:"#dc3545",pointHitRadius:20,pointBorderWidth:2,data:[3e4,35000,40000,32000,11100,22200,6000,3000,12000,27000,39000,20000,31000],},
-            
-
-
-
-            ]
-        },options:{scales:{xAxes:[{time:{unit:"date"},gridLines:{display:!1},ticks:{maxTicksLimit:7}}],yAxes:[{ticks:{min:0,max:4e4,maxTicksLimit:5},gridLines:{color:"rgba(0, 0, 0, .125)"}}]},legend:{display:!1}}}),
         ctx=document.getElementById("myBarChart"),
         myLineChart=new Chart(ctx,{type:"bar",
-          data:{labels:["January","February","March","April","May","June"],
+          data:{labels:["Januari","Februari","Maret","April","Mei","Juni"/*,"Juli","Agustus","September","Oktober","November","Desember"*/],
           datasets:[
-            {label:"Revenue",backgroundColor:"rgba(2,117,216,1)",
+            {label:"Cair B2B",backgroundColor:"rgba(2,117,216,1)",
             borderColor:"rgba(2,117,216,1)",
-            data:[4215,5312,6251,7841,9821,14984]},
-            {label:"Revenue",backgroundColor:"#dc3545",
+            data:[0,0,0,0,0,b2b]},
+            {label:"Cair B2C",backgroundColor:"#dc3545",
             borderColor:"#dc3545",
-            data:[12000,5555,2222,5343,3333,12000]}
-
+            data:[0,0,0,0,0,b2c]}
           ]},
-          options:{scales:{xAxes:[{time:{unit:"month"},gridLines:{display:!1},ticks:{maxTicksLimit:6}}],yAxes:[{ticks:{min:0,max:15e3,maxTicksLimit:5},gridLines:{display:!0}}]},legend:{display:!1}}}),
-        ctx=document.getElementById("myPieChart"),myPieChart=new Chart(ctx,{type:"pie",data:{labels:["Blue","Red","Yellow","Green"],datasets:[{data:[12.21,15.58,11.25,8.32],backgroundColor:["#007bff","#dc3545","#ffc107","#28a745"]}]}}); 
+          options:{scales:{xAxes:[{time:{unit:"month"},gridLines:{display:!1},ticks:{maxTicksLimit:6}}],yAxes:[{ticks:{min:0,max:50,maxTicksLimit:5},gridLines:{display:!0}}]},legend:{display:!1}}}); 
+
+        //combination chart
+
+        var chart = new CanvasJS.Chart("myCombinationChart", {
+
+            animationEnabled: true,
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
+            exportEnabled: true,
+            title:{
+              text: "Portfolio Nasional 2018"
+            },
+            subtitles: [{
+              text: "Business Banking Group"
+            }],
+            axisX: {
+              valueFormatString: "MMM"
+            },
+            axisY: {
+              includeZero:false, 
+              prefix: "",
+              title: "Rp Miliar"
+            },
+            axisY2: {
+              prefix: "",
+              suffix: "%",
+              title: "",
+              tickLength: 0
+            },
+            toolTip: {
+              shared: true
+            },
+            legend: {
+              reversed: true,
+              cursor: "pointer",
+              itemclick: toggleDataSeries
+            },     
+            data: [{
+type: "stackedColumn",
+showInLegend: true,
+color: "#696661",
+name: "Kol 1",
+dataPoints: [
+  { y: 0, x: new Date(2018,0) },
+  { y: 0, x: new Date(2018,1) },
+  { y: 0, x: new Date(2018,2) },
+  { y: 0, x: new Date(2018,3) },
+  { y: 0, x: new Date(2018,4) },
+  { y: 15.42, x: new Date(2018,5) },
+  { y: 0, x: new Date(2018,6) },
+  { y: 0, x: new Date(2018,7) },
+  { y: 0, x: new Date(2018,8) },
+  { y: 0, x: new Date(2018,9) },
+  { y: 0, x: new Date(2018,10) },
+  { y: 0, x: new Date(2018,11) }
+]
+},
+{        
+  type: "stackedColumn",
+  showInLegend: true,
+  name: "Kol 2",
+  color: "#EDCA93",
+  dataPoints: [
+    
+    { y: 0, x: new Date(2018,0) },
+    { y: 0, x: new Date(2018,1) },
+    { y: 0, x: new Date(2018,2) },
+    { y: 0, x: new Date(2018,3) },
+    { y: 0, x: new Date(2018,4) },
+    { y: 14.11, x: new Date(2018,5) },
+    { y: 0, x: new Date(2018,6) },
+    { y: 0, x: new Date(2018,7) },
+    { y: 0, x: new Date(2018,8) },
+    { y: 0, x: new Date(2018,9) },
+    { y: 0, x: new Date(2018,10) },
+    { y: 0, x: new Date(2018,11) }
+  ]
+},
+{        
+  type: "stackedColumn",
+  showInLegend: true,
+  name: "NPF",
+  color: "#B6B1A8",
+  dataPoints: [
+    { y: 0, x: new Date(2018,0) },
+    { y: 0, x: new Date(2018,1) },
+    { y: 0, x: new Date(2018, 2) },
+    { y: 0, x: new Date(2018,3) },
+    { y: 0, x: new Date(2018,4) },
+    { y: 19.10, x: new Date(2018,5) },
+    { y: 0, x: new Date(2018,6) },
+    { y: 0, x: new Date(2018,7) },
+    { y: 0, x: new Date(2018,8) },
+    { y: 0, x: new Date(2018,9) },
+    { y: 0, x: new Date(2018,10) },
+    { y: 0, x: new Date(2018,11) }
+  ]
+},
+            {
+              type: "line",
+              showInLegend: true,
+              name: "% Kol 2",
+              axisYType: "secondary",
+              yValueFormatString: "#,##0.00%",
+              xValueFormatString: "MMMM",
+              dataPoints: [
+                { x: new Date(2018, 0), y: 0 },
+                { x: new Date(2018, 1), y: 0 },
+                { x: new Date(2018, 2), y: 0 },
+                { x: new Date(2018, 3), y: 0 },
+                { x: new Date(2018, 4), y: 0 },
+                { x: new Date(2018, 5), y: 10 },
+                { x: new Date(2018, 6), y: 0 },
+                { x: new Date(2018, 7), y: 0 },
+                { x: new Date(2018, 8), y: 0 },
+                { x: new Date(2018, 9), y: 0 },
+                { x: new Date(2018, 10), y: 0 },
+                { x: new Date(2018, 11), y: 0 }
+              ]
+            },
+            {
+              type: "line",
+              showInLegend: true,
+              name: "% NPF",
+              axisYType: "secondary",
+              yValueFormatString: "#,##0.00%",
+              xValueFormatString: "MMMM",
+              dataPoints: [
+                { x: new Date(2018, 0), y: 0 },
+                { x: new Date(2018, 1), y: 0 },
+                { x: new Date(2018, 2), y: 0 },
+                { x: new Date(2018, 3), y: 0 },
+                { x: new Date(2018, 4), y: 0 },
+                { x: new Date(2018, 5), y: 20 },
+                { x: new Date(2018, 6), y: 0 },
+                { x: new Date(2018, 7), y: 0 },
+                { x: new Date(2018, 8), y: 0 },
+                { x: new Date(2018, 9), y: 0 },
+                { x: new Date(2018, 10), y: 0 },
+                { x: new Date(2018, 11), y: 0 }
+              ]
+            }]
+          }
+
+          );
+          chart.render();
+
+          function toggleDataSeries(e) {
+            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+              e.dataSeries.visible = false;
+            } else {
+              e.dataSeries.visible = true;
+            }
+            e.chart.render();
+          }
+
+
+
 
 
         //for the tooltip of side navbar
         !function(e){"use strict";e('.navbar-sidenav [data-toggle="tooltip"]').tooltip({template:'<div class="tooltip navbar-sidenav-tooltip" role="tooltip" style="pointer-events: none;"><div class="arrow"></div><div class="tooltip-inner"></div></div>'}),e("#sidenavToggler").click(function(o){o.preventDefault(),e("body").toggleClass("sidenav-toggled"),e(".navbar-sidenav .nav-link-collapse").addClass("collapsed"),e(".navbar-sidenav .sidenav-second-level, .navbar-sidenav .sidenav-third-level").removeClass("show")}),e(".navbar-sidenav .nav-link-collapse").click(function(o){o.preventDefault(),e("body").removeClass("sidenav-toggled")}),e("body.fixed-nav .navbar-sidenav, body.fixed-nav .sidenav-toggler, body.fixed-nav .navbar-collapse").on("mousewheel DOMMouseScroll",function(e){var o=e.originalEvent,t=o.wheelDelta||-o.detail;this.scrollTop+=30*(t<0?1:-1),e.preventDefault()}),e(document).scroll(function(){e(this).scrollTop()>100?e(".scroll-to-top").fadeIn():e(".scroll-to-top").fadeOut()}),e('[data-toggle="tooltip"]').tooltip(),e(document).on("click","a.scroll-to-top",function(o){var t=e(this);e("html, body").stop().animate({scrollTop:e(t.attr("href")).offset().top},1e3,"easeInOutExpo"),o.preventDefault()})}(jQuery);
 
         var data_nasional = [];
+        var data_review = [];
         var data_produk = [];
         var data_sektor = [];
 
@@ -407,6 +662,8 @@ header("location:". base_url() . "index.php/nasional/login");
            // 
           ?>
             data_nasional.push([<?php echo"`$summary->id`,`$summary->Wilayah`,`$summary->Outstanding`,`$summary->Kol_2`,`$summary->NPF`,`$summary->Cair_B2B`,`$summary->Cair_B2C`,`$summary->Runoff`,`$summary->Upgrade`,`$summary->Downgrade`"?>]);
+
+            data_review.push([<?php echo"`$summary->id`,`$summary->Wilayah`,`$summary->Outstanding`,`$summary->Target`,`$summary->Persen`,`$summary->Noa`,`$summary->OS_Lalu`,`$summary->Growth`,`$summary->Kol_1`,`$summary->Kol_2`,`$summary->Kol_3`,`$summary->Kol_4`,`$summary->Kol_5`, `$summary->NPF`"?>]);
           <?php    
           }
           ?>
@@ -428,6 +685,22 @@ header("location:". base_url() . "index.php/nasional/login");
           <?php    
           }
           ?>
+
+        if ( $.fn.dataTable.isDataTable( '#reviewTable' ) ) {
+            table = $('#reviewTable').DataTable();
+        }
+        else {
+            table = $('#reviewTable').DataTable( {
+            data:           data_review,
+            deferRender:    true,
+            scrollY:        300,
+            scrollCollapse: true,
+            scroller:       true,
+            scrollX :       true,
+            "pageLength":   20
+            } );
+        }
+
 
 
         if ( $.fn.dataTable.isDataTable( '#nasionalTable' ) ) {
@@ -476,10 +749,16 @@ header("location:". base_url() . "index.php/nasional/login");
         }
 
         //for the speedometer
-        var valueo =  $('#containeros').attr("value");
-        console.log(valueo+10);
-        var valueInt = parseInt(valueo);
-        console.log(valueInt+10);
+//        var valueo =  $('#containeros').attr("value");
+
+//        console.log(valueo+10);
+        var valueos = parseFloat(<?php echo $list_summary[0]->Persen;?>);
+        var valueb2b = parseFloat(<?php echo $list_pencapaian[0]->Cair_B2B;?>);
+        var valueb2c = parseFloat(<?php echo $list_pencapaian[0]->Cair_B2C;?>);
+        var valuekol2 = parseFloat(<?php echo $list_pencapaian[0]->Kol_2;?>);
+        var valuenpf = parseFloat(<?php echo $list_pencapaian[0]->NPF;?>);
+        var valueInt = 150;
+  //      console.log(valueInt+10);
 
         $('#containeros').highcharts({
 
@@ -531,14 +810,14 @@ header("location:". base_url() . "index.php/nasional/login");
                 },
                 plotBands: [{
                     from: 0,
-                    to: 120,
+                    to: 95,
                     color: '#DF5353' // red 
                 }, {
-                    from: 120,
-                    to: 160,
+                    from: 96,
+                    to: 100,
                     color: '#DDDF0D' // yellow
                 }, {
-                    from: 160,
+                    from: 101,
                     to: 200,
                     color: '#55BF3B' // green
                 }, {
@@ -552,7 +831,7 @@ header("location:". base_url() . "index.php/nasional/login");
 
             series: [{
                 name: 'Outstanding',
-                data: [valueInt],
+                data: [valueos],
                 tooltip: {
                     valueSuffix: ' %'
                 }
@@ -601,14 +880,14 @@ header("location:". base_url() . "index.php/nasional/login");
                 },
                 plotBands: [{
                     from: 0,
-                    to: 120,
+                    to: 95,
                     color: '#DF5353' // red
                 }, {
-                    from: 120,
-                    to: 160,
+                    from: 96,
+                    to: 100,
                     color: '#DDDF0D' // yellow
                 }, {
-                    from: 160,
+                    from: 101,
                     to: 200,
                     color: '#55BF3B' // green
                 }, {
@@ -622,7 +901,7 @@ header("location:". base_url() . "index.php/nasional/login");
 
             series: [{
                 name: 'Cair',
-                data: [valueInt],
+                data: [valueb2b],
                 tooltip: {
                     valueSuffix: ' %'
                 }
@@ -671,14 +950,14 @@ header("location:". base_url() . "index.php/nasional/login");
                 },
                 plotBands: [{
                     from: 0,
-                    to: 120,
+                    to: 95,
                     color: '#DF5353' // red
                 }, {
-                    from: 120,
-                    to: 160,
+                    from: 96,
+                    to: 100,
                     color: '#DDDF0D' // yellow
                 }, {
-                    from: 160,
+                    from: 101,
                     to: 200,
                     color: '#55BF3B' // green
                 }, {
@@ -692,7 +971,7 @@ header("location:". base_url() . "index.php/nasional/login");
 
             series: [{
                 name: 'Cair',
-                data: [valueInt],
+                data: [valueb2c],
                 tooltip: {
                     valueSuffix: ' %'
                 }
@@ -741,19 +1020,19 @@ header("location:". base_url() . "index.php/nasional/login");
                 },
                 plotBands: [{
                     from: 0,
-                    to: 120,
+                    to: 95,
                     color: '#55BF3B' // green
                 }, {
-                    from: 120,
-                    to: 160,
+                    from: 96,
+                    to: 100,
                     color: '#DDDF0D' // yellow
                 }, {
-                    from: 160,
+                    from: 101,
                     to: 200,
                     color: '#DF5353' // red 
                 }, {
-                  from: 100,
-                    to: 140,
+                  from: 0,
+                    to: 40,
                     color: '#6677ff',
                     innerRadius: '100%',
                     outerRadius: '110%'
@@ -762,7 +1041,7 @@ header("location:". base_url() . "index.php/nasional/login");
 
             series: [{
                 name: 'Kol 2',
-                data: [valueInt],
+                data: [valuekol2],
                 tooltip: {
                     valueSuffix: ' %'
                 }
@@ -811,19 +1090,19 @@ header("location:". base_url() . "index.php/nasional/login");
                 },
                 plotBands: [{
                     from: 0,
-                    to: 120,
+                    to: 95,
                     color: '#55BF3B' // green 
                 }, {
-                    from: 120,
-                    to: 160,
+                    from: 96,
+                    to: 100,
                     color: '#DDDF0D' // yellow
                 }, {
-                    from: 160,
+                    from: 101,
                     to: 200,
                     color: '#DF5353' // red
                 }, {
-                  from: 100,
-                    to: 140,
+                  from: 0,
+                    to: 40,
                     color: '#6677ff',
                     innerRadius: '100%',
                     outerRadius: '110%'
@@ -832,7 +1111,7 @@ header("location:". base_url() . "index.php/nasional/login");
 
             series: [{
                 name: 'NPF',
-                data: [valueInt],
+                data: [valuenpf],
                 tooltip: {
                     valueSuffix: ' %'
                 }
