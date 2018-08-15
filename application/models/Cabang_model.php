@@ -28,5 +28,12 @@ class Cabang_model extends CI_Model {
             return $query->result();
         }
 
+        public function get_cabang_by_name($title = TRUE) 
+        {
+            $query = $this->db->query('SELECT * FROM cabang where nama_cabang = "'.$title.'"');
+
+            return $query->result();
+        }
+
 }
         

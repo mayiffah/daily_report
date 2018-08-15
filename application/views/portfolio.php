@@ -67,7 +67,7 @@ header("location:". base_url() . "index.php/nasional/login");
               <span class="nav-link-text">Portfolio Nasional</span>
             </a>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Portfolio Area">
-            <a class="nav-link" href='<?php echo base_url ('/index.php/area/portfolio_area' ); ?>'>
+            <a class="nav-link" href='<?php echo base_url ('/index.php/area/portfolio_area/'.$id_jabatan.'/'.$nama_outlet);?>'>
               <i class="fa fa-fw fa-sitemap"></i>
               <span class="nav-link-text">Portfolio Area</span>
             </a>
@@ -125,10 +125,10 @@ header("location:". base_url() . "index.php/nasional/login");
     //    echo '<br>outstanding: '.$outstanding[0]['SUM_OS'];
 
        $b2b_awal_ = floatval($list_summary[0]->Cair_B2B);
-       $b2b_fix = $b2b_awal_/1000000000;
+       $b2b_fix = number_format($b2b_awal_/1000000000, 2);
 
        $b2c_awal_ = floatval($list_summary[0]->Cair_B2C);
-       $b2c_fix = $b2c_awal_/1000000000;
+       $b2c_fix = number_format($b2c_awal_/1000000000, 2);
 
 
         ?>
@@ -172,6 +172,13 @@ header("location:". base_url() . "index.php/nasional/login");
         <br>
 
         <?php
+        echo number_format($nasional[3], 2);
+        /*echo $nasional->out;
+        foreach($nasional as $n) {
+          echo '<br>';
+          echo $n;
+        }*/
+        
 
         ?>
 
@@ -234,18 +241,17 @@ header("location:". base_url() . "index.php/nasional/login");
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
 
-        <!-- Produk -->
+        <!-- Produk B2B-->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fa fa-table"></i> Trend Produk Nasional</div>
+            <i class="fa fa-table"></i> Trend Produk Nasional B2B</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table id="produkTable" class="display nowrap" width="100%"  cellspacing="0">
+              <table id="produkb2bTable" class="display nowrap" width="100%"  cellspacing="0">
             <thead>
                 <tr>
-                  <th>No.</th>
                   <th>Produk</th>
-                  <th>Juli 2018</th>
+                  <th>Juni 2018</th>
                 </tr>
             </thead>
           </table>
@@ -253,18 +259,58 @@ header("location:". base_url() . "index.php/nasional/login");
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
-         <!-- Sektor -->
+
+        <!-- Produk B2C-->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fa fa-table"></i> Trend Sektor Nasional</div>
+            <i class="fa fa-table"></i> Trend Produk Nasional B2C</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table id="sektorTable" class="display nowrap" width="100%"  cellspacing="0">
+              <table id="produkb2cTable" class="display nowrap" width="100%"  cellspacing="0">
             <thead>
                 <tr>
-                  <th>No.</th>
+                  <th>Produk</th>
+                  <th>Juni 2018</th>
+                </tr>
+            </thead>
+          </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+
+
+
+         <!-- Sektor B2B-->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-table"></i> Trend Sektor Nasional B2B</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="sektorb2bTable" class="display nowrap" width="100%"  cellspacing="0">
+            <thead>
+                <tr>
                   <th>Sektor</th>
-                  <th>Juli 2018</th>
+                  <th>Juni 2018</th>
+                </tr>
+            </thead>
+          </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+
+        <!-- Sektor B2C-->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-table"></i> Trend Sektor Nasional B2C</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="sektorb2cTable" class="display nowrap" width="100%"  cellspacing="0">
+            <thead>
+                <tr>
+                  <th>Sektor</th>
+                  <th>Juni 2018</th>
                 </tr>
             </thead>
           </table>
@@ -307,10 +353,10 @@ header("location:". base_url() . "index.php/nasional/login");
                   <td></td>
                   <td></td>
                   <td></td>
+                  <td><?php echo $nasional[0]?></td>
                   <td></td>
                   <td></td>
-                  <td></td>
-                  <!-- <td></td>
+                  <!-- <td></td> 
                   <td></td>
                   <td></td>
                   <td></td> -->
@@ -323,7 +369,7 @@ header("location:". base_url() . "index.php/nasional/login");
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td></td>
+                  <td><?php echo $nasional[1]?></td>
                   <td></td>
                   <td></td>
                   <!-- <td></td>
@@ -338,7 +384,7 @@ header("location:". base_url() . "index.php/nasional/login");
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td></td>
+                  <td><?php echo $nasional[2]?></td>
                   <td></td>
                   <td></td>
                   <!-- <td></td>
@@ -353,7 +399,7 @@ header("location:". base_url() . "index.php/nasional/login");
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td></td>
+                  <td><?php echo $nasional[3]?></td>
                   <td></td>
                   <td></td>
                  <!--  <td></td>
@@ -369,7 +415,7 @@ header("location:". base_url() . "index.php/nasional/login");
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td></td>
+                  <td><?php echo $nasional[4]?></td>
                   <td></td>
                   <td></td>
                   <!-- <td></td>
@@ -384,7 +430,7 @@ header("location:". base_url() . "index.php/nasional/login");
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td></td>
+                  <td><?php echo $nasional[5]?></td>
                   <td></td>
                   <td></td>
                   <!-- <td></td>
@@ -470,9 +516,10 @@ header("location:". base_url() . "index.php/nasional/login");
 
         var b2b_awal = parseFloat(<?php echo $list_summary[0]->Cair_B2B?>);
         var b2b = b2b_awal/1000000000;
-
+        
         var b2c_awal = parseFloat(<?php echo $list_summary[0]->Cair_B2C?>);
         var b2c = b2c_awal/1000000000;
+
 
 
         //for showing charts
@@ -484,10 +531,10 @@ header("location:". base_url() . "index.php/nasional/login");
           datasets:[
             {label:"Cair B2B",backgroundColor:"rgba(2,117,216,1)",
             borderColor:"rgba(2,117,216,1)",
-            data:[0,0,0,0,0,b2b]},
+            data:[0,0,0,0,0,b2b.toFixed(2)]},
             {label:"Cair B2C",backgroundColor:"#dc3545",
             borderColor:"#dc3545",
-            data:[0,0,0,0,0,b2c]}
+            data:[0,0,0,0,0,b2c.toFixed(2)]}
           ]},
           options:{scales:{xAxes:[{time:{unit:"month"},gridLines:{display:!1},ticks:{maxTicksLimit:6}}],yAxes:[{ticks:{min:0,max:50,maxTicksLimit:5},gridLines:{display:!0}}]},legend:{display:!1}}}); 
 
@@ -537,7 +584,7 @@ dataPoints: [
   { y: 0, x: new Date(2018,2) },
   { y: 0, x: new Date(2018,3) },
   { y: 0, x: new Date(2018,4) },
-  { y: 15.42, x: new Date(2018,5) },
+  { y: parseFloat(<?php echo $nasional[3]?>), x: new Date(2018,5) },
   { y: 0, x: new Date(2018,6) },
   { y: 0, x: new Date(2018,7) },
   { y: 0, x: new Date(2018,8) },
@@ -558,7 +605,7 @@ dataPoints: [
     { y: 0, x: new Date(2018,2) },
     { y: 0, x: new Date(2018,3) },
     { y: 0, x: new Date(2018,4) },
-    { y: 14.11, x: new Date(2018,5) },
+    { y: parseFloat(<?php echo $nasional[2]?>), x: new Date(2018,5) },
     { y: 0, x: new Date(2018,6) },
     { y: 0, x: new Date(2018,7) },
     { y: 0, x: new Date(2018,8) },
@@ -578,7 +625,7 @@ dataPoints: [
     { y: 0, x: new Date(2018, 2) },
     { y: 0, x: new Date(2018,3) },
     { y: 0, x: new Date(2018,4) },
-    { y: 19.10, x: new Date(2018,5) },
+    { y: parseFloat(<?php echo $nasional[1]?>), x: new Date(2018,5) },
     { y: 0, x: new Date(2018,6) },
     { y: 0, x: new Date(2018,7) },
     { y: 0, x: new Date(2018,8) },
@@ -592,7 +639,7 @@ dataPoints: [
               showInLegend: true,
               name: "% Kol 2",
               axisYType: "secondary",
-              yValueFormatString: "#,##0.00%",
+              yValueFormatString: "###.## '%'",
               xValueFormatString: "MMMM",
               dataPoints: [
                 { x: new Date(2018, 0), y: 0 },
@@ -600,7 +647,7 @@ dataPoints: [
                 { x: new Date(2018, 2), y: 0 },
                 { x: new Date(2018, 3), y: 0 },
                 { x: new Date(2018, 4), y: 0 },
-                { x: new Date(2018, 5), y: 10 },
+                { x: new Date(2018, 5), y: parseFloat(<?php echo $nasional[5]?>) },
                 { x: new Date(2018, 6), y: 0 },
                 { x: new Date(2018, 7), y: 0 },
                 { x: new Date(2018, 8), y: 0 },
@@ -614,7 +661,7 @@ dataPoints: [
               showInLegend: true,
               name: "% NPF",
               axisYType: "secondary",
-              yValueFormatString: "#,##0.00%",
+              yValueFormatString: "###.##'%'",
               xValueFormatString: "MMMM",
               dataPoints: [
                 { x: new Date(2018, 0), y: 0 },
@@ -622,7 +669,7 @@ dataPoints: [
                 { x: new Date(2018, 2), y: 0 },
                 { x: new Date(2018, 3), y: 0 },
                 { x: new Date(2018, 4), y: 0 },
-                { x: new Date(2018, 5), y: 20 },
+                { x: new Date(2018, 5), y: parseFloat(<?php echo $nasional[4]?>) },
                 { x: new Date(2018, 6), y: 0 },
                 { x: new Date(2018, 7), y: 0 },
                 { x: new Date(2018, 8), y: 0 },
@@ -654,8 +701,10 @@ dataPoints: [
 
         var data_nasional = [];
         var data_review = [];
-        var data_produk = [];
-        var data_sektor = [];
+        var data_produk_b2b = [];
+        var data_sektor_b2b = [];
+        var data_produk_b2c = [];
+        var data_sektor_b2c = [];
 
           <?php
           foreach ($list_summary as $summary) {
@@ -669,19 +718,37 @@ dataPoints: [
           ?>
 
          <?php
-          foreach ($list_produk as $produk) {
+          foreach ($list_produk_b2b as $produk) {
            // 
           ?>
-            data_produk.push([<?php echo"`$produk->id`,`$produk->nama_produk`,`$produk->Juli_2018`"?>]);
+            data_produk_b2b.push([<?php echo"`$produk->nama_produk`,`$produk->Juli_2018`"?>]);
           <?php    
           }
           ?>
 
          <?php
-          foreach ($list_sektor as $sektor) {
+          foreach ($list_sektor_b2b as $sektor) {
            // 
           ?>
-            data_sektor.push([<?php echo"`$sektor->id`,`$sektor->nama_produk`,`$sektor->Juli_2018`"?>]);
+            data_sektor_b2b.push([<?php echo"`$sektor->nama_produk`,`$sektor->Juli_2018`"?>]);
+          <?php    
+          }
+          ?>
+
+          <?php
+          foreach ($list_produk_b2c as $produk) {
+           // 
+          ?>
+            data_produk_b2c.push([<?php echo"`$produk->nama_produk`,`$produk->Juli_2018`"?>]);
+          <?php    
+          }
+          ?>
+
+         <?php
+          foreach ($list_sektor_b2c as $sektor) {
+           // 
+          ?>
+            data_sektor_b2c.push([<?php echo"`$sektor->nama_produk`,`$sektor->Juli_2018`"?>]);
           <?php    
           }
           ?>
@@ -718,12 +785,12 @@ dataPoints: [
             } );
         }
 
-        if ( $.fn.dataTable.isDataTable( '#produkTable' ) ) {
-            table = $('#produkTable').DataTable();
+        if ( $.fn.dataTable.isDataTable( '#produkb2bTable' ) ) {
+            table = $('#produkb2bTable').DataTable();
         }
         else {
-            table = $('#produkTable').DataTable( {
-            data:           data_produk,
+            table = $('#produkb2bTable').DataTable( {
+            data:           data_produk_b2b,
             deferRender:    true,
             scrollY:        300,
             scrollCollapse: true,
@@ -733,12 +800,43 @@ dataPoints: [
             } );
         }
 
-        if ( $.fn.dataTable.isDataTable( '#sektorTable' ) ) {
-            table = $('#sektorTable').DataTable();
+        if ( $.fn.dataTable.isDataTable( '#sektorb2bTable' ) ) {
+            table = $('#sektorb2bTable').DataTable();
         }
         else {
-            table = $('#sektorTable').DataTable( {
-            data:           data_sektor,
+            table = $('#sektorb2bTable').DataTable( {
+            data:           data_sektor_b2b,
+            deferRender:    true,
+            scrollY:        300,
+            scrollCollapse: true,
+            scroller:       true,
+            scrollX :       true,
+            "pageLength":   20
+            } );
+        }
+
+
+        if ( $.fn.dataTable.isDataTable( '#produkb2cTable' ) ) {
+            table = $('#produkb2cTable').DataTable();
+        }
+        else {
+            table = $('#produkb2cTable').DataTable( {
+            data:           data_produk_b2c,
+            deferRender:    true,
+            scrollY:        300,
+            scrollCollapse: true,
+            scroller:       true,
+            scrollX :       true,
+            "pageLength":   20
+            } );
+        }
+
+        if ( $.fn.dataTable.isDataTable( '#sektorb2cTable' ) ) {
+            table = $('#sektorb2cTable').DataTable();
+        }
+        else {
+            table = $('#sektorb2cTable').DataTable( {
+            data:           data_sektor_b2c,
             deferRender:    true,
             scrollY:        300,
             scrollCollapse: true,

@@ -14,15 +14,47 @@ class Area extends CI_Controller {
         }
 
         //filtering berdasarkan area yg ada di database
-        public function portfolio_area() 
+        public function portfolio_area($id_jabatan, $nama_outlet) 
         {
         	$this->load->helper('url');
-        	$data['list_wilayah'] = $this->wilayah_model->get_wilayah('ALL');
-        	$data['list_area'] = $this->area_model->get_area('ALL');
-        	$data['list_cabang'] = $this->cabang_model->get_cabang('ALL');
-        	$data['wil_ada'] = false;
-        	$data['area_ada'] = false;
-        	$data['cbg_ada'] = false;
+            if ($id_jabatan === '1' or $id_jabatan === '2') {
+                $data['list_wilayah'] = $this->wilayah_model->get_wilayah('ALL');
+                $data['list_area'] = $this->area_model->get_area('ALL');
+                $data['list_cabang'] = $this->cabang_model->get_cabang('ALL');
+                $data['wil_ada'] = false;
+                $data['area_ada'] = false;
+                $data['cbg_ada'] = false;
+            } else if ($id_jabatan === '3' or $id_jabatan === '4') {
+
+
+                $nama_outlet = str_replace('%20', ' ', $nama_outlet);
+                $data['list_wilayah'] = $this->wilayah_model->get_wilayah_by_name($nama_outlet);
+                $data['list_area'] = $this->area_model->get_area('ALL');
+                $data['list_cabang'] = $this->cabang_model->get_cabang('ALL');
+                $data['wil_ada'] = false;
+                $data['area_ada'] = false;
+                $data['cbg_ada'] = false;
+           
+            } else if ($id_jabatan === '5' or $id_jabatan === '7') {
+
+                $nama_outlet = str_replace('%20', ' ', $nama_outlet);
+                $data['list_area'] = $this->area_model->get_area_by_name($nama_outlet);
+                $data['list_cabang'] = $this->cabang_model->get_cabang('ALL');
+                $data['wil_ada'] = true;
+                $data['area_ada'] = false;
+                $data['cbg_ada'] = false;
+           
+            } else if ($id_jabatan === '6' or $id_jabatan === '8') {
+
+                $nama_outlet = str_replace('%20', ' ', $nama_outlet);
+                $data['list_cabang'] = $this->cabang_model->get_cabang_by_name($nama_outlet);
+                $data['wil_ada'] = true;
+                $data['area_ada'] = true;
+                $data['cbg_ada'] = true;
+           
+            }
+ 	
+        	
             $data['ada_outstanding'] = false;
         	$this->load->view('/portfolio_area', $data);	
         }
@@ -32,19 +64,36 @@ class Area extends CI_Controller {
         	$wil = $this->input->get('wilayah');
         	$area = $this->input->get('area');
         	$cabang = $this->input->get('cabang');
-			
-			$data['list_wilayah'] = $this->wilayah_model->get_wilayah($wil);
+
+            $data['wil'] = $wil;
+            $data['ar'] = $area;
+            $data['cab'] = $cabang;
+            
+			if ($id_jabatan === '1' or $id_jabatan === '2') {
+                $data['list_wilayah'] = $this->wilayah_model->get_wilayah('ALL');
+            } else if ($id_jabatan === '3' or $id_jabatan === '4') {
+                $data['list_wilayah'] = $this->wilayah_model->get_wilayah($wil);
+            } 			
         	$data['wil_ada'] = true;
             $data['ada_outstanding'] = true;
             
             $nama_outlet = str_replace('%20', ' ', $nama_outlet);
             $data['tes1'] = $nama_outlet;
+           // $data['jabatan'] = $id_jabatan;
             $data['outstanding'] = $this->final_model->get_outstanding($id_jabatan, $nama_outlet);
         	
-        	if ($area != '') {
-        		$data['list_area'] = $this->area_model->get_area($area);
+        	if ($area != '' and $area != '0') {
+                if ($id_jabatan === '1' or $id_jabatan === '2') {
+                    $data['list_area'] = $this->area_model->get_area_with_wilayah($wil);
+                } else if ($id_jabatan === '3' or $id_jabatan === '4') {
+                    $data['list_area'] = $this->area_model->get_area_with_wilayah($wil);
+                }  else if ($id_jabatan === '5' or $id_jabatan === '7') {
+                    $data['list_area'] = $this->area_model->get_area($area);
+                } 
+
+        		
       			$data['area_ada'] = true;
-      			if ($cabang != '') {
+      			if ($cabang != '' and $cabang != '0') {
         			$data['list_cabang'] = $this->cabang_model->get_cabang($cabang);
 	      			$data['cbg_ada'] = true;
 	        	} else {

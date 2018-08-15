@@ -36,11 +36,16 @@ class Nasional extends CI_Controller {
         public function index($id_jabatan, $nama_outlet)
         {
         	$this->load->helper('url');
+            $summary = $this->summary_model->get_summary('all');
         	$data['list_employee'] = $this->employee_model->get_employee('tes');
-        	$data['list_summary'] = $this->summary_model->get_summary('all');
-	        $data['list_produk'] = $this->produk_model->get_produk();
-        	$data['list_sektor'] = $this->sektor_model->get_sektor();
+        	$data['list_summary'] = $summary;
+            $data['list_produk_b2b'] = $this->produk_model->get_produk_b2b();
+            $data['list_produk_b2c'] = $this->produk_model->get_produk_b2c();
+            $data['list_sektor_b2b'] = $this->sektor_model->get_sektor_b2b();
+            $data['list_sektor_b2c'] = $this->sektor_model->get_sektor_b2c();
             $data['list_pencapaian'] = $this->pencapaian_model->get_pencapaian('nasional');
+            $data['nasional'] = $this->summary_model->get_summary_portfolio();
+            
         	
         	/*$data['outstanding'] = $this->final_model->get_outstanding("1", $nama_outlet);
         	$data['outstanding1'] = $this->final_model->get_outstanding("3", 'REGIONAL I');

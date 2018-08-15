@@ -28,5 +28,12 @@ class Area_model extends CI_Model {
             
             return $query->result();
         }
+
+        public function get_area_by_name($title = TRUE) 
+        {
+            $query = $this->db->query('SELECT * FROM area where nama_area = "'.$title.'"');
+
+            return $query->result();
+        }
 }
         

@@ -66,7 +66,7 @@ header("location:". base_url() . "index.php/nasional/login");
               <span class="nav-link-text">Portfolio Nasional</span>
             </a>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Portfolio Area">
-            <a class="nav-link" href='<?php echo base_url ('/index.php/area/portfolio_area'); ?>'>
+            <a class="nav-link" href='<?php echo base_url ('/index.php/area/portfolio_area/'.$id_jabatan.'/'.$nama_outlet);?>'>
               <i class="fa fa-fw fa-sitemap"></i>
               <span class="nav-link-text">Portfolio Area</span>
             </a>
@@ -112,6 +112,7 @@ header("location:". base_url() . "index.php/nasional/login");
 
 
           echo 'id jabatan:'.$id_jabatan;
+     //    echo '<br>id jabatan DARI Controller: '.$jabatan;
         
           echo '<br>nama outlet:'.$nama_outlet;
          
@@ -129,12 +130,28 @@ header("location:". base_url() . "index.php/nasional/login");
           
           <div>
             <label>Wilayah: </label>
-            <select name="wilayah">
-              <?php 
-              foreach ($list_wilayah as $wilayah) 
-              {
-                echo '<option value="'.$wilayah->id.'">'.$wilayah->nama_wilayah.'</option>';
-              }
+            <select name="wilayah" onchange="this.form.submit()">
+              <?php
+                if ($wil_ada === true) {
+                  echo '<option value="0"> Pilih wilayah...</option>';
+                  foreach ($list_wilayah as $wilayah) 
+                  {
+                    if ($wilayah->id === $wil) {
+                      echo '<option value="'.$wilayah->id.'" selected="selected">'.$wilayah->nama_wilayah.'</option>';
+                    } else {
+                      echo '<option value="'.$wilayah->id.'">'.$wilayah->nama_wilayah.'</option>';
+                    }
+                    
+                  }
+
+                } else {
+                  echo '<option value="0"> Pilih wilayah...</option>';
+                  foreach ($list_wilayah as $wilayah) 
+                  {
+                    echo '<option value="'.$wilayah->id.'">'.$wilayah->nama_wilayah.'</option>';
+                  }
+
+                }
               ?>
             </select>
           </div>
@@ -145,12 +162,27 @@ header("location:". base_url() . "index.php/nasional/login");
 
             echo'<div>
             <label>Area: </label>
-            <select name="area">';
-              
-              foreach ($list_area as $area) 
-              {
-                echo '<option value="'.$area->id.'">'.$area->nama_area.'</option>';
-              }
+            <select name="area" onchange="this.form.submit()">';
+              if ($area_ada === true) {
+                  echo '<option value="0"> Pilih area...</option>';
+                  foreach ($list_area as $area) 
+                  {
+                    if ($area->id === $ar) {
+                      echo '<option value="'.$area->id.'" selected="selected">'.$area->nama_area.'</option>';
+                    } else {
+                      echo '<option value="'.$area->id.'">'.$area->nama_area.'</option>';
+                    }
+                    
+                  }
+
+                } else {
+                  echo '<option value="0"> Pilih area...</option>';
+                  foreach ($list_area as $area) 
+                  {
+                    echo '<option value="'.$area->id.'">'.$area->nama_area.'</option>';
+                  }
+
+                }
               echo'
             </select>
           </div>';
@@ -159,9 +191,11 @@ header("location:". base_url() . "index.php/nasional/login");
                 echo '<div>
                 <label>Cabang: </label>
                 <select name="cabang">';
+                echo '<option value="0"> Pilih cabang...</option>';
               
                   foreach ($list_cabang as $cabang) 
                   {
+                    
                     echo '<option value="'.$cabang->id.'">'.$cabang->nama_cabang.'</option>';
                   }
                   echo '

@@ -23,5 +23,12 @@ class Wilayah_model extends CI_Model {
         	return $query->result();
         }
 
+        public function get_wilayah_by_name($title = TRUE) 
+        {
+            $query = $this->db->query('SELECT * FROM wilayah where nama_wilayah = "'.$title.'"');
+
+            return $query->result();
+        }
+
 }
         
