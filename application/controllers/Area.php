@@ -54,8 +54,8 @@ class Area extends CI_Controller {
            
             }
  	
-        	
             $data['ada_outstanding'] = false;
+            $data['tess'] = 'blm ada';
         	$this->load->view('/portfolio_area', $data);	
         }
 
@@ -68,11 +68,28 @@ class Area extends CI_Controller {
             $data['wil'] = $wil;
             $data['ar'] = $area;
             $data['cab'] = $cabang;
+
+            /*if ($wil == '' || $wil == '0') {
+                $this->portfolio_area($id_jabatan, $nama_outlet);   
+            }*/
             
 			if ($id_jabatan === '1' or $id_jabatan === '2') {
                 $data['list_wilayah'] = $this->wilayah_model->get_wilayah('ALL');
             } else if ($id_jabatan === '3' or $id_jabatan === '4') {
                 $data['list_wilayah'] = $this->wilayah_model->get_wilayah($wil);
+            } else if ($id_jabatan === '5' or $id_jabatan === '7') {
+                //gausah ada wilayah
+                $w_coba = $this->area_model->get_area($area);
+                $wil = $w_coba[0]->id_wilayah;
+            } else if ($id_jabatan === '6' or $id_jabatan === '8') {
+                //gausah ada wilayah dan area
+                
+
+                $a_coba = $this->cabang_model->get_cabang($cabang);
+                $area = $a_coba[0]->id_area;
+
+                $w_coba = $this->area_model->get_area($area);
+                $wil = $w_coba[0]->id_wilayah;
             } 			
         	$data['wil_ada'] = true;
             $data['ada_outstanding'] = true;
@@ -81,8 +98,21 @@ class Area extends CI_Controller {
             $data['tes1'] = $nama_outlet;
            // $data['jabatan'] = $id_jabatan;
             $data['outstanding'] = $this->final_model->get_outstanding($id_jabatan, $nama_outlet);
-        	
-        	if ($area != '' and $area != '0') {
+
+            $area_by_wilayah = false;
+            if ($area != '' and $area != '0') {
+                $area_1 = $this->area_model->get_area_with_wilayah($wil);
+                foreach($area_1 as $a) {
+                    if ($a->id === $area) {
+                        $area_by_wilayah = true;
+                        break;
+                    }
+                }
+            }
+            
+          //  $area_by_wilayah ='tes';
+        	$data['area_by_wilayah'] = $area_by_wilayah;
+        	if ($area_by_wilayah === true) {
                 if ($id_jabatan === '1' or $id_jabatan === '2') {
                     $data['list_area'] = $this->area_model->get_area_with_wilayah($wil);
                 } else if ($id_jabatan === '3' or $id_jabatan === '4') {
@@ -93,8 +123,31 @@ class Area extends CI_Controller {
 
         		
       			$data['area_ada'] = true;
-      			if ($cabang != '' and $cabang != '0') {
-        			$data['list_cabang'] = $this->cabang_model->get_cabang($cabang);
+
+                $cabang_by_area = false;
+                if ($cabang != '' and $cabang != '0') {
+                    $cabang_1 = $this->cabang_model->get_cabang_with_area($area);
+                    foreach($cabang_1 as $c) {
+                        if ($c->id === $cabang) {
+                            $cabang_by_area = true;
+                            break;
+                        }
+                    }
+                }
+
+
+
+      			if ($cabang_by_area === true) {
+        			if ($id_jabatan === '1' or $id_jabatan === '2') {
+                    $data['list_cabang'] = $this->cabang_model->get_cabang_with_area($area);
+                    } else if ($id_jabatan === '3' or $id_jabatan === '4') {
+                        $data['list_cabang'] = $this->cabang_model->get_cabang_with_area($area);
+                    }  else if ($id_jabatan === '5' or $id_jabatan === '7') {
+                        $data['list_cabang'] = $this->cabang_model->get_cabang_with_area($area);
+                    } else if ($id_jabatan === '6' or $id_jabatan === '8') {
+                        $data['list_cabang'] = $this->cabang_model->get_cabang($cabang);
+                    } 
+
 	      			$data['cbg_ada'] = true;
 	        	} else {
 	        		$data['list_cabang'] = $this->cabang_model->get_cabang_with_area($area);
@@ -103,8 +156,21 @@ class Area extends CI_Controller {
         	} else {
         		$data['list_area'] = $this->area_model->get_area_with_wilayah($wil);
         		$data['area_ada'] = false;
+                $data['cbg_ada'] = false;
+                  
         	}
         	
+            if ($data['cbg_ada'] === true) {
+                $data['tess'] = 'kasih data cabang';
+
+            } elseif ($data['area_ada'] ===true) {
+                $data['tess'] = 'kasih data area';
+            } elseif ($data['wil_ada'] === true) {
+                $data['tess'] = 'kasih data wilayah';
+            } else {
+                $data['tess'] = 'jangan kasih data';
+            }
+
         	$this->load->view('/portfolio_area', $data);	
         }
 
