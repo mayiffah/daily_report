@@ -5,6 +5,7 @@ class Area extends CI_Controller {
         public function __construct()
         {
             parent::__construct();
+            $this->load->model('summary_model');
             $this->load->model('wilayah_model');
             $this->load->model('area_model');
             $this->load->model('cabang_model');
@@ -56,6 +57,7 @@ class Area extends CI_Controller {
  	
             $data['ada_outstanding'] = false;
             $data['tess'] = 'blm ada';
+       //     $data['isi_header'] = 'Silahkan isi pilihan untuk melihat data wilayah, area, atau cabang';
         	$this->load->view('/portfolio_area', $data);	
         }
 
@@ -97,7 +99,7 @@ class Area extends CI_Controller {
             $nama_outlet = str_replace('%20', ' ', $nama_outlet);
             $data['tes1'] = $nama_outlet;
            // $data['jabatan'] = $id_jabatan;
-            $data['outstanding'] = $this->final_model->get_outstanding($id_jabatan, $nama_outlet);
+            
 
             $area_by_wilayah = false;
             if ($area != '' and $area != '0') {
@@ -161,12 +163,58 @@ class Area extends CI_Controller {
         	}
         	
             if ($data['cbg_ada'] === true) {
-                $data['tess'] = 'kasih data cabang';
+                $nama_cabang = $this->cabang_model->get_cabang($cabang);
+                $nama = $nama_cabang[0]->nama_cabang;
+                $target_os = $nama_cabang[0]->target_os;
+                $target_b2b = $nama_cabang[0]->target_b2b;
+                $target_b2c = $nama_cabang[0]->target_b2c;
+                $target_kol2 = $nama_cabang[0]->target_kol2;
+                $target_npf = $nama_cabang[0]->target_npf;
+                $data['outstanding'] = $this->final_model->get_outstanding('6', $nama);
+                $data['kol2'] = $this->final_model->get_kol2('6', $nama);
+                $data['cair_b2b'] = $this->final_model->get_cair_b2b('6', $nama);
+                $data['cair_b2c'] = $this->final_model->get_cair_b2c('6', $nama);
+                $data['runoff'] = $this->final_model->get_runoff('6', $nama);
+                $data['upgrade'] = $this->final_model->get_upgrade('6', $nama);
+                $data['downgrade'] = $this->final_model->get_downgrade('6', $nama);
+                $data['npf'] = $this->final_model->get_npf('6', $nama);
+                $data['isi_header'] = 'Selamat datang di cabang '.$nama;
 
             } elseif ($data['area_ada'] ===true) {
-                $data['tess'] = 'kasih data area';
+                $nama_area = $this->area_model->get_area($area);
+                $nama = $nama_area[0]->nama_cabang_area;
+                $target_os = $nama_area[0]->target_os;
+                $target_b2b = $nama_area[0]->target_b2b;
+                $target_b2c = $nama_area[0]->target_b2c;
+                $target_kol2 = $nama_area[0]->target_kol2;
+                $target_npf = $nama_area[0]->target_npf;       
+                $data['outstanding'] = $this->final_model->get_outstanding('5', $nama);
+                $data['kol2'] = $this->final_model->get_kol2('5', $nama);
+                $data['cair_b2b'] = $this->final_model->get_cair_b2b('5', $nama);
+                $data['cair_b2c'] = $this->final_model->get_cair_b2c('5', $nama);
+                $data['runoff'] = $this->final_model->get_runoff('5', $nama);
+                $data['upgrade'] = $this->final_model->get_upgrade('5', $nama);
+                $data['downgrade'] = $this->final_model->get_downgrade('5', $nama);
+                $data['npf'] = $this->final_model->get_npf('5', $nama);
+                $data['isi_header'] = 'Selamat datang di area '.$nama;
             } elseif ($data['wil_ada'] === true) {
-                $data['tess'] = 'kasih data wilayah';
+                $nama_wil = $this->wilayah_model->get_wilayah($wil);
+                $nama = $nama_wil[0]->nama_wilayah;
+                $wilayah_summary = $this->summary_model->get_wilayah($nama);
+                $target_os = $wilayah_summary[0]->Target;
+                $target_b2b = $wilayah_summary[0]->Target_B2B;
+                $target_b2c = $wilayah_summary[0]->Target_B2C;
+                $target_kol2 = $wilayah_summary[0]->Target_Kol2;
+                $target_npf = $wilayah_summary[0]->Target_NPF;
+                /*$data['outstanding'] = $this->final_model->get_outstanding('3', $nama);
+                $data['kol2'] = $this->final_model->get_kol2('3', $nama);*/
+                $data['cair_b2b'] = $this->final_model->get_cair_b2b('3', $nama);
+                $data['cair_b2c'] = $this->final_model->get_cair_b2c('3', $nama);/*
+                $data['runoff'] = $this->final_model->get_runoff('3', $nama);
+                $data['upgrade'] = $this->final_model->get_upgrade('3', $nama);
+                $data['downgrade'] = $this->final_model->get_downgrade('3', $nama);
+                $data['npf'] = $this->final_model->get_npf('3', $nama);*/
+                $data['isi_header'] = 'Selamat datang di wilayah '.$nama;
             } else {
                 $data['tess'] = 'jangan kasih data';
             }

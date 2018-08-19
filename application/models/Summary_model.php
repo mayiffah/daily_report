@@ -19,6 +19,15 @@ class Summary_model extends CI_Model {
         	return $query->result();
         }
 
+        public function get_wilayah($title = TRUE) 
+        {
+
+              $query = $this->db->query('SELECT * FROM `summary` WHERE wilayah = "'.$title.'"');
+            
+            return $query->result();
+
+        }
+
         public function get_summary_portfolio() 
         {
             $hasil = array();

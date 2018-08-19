@@ -132,7 +132,9 @@ header("location:". base_url() . "index.php/nasional/login");
 
 
         ?>
-        <br>
+
+        <h1 align="center">Selamat datang di Halaman Nasional</h1>
+        <br>  
 
           <!-- Speedometer Outstanding -->
           <div id="containeros" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto; float:left;" value="150">
@@ -244,7 +246,7 @@ header("location:". base_url() . "index.php/nasional/login");
         <!-- Produk B2B-->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fa fa-table"></i> Trend Produk Nasional B2B</div>
+            <i class="fa fa-table"></i> Trend <P></P>roduk Nasional B2B</div>
           <div class="card-body">
             <div class="table-responsive">
               <table id="produkb2bTable" class="display nowrap" width="100%"  cellspacing="0">
@@ -574,66 +576,66 @@ header("location:". base_url() . "index.php/nasional/login");
               itemclick: toggleDataSeries
             },     
             data: [{
-type: "stackedColumn",
-showInLegend: true,
-color: "#696661",
-name: "Kol 1",
-dataPoints: [
-  { y: 0, x: new Date(2018,0) },
-  { y: 0, x: new Date(2018,1) },
-  { y: 0, x: new Date(2018,2) },
-  { y: 0, x: new Date(2018,3) },
-  { y: 0, x: new Date(2018,4) },
-  { y: parseFloat(<?php echo $nasional[3]?>), x: new Date(2018,5) },
-  { y: 0, x: new Date(2018,6) },
-  { y: 0, x: new Date(2018,7) },
-  { y: 0, x: new Date(2018,8) },
-  { y: 0, x: new Date(2018,9) },
-  { y: 0, x: new Date(2018,10) },
-  { y: 0, x: new Date(2018,11) }
-]
-},
-{        
-  type: "stackedColumn",
-  showInLegend: true,
-  name: "Kol 2",
-  color: "#EDCA93",
-  dataPoints: [
-    
-    { y: 0, x: new Date(2018,0) },
-    { y: 0, x: new Date(2018,1) },
-    { y: 0, x: new Date(2018,2) },
-    { y: 0, x: new Date(2018,3) },
-    { y: 0, x: new Date(2018,4) },
-    { y: parseFloat(<?php echo $nasional[2]?>), x: new Date(2018,5) },
-    { y: 0, x: new Date(2018,6) },
-    { y: 0, x: new Date(2018,7) },
-    { y: 0, x: new Date(2018,8) },
-    { y: 0, x: new Date(2018,9) },
-    { y: 0, x: new Date(2018,10) },
-    { y: 0, x: new Date(2018,11) }
-  ]
-},
-{        
-  type: "stackedColumn",
-  showInLegend: true,
-  name: "NPF",
-  color: "#B6B1A8",
-  dataPoints: [
-    { y: 0, x: new Date(2018,0) },
-    { y: 0, x: new Date(2018,1) },
-    { y: 0, x: new Date(2018, 2) },
-    { y: 0, x: new Date(2018,3) },
-    { y: 0, x: new Date(2018,4) },
-    { y: parseFloat(<?php echo $nasional[1]?>), x: new Date(2018,5) },
-    { y: 0, x: new Date(2018,6) },
-    { y: 0, x: new Date(2018,7) },
-    { y: 0, x: new Date(2018,8) },
-    { y: 0, x: new Date(2018,9) },
-    { y: 0, x: new Date(2018,10) },
-    { y: 0, x: new Date(2018,11) }
-  ]
-},
+            type: "stackedColumn",
+            showInLegend: true,
+            color: "#696661",
+            name: "Kol 1",
+            dataPoints: [
+              { y: 0, x: new Date(2018,0) },
+              { y: 0, x: new Date(2018,1) },
+              { y: 0, x: new Date(2018,2) },
+              { y: 0, x: new Date(2018,3) },
+              { y: 0, x: new Date(2018,4) },
+              { y: parseFloat(<?php echo $nasional[3]?>), x: new Date(2018,5) },
+              { y: 0, x: new Date(2018,6) },
+              { y: 0, x: new Date(2018,7) },
+              { y: 0, x: new Date(2018,8) },
+              { y: 0, x: new Date(2018,9) },
+              { y: 0, x: new Date(2018,10) },
+              { y: 0, x: new Date(2018,11) }
+            ]
+            },
+            {        
+              type: "stackedColumn",
+              showInLegend: true,
+              name: "Kol 2",
+              color: "#EDCA93",
+              dataPoints: [
+                
+                { y: 0, x: new Date(2018,0) },
+                { y: 0, x: new Date(2018,1) },
+                { y: 0, x: new Date(2018,2) },
+                { y: 0, x: new Date(2018,3) },
+                { y: 0, x: new Date(2018,4) },
+                { y: parseFloat(<?php echo $nasional[2]?>), x: new Date(2018,5) },
+                { y: 0, x: new Date(2018,6) },
+                { y: 0, x: new Date(2018,7) },
+                { y: 0, x: new Date(2018,8) },
+                { y: 0, x: new Date(2018,9) },
+                { y: 0, x: new Date(2018,10) },
+                { y: 0, x: new Date(2018,11) }
+              ]
+            },
+            {        
+              type: "stackedColumn",
+              showInLegend: true,
+              name: "NPF",
+              color: "#B6B1A8",
+              dataPoints: [
+                { y: 0, x: new Date(2018,0) },
+                { y: 0, x: new Date(2018,1) },
+                { y: 0, x: new Date(2018, 2) },
+                { y: 0, x: new Date(2018,3) },
+                { y: 0, x: new Date(2018,4) },
+                { y: parseFloat(<?php echo $nasional[1]?>), x: new Date(2018,5) },
+                { y: 0, x: new Date(2018,6) },
+                { y: 0, x: new Date(2018,7) },
+                { y: 0, x: new Date(2018,8) },
+                { y: 0, x: new Date(2018,9) },
+                { y: 0, x: new Date(2018,10) },
+                { y: 0, x: new Date(2018,11) }
+              ]
+            },
             {
               type: "line",
               showInLegend: true,

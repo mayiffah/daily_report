@@ -112,25 +112,24 @@ header("location:". base_url() . "index.php/nasional/login");
 
 
           echo 'id jabatan:'.$id_jabatan;
-     //    echo '<br>id jabatan DARI Controller: '.$jabatan;
         
           echo '<br>nama outlet:'.$nama_outlet;
          
-          if ($ada_outstanding === true) {
+          /*if ($ada_outstanding === true) {
             echo '<br> ada os true';
             echo $tes1; 
             echo $outstanding[0]['SUM_OS'];
           } else {
             echo '<br> ada os false';
-          }
+          }*/
 
-         echo '<br>halo   '.$tess;
           
         
         ?>
         <form id = "form_area" name = "form_area_name" action="<?=site_url('area/portfolio_area_baru/'.$id_jabatan.'/'.$nama_outlet);?>" method="get">
           
           <div>
+            
             <label>Wilayah: </label>
             <select id="id_wilayah" name="wilayah" onchange="this.form.submit()">
               <?php
@@ -229,24 +228,35 @@ header("location:". base_url() . "index.php/nasional/login");
 
               <?php
             } else {
-              //echo 'gaada area';
+              
             }
           } else {
-           // echo 'gaada wilayah';
+           
           }
-            /*if ($wil_ada === true) {
-              echo "ada wilayah";
-            } else {
-              echo "gaada wilayah";
-            }*/
+            
 
 
           ?>
           
-          <!-- <input type="submit"> -->
         </form>
 
-        <?php if ($wil_ada === true || $area_ada === true || $cbg_ada === true) {?>
+        <?php if ($wil_ada === true || $area_ada === true || $cbg_ada === true) {
+
+
+
+          $b2b_awal_ = floatval($cair_b2b[0]['SUM_CAIR']);
+          $b2b_fix = number_format($b2b_awal_/1000000000, 2);
+
+          $b2c_awal_ = floatval($cair_b2c[0]['SUM_CAIR']);
+          $b2c_fix = number_format($b2c_awal_/1000000000, 2);
+
+
+
+
+          ?>
+
+
+         <h1 align="center"><?php echo $isi_header?></h1>
           <!-- Speedometer Outstanding -->
           <div id="containeros" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto; float:left;" value="150">
           </div>
@@ -280,181 +290,68 @@ header("location:". base_url() . "index.php/nasional/login");
           </div>
         </div> -->
         <!-- Icon Cards-->
-        <div class="row">
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-primary o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fa fa-fw fa-comments"></i>
-                </div>
-                <div class="mr-5">26 New Messages!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-warning o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fa fa-fw fa-list"></i>
-                </div>
-                <div class="mr-5">11 New Tasks!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-success o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fa fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">123 New Orders!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-danger o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fa fa-fw fa-support"></i>
-                </div>
-                <div class="mr-5">13 New Tickets!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Area Chart Example-->
+        
+         <!-- Nasional -->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fa fa-area-chart"></i> Area Chart Example</div>
+            <i class="fa fa-table"></i> Ringkasan </div>
           <div class="card-body">
-            <canvas id="myAreaChart" width="100%" height="30"></canvas>
+            <div class="table-responsive">
+              <table id="ringkasanTable" class="display nowrap" width="100%"  cellspacing="0">
+            <thead>
+                <tr>
+                  <th>Outstanding</th>
+                  <th>Kol 2</th>
+                  <th>NPF</th>
+                  <th>Cair B2B</th>
+                  <th>Cair B2C</th>
+                  <th>Runoff</th>
+                  <th>Upgrade NPF</th>
+                  <th>Downgrade NPF</th>
+                </tr>
+            </thead>
+            <tbody> 
+                <tr>
+                  
+                </tr>
+            </tbody>
+          </table>
+            </div>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
+       
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-12">
             <!-- Example Bar Chart Card-->
             <div class="card mb-3">
               <div class="card-header">
-                <i class="fa fa-bar-chart"></i> Bar Chart Example</div>
+                <i class="fa fa-bar-chart"></i> Grafik Pencairan (dalam miliar rupiah)</div>
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-8 my-auto">
                     <canvas id="myBarChart" width="100" height="50"></canvas>
                   </div>
                   <div class="col-sm-4 text-center my-auto">
-                    <div class="h4 mb-0 text-primary">Rp 34,693</div>
-                    <div class="small text-muted">YTD Revenue</div>
+                    <div class="h4 mb-0 text-primary">B to B</div>
+                    <div class="small text-muted">Rp <?php echo $b2b_fix ?></div>
                     <hr>
-                    <div class="h4 mb-0 text-warning">Rp 18,474</div>
-                    <div class="small text-muted">YTD Expenses</div>
+                    <div class="h4 mb-0 text-warning"></div>
+                    <div class="small text-muted"></div>
                     <hr>
-                    <div class="h4 mb-0 text-success">Rp 16,219</div>
-                    <div class="small text-muted">YTD Margin</div>
+                    <div class="h4 mb-0 text-danger">B to C</div>
+                    <div class="small text-muted">Rp <?php echo $b2c_fix ?></div>
                   </div>
                 </div>
               </div>
               <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
             </div>
-            <!-- Card Columns Example Social Feed-->
-            
-            <!-- /Card Columns-->
           </div>
-          <div class="col-lg-4">
-            <!-- Example Pie Chart Card-->
-            <div class="card mb-3">
-              <div class="card-header">
-                <i class="fa fa-pie-chart"></i> Pie Chart Example</div>
-              <div class="card-body">
-                <canvas id="myPieChart" width="100%" height="100"></canvas>
-              </div>
-              <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-            </div>
-            <!-- Example Notifications Card-->
-          </div>
+
+
+
         </div>
-        <!-- Example DataTables Card-->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fa fa-table"></i> Data Table Example</div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                  </tr>
-                </tfoot>
-                <tbody>
-                  <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
-                  </tr>
-                  <tr>
-                    <td>Garrett Winters</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-                    <td>2011/07/25</td>
-                    <td>$170,750</td>
-                  </tr>
-                  <tr>
-                    <td>Donna Snider</td>
-                    <td>Customer Support</td>
-                    <td>New York</td>
-                    <td>27</td>
-                    <td>2011/01/25</td>
-                    <td>$112,000</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-        </div>
+        
       </div>
 
 
@@ -493,11 +390,30 @@ header("location:". base_url() . "index.php/nasional/login");
     </div>
     <script type="text/javascript"> 
       $(document).ready(function () {
+
+        var b2b_awal = parseFloat(<?php echo $cair_b2b[0]['SUM_CAIR']?>);
+        var b2b = b2b_awal/1000000000;
+        
+        var b2c_awal = parseFloat(<?php echo $cair_b2c[0]['SUM_CAIR']?>);
+        var b2c = b2c_awal/1000000000;
         //for showing charts
-        Chart.defaults.global.defaultFontFamily='-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif',Chart.defaults.global.defaultFontColor="#292b2c"; 
-        var ctx=document.getElementById("myAreaChart"),myLineChart=new Chart(ctx,{type:"line",data:{labels:["Mar 1","Mar 2","Mar 3","Mar 4","Mar 5","Mar 6","Mar 7","Mar 8","Mar 9","Mar 10","Mar 11","Mar 12","Mar 13"],datasets:[{label:"Sessions",lineTension:.3,backgroundColor:"rgba(2,117,216,0.2)",borderColor:"rgba(2,117,216,1)",pointRadius:5,pointBackgroundColor:"rgba(2,117,216,1)",pointBorderColor:"rgba(255,255,255,0.8)",pointHoverRadius:5,pointHoverBackgroundColor:"rgba(2,117,216,1)",pointHitRadius:20,pointBorderWidth:2,data:[1e4,30162,26263,18394,18287,28682,31274,33259,25849,24159,32651,31984,38451]}]},options:{scales:{xAxes:[{time:{unit:"date"},gridLines:{display:!1},ticks:{maxTicksLimit:7}}],yAxes:[{ticks:{min:0,max:4e4,maxTicksLimit:5},gridLines:{color:"rgba(0, 0, 0, .125)"}}]},legend:{display:!1}}}),
-        ctx=document.getElementById("myBarChart"),myLineChart=new Chart(ctx,{type:"bar",data:{labels:["January","February","March","April","May","June"],datasets:[{label:"Revenue",backgroundColor:"rgba(2,117,216,1)",borderColor:"rgba(2,117,216,1)",data:[4215,5312,6251,7841,9821,14984]}]},options:{scales:{xAxes:[{time:{unit:"month"},gridLines:{display:!1},ticks:{maxTicksLimit:6}}],yAxes:[{ticks:{min:0,max:15e3,maxTicksLimit:5},gridLines:{display:!0}}]},legend:{display:!1}}}),
-        ctx=document.getElementById("myPieChart"),myPieChart=new Chart(ctx,{type:"pie",data:{labels:["Blue","Red","Yellow","Green"],datasets:[{data:[12.21,15.58,11.25,8.32],backgroundColor:["#007bff","#dc3545","#ffc107","#28a745"]}]}}); 
+        Chart.defaults.global.defaultFontFamily='-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif',Chart.defaults.global.defaultFontColor="#292b2c";
+
+
+
+
+        var ctx=document.getElementById("myBarChart"),
+        myLineChart=new Chart(ctx,{type:"bar",
+          data:{labels:[/*"Januari","Februari","Maret","April","Mei",*/"Agustus"/*,"Juli","Agustus","September","Oktober","November","Desember"*/],
+          datasets:[
+            {label:"Cair B2B",backgroundColor:"rgba(2,117,216,1)",
+            borderColor:"rgba(2,117,216,1)",
+            data:[b2b.toFixed(2)]},
+            {label:"Cair B2C",backgroundColor:"#dc3545",
+            borderColor:"#dc3545",
+            data:[b2c.toFixed(2)]}
+          ]},
+          options:{scales:{xAxes:[{time:{unit:"month"},gridLines:{display:!1},ticks:{maxTicksLimit:6}}],yAxes:[{ticks:{min:0,max:15,maxTicksLimit:5},gridLines:{display:!0}}]},legend:{display:!1}}});
 
 
         //for the tooltip of side navbar
