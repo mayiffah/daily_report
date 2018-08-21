@@ -108,23 +108,6 @@ header("location:". base_url() . "index.php/nasional/login");
         </ol>
 
         <?php 
-
-
-
-          echo 'id jabatan:'.$id_jabatan;
-        
-          echo '<br>nama outlet:'.$nama_outlet;
-         
-          /*if ($ada_outstanding === true) {
-            echo '<br> ada os true';
-            echo $tes1; 
-            echo $outstanding[0]['SUM_OS'];
-          } else {
-            echo '<br> ada os false';
-          }*/
-
-          
-        
         ?>
         <form id = "form_area" name = "form_area_name" action="<?=site_url('area/portfolio_area_baru/'.$id_jabatan.'/'.$nama_outlet);?>" method="get">
           
@@ -244,10 +227,10 @@ header("location:". base_url() . "index.php/nasional/login");
 
 
 
-          $b2b_awal_ = floatval($cair_b2b[0]['SUM_CAIR']);
+          $b2b_awal_ = floatval($cair_b2b );
           $b2b_fix = number_format($b2b_awal_/1000000000, 2);
 
-          $b2c_awal_ = floatval($cair_b2c[0]['SUM_CAIR']);
+          $b2c_awal_ = floatval($cair_b2c );
           $b2c_fix = number_format($b2c_awal_/1000000000, 2);
 
 
@@ -257,6 +240,21 @@ header("location:". base_url() . "index.php/nasional/login");
 
 
          <h1 align="center"><?php echo $isi_header?></h1>
+         <div>
+           Business Banking Relationship Manager (BBRM):
+           <?php
+            if (sizeof($list_bbrm) == 0) {
+              echo '<br> Tidak ada BBRM';
+            } else {
+              foreach($list_bbrm as $bbrm) {
+              echo '<br>'.$bbrm->nip_bbrm.' - '.$bbrm->nama_bbrm;
+
+             }
+            }
+           ?>
+         <br>
+         <br>  
+         </div>
           <!-- Speedometer Outstanding -->
           <div id="containeros" style="min-width: 300px; max-width: 300px; height: 300px; margin: 0 auto; float:left;" value="150">
           </div>
@@ -312,6 +310,14 @@ header("location:". base_url() . "index.php/nasional/login");
             </thead>
             <tbody> 
                 <tr>
+                  <td><?php echo $outstanding ?></td>
+                  <td><?php echo $kol2 ?></td>
+                  <td><?php echo $npf ?></td>
+                  <td><?php echo $cair_b2b ?></td>
+                  <td><?php echo $cair_b2c ?></td>
+                  <td><?php echo $runoff ?></td>
+                  <td><?php echo $upgrade ?></td>
+                  <td><?php echo $downgrade ?></td>
                   
                 </tr>
             </tbody>
@@ -391,10 +397,10 @@ header("location:". base_url() . "index.php/nasional/login");
     <script type="text/javascript"> 
       $(document).ready(function () {
 
-        var b2b_awal = parseFloat(<?php echo $cair_b2b[0]['SUM_CAIR']?>);
+        var b2b_awal = parseFloat(<?php echo $cair_b2b ?>);
         var b2b = b2b_awal/1000000000;
         
-        var b2c_awal = parseFloat(<?php echo $cair_b2c[0]['SUM_CAIR']?>);
+        var b2c_awal = parseFloat(<?php echo $cair_b2c ?>);
         var b2c = b2c_awal/1000000000;
         //for showing charts
         Chart.defaults.global.defaultFontFamily='-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif',Chart.defaults.global.defaultFontColor="#292b2c";
@@ -421,10 +427,15 @@ header("location:". base_url() . "index.php/nasional/login");
 
 
          //for the speedometer
-        var valueo =  $('#containeros').attr("value");
-        console.log(valueo+10);
-        var valueInt = parseInt(valueo);
-        console.log(valueInt+10);
+        var valueos = parseFloat(<?php echo $target_os;?>);
+        var valueb2b = parseFloat(<?php echo $target_b2b;?>);
+        var valueb2c = parseFloat(<?php echo $target_b2c;?>);
+        var valuekol2 = parseFloat(<?php echo $target_kol2;?>);
+        var valuenpf = parseFloat(<?php echo $target_npf;?>);
+        var valueInt = 150;
+
+
+
 
         $('#containeros').highcharts({
 
@@ -476,14 +487,14 @@ header("location:". base_url() . "index.php/nasional/login");
                 },
                 plotBands: [{
                     from: 0,
-                    to: 120,
+                    to: 95,
                     color: '#DF5353' // red 
                 }, {
-                    from: 120,
+                    from: 96,
                     to: 160,
                     color: '#DDDF0D' // yellow
                 }, {
-                    from: 160,
+                    from: 101,
                     to: 200,
                     color: '#55BF3B' // green
                 }, {
@@ -497,7 +508,7 @@ header("location:". base_url() . "index.php/nasional/login");
 
             series: [{
                 name: 'Outstanding',
-                data: [valueInt],
+                data: [valueos],
                 tooltip: {
                     valueSuffix: ' %'
                 }
@@ -547,14 +558,14 @@ header("location:". base_url() . "index.php/nasional/login");
                 },
                 plotBands: [{
                     from: 0,
-                    to: 120,
-                    color: '#DF5353' // red
+                    to: 95,
+                    color: '#DF5353' // red 
                 }, {
-                    from: 120,
+                    from: 96,
                     to: 160,
                     color: '#DDDF0D' // yellow
                 }, {
-                    from: 160,
+                    from: 101,
                     to: 200,
                     color: '#55BF3B' // green
                 }, {
@@ -568,7 +579,7 @@ header("location:". base_url() . "index.php/nasional/login");
 
             series: [{
                 name: 'Cair',
-                data: [valueInt],
+                data: [valueb2b],
                 tooltip: {
                     valueSuffix: ' %'
                 }
@@ -617,14 +628,14 @@ header("location:". base_url() . "index.php/nasional/login");
                 },
                 plotBands: [{
                     from: 0,
-                    to: 120,
-                    color: '#DF5353' // red
+                    to: 95,
+                    color: '#DF5353' // red 
                 }, {
-                    from: 120,
+                    from: 96,
                     to: 160,
                     color: '#DDDF0D' // yellow
                 }, {
-                    from: 160,
+                    from: 101,
                     to: 200,
                     color: '#55BF3B' // green
                 }, {
@@ -638,7 +649,7 @@ header("location:". base_url() . "index.php/nasional/login");
 
             series: [{
                 name: 'Cair',
-                data: [valueInt],
+                data: [valueb2c],
                 tooltip: {
                     valueSuffix: ' %'
                 }
@@ -665,7 +676,7 @@ header("location:". base_url() . "index.php/nasional/login");
             // the value axis
             yAxis: {
                 min: 0,
-                max: 200,
+                max: 500,
 
                 minorTickInterval: 'auto',
                 minorTickWidth: 1,
@@ -687,19 +698,19 @@ header("location:". base_url() . "index.php/nasional/login");
                 },
                 plotBands: [{
                     from: 0,
-                    to: 120,
+                    to: 95,
                     color: '#55BF3B' // green
                 }, {
-                    from: 120,
-                    to: 160,
+                    from: 96,
+                    to: 100,
                     color: '#DDDF0D' // yellow
                 }, {
-                    from: 160,
-                    to: 200,
-                    color: '#DF5353' // red 
+                    from: 101,
+                    to: 500,
+                    color: '#DF5353' // red  
                 }, {
-                  from: 100,
-                    to: 140,
+                  from: 0,
+                    to: 40,
                     color: '#6677ff',
                     innerRadius: '100%',
                     outerRadius: '110%'
@@ -708,7 +719,7 @@ header("location:". base_url() . "index.php/nasional/login");
 
             series: [{
                 name: 'Kol 2',
-                data: [valueInt],
+                data: [valuekol2],
                 tooltip: {
                     valueSuffix: ' %'
                 }
@@ -757,19 +768,19 @@ header("location:". base_url() . "index.php/nasional/login");
                 },
                 plotBands: [{
                     from: 0,
-                    to: 120,
-                    color: '#55BF3B' // green 
+                    to: 95,
+                    color: '#55BF3B' // green
                 }, {
-                    from: 120,
-                    to: 160,
+                    from: 96,
+                    to: 100,
                     color: '#DDDF0D' // yellow
                 }, {
-                    from: 160,
+                    from: 101,
                     to: 200,
-                    color: '#DF5353' // red
+                    color: '#DF5353' // red 
                 }, {
-                  from: 100,
-                    to: 140,
+                  from: 0,
+                    to: 40,
                     color: '#6677ff',
                     innerRadius: '100%',
                     outerRadius: '110%'
@@ -778,7 +789,7 @@ header("location:". base_url() . "index.php/nasional/login");
 
             series: [{
                 name: 'NPF',
-                data: [valueInt],
+                data: [valuenpf],
                 tooltip: {
                     valueSuffix: ' %'
                 }

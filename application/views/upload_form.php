@@ -109,7 +109,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 			</form>
             <?php
             $output = '';
-            $output .= form_open_multipart('upload/do_upload_akhir_bulan');
+            $output .= form_open_multipart('upload/do_upload_akhir_bulan_coba');
             $output .= '<div class="row">';
             $output .= '<div class="col-lg-12 col-sm-12"><div class="form-group">';
             $output .= form_label('Upload Data Akhir Bulan', 'image');

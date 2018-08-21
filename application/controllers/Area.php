@@ -10,6 +10,7 @@ class Area extends CI_Controller {
             $this->load->model('area_model');
             $this->load->model('cabang_model');
             $this->load->model('final_model');
+            $this->load->model('bbrm_model');
           	$this->load->helper('url');
             $this->load->library('session');
         }
@@ -165,55 +166,240 @@ class Area extends CI_Controller {
             if ($data['cbg_ada'] === true) {
                 $nama_cabang = $this->cabang_model->get_cabang($cabang);
                 $nama = $nama_cabang[0]->nama_cabang;
+
+                $data['list_bbrm'] = $this->bbrm_model->get_bbrm($nama);
+                
                 $target_os = $nama_cabang[0]->target_os;
                 $target_b2b = $nama_cabang[0]->target_b2b;
                 $target_b2c = $nama_cabang[0]->target_b2c;
                 $target_kol2 = $nama_cabang[0]->target_kol2;
                 $target_npf = $nama_cabang[0]->target_npf;
-                $data['outstanding'] = $this->final_model->get_outstanding('6', $nama);
-                $data['kol2'] = $this->final_model->get_kol2('6', $nama);
-                $data['cair_b2b'] = $this->final_model->get_cair_b2b('6', $nama);
-                $data['cair_b2c'] = $this->final_model->get_cair_b2c('6', $nama);
+                
+                $os = $this->final_model->get_outstanding('6', $nama);
+                $data['outstanding'] = $os[0]['SUM_OS'];
+               
+
+
+                $kol2 = $this->final_model->get_kol2('6', $nama);
+                $data['kol2'] = $kol2[0]['SUM_KOL2'];
+                
+
+                $npf = $this->final_model->get_npf('6', $nama);
+                $data['npf'] = $npf[0]['SUM_NPF'];
+                
+
+                $b2b = $this->final_model->get_cair_b2b('6', $nama);
+                $data['cair_b2b'] = $b2b[0]['SUM_CAIR'];
+               
+
+                $b2c = $this->final_model->get_cair_b2c('6', $nama);
+                $data['cair_b2c'] = $b2c[0]['SUM_CAIR'];
+
+
                 $data['runoff'] = $this->final_model->get_runoff('6', $nama);
-                $data['upgrade'] = $this->final_model->get_upgrade('6', $nama);
-                $data['downgrade'] = $this->final_model->get_downgrade('6', $nama);
-                $data['npf'] = $this->final_model->get_npf('6', $nama);
+
+                $ug = $this->final_model->get_upgrade('6', $nama);
+                $data['upgrade'] = $ug[0]['SUM_NPF'];
+
+                $dg = $this->final_model->get_downgrade('6', $nama);
+                $data['downgrade'] = $dg[0]['SUM_NPF'];
+
+
+                if ($target_os == 0) {
+                        $data['target_os'] = number_format(($data['outstanding']/$data['outstanding'])*100, 2);
+                } else {
+                        $data['target_os'] = number_format(($data['outstanding']/($target_os*1000000))*100, 2);
+                }
+
+                if ($target_kol2 == 0) {
+                        $data['target_kol2'] = number_format(($data['kol2']/$data['kol2'])*100, 2);
+                } else {
+                        $data['target_kol2'] = number_format(($data['kol2']/($target_kol2*1000000))*100, 2);
+                }
+
+                if ($target_npf == 0) {
+                        $data['target_npf'] = number_format(($data['npf']/$data['npf'])*100, 2);
+                } else {
+                        $data['target_npf'] = number_format(($data['npf']/($target_npf*1000000))*100, 2);
+                }
+
+
+                if ($target_b2b == 0) {
+                        $data['target_b2b'] = number_format(($data['cair_b2b']/$data['cair_b2b'])*100, 2);
+                } else {
+                        $data['target_b2b'] = number_format(($data['cair_b2b']/($target_b2b*1000000))*100, 2);
+                }
+
+
+                if ($target_b2c == 0) {
+                        $data['target_b2c'] = number_format(($data['cair_b2c']/$data['cair_b2c'])*100, 2);
+                } else {
+                        
+                        $data['target_b2c'] = number_format(($data['cair_b2c']/($target_b2c*1000000))*100, 2);
+                }
+
+
                 $data['isi_header'] = 'Selamat datang di cabang '.$nama;
 
             } elseif ($data['area_ada'] ===true) {
                 $nama_area = $this->area_model->get_area($area);
-                $nama = $nama_area[0]->nama_cabang_area;
+                $nama = $nama_area[0]->nama_area;
+
+                $data['list_bbrm'] = $this->bbrm_model->get_bbrm($nama);
+                
                 $target_os = $nama_area[0]->target_os;
                 $target_b2b = $nama_area[0]->target_b2b;
                 $target_b2c = $nama_area[0]->target_b2c;
                 $target_kol2 = $nama_area[0]->target_kol2;
                 $target_npf = $nama_area[0]->target_npf;       
-                $data['outstanding'] = $this->final_model->get_outstanding('5', $nama);
-                $data['kol2'] = $this->final_model->get_kol2('5', $nama);
-                $data['cair_b2b'] = $this->final_model->get_cair_b2b('5', $nama);
-                $data['cair_b2c'] = $this->final_model->get_cair_b2c('5', $nama);
+                
+                $os = $this->final_model->get_outstanding('5', $nama);
+                $data['outstanding'] = $os[0]['SUM_OS'];
+                $data['target_os'] = number_format(($data['outstanding']/($target_os*1000000))*100, 2);
+
+
+
+
+
+                $kol2 = $this->final_model->get_kol2('5', $nama);
+                $data['kol2'] = $kol2[0]['SUM_KOL2'];
+                
+
+                $npf = $this->final_model->get_npf('5', $nama);
+                $data['npf'] = $npf[0]['SUM_NPF'];
+                
+
+                $b2b = $this->final_model->get_cair_b2b('5', $nama);
+                $data['cair_b2b'] = $b2b[0]['SUM_CAIR'];
+                
+
+                $b2c = $this->final_model->get_cair_b2c('5', $nama);
+                $data['cair_b2c'] = $b2c[0]['SUM_CAIR'];
+                
+
+
                 $data['runoff'] = $this->final_model->get_runoff('5', $nama);
-                $data['upgrade'] = $this->final_model->get_upgrade('5', $nama);
-                $data['downgrade'] = $this->final_model->get_downgrade('5', $nama);
-                $data['npf'] = $this->final_model->get_npf('5', $nama);
+
+                $ug = $this->final_model->get_upgrade('5', $nama);
+                $data['upgrade'] = $ug[0]['SUM_NPF'];
+
+                $dg = $this->final_model->get_downgrade('5', $nama);
+                $data['downgrade'] = $dg[0]['SUM_NPF'];
+
+
+                if ($target_os == 0) {
+                        $data['target_os'] = number_format(($data['outstanding']/$data['outstanding'])*100, 2);
+                } else {
+                        $data['target_os'] = number_format(($data['outstanding']/($target_os*1000000))*100, 2);
+                }
+
+                if ($target_kol2 == 0) {
+                        $data['target_kol2'] = number_format(($data['kol2']/$data['kol2'])*100, 2);
+                } else {
+                        $data['target_kol2'] = number_format(($data['kol2']/($target_kol2*1000000))*100, 2);
+                }
+
+                if ($target_npf == 0) {
+                        $data['target_npf'] = number_format(($data['npf']/$data['npf'])*100, 2);
+                } else {
+                        $data['target_npf'] = number_format(($data['npf']/($target_npf*1000000))*100, 2);
+                }
+
+
+                if ($target_b2b == 0) {
+                        $data['target_b2b'] = number_format(($data['cair_b2b']/$data['cair_b2b'])*100, 2);
+                } else {
+                        $data['target_b2b'] = number_format(($data['cair_b2b']/($target_b2b*1000000))*100, 2);
+                }
+
+
+                if ($target_b2c == 0) {
+                        $data['target_b2c'] = number_format(($data['cair_b2c']/$data['cair_b2c'])*100, 2);
+                } else {
+                        
+                        $data['target_b2c'] = number_format(($data['cair_b2c']/($target_b2c*1000000))*100, 2);
+                }
+
                 $data['isi_header'] = 'Selamat datang di area '.$nama;
+
             } elseif ($data['wil_ada'] === true) {
                 $nama_wil = $this->wilayah_model->get_wilayah($wil);
                 $nama = $nama_wil[0]->nama_wilayah;
                 $wilayah_summary = $this->summary_model->get_wilayah($nama);
+
+               
+                $data['list_bbrm'] = $this->bbrm_model->get_bbrm($nama);
+
                 $target_os = $wilayah_summary[0]->Target;
                 $target_b2b = $wilayah_summary[0]->Target_B2B;
                 $target_b2c = $wilayah_summary[0]->Target_B2C;
                 $target_kol2 = $wilayah_summary[0]->Target_Kol2;
                 $target_npf = $wilayah_summary[0]->Target_NPF;
-                /*$data['outstanding'] = $this->final_model->get_outstanding('3', $nama);
-                $data['kol2'] = $this->final_model->get_kol2('3', $nama);*/
-                $data['cair_b2b'] = $this->final_model->get_cair_b2b('3', $nama);
-                $data['cair_b2c'] = $this->final_model->get_cair_b2c('3', $nama);/*
+
+                $os = $this->final_model->get_outstanding('3', $nama);
+                $data['outstanding'] = $os[0]['SUM_OS'];
+                $data['target_os'] = number_format(($data['outstanding']/($target_os*1000000))*100, 2);
+
+
+
+                $kol2 = $this->final_model->get_kol2('3', $nama);
+                $data['kol2'] = $kol2[0]['SUM_KOL2'];
+                 
+
+                $npf = $this->final_model->get_npf('3', $nama);
+                $data['npf'] = $npf[0]['SUM_NPF'];
+                
+
+                $b2b = $this->final_model->get_cair_b2b('3', $nama);
+                $data['cair_b2b'] = $b2b[0]['SUM_CAIR'];
+                
+
+                $b2c = $this->final_model->get_cair_b2c('3', $nama);
+                $data['cair_b2c'] = $b2c[0]['SUM_CAIR'];
+                
+
+
                 $data['runoff'] = $this->final_model->get_runoff('3', $nama);
-                $data['upgrade'] = $this->final_model->get_upgrade('3', $nama);
-                $data['downgrade'] = $this->final_model->get_downgrade('3', $nama);
-                $data['npf'] = $this->final_model->get_npf('3', $nama);*/
+
+                $ug = $this->final_model->get_upgrade('3', $nama);
+                $data['upgrade'] = $ug[0]['SUM_NPF'];
+
+                $dg = $this->final_model->get_downgrade('3', $nama);
+                $data['downgrade'] = $dg[0]['SUM_NPF'];
+
+                if ($target_os == 0) {
+                        $data['target_os'] = number_format(($data['outstanding']/$data['outstanding'])*100, 2);
+                } else {
+                        $data['target_os'] = number_format(($data['outstanding']/($target_os*1000000))*100, 2);
+                }
+
+                if ($target_kol2 == 0) {
+                        $data['target_kol2'] = number_format(($data['kol2']/$data['kol2'])*100, 2);
+                } else {
+                        $data['target_kol2'] = number_format(($data['kol2']/($target_kol2*1000000))*100, 2);
+                }
+
+                if ($target_npf == 0) {
+                        $data['target_npf'] = number_format(($data['npf']/$data['npf'])*100, 2);
+                } else {
+                        $data['target_npf'] = number_format(($data['npf']/($target_npf*1000000))*100, 2);
+                }
+
+
+                if ($target_b2b == 0) {
+                        $data['target_b2b'] = number_format(($data['cair_b2b']/$data['cair_b2b'])*100, 2);
+                } else {
+                        $data['target_b2b'] = number_format(($data['cair_b2b']/($target_b2b*1000000))*100, 2);
+                }
+
+
+                if ($target_b2c == 0) {
+                        $data['target_b2c'] = number_format(($data['cair_b2c']/$data['cair_b2c'])*100, 2);
+                } else {
+                        
+                        $data['target_b2c'] = number_format(($data['cair_b2c']/($target_b2c*1000000))*100, 2);
+                }
+
                 $data['isi_header'] = 'Selamat datang di wilayah '.$nama;
             } else {
                 $data['tess'] = 'jangan kasih data';

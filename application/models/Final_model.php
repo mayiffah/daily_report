@@ -168,14 +168,7 @@ SELECT SUM(coba) FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif A
                     (a.kolciffinal = 1 OR a.kolciffinal = 2) AND ((b.kolciffinal = 3) OR (b.kolciffinal = 4) OR (b.kolciffinal = 5))
                     ) AS cari_upgrade');
             } else if ($jabatan === '5' || $jabatan === '7') {
-                $query = $this->db->query('SELECT SUM(coba) AS SUM_NPF  FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolciffinal AS kolciffinal_skrg, b.kolciffinal AS kolciffinal_dulu 
-                    FROM `existing` a, `existing_akhir_bulan` b, cabang ca 
-                    WHERE   
-                    a.KODECABANGBARU = ca.kode_cabang AND
-                    (a.nomorcif = b.nomorcif) AND 
-                    EXISTS (select d.kode_cabang from cabang d where id_area = (select a.id from area ar where ar.nama_area = "'.$nama_lokasi.'") and ca.kode_cabang = d.kode_cabang)) AND
-                    (a.kolciffinal = 1 OR a.kolciffinal = 2) AND ((b.kolciffinal = 3) OR (b.kolciffinal = 4) OR (b.kolciffinal = 5))
-                    ) AS cari_upgrade');
+                $query = $this->db->query('SELECT SUM(coba) AS SUM_NPF FROM ( SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolciffinal AS kolciffinal_skrg, b.kolciffinal AS kolciffinal_dulu FROM `existing` a, `existing_akhir_bulan` b, cabang ca WHERE a.KODECABANGBARU = ca.kode_cabang AND a.nomorcif = b.nomorcif AND EXISTS (select * from (select d.kode_cabang from cabang d where id_area = (select ar.id from area ar where ar.nama_area = "'.$nama_lokasi.'") ) temp_tab) AND (a.kolciffinal = 1 OR a.kolciffinal = 2) AND ((b.kolciffinal = 3) OR (b.kolciffinal = 4) OR (b.kolciffinal = 5)) ) AS cari_upgrade');
             } else if ($jabatan === '6' || $jabatan === '8') {
                 $query = $this->db->query('SELECT SUM(coba) AS SUM_NPF FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolciffinal AS kolciffinal_skrg, b.kolciffinal AS kolciffinal_dulu 
                     FROM `existing` a, `existing_akhir_bulan` b, cabang ca 
@@ -206,12 +199,10 @@ SELECT SUM(coba) FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif A
                     (b.kolciffinal = 1 OR b.kolciffinal = 2) AND ((a.kolciffinal = 3) OR (a.kolciffinal = 4) OR (a.kolciffinal = 5))
                     ) AS cari_downgrade');
             } else if ($jabatan === '5' || $jabatan === '7') {
-                $query = $this->db->query('SELECT SUM(coba) AS SUM_NPF FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolciffinal AS kolciffinal_skrg, b.kolciffinal AS kolciffinal_dulu 
-                    FROM `existing` a, `existing_akhir_bulan` b, cabang ca 
-                    WHERE   
-                    a.KODECABANGBARU = ca.kode_cabang AND
-                    (a.nomorcif = b.nomorcif) AND 
-                    EXISTS (select d.kode_cabang from cabang d where id_area = (select a.id from area ar where ar.nama_area = "'.$nama_lokasi.'") and ca.kode_cabang = d.kode_cabang)) AND
+                $query = $this->db->query('SELECT SUM(coba) AS SUM_NPF FROM (SELECT DISTINCT a.OSPOKOKCONVERSION AS coba, a.nomorcif AS nomorcif_skrg, b.nomorcif AS nomorcif_dulu, a.kolciffinal AS kolciffinal_skrg, b.kolciffinal AS kolciffinal_dulu       FROM `existing` a, `existing_akhir_bulan` b, cabang ca WHERE  a.KODECABANGBARU = ca.kode_cabang AND
+                    a.nomorcif = b.nomorcif AND 
+                    EXISTS (select * from
+                     (select d.kode_cabang from cabang d where id_area = (select ar.id from area ar where ar.nama_area = "'.$nama_lokasi.'") ) temp_tab) AND
                     (b.kolciffinal = 1 OR b.kolciffinal = 2) AND ((a.kolciffinal = 3) OR (a.kolciffinal = 4) OR (a.kolciffinal = 5))
                     ) AS cari_downgrade');
             } else if ($jabatan === '6' || $jabatan === '8') {
