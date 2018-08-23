@@ -246,14 +246,14 @@ header("location:". base_url() . "index.php/nasional/login");
         <!-- Produk B2B-->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fa fa-table"></i> Trend <P></P>roduk Nasional B2B</div>
+            <i class="fa fa-table"></i> Trend Produk Nasional B2B</div>
           <div class="card-body">
             <div class="table-responsive">
               <table id="produkb2bTable" class="display nowrap" width="100%"  cellspacing="0">
             <thead>
                 <tr>
                   <th>Produk</th>
-                  <th>Juni 2018</th>
+                  <th>Juli 2018</th>
                 </tr>
             </thead>
           </table>
@@ -272,7 +272,7 @@ header("location:". base_url() . "index.php/nasional/login");
             <thead>
                 <tr>
                   <th>Produk</th>
-                  <th>Juni 2018</th>
+                  <th>Juli 2018</th>
                 </tr>
             </thead>
           </table>
@@ -293,7 +293,7 @@ header("location:". base_url() . "index.php/nasional/login");
             <thead>
                 <tr>
                   <th>Sektor</th>
-                  <th>Juni 2018</th>
+                  <th>Juli 2018</th>
                 </tr>
             </thead>
           </table>
@@ -312,7 +312,7 @@ header("location:". base_url() . "index.php/nasional/login");
             <thead>
                 <tr>
                   <th>Sektor</th>
-                  <th>Juni 2018</th>
+                  <th>Juli 2018</th>
                 </tr>
             </thead>
           </table>
@@ -350,14 +350,14 @@ header("location:". base_url() . "index.php/nasional/login");
               <tbody>
                 <tr>
                   <td>OS Pokok</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><?php echo $nasional_jan[0]?></td>
+                  <td><?php echo $nasional_feb[0]?></td>
+                  <td><?php echo $nasional_mar[0]?></td>
+                  <td><?php echo $nasional_apr[0]?></td>
+                  <td><?php echo $nasional_mei[0]?></td>
+                  <td><?php echo $nasional_jun[0]?></td>
+                  <td><?php echo $nasional_jul[0]?></td>
                   <td><?php echo $nasional[0]?></td>
-                  <td></td>
-                  <td></td>
                   <!-- <td></td> 
                   <td></td>
                   <td></td>
@@ -366,14 +366,14 @@ header("location:". base_url() . "index.php/nasional/login");
                 </tr>
                 <tr>
                   <td>NPF</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><?php echo $nasional_jan[1]?></td>
+                  <td><?php echo $nasional_feb[1]?></td>
+                  <td><?php echo $nasional_mar[1]?></td>
+                  <td><?php echo $nasional_apr[1]?></td>
+                  <td><?php echo $nasional_mei[1]?></td>
+                  <td><?php echo $nasional_jun[1]?></td>
+                  <td><?php echo $nasional_jul[1]?></td>
                   <td><?php echo $nasional[1]?></td>
-                  <td></td>
-                  <td></td>
                   <!-- <td></td>
                   <td></td>
                   <td></td>
@@ -381,14 +381,14 @@ header("location:". base_url() . "index.php/nasional/login");
                 </tr>
                 <tr>
                   <td>Kol 2</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><?php echo $nasional_jan[2]?></td>
+                  <td><?php echo $nasional_feb[2]?></td>
+                  <td><?php echo $nasional_mar[2]?></td>
+                  <td><?php echo $nasional_apr[2]?></td>
+                  <td><?php echo $nasional_mei[2]?></td>
+                  <td><?php echo $nasional_jun[2]?></td>
+                  <td><?php echo $nasional_jul[2]?></td>
                   <td><?php echo $nasional[2]?></td>
-                  <td></td>
-                  <td></td>
                   <!-- <td></td>
                   <td></td>
                   <td></td>
@@ -396,14 +396,14 @@ header("location:". base_url() . "index.php/nasional/login");
                 </tr>
                 <tr>
                   <td>Kol 1</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><?php echo $nasional_jan[3]?></td>
+                  <td><?php echo $nasional_feb[3]?></td>
+                  <td><?php echo $nasional_mar[3]?></td>
+                  <td><?php echo $nasional_apr[3]?></td>
+                  <td><?php echo $nasional_mei[3]?></td>
+                  <td><?php echo $nasional_jun[3]?></td>
+                  <td><?php echo $nasional_jul[3]?></td>
                   <td><?php echo $nasional[3]?></td>
-                  <td></td>
-                  <td></td>
                  <!--  <td></td>
                   <td></td>
                   <td></td>
@@ -412,14 +412,14 @@ header("location:". base_url() . "index.php/nasional/login");
                 </tr>
                 <tr>
                   <td>% NPF</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><?php echo $nasional_jan[4]?></td>
+                  <td><?php echo $nasional_feb[4]?></td>
+                  <td><?php echo $nasional_mar[4]?></td>
+                  <td><?php echo $nasional_apr[4]?></td>
+                  <td><?php echo $nasional_mei[4]?></td>
+                  <td><?php echo $nasional_jun[4]?></td>
+                  <td><?php echo $nasional_jul[4]?></td>
                   <td><?php echo $nasional[4]?></td>
-                  <td></td>
-                  <td></td>
                   <!-- <td></td>
                   <td></td>
                   <td></td>
@@ -427,14 +427,14 @@ header("location:". base_url() . "index.php/nasional/login");
                 </tr>
                 <tr>
                   <td>% Kol 2</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><?php echo $nasional_jan[5]?></td>
+                  <td><?php echo $nasional_feb[5]?></td>
+                  <td><?php echo $nasional_mar[5]?></td>
+                  <td><?php echo $nasional_apr[5]?></td>
+                  <td><?php echo $nasional_mei[5]?></td>
+                  <td><?php echo $nasional_jun[5]?></td>
+                  <td><?php echo $nasional_jul[5]?></td>
                   <td><?php echo $nasional[5]?></td>
-                  <td></td>
-                  <td></td>
                   <!-- <td></td>
                   <td></td>
                   <td></td>
@@ -461,11 +461,11 @@ header("location:". base_url() . "index.php/nasional/login");
                     <canvas id="myBarChart" width="100" height="50"></canvas>
                   </div>
                   <div class="col-sm-4 text-center my-auto">
+                    <div class="h4 mb-0 text-secondary">Cair Bulan Ini:</div>
+                    <hr>
                     <div class="h4 mb-0 text-primary">B to B</div>
                     <div class="small text-muted">Rp <?php echo $b2b_fix ?></div>
                     <hr>
-                    <div class="h4 mb-0 text-warning"></div>
-                    <div class="small text-muted"></div>
                     <hr>
                     <div class="h4 mb-0 text-danger">B to C</div>
                     <div class="small text-muted">Rp <?php echo $b2c_fix ?></div>
@@ -522,6 +522,55 @@ header("location:". base_url() . "index.php/nasional/login");
         var b2c_awal = parseFloat(<?php echo $list_summary[0]->Cair_B2C?>);
         var b2c = b2c_awal/1000000000;
 
+        var b2b_awal_jan = parseFloat(<?php echo $cair_jan[0]->Cair_B2B?>);
+        var b2b_jan = b2b_awal_jan/1000000000;
+        
+        var b2c_awal_jan = parseFloat(<?php echo $cair_jan[0]->Cair_B2C?>);
+        var b2c_jan = b2c_awal_jan/1000000000;
+
+
+        var b2b_awal_feb= parseFloat(<?php echo $cair_feb[0]->Cair_B2B?>);
+        var b2b_feb= b2b_awal_feb/1000000000;
+        
+        var b2c_awal_feb= parseFloat(<?php echo $cair_feb[0]->Cair_B2C?>);
+        var b2c_feb= b2c_awal_feb/1000000000;
+
+
+        var b2b_awal_mar = parseFloat(<?php echo $cair_mar[0]->Cair_B2B?>);
+        var b2b_mar = b2b_awal_mar/1000000000;
+        
+        var b2c_awal_mar = parseFloat(<?php echo $cair_mar[0]->Cair_B2C?>);
+        var b2c_mar = b2c_awal_mar/1000000000;
+
+
+        var b2b_awal_apr= parseFloat(<?php echo $cair_apr[0]->Cair_B2B?>);
+        var b2b_apr = b2b_awal_apr/1000000000;
+        
+        var b2c_awal_apr= parseFloat(<?php echo $cair_apr[0]->Cair_B2C?>);
+        var b2c_apr = b2c_awal_apr/1000000000;
+
+
+        var b2b_awal_mei = parseFloat(<?php echo $cair_mei[0]->Cair_B2B?>);
+        var b2b_mei = b2b_awal_mei/1000000000;
+        
+        var b2c_awal_mei = parseFloat(<?php echo $cair_mei[0]->Cair_B2C?>);
+        var b2c_mei = b2c_awal_mei/1000000000;
+
+
+        var b2b_awal_jun = parseFloat(<?php echo $cair_jun[0]->Cair_B2B?>);
+        var b2b_jun = b2b_awal_jun/1000000000;
+        
+        var b2c_awal_jun = parseFloat(<?php echo $cair_jun[0]->Cair_B2C?>);
+        var b2c_jun = b2c_awal_jun/1000000000;
+
+
+        var b2b_awal_jul = parseFloat(<?php echo $cair_jul[0]->Cair_B2B?>);
+        var b2b_jul = b2b_awal_jul/1000000000;
+        
+        var b2c_awal_jul = parseFloat(<?php echo $cair_jul[0]->Cair_B2C?>);
+        var b2c_jul = b2c_awal_jul/1000000000;
+
+
 
 
         //for showing charts
@@ -529,16 +578,16 @@ header("location:". base_url() . "index.php/nasional/login");
 
         ctx=document.getElementById("myBarChart"),
         myLineChart=new Chart(ctx,{type:"bar",
-          data:{labels:["Januari","Februari","Maret","April","Mei","Juni"/*,"Juli","Agustus","September","Oktober","November","Desember"*/],
+          data:{labels:["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus"/*,"September","Oktober","November","Desember"*/],
           datasets:[
             {label:"Cair B2B",backgroundColor:"rgba(2,117,216,1)",
             borderColor:"rgba(2,117,216,1)",
-            data:[0,0,0,0,0,b2b.toFixed(2)]},
+            data:[b2b_jan.toFixed(2),b2b_feb.toFixed(2),b2b_mar.toFixed(2),b2b_apr.toFixed(2),b2b_mei.toFixed(2),b2b_jun.toFixed(2),b2b_jul.toFixed(2),b2b.toFixed(2)]},
             {label:"Cair B2C",backgroundColor:"#dc3545",
             borderColor:"#dc3545",
-            data:[0,0,0,0,0,b2c.toFixed(2)]}
+            data:[b2c_jan.toFixed(2),b2c_feb.toFixed(2),b2c_mar.toFixed(2),b2c_apr.toFixed(2),b2c_mei.toFixed(2),b2c_jun.toFixed(2),b2c_jul.toFixed(2),b2c.toFixed(2)]}
           ]},
-          options:{scales:{xAxes:[{time:{unit:"month"},gridLines:{display:!1},ticks:{maxTicksLimit:6}}],yAxes:[{ticks:{min:0,max:50,maxTicksLimit:5},gridLines:{display:!0}}]},legend:{display:!1}}}); 
+          options:{scales:{xAxes:[{time:{unit:"month"},gridLines:{display:!1},ticks:{maxTicksLimit:6}}],yAxes:[{ticks:{min:0,max:300,maxTicksLimit:5},gridLines:{display:!0}}]},legend:{display:!1}}}); 
 
         //combination chart
 

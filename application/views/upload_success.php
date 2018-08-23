@@ -97,9 +97,9 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
     
       <?php 
-     /* $query = $this->db->query("call show_nasional()");
+              $query = $this->db->query("call show_nasional()");
               $query = $this->db->query("call show_produk()");
-              $query = $this->db->query("call show_sektor()");*/
+              $query = $this->db->query("call show_sektor()");
 
             //  $query = $this->db->query("call show_nasional_dulu()"):
        ?>
