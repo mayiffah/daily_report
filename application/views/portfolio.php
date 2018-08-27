@@ -71,6 +71,11 @@ header("location:". base_url() . "index.php/nasional/login");
               <i class="fa fa-fw fa-sitemap"></i>
               <span class="nav-link-text">Portfolio Area</span>
             </a>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Watchlsit Nasional">
+            <a class="nav-link" href='<?php echo base_url ('/index.php/nasional/watchlist'); ?>'>
+              <i class="fa fa-eye"></i>
+              <span class="nav-link-text">Watchlist Nasional</span>
+            </a>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Upload Data Harian">
             <a class="nav-link" href='<?php echo base_url ('/index.php/Upload/index'); ?>'>
               <i class="fa fa-fw fa-wrench"></i>
@@ -254,6 +259,7 @@ header("location:". base_url() . "index.php/nasional/login");
                 <tr>
                   <th>Produk</th>
                   <th>Juli 2018</th>
+                  <th>Agustus 2018</th>
                 </tr>
             </thead>
           </table>
@@ -273,6 +279,7 @@ header("location:". base_url() . "index.php/nasional/login");
                 <tr>
                   <th>Produk</th>
                   <th>Juli 2018</th>
+                  <th>Agustus 2018</th>
                 </tr>
             </thead>
           </table>
@@ -294,6 +301,7 @@ header("location:". base_url() . "index.php/nasional/login");
                 <tr>
                   <th>Sektor</th>
                   <th>Juli 2018</th>
+                  <th>Agustus 2018</th>
                 </tr>
             </thead>
           </table>
@@ -313,6 +321,7 @@ header("location:". base_url() . "index.php/nasional/login");
                 <tr>
                   <th>Sektor</th>
                   <th>Juli 2018</th>
+                  <th>Agustus 2018</th>
                 </tr>
             </thead>
           </table>
@@ -630,14 +639,14 @@ header("location:". base_url() . "index.php/nasional/login");
             color: "#696661",
             name: "Kol 1",
             dataPoints: [
-              { y: 0, x: new Date(2018,0) },
-              { y: 0, x: new Date(2018,1) },
-              { y: 0, x: new Date(2018,2) },
-              { y: 0, x: new Date(2018,3) },
-              { y: 0, x: new Date(2018,4) },
-              { y: parseFloat(<?php echo $nasional[3]?>), x: new Date(2018,5) },
-              { y: 0, x: new Date(2018,6) },
-              { y: 0, x: new Date(2018,7) },
+              { y: parseFloat(<?php echo $nasional_jan[3]?>), x: new Date(2018,0) },
+              { y: parseFloat(<?php echo $nasional_feb[3]?>), x: new Date(2018,1) },
+              { y: parseFloat(<?php echo $nasional_mar[3]?>), x: new Date(2018,2) },
+              { y: parseFloat(<?php echo $nasional_apr[3]?>), x: new Date(2018,3) },
+              { y: parseFloat(<?php echo $nasional_mei[3]?>), x: new Date(2018,4) },
+              { y: parseFloat(<?php echo $nasional_jun[3]?>), x: new Date(2018,5) },
+              { y: parseFloat(<?php echo $nasional_jul[3]?>), x: new Date(2018,6) },
+              { y: parseFloat(<?php echo $nasional[3]?>), x: new Date(2018,7) },
               { y: 0, x: new Date(2018,8) },
               { y: 0, x: new Date(2018,9) },
               { y: 0, x: new Date(2018,10) },
@@ -651,14 +660,14 @@ header("location:". base_url() . "index.php/nasional/login");
               color: "#EDCA93",
               dataPoints: [
                 
-                { y: 0, x: new Date(2018,0) },
-                { y: 0, x: new Date(2018,1) },
-                { y: 0, x: new Date(2018,2) },
-                { y: 0, x: new Date(2018,3) },
-                { y: 0, x: new Date(2018,4) },
-                { y: parseFloat(<?php echo $nasional[2]?>), x: new Date(2018,5) },
-                { y: 0, x: new Date(2018,6) },
-                { y: 0, x: new Date(2018,7) },
+              { y: parseFloat(<?php echo $nasional_jan[2]?>), x: new Date(2018,0) },
+              { y: parseFloat(<?php echo $nasional_feb[2]?>), x: new Date(2018,1) },
+              { y: parseFloat(<?php echo $nasional_mar[2]?>), x: new Date(2018,2) },
+              { y: parseFloat(<?php echo $nasional_apr[2]?>), x: new Date(2018,3) },
+              { y: parseFloat(<?php echo $nasional_mei[2]?>), x: new Date(2018,4) },
+              { y: parseFloat(<?php echo $nasional_jun[2]?>), x: new Date(2018,5) },
+              { y: parseFloat(<?php echo $nasional_jul[2]?>), x: new Date(2018,6) },
+              { y: parseFloat(<?php echo $nasional[2]?>), x: new Date(2018,7) },
                 { y: 0, x: new Date(2018,8) },
                 { y: 0, x: new Date(2018,9) },
                 { y: 0, x: new Date(2018,10) },
@@ -671,14 +680,14 @@ header("location:". base_url() . "index.php/nasional/login");
               name: "NPF",
               color: "#B6B1A8",
               dataPoints: [
-                { y: 0, x: new Date(2018,0) },
-                { y: 0, x: new Date(2018,1) },
-                { y: 0, x: new Date(2018, 2) },
-                { y: 0, x: new Date(2018,3) },
-                { y: 0, x: new Date(2018,4) },
-                { y: parseFloat(<?php echo $nasional[1]?>), x: new Date(2018,5) },
-                { y: 0, x: new Date(2018,6) },
-                { y: 0, x: new Date(2018,7) },
+              { y: parseFloat(<?php echo $nasional_jan[1]?>), x: new Date(2018,0) },
+              { y: parseFloat(<?php echo $nasional_feb[1]?>), x: new Date(2018,1) },
+              { y: parseFloat(<?php echo $nasional_mar[1]?>), x: new Date(2018,2) },
+              { y: parseFloat(<?php echo $nasional_apr[1]?>), x: new Date(2018,3) },
+              { y: parseFloat(<?php echo $nasional_mei[1]?>), x: new Date(2018,4) },
+              { y: parseFloat(<?php echo $nasional_jun[1]?>), x: new Date(2018,5) },
+              { y: parseFloat(<?php echo $nasional_jul[1]?>), x: new Date(2018,6) },
+              { y: parseFloat(<?php echo $nasional[1]?>), x: new Date(2018,7) },
                 { y: 0, x: new Date(2018,8) },
                 { y: 0, x: new Date(2018,9) },
                 { y: 0, x: new Date(2018,10) },
@@ -693,14 +702,14 @@ header("location:". base_url() . "index.php/nasional/login");
               yValueFormatString: "###.## '%'",
               xValueFormatString: "MMMM",
               dataPoints: [
-                { x: new Date(2018, 0), y: 0 },
-                { x: new Date(2018, 1), y: 0 },
-                { x: new Date(2018, 2), y: 0 },
-                { x: new Date(2018, 3), y: 0 },
-                { x: new Date(2018, 4), y: 0 },
-                { x: new Date(2018, 5), y: parseFloat(<?php echo $nasional[5]?>) },
-                { x: new Date(2018, 6), y: 0 },
-                { x: new Date(2018, 7), y: 0 },
+                { x: new Date(2018, 0), y:  parseFloat(<?php echo $nasional_jan[5]?>) },
+                { x: new Date(2018, 1), y:  parseFloat(<?php echo $nasional_feb[5]?>) },
+                { x: new Date(2018, 2), y:  parseFloat(<?php echo $nasional_mar[5]?>) },
+                { x: new Date(2018, 3), y:  parseFloat(<?php echo $nasional_apr[5]?>) },
+                { x: new Date(2018, 4), y:  parseFloat(<?php echo $nasional_mei[5]?>) },
+                { x: new Date(2018, 5), y: parseFloat(<?php echo $nasional_jun[5]?>) },
+                { x: new Date(2018, 6), y:  parseFloat(<?php echo $nasional_jul[5]?>) },
+                { x: new Date(2018, 7), y:  parseFloat(<?php echo $nasional[5]?>) },
                 { x: new Date(2018, 8), y: 0 },
                 { x: new Date(2018, 9), y: 0 },
                 { x: new Date(2018, 10), y: 0 },
@@ -715,14 +724,14 @@ header("location:". base_url() . "index.php/nasional/login");
               yValueFormatString: "###.##'%'",
               xValueFormatString: "MMMM",
               dataPoints: [
-                { x: new Date(2018, 0), y: 0 },
-                { x: new Date(2018, 1), y: 0 },
-                { x: new Date(2018, 2), y: 0 },
-                { x: new Date(2018, 3), y: 0 },
-                { x: new Date(2018, 4), y: 0 },
-                { x: new Date(2018, 5), y: parseFloat(<?php echo $nasional[4]?>) },
-                { x: new Date(2018, 6), y: 0 },
-                { x: new Date(2018, 7), y: 0 },
+                { x: new Date(2018, 0), y:  parseFloat(<?php echo $nasional_jan[4]?>) },
+                { x: new Date(2018, 1), y:  parseFloat(<?php echo $nasional_feb[4]?>) },
+                { x: new Date(2018, 2), y:  parseFloat(<?php echo $nasional_mar[4]?>) },
+                { x: new Date(2018, 3), y:  parseFloat(<?php echo $nasional_apr[4]?>) },
+                { x: new Date(2018, 4), y:  parseFloat(<?php echo $nasional_mei[4]?>) },
+                { x: new Date(2018, 5), y: parseFloat(<?php echo $nasional_jun[4]?>) },
+                { x: new Date(2018, 6), y:  parseFloat(<?php echo $nasional_jul[4]?>) },
+                { x: new Date(2018, 7), y:  parseFloat(<?php echo $nasional[4]?>) },
                 { x: new Date(2018, 8), y: 0 },
                 { x: new Date(2018, 9), y: 0 },
                 { x: new Date(2018, 10), y: 0 },
@@ -772,7 +781,7 @@ header("location:". base_url() . "index.php/nasional/login");
           foreach ($list_produk_b2b as $produk) {
            // 
           ?>
-            data_produk_b2b.push([<?php echo"`$produk->nama_produk`,`$produk->Juli_2018`"?>]);
+            data_produk_b2b.push([<?php echo"`$produk->nama_produk`,`$produk->Juli_2018`, `$produk->Agustus_2018`"?>]);
           <?php    
           }
           ?>
@@ -781,7 +790,7 @@ header("location:". base_url() . "index.php/nasional/login");
           foreach ($list_sektor_b2b as $sektor) {
            // 
           ?>
-            data_sektor_b2b.push([<?php echo"`$sektor->nama_produk`,`$sektor->Juli_2018`"?>]);
+            data_sektor_b2b.push([<?php echo"`$sektor->nama_produk`,`$sektor->Juli_2018`, `$sektor->Agustus_2018`"?>]);
           <?php    
           }
           ?>
@@ -790,7 +799,7 @@ header("location:". base_url() . "index.php/nasional/login");
           foreach ($list_produk_b2c as $produk) {
            // 
           ?>
-            data_produk_b2c.push([<?php echo"`$produk->nama_produk`,`$produk->Juli_2018`"?>]);
+            data_produk_b2c.push([<?php echo"`$produk->nama_produk`,`$produk->Juli_2018`, `$produk->Agustus_2018`"?>]);
           <?php    
           }
           ?>
@@ -799,7 +808,7 @@ header("location:". base_url() . "index.php/nasional/login");
           foreach ($list_sektor_b2c as $sektor) {
            // 
           ?>
-            data_sektor_b2c.push([<?php echo"`$sektor->nama_produk`,`$sektor->Juli_2018`"?>]);
+            data_sektor_b2c.push([<?php echo"`$sektor->nama_produk`,`$sektor->Juli_2018`, `$sektor->Agustus_2018`"?>]);
           <?php    
           }
           ?>

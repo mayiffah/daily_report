@@ -70,6 +70,11 @@ header("location:". base_url() . "index.php/nasional/login");
               <i class="fa fa-fw fa-sitemap"></i>
               <span class="nav-link-text">Portfolio Area</span>
             </a>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Watchlsit Nasional">
+            <a class="nav-link" href='<?php echo base_url ('/index.php/nasional/watchlist'); ?>'>
+              <i class="fa fa-eye"></i>
+              <span class="nav-link-text">Watchlist Nasional</span>
+            </a>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Upload Data Harian">
             <a class="nav-link" href='<?php echo base_url ('/index.php/Upload/index'); ?>'>
               <i class="fa fa-fw fa-wrench"></i>
@@ -108,10 +113,18 @@ header("location:". base_url() . "index.php/nasional/login");
         </ol>
 
         <?php 
+
+          if ($hide_area == false) {
+
+          }
+
+          if ($hide_wil == false) {
+
+          }
         ?>
         <form id = "form_area" name = "form_area_name" action="<?=site_url('area/portfolio_area_baru/'.$id_jabatan.'/'.$nama_outlet);?>" method="get">
           
-          <div>
+          <div id = "div_wilayah">
             
             <label>Wilayah: </label>
             <select id="id_wilayah" name="wilayah" onchange="this.form.submit()">
@@ -144,7 +157,7 @@ header("location:". base_url() . "index.php/nasional/login");
           if ($wil_ada === true) {
             //  echo 'adaa wilayah';
           ?>
-            <div>
+            <div id = "div_area">
             <label>Area: </label>
             <select id="id_area" name="area" onchange="this.form.submit()">
 
@@ -206,8 +219,7 @@ header("location:". base_url() . "index.php/nasional/login");
                 ?>
               
             </select>
-          </div>
-
+            </div>
 
               <?php
             } else {
@@ -223,10 +235,10 @@ header("location:". base_url() . "index.php/nasional/login");
           
         </form>
 
-        <?php if ($wil_ada === true || $area_ada === true || $cbg_ada === true) {
+        <?php if (($wil_ada === true and $hide_wil === false) || ($area_ada === true and $hide_area === false) || $cbg_ada === true) {
 
-
-
+          echo 'INI WIL ADA'.$wil_ada;
+ 
           $b2b_awal_ = floatval($cair_b2b );
           $b2b_fix = number_format($b2b_awal_/1000000000, 2);
 
@@ -395,8 +407,13 @@ header("location:". base_url() . "index.php/nasional/login");
       </div>
     </div>
     <script type="text/javascript"> 
+
+      
+
       $(document).ready(function () {
 
+
+        <?php if ($wil_ada === true || $area_ada === true || $cbg_ada === true) { ?>
         var b2b_awal = parseFloat(<?php echo $cair_b2b ?>);
         var b2b = b2b_awal/1000000000;
         
@@ -465,7 +482,7 @@ header("location:". base_url() . "index.php/nasional/login");
             // the value axis
             yAxis: {
                 min: 0,
-                max: 200,
+                max: 500,
 
                 minorTickInterval: 'auto',
                 minorTickWidth: 1,
@@ -495,7 +512,7 @@ header("location:". base_url() . "index.php/nasional/login");
                     color: '#DDDF0D' // yellow
                 }, {
                     from: 101,
-                    to: 200,
+                    to: 500,
                     color: '#55BF3B' // green
                 }, {
                   from: 100,
@@ -536,7 +553,7 @@ header("location:". base_url() . "index.php/nasional/login");
             // the value axis
             yAxis: {
                 min: 0,
-                max: 200,
+                max: 500,
 
                 minorTickInterval: 'auto',
                 minorTickWidth: 1,
@@ -566,7 +583,7 @@ header("location:". base_url() . "index.php/nasional/login");
                     color: '#DDDF0D' // yellow
                 }, {
                     from: 101,
-                    to: 200,
+                    to: 500,
                     color: '#55BF3B' // green
                 }, {
                   from: 100,
@@ -606,7 +623,7 @@ header("location:". base_url() . "index.php/nasional/login");
             // the value axis
             yAxis: {
                 min: 0,
-                max: 200,
+                max: 500,
 
                 minorTickInterval: 'auto',
                 minorTickWidth: 1,
@@ -636,7 +653,7 @@ header("location:". base_url() . "index.php/nasional/login");
                     color: '#DDDF0D' // yellow
                 }, {
                     from: 101,
-                    to: 200,
+                    to: 500,
                     color: '#55BF3B' // green
                 }, {
                   from: 100,
@@ -746,7 +763,7 @@ header("location:". base_url() . "index.php/nasional/login");
             // the value axis
             yAxis: {
                 min: 0,
-                max: 200,
+                max: 500,
 
                 minorTickInterval: 'auto',
                 minorTickWidth: 1,
@@ -776,7 +793,7 @@ header("location:". base_url() . "index.php/nasional/login");
                     color: '#DDDF0D' // yellow
                 }, {
                     from: 101,
-                    to: 200,
+                    to: 500,
                     color: '#DF5353' // red 
                 }, {
                   from: 0,
@@ -936,6 +953,8 @@ header("location:". base_url() . "index.php/nasional/login");
             }]
 
         });
+
+      <?php } ?>
       }); 
     </script> 
   </body>

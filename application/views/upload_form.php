@@ -60,6 +60,11 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
               <i class="fa fa-fw fa-sitemap"></i>
               <span class="nav-link-text">Portfolio Area</span>
             </a>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Watchlsit Nasional">
+            <a class="nav-link" href='<?php echo base_url ('/index.php/nasional/watchlist'); ?>'>
+              <i class="fa fa-eye"></i>
+              <span class="nav-link-text">Watchlist Nasional</span>
+            </a>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Upload Data Harian">
             <a class="nav-link" href='<?php echo base_url ('/index.php/Upload/index'); ?>'>
               <i class="fa fa-fw fa-wrench"></i>
