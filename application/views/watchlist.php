@@ -4,6 +4,9 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 if (isset($this->session->userdata['logged_in'])) {
 $username = ($this->session->userdata['logged_in']['username']);
+$id_jabatan = ($this->session->userdata['logged_in']['id_jabatan']);
+$nama_outlet = ($this->session->userdata['logged_in']['nama_outlet']);
+
 } else {
 header("location:". base_url() . "index.php/nasional/login");
 }
@@ -59,25 +62,35 @@ header("location:". base_url() . "index.php/nasional/login");
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Portfolio Nasional">
-            <a class="nav-link" href="index">
+            <a class="nav-link" href='<?php echo base_url ('/index.php/nasional/login'); ?>'>
               <i class="fa fa-fw fa-dashboard"></i>
               <span class="nav-link-text">Portfolio Nasional</span>
             </a>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Portfolio Area">
-            <a class="nav-link" href='<?php echo base_url ('/index.php/area/portfolio_area'); ?>'>
+            <a class="nav-link" href='<?php echo base_url ('/index.php/area/portfolio_area/'.$id_jabatan.'/'.$nama_outlet);?>'>
               <i class="fa fa-fw fa-sitemap"></i>
               <span class="nav-link-text">Portfolio Area</span>
             </a>
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Watchlsit Nasional">
+
+
+           <?php if ($id_jabatan === '1' or $id_jabatan === '2') {?>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Watchlsit Nasional">
             <a class="nav-link" href='<?php echo base_url ('/index.php/nasional/watchlist'); ?>'>
               <i class="fa fa-eye"></i>
               <span class="nav-link-text">Watchlist Nasional</span>
             </a>
+          <?php }?>
+
+          <?php if ($id_jabatan === '1') {?>
+          
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Upload Data Harian">
             <a class="nav-link" href='<?php echo base_url ('/index.php/Upload/index'); ?>'>
               <i class="fa fa-fw fa-wrench"></i>
               <span class="nav-link-text">Upload Data Harian</span>
             </a>
+          <?php }?>
+
+
           </li>
         </ul>
         <ul class="navbar-nav sidenav-toggler">

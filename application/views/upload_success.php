@@ -1,6 +1,15 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+
+if (isset($this->session->userdata['logged_in'])) {
+$username = ($this->session->userdata['logged_in']['username']);
+$id_jabatan = ($this->session->userdata['logged_in']['id_jabatan']);
+$nama_outlet = ($this->session->userdata['logged_in']['nama_outlet']);
+
+} else {
+header("location:". base_url() . "index.php/nasional/login");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,12 +60,12 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Portfolio Nasional">
-            <a class="nav-link" href='<?php echo base_url ('/index.php/nasional/index'); ?>'>
+            <a class="nav-link" href='<?php echo base_url ('/index.php/nasional/login'); ?>'>
               <i class="fa fa-fw fa-dashboard"></i>
               <span class="nav-link-text">Portfolio Nasional</span>
             </a>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Portfolio Area">
-            <a class="nav-link" href='<?php echo base_url ('/index.php/area/portfolio_area'); ?>'>
+            <a class="nav-link" href='<?php echo base_url ('/index.php/area/portfolio_area/'.$id_jabatan.'/'.$nama_outlet);?>'>
               <i class="fa fa-fw fa-sitemap"></i>
               <span class="nav-link-text">Portfolio Area</span>
             </a>
@@ -81,6 +90,10 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
+            <?php
+             echo '<a class="nav-link" >Welcome, ' . $username . '</a>';
+            ?></li>
+          <li class="nav-item">
             <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
               <i class="fa fa-fw fa-sign-out"></i>Logout</a>
           </li>
@@ -102,11 +115,15 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
     
       <?php 
-              /*$query = $this->db->query("call show_nasional()");
+      //untuk mengupdate tabel summary, pencapaian, produk, dan sektor
+              $query = $this->db->query("call show_nasional_coba()");
+              $query = $this->db->query("call show_nasional_coba2()");
+              $query = $this->db->query("call show_nasional_coba3()");
+              $query = $this->db->query("call show_nasional_coba4()");  
               $query = $this->db->query("call show_nasional_2()");
               $query = $this->db->query("call show_produk()");
               $query = $this->db->query("call show_sektor()");
-              $query = $this->db->query("call show_persen()");*/
+              $query = $this->db->query("call show_persen()");
 
        ?>
       

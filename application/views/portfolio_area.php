@@ -61,7 +61,7 @@ header("location:". base_url() . "index.php/nasional/login");
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Portfolio Nasional">
-            <a class="nav-link" href='<?php echo base_url ('/index.php/nasional/index'); ?>'>
+            <a class="nav-link" href='<?php echo base_url ('/index.php/nasional/login'); ?>'>
               <i class="fa fa-fw fa-dashboard"></i>
               <span class="nav-link-text">Portfolio Nasional</span>
             </a>
@@ -70,16 +70,26 @@ header("location:". base_url() . "index.php/nasional/login");
               <i class="fa fa-fw fa-sitemap"></i>
               <span class="nav-link-text">Portfolio Area</span>
             </a>
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Watchlsit Nasional">
+
+
+           <?php if ($id_jabatan === '1' or $id_jabatan === '2') {?>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Watchlsit Nasional">
             <a class="nav-link" href='<?php echo base_url ('/index.php/nasional/watchlist'); ?>'>
               <i class="fa fa-eye"></i>
               <span class="nav-link-text">Watchlist Nasional</span>
             </a>
+          <?php }?>
+
+          <?php if ($id_jabatan === '1') {?>
+          
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Upload Data Harian">
             <a class="nav-link" href='<?php echo base_url ('/index.php/Upload/index'); ?>'>
               <i class="fa fa-fw fa-wrench"></i>
               <span class="nav-link-text">Upload Data Harian</span>
             </a>
+          <?php }?>
+
+
           </li>
         </ul>
         <ul class="navbar-nav sidenav-toggler">
@@ -114,16 +124,22 @@ header("location:". base_url() . "index.php/nasional/login");
 
         <?php 
 
-          if ($hide_area == false) {
+          if ($hide_area === false) {
 
           }
 
-          if ($hide_wil == false) {
+          if ($hide_wil === false) {
 
           }
         ?>
+
+        <?php
+
+        ?>
         <form id = "form_area" name = "form_area_name" action="<?=site_url('area/portfolio_area_baru/'.$id_jabatan.'/'.$nama_outlet);?>" method="get">
-          
+        <?php
+          if ($hide_wil === false) { 
+        ?>
           <div id = "div_wilayah">
             
             <label>Wilayah: </label>
@@ -152,9 +168,13 @@ header("location:". base_url() . "index.php/nasional/login");
               ?>
             </select>
           </div>
+        <?php
+          }
+        ?>
 
           <?php
-          if ($wil_ada === true) {
+
+          if ($wil_ada === true and $hide_area === false) {
             //  echo 'adaa wilayah';
           ?>
             <div id = "div_area">
@@ -225,9 +245,39 @@ header("location:". base_url() . "index.php/nasional/login");
             } else {
               
             }
-          } else {
-           
-          }
+          } elseif ($hide_area === true) {
+           //hide_area === true
+          ?>  
+          <div>
+            <label>Cabang: </label>
+            <select id="id_cabang" name="cabang" onchange="this.form.submit()">
+
+            <?php
+              if ($cbg_ada === true) {
+                  echo '<option value="0"> Pilih cabang...</option>';
+                  foreach ($list_cabang as $cabang) 
+                  {
+                    if ($cabang->id === $cab) {
+                      echo '<option value="'.$cabang->id.'" selected="selected">'.$cabang->nama_cabang.'</option>';
+                    } else {
+                      echo '<option value="'.$cabang->id.'">'.$cabang->nama_cabang.'</option>';
+                    }
+                    
+                  }
+
+                } else {
+                  echo '<option value="0"> Pilih cabang...</option>';
+                  foreach ($list_cabang as $cabang) 
+                  {
+                    echo '<option value="'.$cabang->id.'">'.$cabang->nama_cabang.'</option>';
+                  }
+
+                }
+                ?>
+              
+            </select>
+            </div>
+<?php          }
             
 
 
@@ -237,7 +287,6 @@ header("location:". base_url() . "index.php/nasional/login");
 
         <?php if (($wil_ada === true and $hide_wil === false) || ($area_ada === true and $hide_area === false) || $cbg_ada === true) {
 
-          echo 'INI WIL ADA'.$wil_ada;
  
           $b2b_awal_ = floatval($cair_b2b );
           $b2b_fix = number_format($b2b_awal_/1000000000, 2);

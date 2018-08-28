@@ -102,6 +102,7 @@ class Upload extends CI_Controller
             
             $file_name = $this->upload->data('full_path');
             $kemarin = date('Y-m-d-H:i:s',strtotime("-1 days"));
+            $bulan_ini = date('M-Y');
             $query = $this->db->query("RENAME TABLE existing TO `existing".$kemarin."`;");
 
             $query = $this->db->query("CREATE TABLE existing LIKE `existing".$kemarin."`;");
@@ -122,11 +123,12 @@ class Upload extends CI_Controller
               $query = $this->db->query("CREATE TABLE existing_akhir_bulan LIKE `existing_akhir_bulan".$kemarin."`;");
               $query = $this->db->query("LOAD DATA INFILE '$file_name'"." INTO TABLE existing_akhir_bulan FIELDS TERMINATED BY ',' IGNORE 1 LINES (`FICMISDATE`, `NOLOAN`, `NOMORCIF`, `NAMALENGKAP`, `KODECABANGBARU`, `NAMACABANG`, `JENISPIUTANGPEMBIAYAAN`, `JENISPENGGUNAANCODE`, `SEKTOREKONOMICODE`, `TGLPENCAIRAN`, `TGLJTTEMPO`, `DAYPASTDUE`, `DIVISI`, `CURRENCY`, `LOANTYPE`, `LoanTypeDesc`, `CATEGORY`, `RESTRUCTFLAG`, `PRICING`, `REKPEMBYPOKOK`, `TENOR`, `RESTRUCTDATE`, `KOLBSM_SISTEM`, `KOLLOANFINAL`, `KOLCIFFINAL`, `SOURCEDATACODE`, `OSPOKOKCONVERSION`, `OSMARGINCONVERSION`, `OSGROSSCONVERSION`, `TUNGGAKANPOKOKCONVERSION`, `TUNGGAKANMARGINCONVERSION`, `TUNGGAKANGROSSCONVERSION`, `PENCAIRANPOKOKCONVERSION`, `PENCAIRANMARGINCONVERSION`, `PENCAIRANGROSSCONVERSION`, `REALISASI_BAGIHASIL`, `PROYEKSI_BAGIHASIL`, `ACCOUNTOFFICER`, `EQVRATE`, `INTEREST_RATE`, `MISACCOUNTOFFICR`, `NAMAPERUSAHAANNASABAH`, `LD_ECONOMICSECTOR`, `TUNGGAKANPENALTYCONVERSION`, `NAPNO`, `STS_PENCAIRAN`, `Segmen`, `Produk`, `P/B`, `grup`, `AREA`, `KANWIL`, `E/C`, `sektor_ekon`, `Produk2`, `Kol_Lalu`, `Cek`, `Kol_Group`, `Mutasi`, `Limit`, `Nama_Perusahaan_Final`, `Nama_Perusahaan_Intiplasma`, `kol_group_bulan_lalu`, `Tahun_Booking`, `Modal_kerja_or_investasi`, `lebel_BI`, `desc_Sektor_ekon`, `Bulan_Jatuh_tempo`, `DIVISI_FINAL`)");
 
+              $query = $this->db->query("CREATE TABLE `summary_akhir_bulan".$bulan_ini."` LIKE `summary`;");
+              $query = $this->db->query("INSERT INTO `summary_akhir_bulan".$bulan_ini."` (`Wilayah`, `Outstanding`, `Target`, `Persen`, `Noa`, `OS_Lalu`, `Growth`, `Kol_1`, `Kol_2`, `Target_Kol2`, `Kol_3`, `Kol_4`, `Kol_5`, `NPF`, `Target_NPF`, `Cair_B2B`, `Target_B2B`, `Cair_B2C`, `Target_B2C`, `Runoff`, `Upgrade`, `Target_UG`, `Downgrade`, `Target_DG`)
+                SELECT `Wilayah`, `Outstanding`, `Target`, `Persen`, `Noa`, `OS_Lalu`, `Growth`, `Kol_1`, `Kol_2`, `Target_Kol2`, `Kol_3`, `Kol_4`, `Kol_5`, `NPF`, `Target_NPF`, `Cair_B2B`, `Target_B2B`, `Cair_B2C`, `Target_B2C`, `Runoff`, `Upgrade`, `Target_UG`, `Downgrade`, `Target_DG` FROM summary
+"); 
 
-              /*$query = $this->db->query("call show_nasional()");
-              $query = $this->db->query("call show_produk()");
-              $query = $this->db->query("call show_sektor()");
-              */
+
             $this->load->view('/upload_success', $data);
         }
     }
